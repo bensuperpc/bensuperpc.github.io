@@ -28,6 +28,7 @@ exclude:
    - package.json
    - package-lock.json
    - Rakefile
+   - README.md
    - CODE_OF_CONDUCT.md
    - docker-compose.yml
    - Dockerfile
@@ -43,10 +44,10 @@ search_enabled: true
 search:
   # Split pages into sections that can be searched individually
   # Supports 1 - 6, default: 2
-  heading_level: 3
+  heading_level: 2
   # Maximum amount of previews per search result
   # Default: 3
-  previews: 3
+  previews: 2
   # Maximum amount of words to display before a matched word in the preview
   # Default: 5
   preview_words_before: 3
@@ -114,8 +115,7 @@ footer_content: "Copyright &copy; 2017-2020 Patrick Marsceill. Distributed by an
 last_edit_timestamp: true # show or hide edit time - page must have `last_modified_date` defined in the frontmatter
 last_edit_time_format: "%b %e %Y at %I:%M %p" # uses ruby's time format: https://ruby-doc.org/stdlib-2.7.0/libdoc/time/rdoc/Time.html
 
-# Color scheme currently only supports "dark", "light"/nil (default), or a custom scheme that you define
-color_scheme: dark
+
 
 # Footer "Edit this page on GitHub" link text
 gh_edit_link: true # show or hide edit this page link
@@ -124,6 +124,9 @@ gh_edit_repository: "https://github.com/just-the-docs/just-the-docs" # the githu
 gh_edit_branch: "main" # the branch that your docs is served from
 # gh_edit_source: docs # the source that your files originate from
 gh_edit_view_mode: "tree" # "tree" or "edit" if you want the user to jump into the editor immediately
+
+# Color scheme currently only supports "dark", "light"/nil (default), or a custom scheme that you define
+color_scheme: nil
 
 callouts_level: quiet # or loud
 callouts:
@@ -167,4 +170,3 @@ compress_html:
   profile: false
   # ignore:
   #   envs: all
-
