@@ -2,10 +2,6 @@ title: Just the Docs
 description: A Jekyll theme for documentation
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://bensuperpc.github.io" # the base hostname & protocol for your site, e.g. http://example.com
-
-# Color scheme currently only supports "dark", "light"/nil (default), or a custom scheme that you define
-color_scheme: dark
-
 repository: just-the-docs/just-the-docs # for github-metadata
 remote_theme: just-the-docs/just-the-docs
 
@@ -118,7 +114,8 @@ footer_content: "Copyright &copy; 2017-2020 Patrick Marsceill. Distributed by an
 last_edit_timestamp: true # show or hide edit time - page must have `last_modified_date` defined in the frontmatter
 last_edit_time_format: "%b %e %Y at %I:%M %p" # uses ruby's time format: https://ruby-doc.org/stdlib-2.7.0/libdoc/time/rdoc/Time.html
 
-
+# Color scheme currently only supports "dark", "light"/nil (default), or a custom scheme that you define
+color_scheme: dark
 
 # Footer "Edit this page on GitHub" link text
 gh_edit_link: true # show or hide edit this page link
