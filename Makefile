@@ -11,11 +11,9 @@
 #//                                                          //
 #//////////////////////////////////////////////////////////////
 
-SERVER_DIRECTORY ?= website
+PROJECT_DIRECTORY ?= website
 
-WEB_SERVICES ?= zola
-
-PROFILES ?= $(WEB_SERVICES)
+DOCKER_PROFILES ?= zola
 
 .PHONY: rmmetadata
 rmmetadata:

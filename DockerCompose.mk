@@ -11,24 +11,23 @@
 #//                                                          //
 #//////////////////////////////////////////////////////////////
 
-SERVER_DIRECTORY ?= website
+PROJECT_DIRECTORY ?= website
 
-DOCKER ?= docker
+DOCKER_EXEC ?= docker
 
-WEB_SERVICES ?= zola
+DOCKER_PROFILES ?= zola
 
-PROFILES ?= $(WEB_SERVICES)
-PROFILE_CMD ?= $(addprefix --profile ,$(PROFILES))
+PROFILE_CMD ?= $(addprefix --profile ,$(DOCKER_PROFILES))
 
-COMPOSE_FILES ?=  $(shell find ./$(SERVER_DIRECTORY) -name 'docker-compose*.yml' -type f | sed -e 's/^/--file /')
-COMPOSE_DIR ?= --project-directory ./$(SERVER_DIRECTORY)
+COMPOSE_FILES ?=  $(shell find ./$(PROJECT_DIRECTORY) -name 'docker-compose*.yml' -type f | sed -e 's/^/--file /')
+COMPOSE_DIR ?= --project-directory ./$(PROJECT_DIRECTORY)
 
 UID ?= 1000
 GID ?= 1000
 
 ENV_ARG_VAR ?= PUID=$(UID) PGID=$(GID)
 
-DOCKER_COMPOSE_COMMAND ?= $(ENV_ARG_VAR) $(DOCKER) compose $(COMPOSE_DIR) $(COMPOSE_FILES) $(PROFILE_CMD)
+DOCKER_COMPOSE_COMMAND ?= $(ENV_ARG_VAR) $(DOCKER_EXEC) compose $(COMPOSE_DIR) $(COMPOSE_FILES) $(PROFILE_CMD)
 
 .PHONY: build all
 all: start
@@ -83,4 +82,4 @@ clean:
 
 .PHONY: purge
 purge:
-	$(ENV_ARG_VAR) $(DOCKER) compose $(COMPOSE_DIR) $(COMPOSE_FILES) down -v --rmi all
+	$(ENV_ARG_VAR) $(DOCKER_EXEC) compose $(COMPOSE_DIR) $(COMPOSE_FILES) down -v --rmi all

@@ -18,7 +18,7 @@ Welcome to the guide to SSF PCs.
 
 ## Introduction into SSF PCs
 
-In this section, we will see the different aspects of SSF PCs and his components.
+In this section, we will see the different aspects of SSF PCs and his components, but also at the software level (mostly **Linux** and **open source** software).
 
 ### What is an SSF PC?
 
@@ -77,13 +77,13 @@ Nowadays, most software use AVX, AVX2 instructions, you can easily multiply the 
 | Brand | CPU arch | CPU Gen | Socket | RAM Type | Max RAM | Year | Exemple of SSF PC | Remarks |
 |---------|------------|----------|----------|------------|-----------|--------|------------------|---------|
 | intel | Merom | Core 2 | LGA775 | DDR2 | 8GB | 2006-2007 | | Huge performance improvement over Netburst |
-| intel | Penryn | Core 2 | LGA775 | DDR2 | 8GB | 2007-2008 | | Better power efficiency |
+| intel | Penryn | Core 2 | LGA775 | DDR2 | 8GB | 2007-2008 | | Better perf efficiency |
 | intel | Nehalem | 1st Gen | LGA1156 | DDR3 | 16GB | 2008-2009 | | SMT, Memory controller on CPU and monolithic quad-core |
-| intel | Westmere | 1st Gen | LGA1156 | DDR3 | 16GB | 2010-2011 | | Better power efficiency |
+| intel | Westmere | 1st Gen | LGA1156 | DDR3 | 16GB | 2010-2011 | | Better perf efficiency |
 | intel | Sandy Bridge | 2nd Gen | LGA1155 | DDR3 | 32GB | 2011-2012 | M72 tiny | Add AVX support, good iGPU and greatly improve perf |
-| intel | Ivy Bridge | 3rd Gen | LGA1155 | DDR3 | 32GB | 2012-2013 | M72 tiny | Better power efficiency |
+| intel | Ivy Bridge | 3rd Gen | LGA1155 | DDR3 | 32GB | 2012-2013 | M72 tiny | Better perf efficiency |
 | intel | Haswell | 4th Gen | LGA1150 | DDR3 | 32GB | 2013-2014 | M73 tiny | Support AVX2 and FMA3, improve perf |
-| intel | Broadwell | 5th Gen | LGA1150 | DDR3 | 32GB | 2014-2015 | | Better power efficiency |
+| intel | Broadwell | 5th Gen | LGA1150 | DDR3 | 32GB | 2014-2015 | | Better perf efficiency |
 | intel | Skylake | 6th Gen | LGA1151 | DDR4 | 64GB | 2015-2016 | M710q | HEVC/VP9 8-bit hardware enc/dec, iGPU vulkan and NVMe support |
 | intel | Kaby Lake | 7th Gen | LGA1151 | DDR4 | 64GB | 2016-2017 | M710q | HEVC/VP9 10-bit hardware enc/dec support |
 | intel | Coffee Lake | 8-9th Gen | LGA1151 | DDR4 | 64GB | 2017-2019 | M720q | Increase core count and remove hyperthreading on 9th gen CPUs |
@@ -97,7 +97,7 @@ Nowadays, most software use AVX, AVX2 instructions, you can easily multiply the 
 | AMD | Zen+ | 2nd Gen | AM4 | DDR4 | 64GB | 2018-2019 | | |
 | AMD | Zen 2 | 3rd Gen | AM4 | DDR4 | 128GB | 2019-2020 | | On pair with intel Skylake CPUs and fix most of the issues of Zen |
 | AMD | Zen 3 | 4th Gen | AM4 | DDR4 | 128GB | 2020-2021 | | Improve IPC and power efficiency |
-| AMD | Zen 4 | 5th Gen | AM5 | DDR5 | 256GB | 2021-2022 | | Add AVX-512 support and better IPC |
+| AMD | Zen 4 | 5th Gen | AM5 | DDR5 | 256GB | 2021-2022 | | Add AVX-512 support, better IPC and RDNA iGPU |
 | AMD | Zen 5 | 6th Gen | AM5 | DDR5 | 256GB | 2022-2023 | | Slightly improve IPC |
 
 I recommend using **Intel Skylake**, **AMD Zen 2**, or newer CPUs, as they offer good performance and support modern features like: NVMe, iGPU vulkan, HEVC/VP9 10-bit hardware enc/dec, AVX2 etc...
@@ -111,9 +111,9 @@ Some SSF PCs can have a dedicated GPU (Like the M720Q/M920Q), they are mostly in
 
 ### RAM (Random Access Memory)
 
-For SSF PCs, you generally have 2 RAM slots, you can use DDR3, DDR4 RAM or DDR5 RAM, the maximum capacity is generally 16GB to 128GB depending on the CPU, i recommend using two same RAM sticks, it help to improve stability and performance (dual channel, double the bandwidth).
+For SSF PCs, you generally have 2 RAM slots, you can use DDR3, DDR4 RAM or DDR5 RAM **depending on the CPU and motherboard**, the maximum capacity is generally 16GB to 128GB depending on the CPU, i recommend using **two same RAM sticks**, it help to improve stability and performance (dual channel, double the bandwidth), you can take highter frequency RAM than the CPU support, the RAM will be downclocked to the CPU supported frequency.
 
-You can take highter frequency RAM than the CPU support, the RAM will be downclocked to the CPU supported frequency, juste ensure the RAM generation is supported by the CPU and RAM slots (DDR3, DDR4, DDR5).
+I recommend using **DDR4 RAM**, it's the most common, well supported and cheap, at least 4GB for very light apps (static website), 8GB for light/medium apps, 16GB is optimal for most use cases, 32GB and more for heavy multitasking, virtualization, compilation, video editing etc...
 
 ### Storage
 
@@ -170,6 +170,7 @@ In this section, we will see the different models of Lenovo thinkcentre SSF PCs.
 | M90q Gen 3 | Alder Lake | Intel Q670 | 2x 32GB 4800MHz DDR5 | PCIe x8 Gen 4 | 2x m.2, 1x 2.5" | |
 | P360 | Alder Lake | Intel Q670 | 2x 32GB 4800MHz DDR5 | PCIe x8 Gen 4 | 2x m.2, 1x 2.5" | |
 | M70q Gen 3 | Alder Lake | Intel Q670 | 2x 32GB 3200MHz DDR4 | No | 2x m.2, 1x 2.5" | |
+| M75q Gen 5 | AMD Zen 4 | AMD Pro 600 | 2x 32GB 5200MHz DDR5 | No | 1x m.2, 1x 2.5" | |
 
 ## Sources
 
