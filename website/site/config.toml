@@ -2,7 +2,7 @@
 base_url = "https://bensuperpc.github.io"
 # Usable site directly from disk, Including Search: "/home/jieiku/.dev/abridge/public"
 # Also set index format = "elasticlunr_javascript", and in [extra] uglyurls = true, integrity = false
-# If you use the npm/node script then all you have to do is set offline = true, and everything else is automatic.
+# If you use the npm/node script then all you have to do is set search_library = "offline", and everything else is automatic.
 
 title = "Bensuperpc"
 description = "Bensuperpc website, talk about software and hardware stuff." #for SEO aim for 140-180 Characters
@@ -17,6 +17,9 @@ taxonomies = [
 #    {name = "categories", feed = true},
     {name = "tags", feed = true},
 ]
+
+#ignored_content = []
+#ignored_static = ["apple-touch-icon.png","banner.png","safari-pinned-tab.svg","favicon*","m*.png","android-chrome*png"]
 
 #feed_filename = "atom.xml"
 #output_dir = "public"
@@ -43,8 +46,8 @@ smart_punctuation = false          # `...` to `…`, `"quote"` to `“curly”` 
 
 # Any Extra language you do not use, delete or comment out the extra language sections:
 [languages.fr]
-title = "Abridge"
-description = "Abridge est un thème Zola rapide et léger utilisant le html sémantique, le CSS abridge.css class-light et aucun JS obligatoire."
+title = "Bensuperpc"
+description = "Le site de Bensuperpc, logiciels et de matériel informatique."
 generate_feeds = true
 build_search_index = true
 search.include_title = true # include title of page/section in index
@@ -94,10 +97,10 @@ taxonomies = [
 
 menu = [
 #    {url = "blog", name = "Blog", slash = true, blank = false, size="s110"},
-#    {url = "about", name = "About", slash = true, blank = false, size="s110"},
     {url = "archive", name = "Posts", slash = true, blank = false, size="s110"},
 #    {url = "categories", name = "Categories", slash = true, blank = false, size="s110"},
     {url = "tags", name = "Tags", slash = true, blank = false, size="s110"},
+    {url = "about", name = "About", slash = true, blank = false, size="s110"},
 ]
 menu_footer = [
     {url = "about", name = "About", slash = true, blank = false, size="s90"},
@@ -148,11 +151,11 @@ foothr = false # show or hide horizontal rule above footer
 ###############################################################################
 
 title_separator = "|"  # Separator between title and title_addition, set as |, -, _, etc
-title_addition = "Fast, Lightweight, and Modern Zola Theme" # a default value for title addition (for SEO aim for 50-70 characters including the title and separator 'Abridge | title_addition')
+title_addition = "Bensuperpc s website, talk about software and hardware stuff." # a default value for title addition (for SEO aim for 50-70 characters including the title and separator 'Abridge | title_addition')
 author = "Bensuperpc" # Put Your Name here
 keywords = "Abridge, Abridge.css, Zola, Theme, Zola Theme, getzola, Semantic Html, Fast, lightweight" # used for the primary site index
 banner = "banner.png" # Used as default image for OpenGraph/Twitter if page specific image is undefined.
-twitter_meta = "your-user-name" # for SEO: twitter:site and twitter:creator
+twitter_meta = "bensuperpc" # for SEO: twitter:site and twitter:creator
 google = "Your Google Site verification code."
 bing = "Your Bing Site verification code."
 seo = true  # enable or disable seo-related meta tags: opengraph, facebook, twitter
@@ -171,11 +174,11 @@ head_extra = '<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.
 
 feed = true # this adds the RSS feed icon in the footer.
 mail = "bensuperpc@gmail.com"
-mastodon = "https://mastodon.example.com/@username"
+mastodon = "https://mastodon.social/@bensuperpc"
 element = "matrix.example.com"
-#buymeacoffee = "your-user-name"
-kofi = "your-user-name"
-discord = "invite/etzX79VS" # Everything after https://discord.com/   eg: invite/my-server  *or*  servers/my-server-id
+buymeacoffee = "bensuperpc"
+kofi = "discord"
+discord = "https://discord.com/invite/etzX79VS" # https://discord.com/invite/my-server  *or*  https://discord.com/servers/my-server-id
 twitter = "bensuperpc"
 #facebook = "bensuperpc"
 #linkedin = "your-user-name"
@@ -187,7 +190,7 @@ github = "bensuperpc"
 python = "bensuperpc"
 docker = "bensuperpc"
 #stack = "your-user-name"
-instagram = "bensuperpc"
+#instagram = "bensuperpc"
 #pixelfed = "https://pixelfed.example.com/" # Heaviest icon, off by default
 #pinterest = "your-user-name"
 twitch = "bensuperpc"
@@ -262,6 +265,8 @@ pwa_cache_all = true
 ### List of Files for the PWA to initially Cache, used if pwa_cache_all = false
 pwa_BASE_CACHE_FILES = "'/js/theme.min.js','/js/theme_light.min.js','/abridge.css','/js/abridge.min.js','/','/404.html','/offline/','/manifest.min.json'"
 
+pwa_IGNORE_FILES = ["_headers","sw.min.js","sw.js"]
+#pwa_IGNORE_FILES = ["_headers","sw.min.js","sw.js","android-chrome-192x192.png","android-chrome-512x512.png","apple-touch-icon.png","favicon-16x16.png","favicon-32x32.png","favicon.ico","m48.png","m72.png","m96.png","m128.png","m192.png","m384.png","m512.png","m1024.png","mstile-150x150.png"]
 
 ###############################################################################
 ### Favicons, comment out a line to disable loading some or all of these if needed.
@@ -269,12 +274,12 @@ pwa_BASE_CACHE_FILES = "'/js/theme.min.js','/js/theme_light.min.js','/abridge.cs
 
 favicon_theme_color = "#333333"
 favicon_ms_color = "#333333"
-favicon_mask = "safari-pinned-tab.svg" # safari-pinned-tab.svg
-favicon_mask_color = "#ff9900"
-favicon_svg = "favicon.svg" # favicon.svg
-favicon180 = "apple-touch-icon.png" # apple-touch-icon.png
-favicon32 = "favicon-32x32.png" # favicon-32x32.png
-favicon16 = "favicon-16x16.png" # favicon-16x16.png
+#favicon_mask = "safari-pinned-tab.svg" # safari-pinned-tab.svg
+#favicon_mask_color = "#ff9900"
+#favicon_svg = "favicon.svg" # favicon.svg
+favicon180 = "images/apple-touch-icon.png" # apple-touch-icon.png
+favicon32 = "images/favicon-32x32.png" # favicon-32x32.png
+favicon16 = "images/favicon-16x16.png" # favicon-16x16.png
 
 
 ###############################################################################
