@@ -1,7 +1,7 @@
 services:
   # zola
   zola:
-    image: ghcr.io/getzola/zola:v0.19.2
+    image: ghcr.io/getzola/zola:v0.20.0
     container_name: zola
     user: ${PUID:-1000}:${PGID:-1000}
     profiles:
@@ -9,14 +9,14 @@ services:
       - zola-dev
     restart: on-failure:5
     env_file:
-      - ./zola/env/zola.env
+      - ./env/zola.env
     working_dir: /project
     command: ["serve", "--force", "--interface", "0.0.0.0", "--port", "80", "--base-url", "http://0.0.0.0", "--output-dir", "/tmpfs/public"]
     ports:
       - "80:80"
       - "1024:1024"
     volumes:
-      - ./site:/project
+      - ./../site:/project
       - public_www:/tmpfs/public:rw
     networks:
       - infra-network
@@ -34,18 +34,18 @@ services:
           cpus: '0.001'
           memory: 20M
   zola-build:
-    image: ghcr.io/getzola/zola:v0.19.2
+    image: ghcr.io/getzola/zola:v0.20.0
     container_name: zola-build
     user: ${PUID:-1000}:${PGID:-1000}
     profiles:
       - zola-build
     env_file:
-      - ./zola/env/zola.env
+      - ./env/zola.env
     working_dir: /project
     command: ["build", "--force", "--base-url", "https://bensuperpc.github.io", "--output-dir", "/site/public"]
     volumes:
-      - ./site:/project
-      - ./build:/site:rw
+      - ./../site:/project
+      - ./../build:/site:rw
     networks:
       - infra-network
     security_opt:
@@ -53,11 +53,6 @@ services:
     read_only: true
     cap_drop:
       - SYS_ADMIN
-
-networks:
-  infra-network:
-    driver: bridge
-    name: infra-network
 
 volumes:
   public_www:
