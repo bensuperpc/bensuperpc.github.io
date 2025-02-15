@@ -23,6 +23,7 @@ jobs:
         env:
           BUILD_DIR: docs
           BUILD_ONLY: true
+          CHECK_LINKS: true
           BUILD_FLAGS: --drafts
 
   build_and_deploy:
@@ -36,4 +37,5 @@ jobs:
         env:
           BUILD_DIR: website/site
           PAGES_BRANCH: gh-pages
+          CHECK_LINKS: true
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

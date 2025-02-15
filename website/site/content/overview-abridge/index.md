@@ -268,7 +268,7 @@ KaTeX can be used to display complex mathematics, it is a "Fast math typesetting
 
 You can see a demo on [this page](https://abridge.netlify.app/overview-math/).
 
-For better performance I recommend only enabling math on a [per page bases in your post.md files](https://github.com/Jieiku/abridge/blob/master/content/overview-math.md?plain=1#L11-L13), instead of in your main config.toml file.
+For better performance I recommend only enabling math on a [per page bases in your post.md files](https://github.com/Jieiku/abridge/blob/master/content/overview-math.md?plain=1), instead of in your main config.toml file.
 
 ### PWA, Progressive Web App
 
