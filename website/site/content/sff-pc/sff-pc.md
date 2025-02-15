@@ -2,7 +2,7 @@
 title = "A guide to SSF PCs"
 description = "A guide to SSF PCs"
 date = 2024-10-22T00:00:00Z
-draft = false
+draft = true
 
 [taxonomies]
 tags = ["Features","SSF","Tiny","Thinkcentre"]

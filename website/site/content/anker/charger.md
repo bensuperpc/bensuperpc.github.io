@@ -2,7 +2,7 @@
 title = "Comparison of Anker chargers"
 description = "Comparison of Anker chargers"
 date = 2024-10-22T00:00:00Z
-draft = false
+draft = true
 
 [taxonomies]
 tags = ["Features","Anker","GAN","Charger"]

@@ -36,14 +36,14 @@ Webp is a modern image format created by Google, it support **lossy** and **loss
 
 The dataset for the **lossless** benchmark is:
 
-- 2000 screenshots from Minecraft (1080p to 1440p).
-- 2000 screenshots from Fortnite, Battlefield, 7 Days to Die, and GTA V (1080p to 1440p).
+- 9900 screenshots from Minecraft (720p to 1440p).
+- 9600 screenshots from Fortnite, Battlefield, 7 Days to Die, and GTA V (1080p to 1440p, some 2160p).
 - 500 screenshots from desktop applications (1080p to 1440p).
 
 The PNG to Webp lossless compression command is:
 
 ```bash
-cwebp -quiet -metadata all -lossless -exact -z <Compression> <Input> -o <Output>
+cwebp -quiet -metadata all -lossless -exact -z <Compression> -q <Compression> <Input> -o <Output>
 ```
 
 The options are:
@@ -53,7 +53,8 @@ The options are:
 - `-lossless`: Lossless compression.
 - `-exact`: Use exact mode, keep invisible pixels.
 - `-z <Compression>`: Compression level, from 0 to 9, 9 best compression.
-- `-mt`: Use multi-threading.
+- `-q <Compression>`: Compression level, from 0 to 100, 100 best compression.
+- `-mt`: Use multi-threading (we don't use it for the benchmark, gnu parallel is used).
 - `<Input>`: Input PNG file.
 - `<Output>`: Output Webp file.
 
