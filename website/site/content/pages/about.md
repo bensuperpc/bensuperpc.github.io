@@ -5,7 +5,7 @@ template = "pages.html"
 draft = false
 +++
 
-My name is Bensuperpc, I am a **software enginee**r and a Hardware enthusiast, on this website, I will share my projects, benchmarks, and tutorials.
+My name is Bensuperpc, I am a **software engineer** and a Hardware enthusiast, on this website, I will share my projects, benchmarks, and tutorials.
 
 I am **French** and **autistic**, I am passionate about technology, video games, astronomy and history.
 
@@ -17,7 +17,9 @@ In this section, I will list my hardware configuration (not exhaustive).
 
 ### Main desktop
 
-**Specs**
+My main desktop is a custom build, I use it for gaming and somtimes for work.
+
+Specifications:
 
 - {{ fontawesome(icon="fa-computer") }} Custom build
 - {{ fontawesome(icon="fa-microchip") }} AMD Ryzen 7 5700X 8c16t
@@ -39,7 +41,7 @@ In this section, I will list my hardware configuration (not exhaustive).
 
 My main server is a thinkcentre M720q, I use it for my game servers, web servers, and build servers.
 
-**Specs**
+Specifications:
 
 - {{ fontawesome(icon="fa-computer") }} Lenovo ThinkCentre M720q (2018)
 - {{ fontawesome(icon="fa-microchip") }} Intel I7 9700T 8c8t
@@ -52,7 +54,24 @@ My main server is a thinkcentre M720q, I use it for my game servers, web servers
 
 ### Main laptop
 
-**Specs**
+My main laptop is a Framework Laptop 13, I use it mainly for my work and my personal projects.
+
+Specifications:
+
+- {{ fontawesome(icon="fa-laptop") }} Framework Laptop 13 (2023)
+- {{ fontawesome(icon="fa-microchip") }} AMD Ryzen 7 7840U 8c16t
+- {{ fontawesome(icon="fa-memory") }} 2x32GB Corsair Fury impact PnP DDR5 5600MHz
+- {{ fontawesome(icon="fa-square-caret-right") }} AMD Radeon 780M
+- {{ fontawesome(icon="fa-hard-drive") }} 2TB Samsung 990 PRO NVMe PCIe 4.0 SSD
+- {{ fontawesome(icon="fa-bolt") }} Anker Prime 100W 2023
+- {{ fontawesome(icon="fa-desktop") }} Built-in 13.5" 2.8K 120Hz
+- {{ fontawesome(icon="fa-microphone") }} Built-in
+
+### Secondary laptop
+
+My secondary laptop is a Lenovo ThinkPad T480, for personal projects only.
+
+Specifications:
 
 - {{ fontawesome(icon="fa-laptop") }} Lenovo ThinkPad T480 (2018)
 - {{ fontawesome(icon="fa-microchip") }} Intel I5 8350U 4c8t
@@ -66,9 +85,8 @@ My main server is a thinkcentre M720q, I use it for my game servers, web servers
 
 This website use [Zola](https://www.getzola.org/) static site generator, the [abridge theme](https://github.com/Jieiku/abridge) and [Font Awesome](https://fontawesome.com/).
 
-JS is only needed for the search bar, the rest of the website is pure HTML and CSS, you can disable JS without any issue.
+JS is only needed for the search bar, the rest of the website is pure HTML and CSS, **you can disable JS without any issue.**
 
 ## Source
 
-- [Nemez](https://nemez.net/)
-
+- Inspired by [Nemez](https://nemez.net/)
