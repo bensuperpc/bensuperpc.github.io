@@ -27,12 +27,12 @@ Webp is a modern image format created by Google, it support **lossy** and **loss
 |      RAM      |                  64GB DDR4 3200MHz                  |
 |      OS       |                     Arch Linux                      |
 |   Compiler    |                     GCC 14.2.1                      |
-|     cWebp     |                        1.4.0                        |
-|    FFMPEG     |                        7.0.2                        |
-| Docker Image  | bensuperpc/multimedia:archlinux-base-1.0.0-20241103 |
-
+|     cwebp     |                        [1.5.0](https://archlinux.org/packages/extra/x86_64/libwebp/)                        |
+|    ffmpeg     |                        [7.1.0](https://archlinux.org/packages/extra/x86_64/ffmpeg/)                        |
+| Docker Image  | bensuperpc/multimedia:archlinux-base-1.0.0-20250216 |
 
 ## Lossless compression
+
 
 The dataset for the **lossless** benchmark is:
 
@@ -61,7 +61,7 @@ The options are:
 For PNG to Avif lossless compression:
 
 ```bash
-avifenc --lossless --speed <Compression> --jobs 1 --codec aom <Input> --output <Output>
+avifenc --jobs 1 --lossless --speed <Compression> --codec <codec> <Input> --output <Output>
 ```
 
 The options are:
@@ -69,14 +69,14 @@ The options are:
 - `--lossless`: Lossless compression.
 - `--speed <Compression>`: Compression level, from 0 to 9, 9 best compression.
 - `--jobs 1`: Number of jobs.
-- `--codec aom`: Use the AOM codec, only codec available for lossless compression (11-2024).
+- `--codec`: Use the *aom* codec, only codec available for lossless compression (11-2024).
 - `<Input>`: Input PNG file.
 - `<Output>`: Output Avif file.
 
 For PNG to JPGXL lossless compression:
 
 ```bash
-cjxl --quiet --num_threads 1 --effort <Compression> --distance 0.0 --brotli_effort 11 <Input> <Output>
+cjxl --num_threads 1 --quiet --effort <Compression> --distance 0.0 --brotli_effort 11 <Input> <Output>
 ```
 
 The options are:
@@ -88,7 +88,6 @@ The options are:
 - `--brotli_effort 11`: Brotli compression level, 11 best compression.
 - `<Input>`: Input PNG file.
 - `<Output>`: Output JPGXL file.
-
 
 ## Sources
 
