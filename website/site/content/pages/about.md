@@ -82,10 +82,35 @@ Specifications:
 - {{ fontawesome(icon="fa-bolt") }} Anker Prime 100W 2023
 - {{ fontawesome(icon="fa-desktop") }} Built-in 14" 1080p 60Hz
 - {{ fontawesome(icon="fa-microphone") }} Built-in
+  
+### Main phone
+
+My main phone is a Oneplus 8, I use it for my personal projects and my work.
+
+Specifications:
+
+- {{ fontawesome(icon="fa-mobile") }} Oneplus 8 (2020)
+- {{ fontawesome(icon="fa-microchip") }} Qualcomm Snapdragon 865 8c8t
+- {{ fontawesome(icon="fa-memory") }} 12GB LPDDR4 4266MHz
+- {{ fontawesome(icon="fa-square-caret-right") }} Adreno 650
+- {{ fontawesome(icon="fa-hard-drive") }} 256GB UFS 3.0
+- {{ fontawesome(icon="fa-bolt") }} Warp Charge 30T 30W
+- {{ fontawesome(icon="fa-desktop") }} Built-in 6.55" 1080p 90Hz
+- {{ fontawesome(icon="fa-microphone") }} Built-in
 
 This website use [Zola](https://www.getzola.org/) static site generator, the [abridge theme](https://github.com/Jieiku/abridge) and [Font Awesome](https://fontawesome.com/).
 
 JS is only needed for the search bar, the rest of the website is pure HTML and CSS, **you can disable JS without any issue.**
+
+## My cats
+
+**Daisy:**
+
+{{ img(src="/images/IMG_20190711_205103.webp" class="lowimg", alt="Daisy") }}
+
+**Minette:**
+
+{{ img(src="/images/DlCNaHuXgAAoL7L.webp" class="lowimg", alt="Minette") }}
 
 ## Source
 

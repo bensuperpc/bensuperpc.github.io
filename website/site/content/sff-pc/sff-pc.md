@@ -2,7 +2,7 @@
 title = "A guide to SSF PCs"
 description = "A guide to SSF PCs"
 date = 2024-10-22T00:00:00Z
-draft = true
+draft = false
 
 [taxonomies]
 tags = ["Features","SSF","Tiny","Thinkcentre"]
@@ -100,8 +100,8 @@ Nowadays, most software use AVX, AVX2 instructions, you can easily multiply the 
 | AMD | Zen 4 | 5th Gen | AM5 | DDR5 | 256GB | 2021-2022 | | Add AVX-512 support, better IPC and RDNA iGPU |
 | AMD | Zen 5 | 6th Gen | AM5 | DDR5 | 256GB | 2022-2023 | | Slightly improve IPC |
 
-I recommend using **Intel Skylake**, **AMD Zen 2**, or newer CPUs, as they offer good performance and support modern features like: NVMe, iGPU vulkan, HEVC/VP9 10-bit hardware enc/dec, AVX2 etc...
-However, if you’re on a budget, Haswell remains a good option due the low price of the CPUs, DDR3 RAM and relatively good performance.
+I recommend using **Intel Coffe lake**, **AMD Zen 2**, or newer CPUs, as they offer good performance and support modern features like: NVMe, iGPU vulkan, HEVC/VP9 10-bit hardware enc/dec, AVX2 etc...
+However, if you’re on a budget, **Haswell** or **Skylake** remains a good option due the low price of the CPUs, DDR3 1600 Mhz/DDR4 2400 Mhz RAM and relatively good performance.
 
 ### GPU (Graphics Processing Unit)
 
@@ -125,7 +125,7 @@ SSF PCs have 4 storage options (depending on the model):
 - **2.5" SATA HDD**: They are very slow and generally not recommended, but they can be easily replaced by SSD.
 - **On board eMMC**: On motherboard memory, **you should avoid it**, it's generally slow, limited and once it's dead, you must replace the motherboard.
 
-I recommend using **M.2 NVMe SSDs**, beware of the size (2242, 2260, 2280), the key (B, M, B+M) and simple or double sided.
+I recommend using **M.2 NVMe SSDs**, beware of the size (2242, 2260, 2280), the connector type (B, M, B+M) and simple or double sided.
 
 ### Ports
 
@@ -145,32 +145,32 @@ In this section, we will see the different models of Lenovo thinkcentre SSF PCs.
 
 | Model | CPU | Chipset | SODIMM RAM | PCIe | Drive | Remarks |
 |-------|-----|---------|------------|------|--------|--------|
-| M72 tiny | ivy bridge | Intel H61 | 2x 8GB 1600MHz DDR3 | No | 1x 2.5" | |
-| M92 tiny | ivy bridge | Intel Q77 | 2x 8GB 1600MHz DDR3 | No | 1x 2.5" | |
-| M73 tiny | Haswell | Intel H81 | 2x 8GB 1600MHz DDR3 | No | 1x 2.5" | |
-| M83 tiny | Haswell | Intel Q85 | 2x 8GB 1600MHz DDR3 | No | 1x 2.5" | |
-| M700q | Skylake | Intel B150 | 2x 32GB 2133MHz DDR4 | No | 1x m.2 **SATA**, 1x 2.5" | |
-| M900q | Skylake | Intel Q170 | 2x 32GB 2133MHz DDR4 | No | 1x m.2, 1x 2.5" | |
-| M710q | Skylake/Kaby Lake | Intel B250 | 2x 32GB 2400MHz DDR4 | No | 1x m.2, 1x 2.5" | |
-| M910q | Skylake/Kaby Lake | Intel Q270 | 2x 32GB 2400MHz DDR4 | No | 2x m.2, 1x 2.5" | |
-| M720q | Coffee Lake | Intel B360 | 2x 32GB 2666MHz DDR4 | PCIe x8 Gen 3 | 1x m.2, 1x 2.5" | |
-| M920q| Coffee Lake | Intel Q370 | 2x 32GB 2666MHz DDR4 | PCIe x8 Gen 3 | 1x m.2, 1x 2.5" | |
-| M920x | Coffee Lake | Intel Q370 | 2x 32GB 2666MHz DDR4 | PCIe x8 Gen 3 | 2x m.2, 1x 2.5" | |
-| P330 | Coffee Lake | Intel Q370 | 2x 32GB 2666MHz DDR4 | PCIe x8 Gen 3 | 2x m.2, 1x 2.5" | |
-| M75q | AMD Zen 2 | AMD Pro 500 | 2x 32GB 2933MHz DDR4 | No | 1x m.2, 1x 2.5" | |
-| M75q Gen 2 | AMD Zen 3 | AMD Pro 500 | 2x 32GB 3200MHz DDR4 | No | 1x m.2, 1x 2.5" | |
-| M70q | Comet Lake | Intel H470 | 2x 32GB 2933MHz DDR4 | No | 1x m.2, 1x 2.5" | |
-| M80q | Comet Lake | Intel Q470 | 2x 32GB 2933MHz DDR4 | No | 1x m.2, 1x 2.5" | |
-| M90q | Comet Lake | Intel Q470 | 2x 32GB 2933MHz DDR4 | PCIe x8 Gen 3 | 2x m.2, 1x 2.5" | |
-| P340 | Comet Lake | Intel Q470 | 2x 32GB 2933MHz DDR4 | PCIe x8 Gen 3 | 2x m.2, 1x 2.5" | |
-| M70q Gen 2 | Rocket Lake | Intel B560 | 2x 32GB 3200MHz DDR4 | No | 1x m.2, 1x 2.5" | |
-| M90q Gen 2 | Rocket Lake | Intel Q570 | 2x 32GB 3200MHz DDR4 | PCIe x8 Gen 3 | 2x m.2, 1x 2.5" | |
-| P350 | Rocket Lake | Intel Q570 | 2x 32GB 3200MHz DDR4 | PCIe x8 Gen 3 | 2x m.2, 1x 2.5" | |
-| M80q Gen 3 | Alder Lake | Intel Q670 | 2x 32GB 4800MHz DDR5 | No | 2x m.2, 1x 2.5" | |
-| M90q Gen 3 | Alder Lake | Intel Q670 | 2x 32GB 4800MHz DDR5 | PCIe x8 Gen 4 | 2x m.2, 1x 2.5" | |
-| P360 | Alder Lake | Intel Q670 | 2x 32GB 4800MHz DDR5 | PCIe x8 Gen 4 | 2x m.2, 1x 2.5" | |
-| M70q Gen 3 | Alder Lake | Intel Q670 | 2x 32GB 3200MHz DDR4 | No | 2x m.2, 1x 2.5" | |
-| M75q Gen 5 | AMD Zen 4 | AMD Pro 600 | 2x 32GB 5200MHz DDR5 | No | 1x m.2, 1x 2.5" | |
+| M72 tiny | ivy bridge | Intel H61 | 2x 8GB 1600MHz DDR3 | No | 1x 2.5" SATA | |
+| M92 tiny | ivy bridge | Intel Q77 | 2x 8GB 1600MHz DDR3 | No | 1x 2.5" SATA | |
+| M73 tiny | Haswell | Intel H81 | 2x 8GB 1600MHz DDR3 | No | 1x 2.5" SATA | |
+| M83 tiny | Haswell | Intel Q85 | 2x 8GB 1600MHz DDR3 | No | 1x 2.5" SATA | |
+| M700q | Skylake | Intel B150 | 2x 32GB 2133MHz DDR4 | No | 1x m.2 SATA, 1x 2.5" SATA | |
+| M900q | Skylake | Intel Q170 | 2x 32GB 2133MHz DDR4 | No | 1x m.2 ?, 1x 2.5" SATA | |
+| M710q | Skylake/Kaby Lake | Intel B250 | 2x 32GB 2400MHz DDR4 | No | 1x m.2 NVMe, 1x 2.5" SATA | |
+| M910q | Skylake/Kaby Lake | Intel Q270 | 2x 32GB 2400MHz DDR4 | No | 2x m.2 NVMe, 1x 2.5" SATA | |
+| M720q | Coffee Lake | Intel B360 | 2x 32GB 2666MHz DDR4 | PCIe x8 Gen 3 | 1x m.2 NVMe, 1x 2.5" SATA | |
+| M920q| Coffee Lake | Intel Q370 | 2x 32GB 2666MHz DDR4 | PCIe x8 Gen 3 | 1x m.2 NVMe, 1x 2.5" SATA | |
+| M920x | Coffee Lake | Intel Q370 | 2x 32GB 2666MHz DDR4 | PCIe x8 Gen 3 | 2x m.2 NVMe, 1x 2.5" SATA | |
+| P330 | Coffee Lake | Intel Q370 | 2x 32GB 2666MHz DDR4 | PCIe x8 Gen 3 | 2x m.2 NVMe, 1x 2.5" SATA | |
+| M75q | AMD Zen 2 | AMD Pro 500 | 2x 32GB 2933MHz DDR4 | No | 1x m.2 NVMe, 1x 2.5" SATA | |
+| M75q Gen 2 | AMD Zen 3 | AMD Pro 500 | 2x 32GB 3200MHz DDR4 | No | 1x m.2, 1x 2.5" SATA | |
+| M70q | Comet Lake | Intel H470 | 2x 32GB 2933MHz DDR4 | No | 1x m.2 NVMe, 1x 2.5" SATA | |
+| M80q | Comet Lake | Intel Q470 | 2x 32GB 2933MHz DDR4 | No | 1x m.2 NVMe, 1x 2.5" SATA | |
+| M90q | Comet Lake | Intel Q470 | 2x 32GB 2933MHz DDR4 | PCIe x8 Gen 3 | 2x m.2 NVMe, 1x 2.5" SATA | |
+| P340 | Comet Lake | Intel Q470 | 2x 32GB 2933MHz DDR4 | PCIe x8 Gen 3 | 2x m.2 NVMe, 1x 2.5" SATA | |
+| M70q Gen 2 | Rocket Lake | Intel B560 | 2x 32GB 3200MHz DDR4 | No | 1x m.2 NVMe, 1x 2.5" SATA | |
+| M90q Gen 2 | Rocket Lake | Intel Q570 | 2x 32GB 3200MHz DDR4 | PCIe x8 Gen 3 | 2x m.2 NVMe, 1x 2.5" SATA | |
+| P350 | Rocket Lake | Intel Q570 | 2x 32GB 3200MHz DDR4 | PCIe x8 Gen 3 | 2x m.2 NVMe, 1x 2.5" SATA | |
+| M80q Gen 3 | Alder Lake | Intel Q670 | 2x 32GB 4800MHz DDR5 | No | 2x m.2 NVMe, 1x 2.5" SATA | |
+| M90q Gen 3 | Alder Lake | Intel Q670 | 2x 32GB 4800MHz DDR5 | PCIe x8 Gen 4 | 2x m.2 NVMe, 1x 2.5" SATA | |
+| P360 | Alder Lake | Intel Q670 | 2x 32GB 4800MHz DDR5 | PCIe x8 Gen 4 | 2x m.2 NVMe, 1x 2.5" SATA | |
+| M70q Gen 3 | Alder Lake | Intel Q670 | 2x 32GB 3200MHz DDR4 | No | 2x m.2 NVMe, 1x 2.5" SATA | |
+| M75q Gen 5 | AMD Zen 4 | AMD Pro 600 | 2x 32GB 5200MHz DDR5 | No | 1x m.2 NVMe, 1x 2.5" SATA | |
 
 ## Sources
 

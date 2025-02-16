@@ -1,17 +1,16 @@
 +++
 title = "Benchmarking Webp format"
 description = "Benchmarking Webp format"
-date = 2024-11-03T00:00:00Z
+date = 2025-02-16T00:00:00Z
 draft = false
 
 [taxonomies]
-tags = ["Features","Webp","Benchmarking","Avif","JPG","JPEG","PNG","Avif","JPGXL","JPEGXL","Format"]
+tags = ["Features","Webp","Benchmarking","Avif","JPG","JPEG","PNG","JPGXL","JPEGXL","Format"]
 [extra]
-keywords = "Webp, Benchmarking, Avif, JPG, JPEG, PNG, Avif, JPGXL, JPEGXL, Format"
+keywords = "Webp, Benchmarking, Avif, JPG, JPEG, PNG, JPGXL, JPEGXL, Format"
 toc = true
 series = "Features"
 +++
-
 
 ## Introduction
 
@@ -24,21 +23,23 @@ Webp is a modern image format created by Google, it support **lossy** and **loss
 | Specification |                        Value                        |
 | :-----------: | :-------------------------------------------------: |
 |      CPU      |     AMD Ryzen 7 5700X 8c16t (3.4 GHz / 4.6 GHz)     |
+|      GPU      |        NVIDIA GeForce RTX 3060 Ti 8GB GDDR6         |
 |      RAM      |                  64GB DDR4 3200MHz                  |
 |      OS       |                     Arch Linux                      |
 |   Compiler    |                     GCC 14.2.1                      |
-|     cwebp     |                        [1.5.0](https://archlinux.org/packages/extra/x86_64/libwebp/)                        |
-|    ffmpeg     |                        [7.1.0](https://archlinux.org/packages/extra/x86_64/ffmpeg/)                        |
-| Docker Image  | bensuperpc/multimedia:archlinux-base-1.0.0-20250216 |
+|     cwebp     |   [1.5.0](https://archlinux.org/packages/extra/x86_64/libwebp/) |
+|    avifenc    |   [1.1.1](https://archlinux.org/packages/extra/x86_64/libavif/) |
+|     cjxl      |   [0.11.1](https://archlinux.org/packages/extra/x86_64/libjxl/) |
+|    ffmpeg     |   [7.1.0](https://archlinux.org/packages/extra/x86_64/ffmpeg/) |
+| Docker Image  | [bensuperpc/multimedia:archlinux-base-1.0.0-20250216](https://github.com/bensuperpc/docker-multimedia) |
 
 ## Lossless compression
-
 
 The dataset for the **lossless** benchmark is:
 
 - 9900 screenshots from Minecraft (720p to 1440p).
 - 9600 screenshots from Fortnite, Battlefield, 7 Days to Die, and GTA V (1080p to 1440p, some 2160p).
-- 500 screenshots from desktop applications (1080p to 1440p).
+- 2100 screenshots from desktop applications (360p to 1440p).
 
 The PNG to Webp lossless compression command is:
 
