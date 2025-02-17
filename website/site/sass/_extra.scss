@@ -8,15 +8,29 @@
     width: 65%;
 }
 
-.lowimg {
-    width: 35%;
+.responsive-img {
+    width: 50%;
+    max-width: 100%;
     display: block;
+    overflow: hidden;
 }
 
-.mediumimg {
-    width: 50%;
+@media (orientation: portrait) {
+    .responsive-img {
+        width: 75%;
+    }
 }
 
 ul:not(ul ul) {
     margin-left: 1.0em;
+}
+
+.image-hover {
+    filter: blur(32px);
+    transition: filter 0.3s ease-in-out;
+    clip-path: inset(0);
+}
+
+.image-hover:hover {
+    filter: blur(0);
 }

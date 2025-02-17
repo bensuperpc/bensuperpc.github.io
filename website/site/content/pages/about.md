@@ -106,11 +106,11 @@ JS is only needed for the search bar, the rest of the website is pure HTML and C
 
 **Daisy:**
 
-{{ img(src="/images/IMG_20190711_205103.webp" class="lowimg", alt="Daisy") }}
+{{ img(src="/images/IMG_20190711_205103.webp" class="responsive-img", alt="Daisy") }}
 
 **Minette:**
 
-{{ img(src="/images/DlCNaHuXgAAoL7L.webp" class="lowimg", alt="Minette") }}
+{{ img(src="/images/DlCNaHuXgAAoL7L.webp" class="responsive-img", alt="Minette") }}
 
 ## Source
 
