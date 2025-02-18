@@ -49,7 +49,7 @@ Specifications:
 - {{ fontawesome(icon="fa-square-caret-right") }} Intel UHD 630
 - {{ fontawesome(icon="fa-chess-board") }} Lenovo ThinkCentre M720q motherboard
 - {{ fontawesome(icon="fa-hard-drive") }} 2TB Samsung 970 EVO Plus NVMe PCIe 3.0 SSD
-- {{ fontawesome(icon="fa-hard-drive") }} 500GB NONAME NVMe SA
+- {{ fontawesome(icon="fa-hard-drive") }} 500GB NONAME SATA SSD
 - {{ fontawesome(icon="fa-bolt") }} Lenovo proprietary charger 90W
 
 ### Main laptop
@@ -98,9 +98,19 @@ Specifications:
 - {{ fontawesome(icon="fa-desktop") }} Built-in 6.55" 1080p 90Hz
 - {{ fontawesome(icon="fa-microphone") }} Built-in
 
-This website use [Zola](https://www.getzola.org/) static site generator, the [abridge theme](https://github.com/Jieiku/abridge) and [Font Awesome](https://fontawesome.com/).
+### Main PC evolution
 
-JS is only needed for the search bar, the rest of the website is pure HTML and CSS, **you can disable JS without any issue.**
+| Date | Type |CPU | GPU | RAM | SSD | PSU | Monitor |
+| :------: | :------: | :------: | :------: | :------: | :------: | :------: | :------: |
+| 2005 | Desktop | AMD Athlon 64 3000+ | Nvidia FX 5200 128MB | 1GB DDR 400MHz | 250GB HDD | ? | 17" 1280x1024 |
+| 2009 | Desktop | AMD Athlon 64 3700+ | ATI Radeon HD 3450 512MB | 1GB DDR 400MHz | 500GB HDD | ? | 17" 1280x1024 |
+| 2012 | Desktop | AMD Athlon II X2 250 | Nvidia GT 210 1GB | 4GB DDR3 1333MHz | 500GB HDD | ? | 17" 1280x1024 |
+| 2013 | Desktop | Intel i3 3240 | Nvidia GTX 650 2GB | 32GB DDR3 1600MHz | 128GB SSD | NONAME 550W | 17" 1280x1024 |
+| 2015 | Mobile | Intel i7 4710MQ | Nvidia GT 840 2GB | 8GB DDR3 1600MHz | 128GB SSD | Lenovo 90W | 17.3" 1600x900 |
+| 2018 | Mobile | Intel i7 6700HQ | Quadro M2000M 4GB | 32GB DDR4 2133MHz | 512GB SSD | ? | 17.3" 1920x1080 |
+| 2019 | Mobile | Intel i7 9750H | Nvidia RTX 2070 8GB | 16GB DDR4 2933MHz | 512GB NVMe | ? | 17.3" 1920x1080 |
+| 2021 | Mobile | AMD Ryzen 7 5800H | Nvidia RTX 3070 8GB | 32GB DDR4 3200MHz | 1TB NVMe | ? | 16" 2560x1600 |
+| 2024 | Desktop | AMD Ryzen 7 5700X | Nvidia RTX 3060 Ti 8GB | 64GB DDR4 3200MHz | 1TB NVMe | MSI MPG 1000W 80+ Gold | 32" 1440p 240Hz |
 
 ## My cats
 
@@ -111,6 +121,10 @@ JS is only needed for the search bar, the rest of the website is pure HTML and C
 **Minette:**
 
 {{ img(src="/images/DlCNaHuXgAAoL7L.webp" class="responsive-img", alt="Minette") }}
+
+This website use [Zola](https://www.getzola.org/) static site generator, the [abridge theme](https://github.com/Jieiku/abridge) and [Font Awesome](https://fontawesome.com/).
+
+JS is only needed for the search bar, the rest of the website is pure HTML and CSS, **you can disable JS without any issue.**
 
 ## Source
 
