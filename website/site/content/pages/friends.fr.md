@@ -7,4 +7,4 @@ draft = false
 
 ## Mes amis
 
-Voici une liste de mes amis en ordre alphabétique:
+Voici une liste de mes amis:

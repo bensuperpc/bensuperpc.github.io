@@ -1,5 +1,5 @@
 +++
-title = "Tutorial sur FFMPEG"
+title = "Tutorial sur FFMPEG (Draft)"
 description = "Tutoriel sur FFMPEG"
 date = 2025-02-16T00:00:00Z
 draft = false

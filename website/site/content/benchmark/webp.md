@@ -1,5 +1,5 @@
 +++
-title = "Benchmarking Webp format"
+title = "Benchmarking Webp format (Draft)"
 description = "Benchmarking Webp format"
 date = 2025-02-16T00:00:00Z
 draft = false

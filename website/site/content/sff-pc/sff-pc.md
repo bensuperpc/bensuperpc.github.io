@@ -1,7 +1,7 @@
 +++
-title = "A guide to SSF PCs"
+title = "A guide to SSF PCs (Draft)"
 description = "A guide to SSF PCs"
-date = 2024-10-22T00:00:00Z
+date = 2025-02-19T00:00:00Z
 draft = false
 
 [taxonomies]
@@ -12,7 +12,7 @@ toc = true
 series = "Features"
 +++
 
-# A guide to SSF PCs
+## A guide to SSF PCs
 
 Welcome to the guide to SSF PCs.
 
