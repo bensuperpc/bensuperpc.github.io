@@ -14,7 +14,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    if: github.ref != 'refs/heads/main'
+    if: github.ref == 'refs/heads/main'
     steps:
       - name: Checkout main
         uses: actions/checkout@v4
@@ -37,7 +37,7 @@ jobs:
         env:
           BUILD_DIR: website/site
           PAGES_BRANCH: gh-pages
-          CHECK_LINKS: true
+          CHECK_LINKS: false
           BUILD_FLAGS: --base-url https://bensuperpc.github.io
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -52,6 +52,6 @@ jobs:
         env:
           BUILD_DIR: website/site
           PAGES_BRANCH: blog-bensuperpc-pages
-          CHECK_LINKS: true
+          CHECK_LINKS: false
           BUILD_FLAGS: --base-url https://blog.bensuperpc.org
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

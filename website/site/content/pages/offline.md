@@ -3,6 +3,7 @@ title = "Offline Mode"
 path = "offline"
 template = "pages.html"
 draft = false
+aliases = ["en/offline"]
 +++
 
 ## Offline Mode

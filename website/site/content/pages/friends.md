@@ -3,6 +3,7 @@ title = "My friends"
 path = "friends"
 template = "pages.html"
 draft = false
+aliases = ["en/friends"]
 +++
 
 ## My friends

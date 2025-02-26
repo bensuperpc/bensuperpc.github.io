@@ -3,6 +3,7 @@ title = "Evolutions of x86 CPUs"
 description = "Evolutions of x86 CPUs"
 date = 2025-02-22T00:00:00Z
 draft = false
+aliases = ["en/documentation/hardware/pc/cpu/"]
 
 [taxonomies]
 tags = ["Features","x86","CPU","Processor"]

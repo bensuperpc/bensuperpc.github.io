@@ -3,6 +3,7 @@ title = "About"
 path = "about"
 template = "pages.html"
 draft = false
+aliases = ["en/about"]
 +++
 
 My name is Bensuperpc, I am a **software engineer** and a Hardware enthusiast, on this website, I will share my projects, benchmarks, and tutorials.

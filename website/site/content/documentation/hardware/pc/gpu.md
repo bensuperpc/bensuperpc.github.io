@@ -3,6 +3,7 @@ title = "Mesa GPU drivers"
 description = "Mesa GPU drivers"
 date = 2025-02-21T00:00:00Z
 draft = false
+aliases = ["en/documentation/hardware/pc/gpu/"]
 
 [taxonomies]
 tags = ["Features","GPU","Mesa","Drivers"]
@@ -38,8 +39,8 @@ You can find below a list of GPU architectures and their corresponding Mesa driv
 | 2019-2020   | GFX10        | RDNA 1.0          | Radeon RX 5xxx (Navi 10, Navi 12, Navi 14)                                  | 12          | 4.x        | 2.1        | 1.4        |
 | 2020-2022   | GFX10        | RDNA 2.0          | Radeon RX 6xxx (Navi 21, Navi 22, Navi 23, Navi 24), Van Gogh, Raphael APUs | 12          | 4.x        | 2.1        | 1.4        |
 | 2022-2024   | GFX11        | RDNA 3.0          | Radeon RX 7xxx (Navi 31, Navi 32, Navi 33), Phoenix APUs (780M, 760M)       | 12          | 4.x        | 2.1        | 1.4        |
-| 2024        | GFX11        | RDNA 3.5          | Radeon RX 7xxx (Strix Point APUs)                                           | 12          | 4.x        | 2.1        | 1.4        |
-| 2025+       | GFX11/GFX12  | RDNA 4.0          | -                                                                           | 12          | 4.x        | 2.1        | 1.4        |
+| 2024        | GFX11        | RDNA 3.5          | Radeon RX 8xxM (Strix Point APUs)                                           | 12          | 4.x        | 2.1        | 1.4        |
+| 2025        | GFX12        | RDNA 4.0          | Radeon RX 9xxx ?                                                            | 12          | 4.x        | 2.1        | 1.4        |
 
 ### Mesa drivers
 
