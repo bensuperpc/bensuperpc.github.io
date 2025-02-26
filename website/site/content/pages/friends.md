@@ -8,11 +8,12 @@ aliases = ["en/friends"]
 
 ## My friends
 
-Here is a list of my friends:
+Here is a list of my friends (non-exhaustive):
 
-- [Sayloriae](https://eaglecraft.fr/)
 - [Greep](https://greep.fr)
 - [Proxy](https://imagisphe.re)
+- [Sayloriae](https://eaglecraft.fr/)
+- Fireboy
 - [Rick](https://gyiwr.tf)
 - [Outout](https://www.enpls.org/)
-- [Patch](https://patchli.fr/)
+- Belucraft

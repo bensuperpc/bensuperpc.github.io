@@ -45,7 +45,7 @@ You can find below a list of GPU architectures and their corresponding Mesa driv
 
 | **Driver name**   | **Type** | **Version** | **GFX Core** |
 | ----------------- | -------- | ----------- | ------------ |
-| r200 (mesa-amber) | OpenGL   | 1.5         | GFX1         |
+| r200 ([mesa-amber](https://docs.mesa3d.org/amber.html)) | OpenGL   | 1.5         | GFX1         |
 | r300              | OpenGL   | 1.5         | GFX2         |
 | r600              | OpenGL   | 3.3         | GFX3-GFX5    |
 | radeonsi          | OpenGL   | 4.6         | GFX6-GFX11   |
@@ -74,14 +74,14 @@ You can find below a list of GPU architectures and their corresponding Mesa driv
 
 ### Mesa drivers
 
-| **Driver name**   | **Type** | **Version**   | **GFX Core** |
-| ----------------- | -------- | ------------- | ------------ |
-| i830 (mesa-amber) | OpenGL   | 1.4           | Gen2         |
-| i915              | OpenGL   | 2.1           | Gen3         |
-| crocus            | OpenGL   | 4.6           | Gen4-Gen7.5  |
-| iris              | OpenGL   | 4.6           | Gen8-Gen12.7 |
-| hasvk             | Vulkan   | 1.2 (partial) | Gen6-Gen8    |
-| anv               | Vulkan   | 1.4           | Gen9-Gen12.7 |
+| **Driver name**        | **Type** | **Version**   | **GFX Core** |
+| ---------------------- | -------- | ------------- | ------------ |
+| i830/i965 ([mesa-amber](https://docs.mesa3d.org/amber.html)) | OpenGL   | 1.4           | Gen2         |
+| i915                   | OpenGL   | 2.1           | Gen3         |
+| crocus                 | OpenGL   | 4.6           | Gen4-Gen7.5  |
+| iris                   | OpenGL   | 4.6           | Gen8-Gen12.7 |
+| hasvk                  | Vulkan   | 1.2 (partial) | Gen6-Gen8    |
+| anv                    | Vulkan   | 1.4           | Gen9-Gen12.7 |
 
 
 ## Nvidia Graphics

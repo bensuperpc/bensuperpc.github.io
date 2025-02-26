@@ -123,9 +123,13 @@ Specifications:
 
 {{ img(src="/images/DlCNaHuXgAAoL7L.webp" class="responsive-img", alt="Minette") }}
 
+## This website
+
 This website use [Zola](https://www.getzola.org/) static site generator, the [abridge theme](https://github.com/Jieiku/abridge) and [Font Awesome](https://fontawesome.com/).
 
 JS is only needed for the search bar, the rest of the website is pure HTML and CSS, **you can disable JS without any issue.**
+
+You can find the source code of this website on [bensuperpc.github.io](https://github.com/bensuperpc/bensuperpc.github.io).
 
 ## Source
 

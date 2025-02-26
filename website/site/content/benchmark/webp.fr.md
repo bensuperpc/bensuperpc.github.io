@@ -1,8 +1,8 @@
 +++
-title = "Benchmarking Webp format (Draft)"
+title = "Benchmarking Webp format"
 description = "Benchmarking Webp format"
 date = 2025-02-16T00:00:00Z
-draft = false
+draft = true
 
 [taxonomies]
 tags = ["Features","Webp","Benchmarking","Avif","JPG","JPEG","PNG","JPGXL","JPEGXL","Format"]
