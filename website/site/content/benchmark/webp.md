@@ -1,8 +1,9 @@
 +++
-title = "Benchmarking Webp format"
+title = "Benchmarking Webp format (draft)"
 description = "Benchmarking Webp format"
 date = 2025-02-16T00:00:00Z
-draft = true
+draft = false
+aliases = ["fr/benchmark/webp"]
 
 [taxonomies]
 tags = ["Features","Webp","Benchmarking","Avif","JPG","JPEG","PNG","JPGXL","JPEGXL","Format"]
@@ -20,26 +21,26 @@ Webp is a modern image format created by Google, it support **lossy** and **loss
 
 ### Setup
 
-| Specification |                        Value                        |
-| :-----------: | :-------------------------------------------------: |
-|      CPU      |     AMD Ryzen 7 5700X 8c16t (3.4 GHz / 4.6 GHz)     |
-|      GPU      |        NVIDIA GeForce RTX 3060 Ti 8GB GDDR6         |
-|      RAM      |                  64GB DDR4 3200MHz                  |
-|      OS       |                     Arch Linux                      |
-|   Compiler    |                     GCC 14.2.1                      |
-|     cwebp     |   [1.5.0](https://archlinux.org/packages/extra/x86_64/libwebp/) |
-|    avifenc    |   [1.1.1](https://archlinux.org/packages/extra/x86_64/libavif/) |
-|     cjxl      |   [0.11.1](https://archlinux.org/packages/extra/x86_64/libjxl/) |
-|    ffmpeg     |   [7.1.0](https://archlinux.org/packages/extra/x86_64/ffmpeg/) |
-| Docker Image  | [bensuperpc/multimedia:archlinux-base-1.0.0-20250216](https://github.com/bensuperpc/docker-multimedia) |
+| Specification |                                                      Value                                                       |
+| :-----------: | :--------------------------------------------------------------------------------------------------------------: |
+|      CPU      |                                   AMD Ryzen 7 5700X 8c16t (3.4 GHz / 4.6 GHz)                                    |
+|      GPU      |                                       NVIDIA GeForce RTX 3060 Ti 8GB GDDR6                                       |
+|      RAM      |                                                64GB DDR4 3200MHz                                                 |
+|      OS       |                                                     Manjaro                                                      |
+|   Compiler    |                                                    GCC 14.2.1                                                    |
+|     cwebp     |                          [1.5.0](https://archlinux.org/packages/extra/x86_64/libwebp/)                           |
+|    avifenc    |                          [1.2.0](https://archlinux.org/packages/extra/x86_64/libavif/)                           |
+|     cjxl      |                          [0.11.1](https://archlinux.org/packages/extra/x86_64/libjxl/)                           |
+|    ffmpeg     |                           [7.1.0](https://archlinux.org/packages/extra/x86_64/ffmpeg/)                           |
+| Docker Image  | [docker.io/bensuperpc/multimedia:1.0.0-archlinux-base-20250228](https://github.com/bensuperpc/docker-multimedia) |
 
 ## Lossless compression
 
 The dataset for the **lossless** benchmark is:
 
-- 9900 screenshots from Minecraft (720p to 1440p).
-- 9600 screenshots from Fortnite, Battlefield, 7 Days to Die, and GTA V (1080p to 1440p, some 2160p).
-- 2100 screenshots from desktop applications (360p to 1440p).
+- ~9900 screenshots from Minecraft (720p to 1440p, some 2160p).
+- ~9600 screenshots from Fortnite, Battlefield, 7 Days to Die, and GTA V (1080p to 1440p, some 2160p).
+- ~2100 screenshots from desktop applications (240p to 1440p).
 
 The PNG to Webp lossless compression command is:
 

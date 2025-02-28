@@ -12,6 +12,7 @@ Voici une liste de mes amis (non exhaustive) :
 - [Greep](https://greep.fr)
 - [Proxy](https://imagisphe.re)
 - [Sayloriae](https://eaglecraft.fr/)
-- Fireboy
+- **Fireboy**
 - [Rick](https://gyiwr.tf)
 - [Outout](https://www.enpls.org/)
+- **Belucraft**
