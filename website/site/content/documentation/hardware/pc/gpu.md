@@ -6,10 +6,10 @@ draft = false
 aliases = ["en/documentation/hardware/pc/gpu/"]
 
 [taxonomies]
-tags = ["Features","GPU","Mesa","Drivers"]
-categories = ["Hardware"]
+tags = ["Features","GPU","Mesa","Drivers","AMD","Intel","Nvidia"]
+categories = ["Hardware","Software"]
 [extra]
-keywords = "Mesa, GPU, Drivers"
+keywords = "Mesa, GPU, Drivers, AMD, Intel, Nvidia"
 toc = true
 series = "Features"
 +++

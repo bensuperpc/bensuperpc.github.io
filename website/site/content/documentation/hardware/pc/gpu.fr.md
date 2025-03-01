@@ -5,10 +5,10 @@ date = 2025-02-21T00:00:00Z
 draft = false
 
 [taxonomies]
-tags = ["Features","GPU","Mesa","Drivers"]
-categories = ["Hardware"]
+tags = ["Features","GPU","Mesa","Drivers","AMD","Intel","Nvidia"]
+categories = ["Hardware","Software"]
 [extra]
-keywords = "Mesa, GPU, Drivers"
+keywords = "Mesa, GPU, Drivers, AMD, Intel, Nvidia"
 toc = true
 series = "Features"
 +++

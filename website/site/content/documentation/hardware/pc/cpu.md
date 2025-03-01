@@ -9,7 +9,7 @@ aliases = ["en/documentation/hardware/pc/cpu/"]
 tags = ["Features","x86","CPU","Processor"]
 categories = ["Hardware"]
 [extra]
-keywords = "Processor, x86, CPU"
+keywords = "Processor, x86, CPU, Intel, AMD"
 toc = true
 series = "Features"
 +++
