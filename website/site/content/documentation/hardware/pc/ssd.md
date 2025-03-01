@@ -7,6 +7,7 @@ aliases = ["en/documentation/hardware/pc/ssd/"]
 
 [taxonomies]
 tags = ["Features","SSD","NVMe","PCIe"]
+categories = ["Hardware"]
 [extra]
 keywords = "SSD, NVMe, PCIe"
 toc = true

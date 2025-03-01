@@ -14,7 +14,7 @@ minify_html = false
 build_search_index = true
 generate_feeds = true
 taxonomies = [
-#    {name = "categories", feed = true},
+    {name = "categories", feed = true},
     {name = "tags", feed = true},
 ]
 
@@ -55,7 +55,7 @@ search.include_description = true # include description of page/section in index
 search.include_content = true # include rendered content of page/section in index
 # search.truncate_content_length = 100 # Truncate at nth character. May be useful if index is getting too large.
 taxonomies = [
-#    {name = "categories", feed = true},
+    {name = "categories", feed = true},
     {name = "tags", feed = true},
 ]
 
@@ -98,7 +98,7 @@ taxonomies = [
 menu = [
 #    {url = "blog", name = "Blog", slash = true, blank = false, size="s110"},
     {url = "archive", name = "Posts", slash = true, blank = false, size="s110"},
-#    {url = "categories", name = "Categories", slash = true, blank = false, size="s110"},
+    {url = "categories", name = "Categories", slash = true, blank = false, size="s110"},
     {url = "tags", name = "Tags", slash = true, blank = false, size="s110"},
     {url = "friends", name = "Friends", slash = true, blank = false, size="s110"},
     {url = "about", name = "About", slash = true, blank = false, size="s110"},
@@ -137,13 +137,14 @@ textlogo = '<font color="#f90">B</font>ensuperpc'
 #textlogo = '<svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#f90" viewBox="0 0 96 96" width="28" height="28"><path stroke-width="14" d="M14 99 46 7h4l32 92"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-size="80" font-family="Arial" fill="black">B</text></svg>ensuperpc'
 
 sitedesc = false # enables or disables the display of the site description below the logo.
-headhr = false # show or hide horizontal rule below header
-foothr = false # show or hide horizontal rule above footer
+headhr = true # show or hide horizontal rule below header
+foothr = true # show or hide horizontal rule above footer
 
 ### $CURRENT_YEAR and $SITE_TITLE can be used anywhere within the copyright, you can change their position or you can also delete them and type whatever you want instead.
-#copyright = false # set to false to disable the copyright.
+copyright = true # set to false to disable the copyright.
 #copyright_override = '© 2019-$CURRENT_YEAR $SITE_TITLE'
 #copyright_override = '© $CURRENT_YEAR $SITE_TITLE • Website content is licensed <a rel="noopener" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.'
+copyright_override = '$CURRENT_YEAR $SITE_TITLE • <a rel="noopener" target="_blank" href=https://github.com/bensuperpc/bensuperpc.github.io">bensuperpc.github.io</a>'
 
 
 ###############################################################################

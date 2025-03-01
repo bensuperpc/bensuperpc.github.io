@@ -6,6 +6,7 @@ draft = false
 
 [taxonomies]
 tags = ["Features","GPU","Mesa","Drivers"]
+categories = ["Hardware"]
 [extra]
 keywords = "Mesa, GPU, Drivers"
 toc = true

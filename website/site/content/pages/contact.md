@@ -11,7 +11,7 @@ aliases = ["en/contact"]
 
 To contact me, I recommend you to send me an email to the following address: **bensuperpc[at]gmail.com** or to my secondary address **bensuperpc[at]protonmail.com**.
 
-## Réseaux sociaux
+## Social networks
 
 You can also contact me via the following social networks:
 

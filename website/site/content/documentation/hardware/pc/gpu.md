@@ -7,6 +7,7 @@ aliases = ["en/documentation/hardware/pc/gpu/"]
 
 [taxonomies]
 tags = ["Features","GPU","Mesa","Drivers"]
+categories = ["Hardware"]
 [extra]
 keywords = "Mesa, GPU, Drivers"
 toc = true
@@ -44,13 +45,13 @@ You can find below a list of GPU architectures and their corresponding Mesa driv
 
 ### Mesa drivers
 
-| **Driver name**   | **Type** | **Version** | **GFX Core** |
-| ----------------- | -------- | ----------- | ------------ |
+| **Driver name**                                         | **Type** | **Version** | **GFX Core** |
+| ------------------------------------------------------- | -------- | ----------- | ------------ |
 | r200 ([mesa-amber](https://docs.mesa3d.org/amber.html)) | OpenGL   | 1.5         | GFX1         |
-| r300              | OpenGL   | 1.5         | GFX2         |
-| r600              | OpenGL   | 3.3         | GFX3-GFX5    |
-| radeonsi          | OpenGL   | 4.6         | GFX6-GFX11   |
-| radv              | Vulkan   | 1.4         | GFX6-GFX11   |
+| r300                                                    | OpenGL   | 1.5         | GFX2         |
+| r600                                                    | OpenGL   | 3.3         | GFX3-GFX5    |
+| radeonsi                                                | OpenGL   | 4.6         | GFX6-GFX11   |
+| radv                                                    | Vulkan   | 1.4         | GFX6-GFX11   |
 
 ## Intel Graphics
 
@@ -75,14 +76,14 @@ You can find below a list of GPU architectures and their corresponding Mesa driv
 
 ### Mesa drivers
 
-| **Driver name**        | **Type** | **Version**   | **GFX Core** |
-| ---------------------- | -------- | ------------- | ------------ |
+| **Driver name**                                              | **Type** | **Version**   | **GFX Core** |
+| ------------------------------------------------------------ | -------- | ------------- | ------------ |
 | i830/i965 ([mesa-amber](https://docs.mesa3d.org/amber.html)) | OpenGL   | 1.4           | Gen2         |
-| i915                   | OpenGL   | 2.1           | Gen3         |
-| crocus                 | OpenGL   | 4.6           | Gen4-Gen7.5  |
-| iris                   | OpenGL   | 4.6           | Gen8-Gen12.7 |
-| hasvk                  | Vulkan   | 1.2 (partial) | Gen6-Gen8    |
-| anv                    | Vulkan   | 1.4           | Gen9-Gen12.7 |
+| i915                                                         | OpenGL   | 2.1           | Gen3         |
+| crocus                                                       | OpenGL   | 4.6           | Gen4-Gen7.5  |
+| iris                                                         | OpenGL   | 4.6           | Gen8-Gen12.7 |
+| hasvk                                                        | Vulkan   | 1.2 (partial) | Gen6-Gen8    |
+| anv                                                          | Vulkan   | 1.4           | Gen9-Gen12.7 |
 
 
 ## Nvidia Graphics
@@ -90,7 +91,7 @@ You can find below a list of GPU architectures and their corresponding Mesa driv
 | **Release** | **GFX Core** | **Architecture**  | **GPU Models/Series**                         | **DirectX** | **OpenGL** | **OpenCL** | **Vulkan** |
 | ----------- | ------------ | ----------------- | --------------------------------------------- | ----------- | ---------- | ---------- | ---------- |
 | 1995        | NV1          | STG-2000          | NV1 (Diamond Edge 3D)                         | 5           | 1.1        | N/A        | N/A        |
-| Annulé      | NV2          |                   | Annulé                                        | N/A         | N/A        | N/A        | N/A        |
+| Cancelled   | NV2          |                   | Cancelled                                     | N/A         | N/A        | N/A        | N/A        |
 | 1997        | NV3          | RIVA 128          | NV3, RIVA 128, RIVA 128ZX                     | 5           | 1.1        | N/A        | N/A        |
 | 1998-1999   | NV4          | TNT               | RIVA TNT, TNT2, TNT2 Ultra, Vanta, M64        | 6           | 1.2        | N/A        | N/A        |
 | 1999-2000   | NV10         | GeForce 256       | GeForce 256, GeForce 2, Quadro                | 7           | 1.3        | N/A        | N/A        |

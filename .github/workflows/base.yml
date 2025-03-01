@@ -21,7 +21,7 @@ jobs:
       - name: Build only
         uses: shalzz/zola-deploy-action@v0.20.0
         env:
-          BUILD_DIR: docs
+          BUILD_DIR: website/site
           BUILD_ONLY: true
           CHECK_LINKS: true
           BUILD_FLAGS: --drafts

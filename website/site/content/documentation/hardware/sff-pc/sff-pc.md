@@ -6,6 +6,7 @@ draft = false
 
 [taxonomies]
 tags = ["Features","SSF","Tiny","Thinkcentre"]
+categories = ["Hardware"]
 [extra]
 keywords = "SSF, Tiny, Embed, Embedded, Streamable"
 toc = true

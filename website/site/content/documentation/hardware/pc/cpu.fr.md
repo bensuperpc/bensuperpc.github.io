@@ -6,6 +6,7 @@ draft = false
 
 [taxonomies]
 tags = ["Features","x86","CPU","Processor"]
+categories = ["Hardware"]
 [extra]
 keywords = "Processor, x86, CPU"
 toc = true

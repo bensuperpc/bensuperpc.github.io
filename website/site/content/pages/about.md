@@ -115,13 +115,9 @@ Specifications:
 
 ## My cats
 
-**Daisy:**
+{{ img(src="/images/IMG_20190711_205103.webp" class="b1" alt="My cat Daisy" caption="Daisy" link="") }}
 
-{{ img(src="/images/IMG_20190711_205103.webp" class="responsive-img", alt="Daisy") }}
-
-**Minette:**
-
-{{ img(src="/images/DlCNaHuXgAAoL7L.webp" class="responsive-img", alt="Minette") }}
+{{ img(src="/images/DlCNaHuXgAAoL7L.webp" class="b1" alt="My cat Minette" caption="Minette" link="") }}
 
 ## This website
 

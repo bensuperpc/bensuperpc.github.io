@@ -6,6 +6,7 @@ draft = true
 
 [taxonomies]
 tags = ["Features","Anker","GAN","Charger"]
+categories = ["Hardware"]
 [extra]
 keywords = "Charger, Anker, Embed, Embedded, Streamable"
 toc = true

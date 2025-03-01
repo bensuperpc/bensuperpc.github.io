@@ -7,6 +7,7 @@ aliases = ["fr/benchmark/webp"]
 
 [taxonomies]
 tags = ["Features","Webp","Benchmarking","Avif","JPG","JPEG","PNG","JPGXL","JPEGXL","Format"]
+categories = ["Software"]
 [extra]
 keywords = "Webp, Benchmarking, Avif, JPG, JPEG, PNG, JPGXL, JPEGXL, Format"
 toc = true
