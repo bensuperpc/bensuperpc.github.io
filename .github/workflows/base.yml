@@ -1,4 +1,4 @@
-name: bensuperpc_website
+name: Zola on GitHub Pages
 
 on:
   push:
@@ -13,22 +13,45 @@ on:
 
 jobs:
   build:
-    strategy:
-      fail-fast: false
-      matrix:
-        python-version: ["3.9", "3.10"]
-        os: [ubuntu-latest, macos-latest]
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-python@v4
-        with:
-          python-version: ${{ matrix.python-version }}
+      - name: Checkout main
+        uses: actions/checkout@v4
+      - name: Build only
+        uses: shalzz/zola-deploy-action@v0.20.0
+        env:
+          BUILD_DIR: website/site
+          BUILD_ONLY: true
+          CHECK_LINKS: true
+          BUILD_FLAGS: --drafts
 
-      - name: "Install deps"
-        run: |
-          make install
+  build_and_deploy_github_pages:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+      - name: Build and deploy
+        uses: shalzz/zola-deploy-action@v0.20.0
+        env:
+          BUILD_DIR: website/site
+          PAGES_BRANCH: gh-pages
+          CHECK_LINKS: false
+          BUILD_FLAGS: --base-url https://bensuperpc.github.io
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: "lint"
-        run: |
-          make lint
+  build_and_deploy_blog_bensuperpc:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+      - name: Build and deploy
+        uses: shalzz/zola-deploy-action@v0.20.0
+        env:
+          BUILD_DIR: website/site
+          PAGES_BRANCH: blog-bensuperpc-pages
+          CHECK_LINKS: false
+          BUILD_FLAGS: --base-url https://blog.bensuperpc.org
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
