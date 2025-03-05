@@ -1,0 +1,5 @@
+language_name = "English" # Shown in language picker for multi-language sites.
+date_locale = "en_US"
+full_stop = "."  # Used at the end of a sentence.
+
+# Menu items should match the names in config.extra.menu
