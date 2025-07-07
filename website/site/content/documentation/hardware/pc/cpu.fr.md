@@ -1,6 +1,6 @@
 +++
-title = "Evolutions of CPUs (WIP)"
-description = "Evolutions of CPUs"
+title = "L'évolution des CPUs"
+description = "L'évolution des processeurs Intel, AMD et ARM de 1979 à 2025"
 date = 2025-02-24T00:00:00Z
 draft = false
 
@@ -49,7 +49,7 @@ series = "Features"
 | 2024        | Meteor Lake   | Core Ultra 3/5/7/9 1xx                    | {% color(color="#1AC7FF") %} AVX2 {% end %}    | {% color(color="#1EA9FF") %} Yes {% end %} | {% color(color="#1EA9FF") %} Yes {% end %} |
 | 2024        | Lunar Lake    | Core Ultra 3/5/7/9 2xx                    | {% color(color="#1AC7FF") %} AVX2 {% end %}    | {% color(color="#1EA9FF") %} Yes {% end %} | {% color(color="#1EA9FF") %} Yes {% end %} |
 
-*Note: **Pentium** and **Celeron** processors up to **Comet Lake** do not support AVX, AVX2 and AVX-512.*
+*Note: Les processeurs **pentium** et **celeron** jusqu'aux **Comet Lake** ne supportent pas AVX, AVX2 et AVX-512.*
 
 ## AMD CPU
 

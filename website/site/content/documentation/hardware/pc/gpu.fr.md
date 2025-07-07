@@ -1,9 +1,8 @@
 +++
-title = "Mesa GPU drivers"
-description = "Mesa GPU drivers"
+title = "Les pilotes GPU Mesa"
+description = "Liste des architectures GPU et leurs pilotes Mesa"
 date = 2025-02-21T00:00:00Z
 draft = false
-aliases = ["en/documentation/hardware/pc/gpu/"]
 
 [taxonomies]
 tags = ["Features","GPU","Mesa","Drivers","AMD","Intel","Nvidia"]
@@ -17,7 +16,7 @@ series = "Features"
 
 # Introduction
 
-You can find below a list of GPU architectures and their corresponding Mesa drivers and API support.
+Vous trouverez ci-dessous une liste des architectures GPU et de leurs pilotes Mesa et support API correspondants.
 
 ## AMD Graphics
 
