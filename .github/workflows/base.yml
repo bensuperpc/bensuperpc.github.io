@@ -12,20 +12,6 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
-    steps:
-      - name: Checkout main
-        uses: actions/checkout@v4
-      - name: Build only
-        uses: shalzz/zola-deploy-action@v0.20.0
-        env:
-          BUILD_DIR: website/site
-          BUILD_ONLY: true
-          CHECK_LINKS: true
-          BUILD_FLAGS: --drafts
-
   build_and_deploy_github_pages:
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
@@ -33,12 +19,26 @@ jobs:
       - name: Checkout main
         uses: actions/checkout@v4
       - name: Build and deploy
-        uses: shalzz/zola-deploy-action@v0.20.0
+        uses: shalzz/zola-deploy-action@v0.21.0
         env:
           BUILD_DIR: website/site
           PAGES_BRANCH: gh-pages
           CHECK_LINKS: false
           BUILD_FLAGS: --base-url https://bensuperpc.github.io
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  build_bensuperpc_org:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+      - name: Build and deploy
+        uses: shalzz/zola-deploy-action@v0.21.0
+        env:
+          BUILD_DIR: website/site
+          PAGES_BRANCH: bensuperpc-org-pages
+          CHECK_LINKS: false
+          BUILD_FLAGS: --base-url https://www.bensuperpc.org
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   build_and_deploy_blog_bensuperpc:
@@ -48,7 +48,7 @@ jobs:
       - name: Checkout main
         uses: actions/checkout@v4
       - name: Build and deploy
-        uses: shalzz/zola-deploy-action@v0.20.0
+        uses: shalzz/zola-deploy-action@v0.21.0
         env:
           BUILD_DIR: website/site
           PAGES_BRANCH: blog-bensuperpc-pages

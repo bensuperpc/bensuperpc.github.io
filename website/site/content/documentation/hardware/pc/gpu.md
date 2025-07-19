@@ -1,7 +1,7 @@
 +++
 title = "Mesa GPU drivers"
 description = "Mesa GPU drivers"
-date = 2025-02-21T00:00:00Z
+date = 2025-03-21T00:00:00Z
 draft = false
 aliases = ["en/documentation/hardware/pc/gpu/"]
 

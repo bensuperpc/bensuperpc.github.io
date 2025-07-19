@@ -1,7 +1,7 @@
 +++
 title = "Les pilotes GPU Mesa"
 description = "Liste des architectures GPU et leurs pilotes Mesa"
-date = 2025-02-21T00:00:00Z
+date = 2025-03-21T00:00:00Z
 draft = false
 
 [taxonomies]

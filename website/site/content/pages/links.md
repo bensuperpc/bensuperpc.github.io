@@ -94,6 +94,13 @@ Here is a list of useful links.
 - [temp-mail](https://temp-mail.org/) - Temporary email service
 - [Ventusky](https://www.ventusky.com/) - Weather map with wind, temperature, and precipitation
 
+## Maps & Geolocation
+
+- [OpenStreetMap](https://www.openstreetmap.org/) - Collaborative mapping project
+- [OpenTopoMap](https://opentopomap.org/) - Topographic maps based
+- [OpenCycleMap](https://www.opencyclemap.org/) - Cycling maps based on OpenStreetMap
+- [OpenRailwayMap](https://www.openrailwaymap.org/) - Railway maps
+
 ## Gaming
 
 - [SteamDB](https://steamdb.info/) - Steam database for game stats and prices
