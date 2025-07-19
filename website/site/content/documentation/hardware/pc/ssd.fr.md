@@ -3,7 +3,7 @@ title = "Comparison of SSDs"
 description = "Comparison of SSDs"
 date = 2025-02-23T00:00:00Z
 draft = false
-aliases = ["en/documentation/hardware/pc/ssd/"]
+aliases = ["fr/documentation/hardware/pc/ssd/"]
 
 [taxonomies]
 tags = ["Features","SSD","NVMe","PCIe"]

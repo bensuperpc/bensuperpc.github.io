@@ -1,7 +1,7 @@
 +++
 title = "Mesa GPU drivers"
 description = "Mesa GPU drivers"
-date = 2025-02-21T00:00:00Z
+date = 2025-03-21T00:00:00Z
 draft = false
 aliases = ["en/documentation/hardware/pc/gpu/"]
 
@@ -67,12 +67,12 @@ You can find below a list of GPU architectures and their corresponding Mesa driv
 | 2012        | Gen7         | Ivy Bridge            | HD Graphics 2500/4000                             | 4.x        | 1.2        | N/A        |
 | 2013        | Gen7.5       | Haswell               | HD Graphics 4200/4400/4600/5000/5100/5200         | 4.x        | 1.2        | N/A        |
 | 2014-2015   | Gen8         | Broadwell             | HD Graphics 5300/5500/6000, Iris 6100             | 4.x        | 2.0        | 1.0        |
-| 2015-2017   | Gen9         | Skylake               | HD Graphics 5xx, Iris 5xx                         | 4.6        | 2.1        | 1.0        |
-| 2017-2019   | Gen9.5       | Kaby Lake/Coffee Lake | UHD Graphics 6xx, Iris Plus 6xx                   | 4.6        | 2.1        | 1.2        |
-| 2019-2020   | Gen11        | Ice Lake              | Iris Plus Graphics (G4, G7)                       | 4.6        | 2.1        | 1.2        |
-| 2020-2021   | Gen12        | Xe-LP                 | UHD Graphics (Rocket Lake), Iris Xe (Tiger Lake)  | 4.6        | 2.1        | 1.2        |
-| 2022        | Gen12.7      | Xe-HPG/Xe-HPC         | Arc Alchemist (A7xx A3xx), Ponte Vecchio          | 4.6        | 3.0        | 1.3        |
-| 2024-2025   | Gen13        | Xe2-HPG/Xe2-LPG       | Battlemage (B5xx), Lunar Lake                     | 4.6        | 3.0        | 1.3        |
+| 2015-2017   | Gen9         | Skylake               | HD Graphics 5xx, Iris 5xx                         | 4.6        | 2.1        | 1.4        |
+| 2017-2019   | Gen9.5       | Kaby Lake/Coffee Lake | UHD Graphics 6xx, Iris Plus 6xx                   | 4.6        | 2.1        | 1.4        |
+| 2019-2020   | Gen11        | Ice Lake              | Iris Plus Graphics (G4, G7)                       | 4.6        | 2.1        | 1.4        |
+| 2020-2021   | Gen12        | Xe-LP                 | UHD Graphics (Rocket Lake), Iris Xe (Tiger Lake)  | 4.6        | 2.1        | 1.4        |
+| 2022        | Gen12.7      | Xe-HPG/Xe-HPC         | Arc Alchemist (A7xx A3xx), Ponte Vecchio          | 4.6        | 3.0        | 1.4        |
+| 2024-2025   | Gen20        | Xe2-HPG/Xe2-LPG       | Battlemage (B5xx), Lunar Lake                     | 4.6        | 3.0        | 1.4        |
 
 ### Mesa drivers
 
@@ -81,9 +81,9 @@ You can find below a list of GPU architectures and their corresponding Mesa driv
 | i830/i965 ([mesa-amber](https://docs.mesa3d.org/amber.html)) | OpenGL   | 1.4           | Gen2         |
 | i915                                                         | OpenGL   | 2.1           | Gen3         |
 | crocus                                                       | OpenGL   | 4.6¹          | Gen4-Gen7.5  |
-| iris                                                         | OpenGL   | 4.6           | Gen8-Gen13   |
+| iris                                                         | OpenGL   | 4.6           | Gen8-Gen20   |
 | hasvk                                                        | Vulkan   | 1.0 (partial) | Gen6-Gen8    |
-| anv                                                          | Vulkan   | 1.4           | Gen9-Gen13   |
+| anv                                                          | Vulkan   | 1.4           | Gen9-Gen20   |
 
 **¹**: May vary depending on hardware.
 

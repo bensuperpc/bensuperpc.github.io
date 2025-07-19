@@ -1,7 +1,7 @@
 +++
 title = "Les pilotes GPU Mesa"
 description = "Liste des architectures GPU et leurs pilotes Mesa"
-date = 2025-02-21T00:00:00Z
+date = 2025-03-21T00:00:00Z
 draft = false
 
 [taxonomies]
@@ -66,12 +66,12 @@ Vous trouverez ci-dessous une liste des architectures GPU et de leurs pilotes Me
 | 2012        | Gen7         | Ivy Bridge            | HD Graphics 2500/4000                             | 4.x        | 1.2        | N/A        |
 | 2013        | Gen7.5       | Haswell               | HD Graphics 4200/4400/4600/5000/5100/5200         | 4.x        | 1.2        | N/A        |
 | 2014-2015   | Gen8         | Broadwell             | HD Graphics 5300/5500/6000, Iris 6100             | 4.x        | 2.0        | 1.0        |
-| 2015-2017   | Gen9         | Skylake               | HD Graphics 5xx, Iris 5xx                         | 4.x        | 2.1        | 1.0        |
-| 2017-2019   | Gen9.5       | Kaby Lake/Coffee Lake | UHD Graphics 6xx, Iris Plus 6xx                   | 4.x        | 2.1        | 1.2        |
-| 2019-2020   | Gen11        | Ice Lake              | Iris Plus Graphics (G4, G7)                       | 4.x        | 2.1        | 1.2        |
-| 2020-2021   | Gen12        | Xe-LP                 | UHD Graphics (Rocket Lake), Iris Xe (Tiger Lake)  | 4.x        | 2.1        | 1.2        |
+| 2015-2017   | Gen9         | Skylake               | HD Graphics 5xx, Iris 5xx                         | 4.x        | 2.1        | 1.4        |
+| 2017-2019   | Gen9.5       | Kaby Lake/Coffee Lake | UHD Graphics 6xx, Iris Plus 6xx                   | 4.x        | 2.1        | 1.4        |
+| 2019-2020   | Gen11        | Ice Lake              | Iris Plus Graphics (G4, G7)                       | 4.x        | 2.1        | 1.4        |
+| 2020-2021   | Gen12        | Xe-LP                 | UHD Graphics (Rocket Lake), Iris Xe (Tiger Lake)  | 4.x        | 2.1        | 1.4        |
 | 2022        | Gen12.7      | Xe-HPG/Xe-HPC         | Arc Alchemist (A7xx A3xx), Ponte Vecchio          | 4.x        | 3.0        | 1.3        |
-| 2024-2025   | Gen13        | Xe2-HPG/Xe2-LPG       | Battlemage (B5xx), Lunar Lake                     | 4.x        | 3.0        | 1.3        |
+| 2024-2025   | Gen20        | Xe2-HPG/Xe2-LPG       | Battlemage (B5xx), Lunar Lake                     | 4.x        | 3.0        | 1.3        |
 
 ### Mesa drivers
 
