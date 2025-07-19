@@ -47,7 +47,7 @@ There are also some drawbacks to consider:
 
 Here are some well-known brands and models:
 
-- **Lenovo ThinkCentre**: M73 Tiny, M710q, M720q, M70q G1, M75q G1, M90q G3
+- **Lenovo ThinkCentre**: M73 Tiny, M710q, M720q, M70q gen 1, M75q gen 1, M90q gen 3
 - **Dell OptiPlex**: 3040, 3050, 3060, 3070, 5040, 5050, 5060, 5070
 - **HP EliteDesk**: 800 G1 Mini, 800 G2 Mini
 - **Intel NUC**: NUC6i3SYH, NUC6i5SYH, NUC6i7KYK, NUC7i3BNH, NUC7i5BNH, NUC7i7BNH
@@ -60,11 +60,11 @@ For second-hand options, i recommend **Lenovo, Dell, and HP**. These brands offe
 
 ### ARM SFF PCs
 
-SFF PCs are usually x86-based, but ARM-based SFF PCs have been gaining popularity in recent years. They are generally cheaper and more power-efficient but come with limitations:
+SFF PCs are usually x86-based, but ARM-based SFF PCs have been gaining popularity in recent years, they are generally cheaper and more power-efficient but come with limitations:
 
-- **Limited software compatibility**: They are not compatible with traditional x86/PC software.
+- **Limited software compatibility**: They are not compatible with traditional x86/PC software and drivers can be missing or outdated.
 - **Limited upgrade options**: Components are often soldered and non-replaceable.
-- **Lower performance**: Compared to x86 counterparts, ARM-based SFF PCs may struggle with demanding tasks.
+- **Lower performance**: Compared to x86 counterparts, ARM-based SFF PCs may struggle with demanding tasks (encoding, gaming, etc.).
 
 In this guide, we will focus on x86 SFF PCs and the Raspberry Pi.
 
@@ -74,11 +74,11 @@ In this section, we will look at the main components of SFF PCs.
 
 ### CPU (Central Processing Unit)
 
-I recommend using **socketed CPUs**, as they allow for future upgrades to more powerful models (within the same TDP range). For example, you can upgrade from an **Intel Celeron G4900T** to an **Intel i9-9900T** without any issues or with a BIOS update.
+I recommend using **socketed CPUs**, as they allow for future upgrades to more powerful models (within the same TDP range). For example on Thinkcentre tiny M720q, you can upgrade from an **Intel Celeron G4900T** to an **Intel i9-9900T** without any issues or with a update of Intel ME and BIOS.
 
 Most SFF PCs come with **35W or 65W CPUs**, **i strongly recommend avoiding CPUs with a higher TDP than what the system supports**, as this can cause overheating and potentially damage the motherboard or PSU.
 
-Most modern software utilizes **AVX and AVX2** instructions, which can significantly boost performance in tasks like video encoding/decoding, compression, encryption, etc. Every CPU since **Intel Haswell** and **AMD Zen** supports AVX2, except for some low-end models like **Intel Celeron/Pentium** and **AMD Athlon**.
+Most modern software utilizes **AVX2** instructions, which can significantly boost performance in tasks like video encoding/decoding, compression, encryption, etc. Every CPU since **Intel Haswell** (2013) and **AMD Zen** (2017) supports AVX2, except for some low-end models like **Intel Celeron/Pentium/Atom** and **AMD Athlon**.
 
 | Brand | CPU arch     | CPU Gen     | Socket  | RAM Type  | Max RAM | Year      | Exemple of SSF PC | Remarks                                                           |
 | ----- | ------------ | ----------- | ------- | --------- | ------- | --------- | ----------------- | ----------------------------------------------------------------- |
@@ -93,18 +93,18 @@ Most modern software utilizes **AVX and AVX2** instructions, which can significa
 | intel | Skylake      | 6th Gen     | LGA1151 | DDR3-DDR4 | 64GB    | 2015-2016 | M710q             | HEVC/VP9 8-bit hardware enc/dec, iGPU vulkan and NVMe support     |
 | intel | Kaby Lake    | 7th Gen     | LGA1151 | DDR4      | 64GB    | 2016-2017 | M710q             | HEVC/VP9 10-bit hardware enc/dec support                          |
 | intel | Coffee Lake  | 8-9th Gen   | LGA1151 | DDR4      | 64GB    | 2017-2019 | M720q             | Increase core count and remove hyperthreading on 9th gen CPUs     |
-| intel | Comet Lake   | 10th Gen    | LGA1200 | DDR4      | 128GB   | 2020-2021 | M70G gen 1        | Re-add hyperthreading on most CPUs                                |
-| intel | Rocket Lake  | 11th Gen    | LGA1200 | DDR4      | 128GB   | 2021-2022 | M70G gen 2        | Add AVX-512 support and better perf                               |
-| intel | Alder Lake   | 12th Gen    | LGA1700 | DDR4-DDR5 | 256GB   | 2021-2022 | M70G gen 3        | Remove AVX-512, Pcore and ECore, AV1 hard dec and improve IPC     |
-| intel | Raptor Lake  | 13-14th Gen | LGA1700 | DDR5      | 256GB   | 2022-2023 | M70G gen 4        |                                                                   |
-| intel | Arrow Lake   | 15th Gen    | LGA1700 | DDR5      | 256GB   | 2023-2024 | M70G gen 5        | Remove SMT and greatly improve efficiency                         |
+| intel | Comet Lake   | 10th Gen    | LGA1200 | DDR4      | 128GB   | 2020-2021 | M70q gen 1        | Re-add hyperthreading on most CPUs                                |
+| intel | Rocket Lake  | 11th Gen    | LGA1200 | DDR4      | 128GB   | 2021-2022 | M70q gen 2        | Add AVX-512 support and better perf                               |
+| intel | Alder Lake   | 12th Gen    | LGA1700 | DDR4-DDR5 | 256GB   | 2021-2022 | M70q gen 3        | Remove AVX-512, Pcore and ECore, AV1 hard dec and improve IPC     |
+| intel | Raptor Lake  | 13-14th Gen | LGA1700 | DDR5      | 256GB   | 2022-2023 | M70q gen 4        |                                                                   |
+| intel | Arrow Lake   | 15th Gen    | LGA1700 | DDR5      | 256GB   | 2023-2024 | M70q gen 5        | Remove SMT and greatly improve efficiency                         |
 | AMD   | Excavator    | 4th Gen     | AM4     | DDR4      | 32GB    | 2015-2016 |                   |                                                                   |
 | AMD   | Zen          | 1st Gen     | AM4     | DDR4      | 64GB    | 2017-2018 | M715Q             | Huge performance improvement and on pair with intel Haswell CPUs  |
 | AMD   | Zen+         | 2nd Gen     | AM4     | DDR4      | 64GB    | 2018-2019 |                   |                                                                   |
-| AMD   | Zen 2        | 3rd Gen     | AM4     | DDR4      | 128GB   | 2019-2020 |                   | On pair with intel Skylake CPUs and fix most of the issues of Zen |
-| AMD   | Zen 3        | 4th Gen     | AM4     | DDR4      | 128GB   | 2020-2021 |                   | Improve IPC and power efficiency                                  |
+| AMD   | Zen 2        | 3rd Gen     | AM4     | DDR4      | 128GB   | 2019-2020 | M70q gen 1/2      | On pair with intel Skylake CPUs and fix most of the issues of Zen |
+| AMD   | Zen 3        | 4th Gen     | AM4     | DDR4      | 128GB   | 2020-2021 | M70q gen 2        | Improve IPC and power efficiency                                  |
 | AMD   | Zen 4        | 5th Gen     | AM5     | DDR5      | 256GB   | 2021-2022 |                   | Add AVX-512 support, better IPC and RDNA iGPU                     |
-| AMD   | Zen 5        | 6th Gen     | AM5     | DDR5      | 256GB   | 2022-2023 |                   | Slightly improve IPC qnd full AVX-512 support                     |
+| AMD   | Zen 5        | 6th Gen     | AM5     | DDR5      | 256GB   | 2022-2023 | M70q gen 5        | Slightly improve IPC qnd full AVX-512 support                     |
 
 
 I recommend using **Intel Coffee Lake**, **AMD Zen 2**, or newer CPUs, they offer nice performances and support modern features like NVMe, iGPU Vulkan, HEVC/VP9 10-bit hardware encoding/decoding, AVX2, etc... However, if you’re on a budget, **Haswell** or **Skylake** remains a good option due to the low price of the CPUs and relatively good performance.
@@ -139,7 +139,7 @@ SFF PCs have **four main storage options** (depending on the model):
 
 I recommend using **M.2 NVMe SSDs**, be mindful of the size (2242, 2260, 2280), connector type (B, M, B+M), and whether it's single- or double-sided.
 
-You can use SSDs **PCIe 4.0 x4** on **PCIe 3.0 x2** or **x4** slots and vice versa, **the SSD will automatically adjust to the maximum speed supported by slot**
+You can use SSDs **PCIe 4.0 x4** on **PCIe 3.0 x2** or **x4** slots and vice versa, **the SSD will automatically adjust to the maximum speed supported by both parts**.
 
 ### Ports
 
@@ -148,6 +148,7 @@ All SFF PCs have a limited number of ports, ensure that your chosen SFF PC has e
 Common ports include:
 
 - **USB 2.0/3.x**: For peripherals, storage
+- **USB-C**: For peripherals, storage, and sometimes video output
 - **HDMI/DisplayPort/VGA**: For monitors
 - **Ethernet**: For networking
 - **Audio jacks**: For headphones, microphones, speakers
@@ -213,7 +214,7 @@ Bios simulator: [Simulator](https://download.lenovo.com/bsco/index.html#/)
 
 #### CPU
 
-The M720q supports all **8th** and **9th** generation Intel 35W CPUs (models with **T** suffix), the **i7-9900T** is the most powerful CPU available for this model, but it is very expensive and hard to find, the i3-8100T, i3-9100T, i5-8500T, i5-8600T, i5-9500T, i5-9600T, i7-8700T, i7-9700T are far more common, affordable and offer good performances.
+The M720q supports all **8th** and **9th** generation Intel 35W CPUs (models with **T** suffix), the **i7-9900T** is the most powerful CPU available for this model, but it is very expensive and hard to find, the i3-8100T, i3-9100T, i5-8500T, i5-8600T, i5-9500T, i5-9600T, i7-8700T, i7-9700T are far more common, affordable and offer nice performances.
 
 Avoid celeron and pentium CPUs, they are pretty slow (missing AVX2, FMA3, etc...), **do not use CPUs with a higher TDP than 35W**, this can cause overheating and potentially damage your motherboard or PSU.
 
@@ -262,7 +263,7 @@ The M720q supports multiple expansion options:
 
 #### BIOS
 
-To update the BIOS, you must update **Intel Management Engine** first, then update the BIOS, otherwise you risk boot loop with older BIOS versions.
+To update the BIOS, you **must** update **Intel Management Engine** first, then update the BIOS, otherwise you risk boot loop with older BIOS versions.
 
 ## Sources
 

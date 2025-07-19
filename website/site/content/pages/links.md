@@ -93,6 +93,16 @@ Here is a list of useful links.
 - [Wayback Machine](https://web.archive.org/) - Archive of web pages
 - [temp-mail](https://temp-mail.org/) - Temporary email service
 - [Ventusky](https://www.ventusky.com/) - Weather map with wind, temperature, and precipitation
+- [Shadertoy](https://www.shadertoy.com/view/3XdXWX) - Online shader editor and community
+- **Code**
+  - [Godbolt](https://godbolt.org/) - Compiler Explorer for comparing code output
+
+## Maps & Geolocation
+
+- [OpenStreetMap](https://www.openstreetmap.org/) - Collaborative mapping project
+- [OpenTopoMap](https://opentopomap.org/) - Topographic maps based
+- [OpenCycleMap](https://www.opencyclemap.org/) - Cycling maps based on OpenStreetMap
+- [OpenRailwayMap](https://www.openrailwaymap.org/) - Railway maps
 
 ## Gaming
 

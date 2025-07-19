@@ -18,7 +18,7 @@ I am **French** and **autistic**, I am passionate about technology, video games,
 
 ## My hardware
 
-In this section, I will list my hardware configuration (not exhaustive).
+In this section, I will list my hardware configurations (not exhaustive).
 
 ### Main desktop
 
@@ -119,7 +119,7 @@ Specifications:
 
 ### Hardware evolution
 
-Here is a list of my hardware evolution, first the main desktop evolution:
+Here is the history of the evolution of my main computer:
 
 | Date  |        Model         |         CPU          |           GPU            |        RAM        |   Memory   |     PSU     |     Monitor     |
 | :---: | :------------------: | :------------------: | :----------------------: | :---------------: | :--------: | :---------: | :-------------: |
@@ -133,26 +133,29 @@ Here is a list of my hardware evolution, first the main desktop evolution:
 | 2021  | Lenovo Legion 15 pro |  AMD Ryzen 7 5800H   |   Nvidia RTX 3070 8GB    | 32GB DDR4 3200MHz |  1TB NVMe  | Lenovo 300W |  16" 2560x1600  |
 | 2024  |  Custom    desktop   |  AMD Ryzen 7 5700X   |  Nvidia RTX 3060 Ti 8GB  | 64GB DDR4 3200MHz |  1TB NVMe  | MPG A1000G  | 32" 1440p 240Hz |
 
-And now the main server evolution:
+The history of the evolution of my main smartphone:
 
-| Date  |      Model      |       CPU        |        GPU        |     RAM      |     Memory     | Charger |         Screen          |
-| :---: | :-------------: | :--------------: | :---------------: | :----------: | :------------: | :-----: | :---------------------: |
-| 2011  | Samsung wave y  |  ARMv6 ARM1136   |   VideoCore IV    |  256MB DDR2  | 2GB NAND Flash | Samsung |    LCD 3.2" 240x320     |
-| 2013  | Samsung wave 1  |  ARMv7 S5PC110   |  PowerVR SGX 540  |  256MB DDR2  | 1GB NAND Flash | Samsung |   AMOLED 3.3" 800x480   |
-| 2015  | Sony Xperia Z3c |   Qualcomm 801   | Adreno 330 450MHz |  2GB LPDDR3  |  16GB UFS 2.0  |  Sony   |   LCD 4.6" 720p 60Hz    |
-| 2017  |   Oneplus 5T    |   Qualcomm 835   | Adreno 540 710MHz | 8GB LPDDR4X  | 128GB UFS 2.1  | Oneplus | AMOLED 6.01" 1080p 60Hz |
-| 2018  |    Oneplus 6    |   Qualcomm 845   | Adreno 630 710MHz | 8GB LPDDR4X  | 128GB UFS 2.1  | Oneplus | AMOLED 6.28" 1080p 60Hz |
-| 2019  |  Oneplus 7 Pro  |   Qualcomm 855   | Adreno 640 710MHz | 12GB LPDDR4X | 256GB UFS 3.0  | Oneplus | AMOLED 6.67" 1440p 90Hz |
-| 2023  |    Oneplus 8    |   Qualcomm 865   | Adreno 650 587MHz | 12GB LPDDR4X | 256GB UFS 3.0  | Oneplus | AMOLED 6.55" 1080p 90Hz |
-| 2025  | Google Pixel 6  | Google Tensor G1 |   Mali-G78 MP20   |  8GB LPDDR5  | 256GB UFS 3.1  | Google  | AMOLED 6.4" 1080p 90Hz  |
+| Date  |      Model      |        CPU        |        GPU        |     RAM      |     Memory     |   Charger   |          Screen          |
+| :---: | :-------------: | :---------------: | :---------------: | :----------: | :------------: | :---------: | :----------------------: |
+| 2011  | Samsung wave y  |   ARMv6 ARM1136   |   VideoCore IV    |  256MB DDR2  | 2GB NAND Flash |   Samsung   |     LCD 3.2" 240x320     |
+| 2013  | Samsung wave 1  |   ARMv7 S5PC110   |  PowerVR SGX 540  |  256MB DDR2  | 1GB NAND Flash |   Samsung   |   AMOLED 3.3" 800x480    |
+| 2015  | Sony Xperia Z3c |   Qualcomm 801    | Adreno 330 450MHz |  2GB LPDDR3  |  16GB UFS 2.0  |    Sony     |    LCD 4.6" 720p 60Hz    |
+| 2017  |   Oneplus 5T    |   Qualcomm 835    | Adreno 540 710MHz | 8GB LPDDR4X  | 128GB UFS 2.1  |   Oneplus   | AMOLED 6.01" 1080p 60Hz  |
+| 2018  |    Oneplus 6    |   Qualcomm 845    | Adreno 630 710MHz | 8GB LPDDR4X  | 128GB UFS 2.1  |   Oneplus   | AMOLED 6.28" 1080p 60Hz  |
+| 2019  |  Oneplus 7 Pro  |   Qualcomm 855    | Adreno 640 710MHz | 12GB LPDDR4X | 256GB UFS 3.0  |   Oneplus   | AMOLED 6.67" 1440p 90Hz  |
+| 2023  |    Oneplus 8    |   Qualcomm 865    | Adreno 650 587MHz | 12GB LPDDR4X | 256GB UFS 3.0  |   Oneplus   | AMOLED 6.55" 1080p 90Hz  |
+| 2025  | Google Pixel 6  | Google Tensor G1  |   Mali-G78 MP20   |  8GB LPDDR5  | 256GB UFS 3.1  | Anker A2343 |  AMOLED 6.4" 1080p 90Hz  |
+| 2025  | Fairphone Gen 6 | Qualcomm 7s Gen 3 |    Adreno 810     | 8GB LPDDR5X  | 256GB UFS 3.1  | Anker A2343 | AMOLED 6.31" 1080p 120Hz |
 
 And finally the main server evolution:
 
-| Date  |             Model             |         CPU         |          GPU           |        RAM        |  Memory   |    PSU     |
-| :---: | :---------------------------: | :-----------------: | :--------------------: | :---------------: | :-------: | :--------: |
-| 2022  |  Lenovo Thinkcentre Tiny M73  | Intel i7 4780T 4c8t | Intel HD Graphics 4600 | 16GB DDR3 1600MHz | 256GB SSD | Lenovo 65W |
-| 2023  | Lenovo Thinkcentre Tiny M710Q | Intel i7 7700T 4c8t | Intel HD Graphics 630  | 16GB DDR4 2133MHz | 256GB SSD | Lenovo 65W |
-| 2024  | Lenovo Thinkcentre Tiny M920Q | Intel i7 9700T 8c8t | Intel UHD Graphics 630 | 32GB DDR4 2666MHz |  2To SSD  | Lenovo 65W |
+| Date  |               Model                |         CPU          |          GPU           |        RAM         |  Memory   |    PSU     |
+| :---: | :--------------------------------: | :------------------: | :--------------------: | :----------------: | :-------: | :--------: |
+| 2020  |     Raspberry Pi 4 Model B 8GB     |   Broadcom BCM2711   |      VideoCore VI      | 8GB LPDDR4 3200MHz |  64GB SD  | Raspberry  |
+| 2022  |    Lenovo Thinkcentre Tiny M73     | Intel i7 4780T 4c8t  | Intel HD Graphics 4600 | 16GB DDR3 1600MHz  | 256GB SSD | Lenovo 65W |
+| 2023  |   Lenovo Thinkcentre Tiny M710q    | Intel i7 7700T 4c8t  | Intel HD Graphics 630  | 16GB DDR4 2133MHz  | 256GB SSD | Lenovo 65W |
+| 2024  |   Lenovo Thinkcentre Tiny M920q    | Intel i7 9700T 8c8t  | Intel UHD Graphics 630 | 32GB DDR4 2666MHz  |  2To SSD  | Lenovo 90W |
+| 2025  | Lenovo Thinkcentre Tiny M70q Gen 5 | Intel i3 13100T 4c8t | Intel UHD Graphics 730 | 32GB DDR5 5600MHz  |  2To SSD  | Lenovo 65W |
 
 ## My cats
 
