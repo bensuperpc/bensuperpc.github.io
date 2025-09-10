@@ -80,31 +80,38 @@ Most SFF PCs come with **35W or 65W CPUs**, **i strongly recommend avoiding CPUs
 
 Most modern software utilizes **AVX2** instructions, which can significantly boost performance in tasks like video encoding/decoding, compression, encryption, etc. Every CPU since **Intel Haswell** (2013) and **AMD Zen** (2017) supports AVX2, except for some low-end models like **Intel Celeron/Pentium/Atom** and **AMD Athlon**.
 
-| Brand | CPU arch     | CPU Gen     | Socket  | RAM Type  | Max RAM | Year      | Exemple of SSF PC | Remarks                                                           |
-| ----- | ------------ | ----------- | ------- | --------- | ------- | --------- | ----------------- | ----------------------------------------------------------------- |
-| intel | Merom        | Core 2      | LGA775  | DDR2-DDR3 | 8GB     | 2006-2007 |                   | Huge performance improvement over Netburst                        |
-| intel | Penryn       | Core 2      | LGA775  | DDR2-DDR3 | 8GB     | 2007-2008 |                   | Better perf efficiency                                            |
-| intel | Nehalem      | 1st Gen     | LGA1156 | DDR3      | 16GB    | 2008-2009 |                   | SMT, Memory controller on CPU and monolithic quad-core            |
-| intel | Westmere     | 1st Gen     | LGA1156 | DDR3      | 16GB    | 2010-2011 |                   | Better perf efficiency                                            |
-| intel | Sandy Bridge | 2nd Gen     | LGA1155 | DDR3      | 32GB    | 2011-2012 | M72 tiny          | Add AVX support, good iGPU and greatly improve perf               |
-| intel | Ivy Bridge   | 3rd Gen     | LGA1155 | DDR3      | 32GB    | 2012-2013 | M72 tiny          | Better perf efficiency                                            |
-| intel | Haswell      | 4th Gen     | LGA1150 | DDR3      | 32GB    | 2013-2014 | M73 tiny          | Support AVX2 and FMA3, improve perf                               |
-| intel | Broadwell    | 5th Gen     | LGA1150 | DDR3      | 32GB    | 2014-2015 |                   | Better perf efficiency                                            |
-| intel | Skylake      | 6th Gen     | LGA1151 | DDR3-DDR4 | 64GB    | 2015-2016 | M710q             | HEVC/VP9 8-bit hardware enc/dec, iGPU vulkan and NVMe support     |
-| intel | Kaby Lake    | 7th Gen     | LGA1151 | DDR4      | 64GB    | 2016-2017 | M710q             | HEVC/VP9 10-bit hardware enc/dec support                          |
-| intel | Coffee Lake  | 8-9th Gen   | LGA1151 | DDR4      | 64GB    | 2017-2019 | M720q             | Increase core count and remove hyperthreading on 9th gen CPUs     |
-| intel | Comet Lake   | 10th Gen    | LGA1200 | DDR4      | 128GB   | 2020-2021 | M70q gen 1        | Re-add hyperthreading on most CPUs                                |
-| intel | Rocket Lake  | 11th Gen    | LGA1200 | DDR4      | 128GB   | 2021-2022 | M70q gen 2        | Add AVX-512 support and better perf                               |
-| intel | Alder Lake   | 12th Gen    | LGA1700 | DDR4-DDR5 | 256GB   | 2021-2022 | M70q gen 3        | Remove AVX-512, Pcore and ECore, AV1 hard dec and improve IPC     |
-| intel | Raptor Lake  | 13-14th Gen | LGA1700 | DDR5      | 256GB   | 2022-2023 | M70q gen 4        |                                                                   |
-| intel | Arrow Lake   | 15th Gen    | LGA1700 | DDR5      | 256GB   | 2023-2024 | M70q gen 5        | Remove SMT and greatly improve efficiency                         |
-| AMD   | Excavator    | 4th Gen     | AM4     | DDR4      | 32GB    | 2015-2016 |                   |                                                                   |
-| AMD   | Zen          | 1st Gen     | AM4     | DDR4      | 64GB    | 2017-2018 | M715Q             | Huge performance improvement and on pair with intel Haswell CPUs  |
-| AMD   | Zen+         | 2nd Gen     | AM4     | DDR4      | 64GB    | 2018-2019 |                   |                                                                   |
-| AMD   | Zen 2        | 3rd Gen     | AM4     | DDR4      | 128GB   | 2019-2020 | M70q gen 1/2      | On pair with intel Skylake CPUs and fix most of the issues of Zen |
-| AMD   | Zen 3        | 4th Gen     | AM4     | DDR4      | 128GB   | 2020-2021 | M70q gen 2        | Improve IPC and power efficiency                                  |
-| AMD   | Zen 4        | 5th Gen     | AM5     | DDR5      | 256GB   | 2021-2022 |                   | Add AVX-512 support, better IPC and RDNA iGPU                     |
-| AMD   | Zen 5        | 6th Gen     | AM5     | DDR5      | 256GB   | 2022-2023 | M70q gen 5        | Slightly improve IPC qnd full AVX-512 support                     |
+#### Intel CPU generations
+
+| Brand | CPU arch     | CPU Gen     | Socket  | RAM Type  | Max RAM | Year      | Exemple of SSF PC | Remarks                                                       |
+| ----- | ------------ | ----------- | ------- | --------- | ------- | --------- | ----------------- | ------------------------------------------------------------- |
+| intel | Merom        | Core 2      | LGA775  | DDR2-DDR3 | 8GB     | 2006-2007 |                   | Huge performance improvement over Netburst                    |
+| intel | Penryn       | Core 2      | LGA775  | DDR2-DDR3 | 8GB     | 2007-2008 |                   | Better perf efficiency                                        |
+| intel | Nehalem      | 1st Gen     | LGA1156 | DDR3      | 16GB    | 2008-2009 |                   | SMT, Memory controller on CPU and monolithic quad-core        |
+| intel | Westmere     | 1st Gen     | LGA1156 | DDR3      | 16GB    | 2010-2011 |                   | Better perf efficiency                                        |
+| intel | Sandy Bridge | 2nd Gen     | LGA1155 | DDR3      | 32GB    | 2011-2012 | M72 tiny          | Add AVX support, good iGPU and greatly improve perf           |
+| intel | Ivy Bridge   | 3rd Gen     | LGA1155 | DDR3      | 32GB    | 2012-2013 | M72 tiny          | Better perf efficiency                                        |
+| intel | Haswell      | 4th Gen     | LGA1150 | DDR3      | 32GB    | 2013-2014 | M73 tiny          | Support AVX2 and FMA3, improve perf                           |
+| intel | Broadwell    | 5th Gen     | LGA1150 | DDR3      | 32GB    | 2014-2015 |                   | Better perf efficiency                                        |
+| intel | Skylake      | 6th Gen     | LGA1151 | DDR3-DDR4 | 64GB    | 2015-2016 | M700, M710q       | HEVC/VP9 8-bit hardware enc/dec, iGPU vulkan and NVMe support |
+| intel | Kaby Lake    | 7th Gen     | LGA1151 | DDR4      | 64GB    | 2016-2017 | M710q             | HEVC/VP9 10-bit hardware enc/dec support                      |
+| intel | Coffee Lake  | 8-9th Gen   | LGA1151 | DDR4      | 64GB    | 2017-2019 | M720q             | Increase core count and remove hyperthreading on 9th gen CPUs |
+| intel | Comet Lake   | 10th Gen    | LGA1200 | DDR4      | 128GB   | 2020-2021 | M70q gen 1        | Re-add hyperthreading on most CPUs                            |
+| intel | Rocket Lake  | 11th Gen    | LGA1200 | DDR4      | 128GB   | 2021-2022 | M70q gen 2        | Add AVX-512 support and better perf                           |
+| intel | Alder Lake   | 12th Gen    | LGA1700 | DDR4-DDR5 | 256GB   | 2021-2022 | M70q gen 3        | Remove AVX-512, Pcore and ECore, AV1 hard dec and improve IPC |
+| intel | Raptor Lake  | 13-14th Gen | LGA1700 | DDR5      | 256GB   | 2022-2023 | M70q gen 4, 5     |                                                               |
+| intel | Arrow Lake   | 15th Gen    | LGA1700 | DDR5      | 256GB   | 2023-2024 | M70q gen 6        | Remove SMT and greatly improve efficiency                     |
+
+#### AMD CPU generations
+
+| Brand | CPU arch  | CPU Gen | Socket | RAM Type | Max RAM | Year      | Exemple of SSF PC | Remarks                                                           |
+| ----- | --------- | ------- | ------ | -------- | ------- | --------- | ----------------- | ----------------------------------------------------------------- |
+| AMD   | Excavator | 4th Gen | AM4    | DDR4     | 32GB    | 2015-2016 |                   |                                                                   |
+| AMD   | Zen       | 1st Gen | AM4    | DDR4     | 64GB    | 2017-2018 | M715Q             | Huge performance improvement and on pair with intel Haswell CPUs  |
+| AMD   | Zen+      | 2nd Gen | AM4    | DDR4     | 64GB    | 2018-2019 |                   |                                                                   |
+| AMD   | Zen 2     | 3rd Gen | AM4    | DDR4     | 128GB   | 2019-2020 | M70q gen 1/2      | On pair with intel Skylake CPUs and fix most of the issues of Zen |
+| AMD   | Zen 3     | 4th Gen | AM4    | DDR4     | 128GB   | 2020-2021 | M70q gen 2        | Improve IPC and power efficiency                                  |
+| AMD   | Zen 4     | 5th Gen | AM5    | DDR5     | 256GB   | 2021-2022 |                   | Add AVX-512 support, better IPC and RDNA iGPU                     |
+| AMD   | Zen 5     | 6th Gen | AM5    | DDR5     | 256GB   | 2022-2023 | M70q gen 5        | Slightly improve IPC qnd full AVX-512 support                     |
 
 
 I recommend using **Intel Coffee Lake**, **AMD Zen 2**, or newer CPUs, they offer nice performances and support modern features like NVMe, iGPU Vulkan, HEVC/VP9 10-bit hardware encoding/decoding, AVX2, etc... However, if you’re on a budget, **Haswell** or **Skylake** remains a good option due to the low price of the CPUs and relatively good performance.
@@ -123,7 +130,7 @@ I recommend using **DDR4** or **DDR5** RAM, as it is the most common, well-suppo
 
 - **4GB**: Barebones Linux server, light applications. (small website hosting, router, NAS)  
 - **8GB**: Light to medium applications. (web browsing, office work, small servers)  
-- **16GB**: Recommended for most use cases. (gaming, basic game server, CI build server, light development)  
+- **16GB**: Recommended for most use cases. (basic game server, CI build server, light development)  
 - **32GB+**: Optimal for multitasking. (AAA gaming, video/photo editing, rendering)  
 - **64GB+**: Heavy multitasking. (virtualization, machine learning, scientific computing, CAD)  
 
@@ -163,7 +170,7 @@ Here are general guidelines:
 - **90W**: 65W CPU or 35W CPU + DVD drive/expansion
 - **135W**: 65W CPU + 45W GPU or 100W CPU
 
-**Using an under-dimensioned power supply can damage it.**
+You can gain small performance boosts by using an overpowered PSU, especially with middle/high-end CPUs.
 
 ### Motherboard
 
@@ -201,6 +208,8 @@ In this section, we will see the different models of Lenovo thinkcentre SSF PCs.
 | P360       | Alder Lake        | Intel Q670  | 2x 32GB 4800MHz DDR5  | x8 Gen 4  | 1         | 2        | [PDF](https://psref.lenovo.com/syspool/Sys/PDF/ThinkStation/ThinkStation_P360_Tiny/ThinkStation_P360_Tiny_Spec.pdf) |
 | M70q Gen 3 | Alder Lake        | Intel Q670  | 2x 32GB 3200MHz DDR4  | -         | 1         | 2        | [PDF](https://psref.lenovo.com/syspool/Sys/PDF/ThinkCentre/ThinkCentre_M70q_Gen_3/ThinkCentre_M70q_Gen_3_Spec.pdf)  |
 | M75q Gen 5 | AMD Zen 4         | AMD Pro 600 | 2x 32GB 5200MHz DDR5  | -         | 1         | 1        | [PDF](https://psref.lenovo.com/syspool/Sys/PDF/ThinkCentre/ThinkCentre_M75q_Gen_5/ThinkCentre_M75q_Gen_5_Spec.pdf)  |
+| M70q Gen 5 | Raptor Lake       | Intel Q670  | 2x 32GB 5600MHz DDR5  | -         | 0         | 2        | [PDF](https://psref.lenovo.com/syspool/Sys/PDF/ThinkCentre/ThinkCentre_M70q_Gen_5/ThinkCentre_M70q_Gen_5_Spec.pdf)  |
+| M70q Gen 6 | Arrow Lake        | Intel Q870  | 2x 32GB 5600MHz DDR5  | -         | 0         | 2        | [PDF](https://psref.lenovo.com/syspool/Sys/PDF/ThinkCentre/ThinkCentre_M70q_Gen_6/ThinkCentre_M70q_Gen_6_Spec.pdf)  |
 
 **¹**: You need proprietary riser card to use the PCIe slot
 
@@ -210,17 +219,19 @@ In this section, we will see the different models of Lenovo thinkcentre SSF PCs.
 
 Bios simulator: [Simulator](https://download.lenovo.com/bsco/index.html#/)
 
-### M720q and M920q
+### M720q, M920q and M920x
+
+#### Ports
 
 #### CPU
 
-The M720q supports all **8th** and **9th** generation Intel 35W CPUs (models with **T** suffix), the **i7-9900T** is the most powerful CPU available for this model, but it is very expensive and hard to find, the i3-8100T, i3-9100T, i5-8500T, i5-8600T, i5-9500T, i5-9600T, i7-8700T, i7-9700T are far more common, affordable and offer nice performances.
+The M720q/M920q supports all **8th** and **9th** generation Intel 35W CPUs (models with **T** suffix), the **i7-9900T** is the most powerful CPU available for this model, but it is very expensive and hard to find, the i3-8100T, i3-9100T, i5-8500T, i5-8600T, i5-9500T, i5-9600T, i7-8700T, i7-9700T are far more common, affordable and offer nice performances.
 
-Avoid celeron and pentium CPUs, they are pretty slow (missing AVX2, FMA3, etc...), **do not use CPUs with a higher TDP than 35W**, this can cause overheating and potentially damage your motherboard or PSU.
+Avoid celeron and pentium CPUs, they are pretty slow (missing AVX2, FMA3, etc...), **do not use CPUs with a higher TDP than 35W (65W on M920x)**, this can cause overheating and potentially damage your motherboard or PSU.
 
 #### RAM
 
-The M720q have **two DDR4 SODIMM slots** with a maximum capacity of **64GB** (2x32GB), the maximum frequency is **2400MHz** or **2666MHz** on i5/i7 CPUs, you can use higher frequency RAM, it will downclock to the CPU supported frequency.
+The M720q/M920q/M920x have **two DDR4 SODIMM slots** with a maximum capacity of **64GB** (2x32GB), the maximum frequency is **2400MHz** or **2666MHz** on i5/i7 CPUs, you can use higher frequency RAM, it will downclock to the CPU supported frequency.
 
 #### Storage
 
@@ -228,11 +239,13 @@ You have **two** storage options:
 - **M.2 NVMe**: Only one slot and support PCIe x4 Gen 3, the best choice.
 - **2.5" SATA**: Slower but it be a good alternative if you need more storage or don't have an M.2 NVMe SSD.
 
-The the **second M.2 slot** is limited to SATA on M720q, NVMe on M920q, you can solder missing components to get working M.2: [https://github.com/badger707/m920q-dual-NVME](https://github.com/badger707/m920q-dual-NVME)
+The the **second M.2 slot** missing NVMe on M720q/M920q, you can solder missing components to get working M.2 (SATA): [https://github.com/badger707/m920q-dual-NVME](https://github.com/badger707/m920q-dual-NVME)
 
 #### GPU
 
 All compatible CPU have an integrated GPU, if it is not enough, you can add a **low-profile** GPU with **proprietary PCIe riser card**, you are limited with PCIe 3.0 x8 and 45W TDP. (you also need 135W PSU)
+
+The M720q/M920q does not support HDR through HDMI (1.4) or DisplayPort (1.2a) but 10bit color depth is supported.
 
 #### PSU
 
