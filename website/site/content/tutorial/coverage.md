@@ -96,6 +96,8 @@ cmake -S . -B build -G Ninja -DCMAKE_CXX_FLAGS="-O0 -g --coverage" -DCMAKE_EXE_L
 
 The `--coverage` option is equivalent to `-fprofile-arcs -ftest-coverage` for GCC/Clang, in a classic project, it is preferable to use CMake presets rather than specifying the options manually.
 
+The `-O0` and `-g` options are used to disable optimizations and include debugging information for accurate code coverage.
+
 ### Running Tests
 
 Once the project is compiled, you can run the tests, this will generate files on which GCOVR relies to generate coverage reports:

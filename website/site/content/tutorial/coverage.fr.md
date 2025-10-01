@@ -94,7 +94,9 @@ Pour que la couverture de code fonctionne, le projet doit être compilé avec le
 cmake -S . -B build -G Ninja -DCMAKE_CXX_FLAGS="-O0 -g --coverage" -DCMAKE_EXE_LINKER_FLAGS="--coverage" && cmake --build build
 ```
 
-L'option `--coverage` est équivalente à `-fprofile-arcs -ftest-coverage` pour GCC/Clang, dans un projet classique, il est préférable d'utiliser des presets CMake plutôt que de spécifier les options manuellement.
+L'option `--coverage` est équivalente à `-fprofile-arcs -ftest-coverage` pour GCC/Clang, dans un projet classique, il est **préférable** d'utiliser des presets CMake plutôt que de spécifier les options manuellement.
+
+Les options `-O0` et `-g` sont utilisées pour désactiver les optimisations et inclure les informations de débogage pour une couverture de code précise.
 
 ### Exécution des tests
 

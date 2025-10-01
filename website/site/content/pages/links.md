@@ -32,6 +32,8 @@ Here is a list of useful links.
   - [PSU Tier List (Outdated)](https://cultists.network/140/psu-tier-list/)
 - **PC**
   - [ZTT Build help](https://www.zachstechturf.com/buildhelp)
+- **Smartphones**
+  - [googleapis](https://storage.googleapis.com/play_public/supported_devices.html) - Google Play supported devices
 
 ## Linux & Open-Source News
 

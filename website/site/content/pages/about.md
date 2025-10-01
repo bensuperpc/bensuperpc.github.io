@@ -65,7 +65,7 @@ Specifications:
 
 - {{ fontawesome(icon="fa-laptop") }} Framework Laptop 13 (2023)
 - {{ fontawesome(icon="fa-microchip") }} AMD Ryzen 7 7840U 8c16t
-- {{ fontawesome(icon="fa-memory") }} 2x32GB Corsair Fury impact PnP DDR5 5600MHz
+- {{ fontawesome(icon="fa-memory") }} 2x48GB Crucial DDR5 5600MHz
 - {{ fontawesome(icon="fa-square-caret-right") }} AMD Radeon 780M
 - {{ fontawesome(icon="fa-hard-drive") }} 2TB Samsung 990 PRO NVMe PCIe 4.0 SSD
 - {{ fontawesome(icon="fa-bolt") }} Anker Prime 100W 2023
@@ -126,12 +126,33 @@ Here is the history of the evolution of my main computer:
 | 2005  |    Custom desktop    | AMD Athlon 64 3000+  |   Nvidia FX 5200 128MB   |  1GB DDR 400MHz   | 250GB HDD  |      ?      |  17" 1280x1024  |
 | 2009  |   Custom  desktop    | AMD Athlon 64 3700+  | ATI Radeon HD 3450 512MB |  1GB DDR 400MHz   | 500GB HDD  |      ?      |  17" 1280x1024  |
 | 2012  |   Custom  desktop    | AMD Athlon II X2 250 |    Nvidia GT 210 1GB     | 4GB DDR3 1333MHz  | 500GB HDD  |      ?      |  17" 1280x1024  |
-| 2013  |   Custom   desktop   |    Intel i3 3240     |    Nvidia GTX 650 2GB    | 32GB DDR3 1600MHz | 128GB SSD  | Akasa 550W  |  17" 1280x1024  |
+| 2013  |   Custom  desktop    |    Intel i3 3240     |    Nvidia GTX 650 2GB    | 32GB DDR3 1600MHz | 128GB SSD  | Akasa 550W  |  17" 1280x1024  |
 | 2015  | Lenovo Ideapad Z710  |   Intel i7 4710MQ    |    Nvidia GT 840 2GB     | 8GB DDR3 1600MHz  | 128GB SSD  | Lenovo 90W  | 17.3" 1600x900  |
 | 2018  |    HP Zbook G3 15    |   Intel i7 6700HQ    |    Quadro M2000M 4GB     | 32GB DDR4 2133MHz | 512GB SSD  |   HP 200W   | 17.3" 1920x1080 |
 | 2019  |      HP Omen 17      |    Intel i7 9750H    |   Nvidia RTX 2070 8GB    | 16GB DDR4 2933MHz | 512GB NVMe |   HP 230W   | 17.3" 1920x1080 |
-| 2021  | Lenovo Legion 15 pro |  AMD Ryzen 7 5800H   |   Nvidia RTX 3070 8GB    | 32GB DDR4 3200MHz |  1TB NVMe  | Lenovo 300W |  16" 2560x1600  |
+| 2021  | Lenovo Legion 15 pro |  AMD Ryzen 7 5800H   |   Nvidia RTX 3070 8GB    | 32GB DDR4 3200MHz |  1TB NVMe  | Lenovo 300W | 32" 1440p 240Hz |
 | 2024  |  Custom    desktop   |  AMD Ryzen 7 5700X   |  Nvidia RTX 3060 Ti 8GB  | 64GB DDR4 3200MHz |  1TB NVMe  | MPG A1000G  | 32" 1440p 240Hz |
+
+The evolution of my servers:
+
+| Date  |               Model                |          CPU          |          GPU           |        RAM         |       Memory        |    PSU     |
+| :---: | :--------------------------------: | :-------------------: | :--------------------: | :----------------: | :-----------------: | :--------: |
+| 2018  |        Dell PowerEdge R710         |    2x x5650 6c12t     |   Nvidia GT 210 1GB    | 36GB DDR3 1333MHz  | 6x 160TB HDD RAID10 |  2x 870W   |
+| 2020  |     Raspberry Pi 4 Model B 8GB     |   Broadcom BCM2711    |      VideoCore VI      | 8GB LPDDR4 3200MHz |       64GB SD       | Raspberry  |
+| 2022  |    Lenovo Thinkcentre Tiny M73     |  Intel i7 4780T 4c8t  | Intel HD Graphics 4600 | 16GB DDR3 1600MHz  |      256GB SSD      | Lenovo 65W |
+| 2023  |   Lenovo Thinkcentre Tiny M710q    |  Intel i7 7700T 4c8t  | Intel HD Graphics 630  | 16GB DDR4 2133MHz  |      256GB SSD      | Lenovo 65W |
+| 2024  |   Lenovo Thinkcentre Tiny M920q    |  Intel i7 9700T 8c8t  | Intel UHD Graphics 630 | 32GB DDR4 2666MHz  |       2To SSD       | Lenovo 90W |
+| 2025  | Lenovo Thinkcentre Tiny M70q Gen 5 | Intel i3 13100T 4c8t  | Intel UHD Graphics 730 | 32GB DDR5 5600MHz  |       2To SSD       | Lenovo 65W |
+| 2025  | Lenovo Thinkcentre Tiny M75q Gen 2 | Intel R5 5650GE 6c12t |   AMD Radeon Vega 7    | 32GB DDR4 3200MHz  |       2To SSD       | Lenovo 90W |
+
+The evolution of my work computer:
+
+| Date  |            Model             |         CPU          |          GPU           |        RAM        |  Memory   |    PSU     |
+| :---: | :--------------------------: | :------------------: | :--------------------: | :---------------: | :-------: | :--------: |
+| 2017  | Lenovo Thinkcentre Tiny M710 | Intel i5 6500T 4c8t  | Intel HD Graphics 530  | 16GB DDR4 2133MHz | 500GB HDD | Lenovo 65W |
+| 2020  |      Dell Latitude 55x0      | Intel i5 8250U 4c8t  | Intel HD Graphics 620  | 16GB DDR4 2133MHz | 500GB HDD |    Dell    |
+| 2023  |         Dell XPS 13          | Intel i5 1135G7 4c8t | Intel Iris Xe Graphics | 32GB DDR4 3200MHz |  1TB SSD  | Dell usb C |
+
 
 The history of the evolution of my main smartphone:
 
@@ -147,15 +168,6 @@ The history of the evolution of my main smartphone:
 | 2025  | Google Pixel 6  | Google Tensor G1  |   Mali-G78 MP20   |  8GB LPDDR5  | 256GB UFS 3.1  | Anker A2343 |  AMOLED 6.4" 1080p 90Hz  |
 | 2025  | Fairphone Gen 6 | Qualcomm 7s Gen 3 |    Adreno 810     | 8GB LPDDR5X  | 256GB UFS 3.1  | Anker A2343 | AMOLED 6.31" 1080p 120Hz |
 
-And finally the main server evolution:
-
-| Date  |               Model                |         CPU          |          GPU           |        RAM         |  Memory   |    PSU     |
-| :---: | :--------------------------------: | :------------------: | :--------------------: | :----------------: | :-------: | :--------: |
-| 2020  |     Raspberry Pi 4 Model B 8GB     |   Broadcom BCM2711   |      VideoCore VI      | 8GB LPDDR4 3200MHz |  64GB SD  | Raspberry  |
-| 2022  |    Lenovo Thinkcentre Tiny M73     | Intel i7 4780T 4c8t  | Intel HD Graphics 4600 | 16GB DDR3 1600MHz  | 256GB SSD | Lenovo 65W |
-| 2023  |   Lenovo Thinkcentre Tiny M710q    | Intel i7 7700T 4c8t  | Intel HD Graphics 630  | 16GB DDR4 2133MHz  | 256GB SSD | Lenovo 65W |
-| 2024  |   Lenovo Thinkcentre Tiny M920q    | Intel i7 9700T 8c8t  | Intel UHD Graphics 630 | 32GB DDR4 2666MHz  |  2To SSD  | Lenovo 90W |
-| 2025  | Lenovo Thinkcentre Tiny M70q Gen 5 | Intel i3 13100T 4c8t | Intel UHD Graphics 730 | 32GB DDR5 5600MHz  |  2To SSD  | Lenovo 65W |
 
 ## My cats
 
