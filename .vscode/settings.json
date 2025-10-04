@@ -18,5 +18,6 @@
             "**/.git/subtree-cache/**": true
     },
     "search.followSymlinks": false,
-    "python.analysis.diagnosticMode": "openFilesOnly"
+    "python.analysis.diagnosticMode": "openFilesOnly",
+    "markdown.validate.enabled": true
 }

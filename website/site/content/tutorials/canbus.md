@@ -3,7 +3,7 @@ title = "CAN bus under Linux (WIP)"
 description = "CAN bus"
 date = 2025-02-01T00:00:00Z
 draft = false
-aliases = ["fr/tutorial/canbus"]
+aliases = ["fr/tutorials/canbus"]
 
 [taxonomies]
 tags = ["Features","CAN", "bus"]

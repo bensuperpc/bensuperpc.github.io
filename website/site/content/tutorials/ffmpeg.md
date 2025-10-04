@@ -3,7 +3,7 @@ title = "Tutorial on FFMPEG (WIP)"
 description = "Tutorial on FFMPEG"
 date = 2025-02-16T00:00:00Z
 draft = false
-aliases = ["fr/tutorial/ffmpeg"]
+aliases = ["fr/tutorials/ffmpeg"]
 
 [taxonomies]
 tags = ["Features","FFMPEG", "AV1", "x265", "x264", "SVT-AV1", "Rav1e", "Audio", "Video", "Image", "Metadata"]

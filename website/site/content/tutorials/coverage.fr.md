@@ -3,7 +3,7 @@ title = "Couverture de code C++ avec CMake et GCOVR"
 description = "Ce tutoriel montre comment configurer un projet C++ avec CMake et GCOVR pour générer des rapports de couverture de code."
 date = 2025-08-07T00:00:00Z
 draft = false
-aliases = ["fr/tutorial/code-coverage"]
+aliases = ["fr/tutorials/code-coverage"]
 
 [taxonomies]
 tags = ["Features","Code coverage", "Testing", "GCOVR"]
@@ -18,7 +18,7 @@ series = "Features"
 
 ## Introduction
 
-Ce tutoriel montre comment configurer un projet C/C++ avec CMake et GCOVR afin de générer des rapports de couverture de code, cela permet de vérifier précisément quelles parties du code source et quelles branches conditionnelles (if, switch...) sont effectivement couvertes par les tests.
+Ce tutoriel montre comment configurer un projet C/C++ avec CMake et GCOVR afin de générer des rapports de couverture de code, ce qui permet de vérifier précisément quelles parties du code source et quelles branches conditionnelles (if, switch...) sont effectivement couvertes par les tests.
 
 Nous utiliserons un petit projet d'exemple basé sur Google Test, mais la méthode est également compatible avec d'autres frameworks comme **Catch2**, **Boost.Test** ou **Doctest**.
 
@@ -84,19 +84,19 @@ Voici l’arborescence du projet :
 4 directories, 10 files
 ```
 
-Vous pouvez télécharger le projet d'exemple: {{ static_link(label="tuto_coverage.7z", file="/tutorial/sources/tuto_coverage.7z") }}
+Vous pouvez **télécharger** le projet d'exemple: {{ static_link(label="tuto_coverage.7z", file="/posts/tutorials/sources/tuto_coverage.7z") }}
 
 ### Compilation avec couverture
 
-Pour que la couverture de code fonctionne, le projet doit être compilé avec les options : `-O0 -g --coverage` et `--coverage` pour le linkage.
+Pour que la couverture de code fonctionne, le projet doit être compilé avec les options : `-O0 -g3 --coverage` et `--coverage` pour le linkage.
 
 ```bash
-cmake -S . -B build -G Ninja -DCMAKE_CXX_FLAGS="-O0 -g --coverage" -DCMAKE_EXE_LINKER_FLAGS="--coverage" && cmake --build build
+cmake -S . -B build -G Ninja -DCMAKE_CXX_FLAGS="-O0 -g3 --coverage" -DCMAKE_EXE_LINKER_FLAGS="--coverage" && cmake --build build
 ```
 
 L'option `--coverage` est équivalente à `-fprofile-arcs -ftest-coverage` pour GCC/Clang, dans un projet classique, il est **préférable** d'utiliser des presets CMake plutôt que de spécifier les options manuellement.
 
-Les options `-O0` et `-g` sont utilisées pour désactiver les optimisations et inclure les informations de débogage pour une couverture de code précise.
+Les options `-O0` et `-g3` sont utilisées pour désactiver les optimisations et inclure les informations de débogage pour une couverture de code précise.
 
 ### Exécution des tests
 
@@ -148,12 +148,12 @@ Total Test time (real) =   0.02 sec
 Après l'exécution des tests, vous pouvez générer un rapport de couverture avec GCOVR, ici nous générons un rapport HTML pour visualiser la couverture de code, mais vous pouvez également générer des rapports en texte brut, XML ou JSON.
 
 ```bash
-gcovr --root "." --decisions --calls --html-theme "green" --exclude "tests/*" --exclude "build/*" --exclude "main.cpp" --html --html-details --output "build/coverage.html"
+gcovr --root . --decisions --calls --html-theme "green" --exclude "tests/*" --exclude "build/*" --exclude "main.cpp" --html --html-details --output "build/coverage.html"
 ```
 
 |              Option              |                        Description                        |
 | :------------------------------: | :-------------------------------------------------------: |
-|           `--root "."`           |      Définit le répertoire racine pour la couverture      |
+|            `--root .`            |      Définit le répertoire racine pour la couverture      |
 |          `--decisions`           |    Inclut les décisions de couverture dans le rapport     |
 |            `--calls`             |       Inclut les appels de fonction dans le rapport       |
 |      `--html-theme "green"`      |         Définit le thème du rapport HTML en vert          |
@@ -164,27 +164,71 @@ gcovr --root "." --decisions --calls --html-theme "green" --exclude "tests/*" --
 |         `--html-details`         |          Inclut les détails dans le rapport HTML          |
 | `--output "build/coverage.html"` | Spécifie le nom du fichier de sortie pour le rapport HTML |
 
-Une fois le rapport HTML généré, vous pouvez l'ouvrir dans votre navigateur pour visualiser la couverture de code, il devrait être généré dans le fichier `build/coverage.html`.
+GCovr va generer entre 5 fichiers dans le dossier `build` :
+
+- `coverage.html` : Rapport HTML principal
+- `coverage.css` : Fichier CSS pour le style du rapport HTML
+- `coverage.functions.html` : Rapport du nombre d'appels par fonction
+- `coverage.math.cpp.xxxxxxx.html` : Rapport de couverture pour le fichier `math.cpp`
+- `coverage.physics.cpp.xxxxxxx.html` : Rapport de couverture pour le fichier `physics.cpp`
+
+Vous pouvez ouvrir `build/coverage.html` dans votre navigateur pour visualiser la couverture de code puis aller plus en détail pour chaque fichier source.
 
 Voici le rendu du rapport sur le navigateur :
 
-{{ img(src="/tutorial/images/Screenshot_20250807_100908.webp" class="b1" alt="Page principale" caption="Page principale" link="") }}
+{{ img(src="/posts/tutorials/coverage/images/Screenshot_20250807_100908.webp" class="b1" alt="Rapport de couverture GCovr montrant la couverture par fichier" caption="Rapport de couverture GCovr montrant la couverture par fichier" link="") }}
 
-{{ img(src="/tutorial/images/Screenshot_20250807_101010.webp" class="b1" alt="Page secondaire" caption="Page secondaire" link="") }}
+{{ img(src="/posts/tutorials/coverage/images/Screenshot_20250807_101010.webp" class="b1" alt="Page secondaire" caption="Page secondaire" link="") }}
 
 #### Rapport en XML ou JSON
 
 Vous pouvez également générer un rapport en XML ou JSON pour une intégration avec d'autres outils :
 
 ```bash
-gcovr --root "." --decisions --calls --exclude "tests/*" --exclude "build/*" --exclude "main.cpp" --xml-pretty --output "build/coverage.xml"
+gcovr --root . --decisions --calls --exclude "tests/*" --exclude "build/*" --exclude "main.cpp" --xml-pretty --output "build/coverage.xml"
 ```
 
 Ou en JSON :
 
 ```bash
-gcovr --root "." --decisions --calls --exclude "tests/*" --exclude "build/*" --exclude "main.cpp" --json-pretty --output "build/coverage.json"
+gcovr --root . --decisions --calls --exclude "tests/*" --exclude "build/*" --exclude "main.cpp" --json-pretty --output "build/coverage.json"
 ```
+
+### Coverage dans CI/CD
+
+Vous pouvez intégrer la génération de rapports de couverture dans vos pipelines CI/CD avec GitHub Actions, GitLab CI/CD ou Jenkins.
+
+Voici un exemple de configuration pour Gitlab CI/CD :
+
+```yaml
+variables:
+  MINIMUM_LINE_COVERAGE: 67
+  MINIMUM_FUNCTION_COVERAGE: 55
+  MINIMUM_BRANCH_COVERAGE: 20
+
+stages:
+  - coverage
+
+coverage-generic:
+    stage: coverage
+    image: gcc:latest
+    script:
+        - apt-get update && apt-get install -y cmake build-essential g++ gcovr ninja-build libgtest-dev
+        - cmake -S . -B build -G Ninja -DCMAKE_CXX_FLAGS="-O0 -g3 --coverage" -DCMAKE_EXE_LINKER_FLAGS="--coverage"
+        - cmake --build build
+        - ctest --test-dir build --output-on-failure --no-tests=error --repeat until-fail:1 --schedule-random --parallel 1
+        - gcovr --root . --decisions --calls --html-theme "green" --exclude "tests/*" --exclude "build/*" --exclude "main.cpp" --html --html-details --output "build/coverage.html"
+        - gcovr --root . --decisions --calls --html-theme "green" --exclude "tests/*" --exclude "build/*" --exclude "main.cpp" --xml-pretty -o "build/coverage.xml"
+        - gcovr --root . --decisions --calls --print-summary --fail-under-line $MINIMUM_LINE_COVERAGE --fail-under-function $MINIMUM_FUNCTION_COVERAGE --fail-under-branch $MINIMUM_BRANCH_COVERAGE
+    artifacts:
+        when: always
+        paths:
+        - build/*.html
+        - build/*.css
+        - build/*.xml
+        coverage: '/^TOTAL.*\s+(\d+\%)$/'
+```
+
 
 ## Sources
 

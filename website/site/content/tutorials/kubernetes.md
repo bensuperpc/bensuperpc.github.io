@@ -3,7 +3,7 @@ title = "Deploy Traefik as a reverse proxy with Kubernetes"
 description = "Deploy Traefik as a reverse proxy with Kubernetes"
 date = 2025-05-25T00:00:00Z
 draft = false
-aliases = ["fr/tutorial/kubernetes"]
+aliases = ["fr/tutorials/kubernetes"]
 
 [taxonomies]
 tags = ["Features","kubernetes", "Reverse proxy", "Nginx", "Traefik"]
