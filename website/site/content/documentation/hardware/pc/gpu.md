@@ -45,13 +45,13 @@ You can find below a list of GPU architectures and their corresponding Mesa driv
 
 ### Mesa drivers
 
-| **Driver name**                                         | **Type** | **Version** | **GFX Core** |
-| ------------------------------------------------------- | -------- | ----------- | ------------ |
-| r200 ([mesa-amber](https://docs.mesa3d.org/amber.html)) | OpenGL   | 1.5         | GFX1         |
-| r300                                                    | OpenGL   | 1.5         | GFX2         |
-| r600                                                    | OpenGL   | 3.3         | GFX3-GFX5    |
-| radeonsi                                                | OpenGL   | 4.6         | GFX6-GFX11   |
-| radv                                                    | Vulkan   | 1.4         | GFX6-GFX11   |
+| **Driver name**                                       | **Type** | **Version** | **GFX Core** |
+| ----------------------------------------------------- | -------- | ----------- | ------------ |
+| r200 [mesa-amber](https://docs.mesa3d.org/amber.html) | OpenGL   | 1.5         | GFX1         |
+| r300                                                  | OpenGL   | 1.5         | GFX2         |
+| r600                                                  | OpenGL   | 3.3         | GFX3-GFX5    |
+| radeonsi                                              | OpenGL   | 4.6         | GFX6-GFX11   |
+| radv                                                  | Vulkan   | 1.4         | GFX6-GFX11   |
 
 ## Intel Graphics
 

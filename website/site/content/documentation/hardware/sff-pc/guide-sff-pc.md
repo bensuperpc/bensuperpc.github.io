@@ -174,7 +174,7 @@ You can gain small performance boosts by using an overpowered PSU, especially wi
 
 ### Motherboard
 
-Like the PSU, most SFF PCs have a **proprietary motherboard**. Sometimes, you can replace it with another model from the same brand (e.g., an M920Q motherboard in an M720Q). However, in most cases, it is best to stick with the original motherboard model.
+Like the PSU, most SFF PCs have a **proprietary motherboard**, sometimes, you can replace it with another model from the same brand (e.g., an M920Q motherboard in an M720Q). However, in most cases, it is best to stick with the original motherboard model.
 
 ## Lenovo thinkcentre SSF PCs
 
@@ -182,7 +182,7 @@ In this section, we will see the different models of Lenovo thinkcentre SSF PCs.
 
 | Model      | CPU               | Chipset     | SODIMM RAM            | PCIe      | 2.5" Sata | m.2 NVMe | PSREF                                                                                                               |
 | ---------- | ----------------- | ----------- | --------------------- | --------- | --------- | -------- | ------------------------------------------------------------------------------------------------------------------- |
-| M72 tiny   | ivy bridge        | Intel H61   | 2x 8GB 1600MHz DDR3   | -         | 1         | -        |                                                                                                                     |
+| M72 tiny   | ivy bridge        | Intel H61   | 2x 8GB 1600MHz DDR3   | -         | 1         | -        | [PDF](https://psref.lenovo.com/syspool/Sys/PDF/withdrawnbook/M72e.pdf)                                              |
 | M92 tiny   | ivy bridge        | Intel Q77   | 2x 8GB 1600MHz DDR3   | -         | 1         | -        |                                                                                                                     |
 | M73 tiny   | Haswell           | Intel H81   | 2x 8GB 1600MHz DDR3   | -         | 1         | -        | [PDF](https://psref.lenovo.com/syspool/Sys/PDF/ThinkCentre/ThinkCentre_M73_Tiny/ThinkCentre_M73_Tiny_Spec.pdf)      |
 | M83 tiny   | Haswell           | Intel Q85   | 2x 8GB 1600MHz DDR3   | -         | 1         | -        | [PDF](https://psref.lenovo.com/syspool/Sys/PDF/ThinkCentre/ThinkCentre_M83_Tiny/ThinkCentre_M83_Tiny_Spec.pdf)      |
@@ -208,6 +208,7 @@ In this section, we will see the different models of Lenovo thinkcentre SSF PCs.
 | P360       | Alder Lake        | Intel Q670  | 2x 32GB 4800MHz DDR5  | x8 Gen 4  | 1         | 2        | [PDF](https://psref.lenovo.com/syspool/Sys/PDF/ThinkStation/ThinkStation_P360_Tiny/ThinkStation_P360_Tiny_Spec.pdf) |
 | M70q Gen 3 | Alder Lake        | Intel Q670  | 2x 32GB 3200MHz DDR4  | -         | 1         | 2        | [PDF](https://psref.lenovo.com/syspool/Sys/PDF/ThinkCentre/ThinkCentre_M70q_Gen_3/ThinkCentre_M70q_Gen_3_Spec.pdf)  |
 | M75q Gen 5 | AMD Zen 4         | AMD Pro 600 | 2x 32GB 5200MHz DDR5  | -         | 1         | 1        | [PDF](https://psref.lenovo.com/syspool/Sys/PDF/ThinkCentre/ThinkCentre_M75q_Gen_5/ThinkCentre_M75q_Gen_5_Spec.pdf)  |
+| M70q Gen 4 | Raptor Lake       | Intel Q670  | 2x 32GB 5600MHz DDR5  | -         | 0         | 2        | [PDF](https://psref.lenovo.com/syspool/Sys/PDF/ThinkCentre/ThinkCentre_M70q_Gen_4/ThinkCentre_M70q_Gen_4_Spec.pdf)  |
 | M70q Gen 5 | Raptor Lake       | Intel Q670  | 2x 32GB 5600MHz DDR5  | -         | 0         | 2        | [PDF](https://psref.lenovo.com/syspool/Sys/PDF/ThinkCentre/ThinkCentre_M70q_Gen_5/ThinkCentre_M70q_Gen_5_Spec.pdf)  |
 | M70q Gen 6 | Arrow Lake        | Intel Q870  | 2x 32GB 5600MHz DDR5  | -         | 0         | 2        | [PDF](https://psref.lenovo.com/syspool/Sys/PDF/ThinkCentre/ThinkCentre_M70q_Gen_6/ThinkCentre_M70q_Gen_6_Spec.pdf)  |
 
@@ -227,11 +228,11 @@ Bios simulator: [Simulator](https://download.lenovo.com/bsco/index.html#/)
 
 The M720q/M920q supports all **8th** and **9th** generation Intel 35W CPUs (models with **T** suffix), the **i7-9900T** is the most powerful CPU available for this model, but it is very expensive and hard to find, the i3-8100T, i3-9100T, i5-8500T, i5-8600T, i5-9500T, i5-9600T, i7-8700T, i7-9700T are far more common, affordable and offer nice performances.
 
-Avoid celeron and pentium CPUs, they are pretty slow (missing AVX2, FMA3, etc...), **do not use CPUs with a higher TDP than 35W (65W on M920x)**, this can cause overheating and potentially damage your motherboard or PSU.
+Avoid Celeron and Pentium, they are pretty slow (missing AVX2, FMA3, etc...), **do not use CPUs with a higher TDP than 35W (65W on M920x)**, this can cause overheating and potentially damage your motherboard (like VRMs) or PSU.
 
 #### RAM
 
-The M720q/M920q/M920x have **two DDR4 SODIMM slots** with a maximum capacity of **64GB** (2x32GB), the maximum frequency is **2400MHz** or **2666MHz** on i5/i7 CPUs, you can use higher frequency RAM, it will downclock to the CPU supported frequency.
+The M720q/M920q/M920x have **two DDR4 SODIMM slots** with a maximum capacity of **64GB** (2x32GB), the maximum frequency is **2400MHz** or **2666MHz** on i5/i7 CPUs, you can use higher frequency, it will downclock to the CPU supported frequency.
 
 #### Storage
 

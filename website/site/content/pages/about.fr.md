@@ -48,14 +48,13 @@ Mon serveur principal est un thinkcentre M720q, je l'utilise pour mes serveurs d
 
 Specifications:
 
-- {{ fontawesome(icon="fa-computer") }} Lenovo ThinkCentre M720q (2018)
-- {{ fontawesome(icon="fa-microchip") }} Intel I7 9700T 8c8t
-- {{ fontawesome(icon="fa-memory") }} 2x16GB Corsair Vengeance DDR4 3200MHz (Downclocked to 2666MHz)
-- {{ fontawesome(icon="fa-square-caret-right") }} Intel UHD 630
-- {{ fontawesome(icon="fa-chess-board") }} Lenovo ThinkCentre M720q motherboard
-- {{ fontawesome(icon="fa-hard-drive") }} 2TB Samsung 970 EVO Plus NVMe PCIe 3.0 SSD
-- {{ fontawesome(icon="fa-hard-drive") }} 500GB NONAME SATA SSD
-- {{ fontawesome(icon="fa-bolt") }} Lenovo proprietary charger 90W
+- {{ fontawesome(icon="fa-computer") }} Lenovo ThinkCentre M70q Gen 5
+- {{ fontawesome(icon="fa-microchip") }} Intel i5 14500T 14c20t
+- {{ fontawesome(icon="fa-memory") }} 2x32GB DDR5 5600MHz (Downclocked to 4800MHz)
+- {{ fontawesome(icon="fa-square-caret-right") }} Intel UHD 770
+- {{ fontawesome(icon="fa-chess-board") }} Lenovo ThinkCentre M70q Gen 5 motherboard
+- {{ fontawesome(icon="fa-hard-drive") }} 2TB Samsung 990 Pro NVMe PCIe 4.0 SSD
+- {{ fontawesome(icon="fa-bolt") }} Lenovo proprietary charger 135W
 
 ### Ordinateur portable principal
 
@@ -79,7 +78,7 @@ Mon ordinateur portable secondaire est un Lenovo ThinkPad T480, pour des projets
 Specifications:
 
 - {{ fontawesome(icon="fa-laptop") }} Lenovo ThinkPad T480 (2018)
-- {{ fontawesome(icon="fa-microchip") }} Intel I5 8350U 4c8t
+- {{ fontawesome(icon="fa-microchip") }} Intel i5 8350U 4c8t
 - {{ fontawesome(icon="fa-memory") }} 2x16GB Corsair Vengeance DDR4 2400MHz
 - {{ fontawesome(icon="fa-square-caret-right") }} Intel UHD 620
 - {{ fontawesome(icon="fa-hard-drive") }} 512Go Samsung 970 PRO NVMe PCIe 3.0 SSD
@@ -90,32 +89,18 @@ Specifications:
 
 ### Smartphone principal
 
-Mon smartphone principal est un Google Pixel 6:
+Mon smartphone principal est un Fairphone Gen 6
 
 Specifications:
 
-- {{ fontawesome(icon="fa-mobile") }} Google Pixel 6 (2021)
-- {{ fontawesome(icon="fa-microchip") }} Google Tensor G1 (8c8t)
+- {{ fontawesome(icon="fa-mobile") }} Fairphone Gen 6 (2025)
+- {{ fontawesome(icon="fa-microchip") }} Qualcomm 7s Gen 3
 - {{ fontawesome(icon="fa-memory") }} 8GB LPDDR5
-- {{ fontawesome(icon="fa-square-caret-right") }} Mali-G78 MP20
-- {{ fontawesome(icon="fa-hard-drive") }} 256GB UFS 3.1
+- {{ fontawesome(icon="fa-square-caret-right") }} Adreno 810
+- {{ fontawesome(icon="fa-hard-drive") }} 256GB
 - {{ fontawesome(icon="fa-bolt") }} 30W USB PD 3.0
-- {{ fontawesome(icon="fa-desktop") }} Built-in 6.4" 1080p 90Hz
+- {{ fontawesome(icon="fa-desktop") }} Built-in 6.31" 1080p 120Hz
 
-### Smartphone secondaire
-
-Mon smartphone secondaire est un Oneplus 8:
-
-Specifications:
-
-- {{ fontawesome(icon="fa-mobile") }} Oneplus 8 (2020)
-- {{ fontawesome(icon="fa-microchip") }} Qualcomm Snapdragon 865 (8c8t)
-- {{ fontawesome(icon="fa-memory") }} 12GB LPDDR4 4266MHz
-- {{ fontawesome(icon="fa-square-caret-right") }} Adreno 650
-- {{ fontawesome(icon="fa-hard-drive") }} 256GB UFS 3.0
-- {{ fontawesome(icon="fa-bolt") }} Warp Charge 30T 30W
-- {{ fontawesome(icon="fa-desktop") }} Built-in 6.55" 1080p 90Hz
-- {{ fontawesome(icon="fa-microphone") }} Built-in
 
 ### Evolution du matériel
 
@@ -149,13 +134,14 @@ L'historique de l'évolution de mon smartphone principal :
 
 Et enfin l'évolution du serveur principal :
 
-| Date  |               Model                |         CPU          |          GPU           |        RAM         |  Memory   |    PSU     |
-| :---: | :--------------------------------: | :------------------: | :--------------------: | :----------------: | :-------: | :--------: |
-| 2020  |     Raspberry Pi 4 Model B 8GB     |   Broadcom BCM2711   |      VideoCore VI      | 8GB LPDDR4 3200MHz |  64GB SD  | Raspberry  |
-| 2022  |    Lenovo Thinkcentre Tiny M73     | Intel i7 4780T 4c8t  | Intel HD Graphics 4600 | 16GB DDR3 1600MHz  | 256GB SSD | Lenovo 65W |
-| 2023  |   Lenovo Thinkcentre Tiny M710q    | Intel i7 7700T 4c8t  | Intel HD Graphics 630  | 16GB DDR4 2133MHz  | 256GB SSD | Lenovo 65W |
-| 2024  |   Lenovo Thinkcentre Tiny M920q    | Intel i7 9700T 8c8t  | Intel UHD Graphics 630 | 32GB DDR4 2666MHz  |  2To SSD  | Lenovo 90W |
-| 2025  | Lenovo Thinkcentre Tiny M70q Gen 5 | Intel i3 13100T 4c8t | Intel UHD Graphics 730 | 32GB DDR5 5600MHz  |  2To SSD  | Lenovo 65W |
+| Date  |               Model                |          CPU           |          GPU           |        RAM         |  Memory   |     PSU     |
+| :---: | :--------------------------------: | :--------------------: | :--------------------: | :----------------: | :-------: | :---------: |
+| 2020  |     Raspberry Pi 4 Model B 8GB     |    Broadcom BCM2711    |      VideoCore VI      | 8GB LPDDR4 3200MHz |  64GB SD  |  Raspberry  |
+| 2022  |    Lenovo Thinkcentre Tiny M73     |  Intel i7 4780T 4c8t   | Intel HD Graphics 4600 | 16GB DDR3 1600MHz  | 256GB SSD | Lenovo 65W  |
+| 2023  |   Lenovo Thinkcentre Tiny M710q    |  Intel i7 7700T 4c8t   | Intel HD Graphics 630  | 16GB DDR4 2133MHz  | 256GB SSD | Lenovo 65W  |
+| 2024  |   Lenovo Thinkcentre Tiny M920q    |  Intel i7 9700T 8c8t   | Intel UHD Graphics 630 | 32GB DDR4 2666MHz  |  2To SSD  | Lenovo 90W  |
+| 2025  | Lenovo Thinkcentre Tiny M70q Gen 5 |  Intel i3 13100T 4c8t  | Intel UHD Graphics 730 | 32GB DDR5 5600MHz  |  2To SSD  | Lenovo 65W  |
+| 2025  | Lenovo Thinkcentre Tiny M70q Gen 5 | Intel i5 14500T 14c20t | Intel UHD Graphics 770 | 64GB DDR5 5600MHz  |  2To SSD  | Lenovo 135W |
 
 ## Mes chats
 
