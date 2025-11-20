@@ -1,0 +1,50 @@
+name: Zola on GitHub Pages
+
+on:
+  push:
+    branches:
+      - "*"
+    paths-ignore:
+      - "**/README.md"
+  pull_request:
+    branches:
+      - "*"
+  workflow_dispatch:
+
+concurrency:
+  group: zola-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+
+    strategy:
+      fail-fast: false
+      matrix:
+        site:
+          - name: github-pages
+            branch: gh-pages
+            base_url: https://bensuperpc.github.io
+
+          - name: bensuperpc-org
+            branch: bensuperpc-org-pages
+            base_url: https://www.bensuperpc.org
+
+          - name: blog-bensuperpc
+            branch: blog-bensuperpc-pages
+            base_url: https://blog.bensuperpc.org
+
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v5
+
+      - name: Build and deploy ${{ matrix.site.name }}
+        uses: shalzz/zola-deploy-action@v0.21.0
+        env:
+          BUILD_DIR: website/site
+          PAGES_BRANCH: ${{ matrix.site.branch }}
+          CHECK_LINKS: false
+          BUILD_FLAGS: --base-url ${{ matrix.site.base_url }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
