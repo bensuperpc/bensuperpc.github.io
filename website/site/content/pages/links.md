@@ -123,6 +123,7 @@ Here is a list of useful links.
 ## Funny & Miscellaneous
 
 - [Matrix intro](https://rezmason.github.io/matrix/?skipIntro=false&version=3d&numColumns=125&volumetric=true&resolution=2)
+- [Chiptune](https://chiptune.app/browse) - Browse midi music (old video game music etc..)
 - [Scale of universe](https://scaleofuniverse.com/en) - The scale of the universe
 - [CSH](https://www.csh.bz/line/05xp.html) - Geometry generator
 - [My retro tvs](https://www.myretrotvs.com/) - Retro TV collection

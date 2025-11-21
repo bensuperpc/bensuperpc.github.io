@@ -28,20 +28,21 @@ The benchmark is done using the **PNG** format as input, and the output formats 
 |      GPU      |                                       NVIDIA GeForce RTX 3060 Ti 8GB GDDR6                                       |
 |      RAM      |                                                64GB DDR4 3200MHz                                                 |
 |      OS       |                                                     Manjaro                                                      |
-|   Compiler    |                                                    GCC 14.2.1                                                    |
-|     cwebp     |                          [1.5.0](https://archlinux.org/packages/extra/x86_64/libwebp/)                           |
-|    avifenc    |                          [1.2.1](https://archlinux.org/packages/extra/x86_64/libavif/)                           |
+|   Compiler    |                                                    GCC 15.2.1                                                    |
+|     cwebp     |                          [1.6.0](https://archlinux.org/packages/extra/x86_64/libwebp/)                           |
+|    avifenc    |                          [1.3.0](https://archlinux.org/packages/extra/x86_64/libavif/)                           |
 |     cjxl      |                          [0.11.1](https://archlinux.org/packages/extra/x86_64/libjxl/)                           |
-|    ffmpeg     |                           [7.1.1](https://archlinux.org/packages/extra/x86_64/ffmpeg/)                           |
-| Docker Image  | [docker.io/bensuperpc/multimedia:1.0.0-archlinux-base-20250507](https://github.com/bensuperpc/docker-multimedia) |
+|    ffmpeg     |                           [8.0.1](https://archlinux.org/packages/extra/x86_64/ffmpeg/)                           |
+| Docker Image  | [docker.io/bensuperpc/multimedia:1.0.0-archlinux-base-20260101](https://github.com/bensuperpc/docker-multimedia) |
 
 ## Lossless compression
 
 The dataset for the **lossless** benchmark is:
 
-- ~9940 screenshots (32'257 Mo) from Minecraft (720p to 1440p, some 2160p).
-- ~10313 screenshots (42'247 Mo) from Fortnite, Battlefield, 7 Days to Die, and GTA V etc... (1080p to 1440p, some 2160p).
-- ~5485 screenshots (2'572 Mo) from desktop applications (240p to 1440p).
+- [SCD dataset](https://www.kaggle.com/datasets/awsaf49/scd-768x768-png-image-dataset) (7597 PNG images (768x768), 4.2 GB)
+- [RSNA Breast Cancer dataset](https://www.kaggle.com/datasets/theoviel/rsna-breast-cancer-1024-pngs) (547000 PNG images (1024x1024), 13.62 GB)
+- [CIFAR-10 dataset](https://www.kaggle.com/datasets/swaroopkml/cifar10-pngs-in-folders) (60000 PNG images (32x32), 135 MB)
+- [Fashion MNIST dataset](https://www.kaggle.com/datasets/andhikawb/fashion-mnist-png) (70000 PNG images (28x28), 36 MB)
 
 The PNG to Webp lossless compression command is:
 
@@ -91,32 +92,46 @@ The options are:
 - `<Input>`: Input PNG file.
 - `<Output>`: Output JPGXL file.
 
+For the final command, we use GNU Parallel to speed up the process (for Webp):
+
+```bash
+time find . -iname "*.png" -type f -print0 | parallel --jobs 16 --null cwebp -quiet -metadata all -lossless -exact -z 9 {} -o {.}.webp
+```
+
+The CMD to get the size of the output files is:
+
+```bash
+find . -type f -iname "*.webp" -printf "%s\n" | awk '{sum+=$1} END {printf "%.2f MiB\n", sum/1024/1024}'
+```
+
+Where `{1}` is the compression level from 0 to 9.
+
 ## Results
 
-Desktop applications (901 Mo):
+For Ciphar-10:
 
-| Format | Compression | Size (Mo) | Ratio (%) | Time (s) |
+| Format | Compression | Size (MiB) | Ratio (%) | Time (s) |
 | :----: | :---------: | :-------: | :-------: | :------: |
-|  png   |      -      |    901    |   100.0   |    -     |
-|  webp  |      0      |    879    |   97.5    |   150    |
-|  webp  |      1      |    660    |   72.2    |   176    |
-|  webp  |      2      |    637    |   70.7    |   178    |
-|  webp  |      3      |    602    |   66.8    |   181    |
-|  webp  |      4      |    601    |   66.7    |   185    |
-|  webp  |      5      |    598    |   66.3    |   198    |
-|  webp  |      6      |    588    |   65.2    |   206    |
-|  webp  |      7      |    585    |   64.9    |   211    |
-|  webp  |      8      |    575    |   63.8    |   283    |
-|  webp  |      9      |    560    |   62.1    |   1017   |
-| jpegxl |      1      |    956    |   106.1   |   215    |
-| jpegxl |      2      |    900    |   99.8    |   261    |
-| jpegxl |      3      |    848    |   94.1    |   492    |
-| jpegxl |      4      |    778    |   86.3    |   735    |
-| jpegxl |      5      |    659    |   73.1    |   713    |
-| jpegxl |      6      |    640    |   71.0    |   762    |
-| jpegxl |      7      |    604    |   67.0    |   780    |
-| jpegxl |      8      |    579    |   64.2    |   1407   |
-| jpegxl |      9      |    569    |   63.1    |   2450   |
+|  png   |      -      |      |   100.0   |    -     |
+|  webp  |      0      |        |       |   298    |
+|  webp  |      1      |        |       |    299   |
+|  webp  |      2      |        |       |    300   |
+|  webp  |      3      |        |       |    302   |
+|  webp  |      4      |        |       |    295   |
+|  webp  |      5      |        |       |    291   |
+|  webp  |      6      |        |       |    295   |
+|  webp  |      7      |        |       |    293   |
+|  webp  |      8      |        |       |   293    |
+|  webp  |      9      |    103.29    |       |   286    |
+| jpegxl |      1      |        |       |       |
+| jpegxl |      2      |        |       |       |
+| jpegxl |      3      |        |       |       |
+| jpegxl |      4      |        |       |       |
+| jpegxl |      5      |        |       |       |
+| jpegxl |      6      |        |       |       |
+| jpegxl |      7      |        |       |       |
+| jpegxl |      8      |        |       |       |
+| jpegxl |      9      |        |       |       |
 
 ## Cleanup
 

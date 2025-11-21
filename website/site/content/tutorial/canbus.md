@@ -18,7 +18,7 @@ series = "Features"
 
 This page provides a brief overview of the CAN bus protocol and how to use it under Linux.
 
-## Install tools for CAN bus
+## Install tools for CAN bus and setup
 
 On debian/ubuntu based systems:
 
@@ -34,7 +34,7 @@ yay -S can-utils
 
 From source: [can-utils](https://github.com/linux-can/can-utils)
 
-## Setup virtual interfaces
+### Setup virtual interfaces
 
 Create a virtual CAN interface:
 
@@ -54,7 +54,7 @@ Enable CAN FD interface:
 sudo ip link set up can0 mtu 72
 ```
 
-## Setup hardware interfaces
+### Setup hardware interfaces
 
 Enable hardware CAN interface:
 
@@ -72,14 +72,6 @@ Set CAN FD interface:
 
 ```bash
 sudo ip link set can0 type can bitrate 125000 dbitrate 5000000 fd on
-```
-
-## Remove hardware interfaces
-
-To remove the hardware CAN interface:
-
-```bash
-sudo ip link set down can0
 ```
 
 ## Receiving data
@@ -114,6 +106,23 @@ For CAN FD and BRS (Baud Rate Switch):
 
 ```bash
 cansend can0 112##11234567890ABCDEF
+```
+
+You should see the sent frame in the `candump` output:
+
+```bash
+ (2026-01-31 14:51:04.623452)  can0  TX - -  217   [8]  12 34 56 78 90 AB CD EF
+ (2026-01-31 14:51:12.489300)  can0  TX - -  112  [08]  12 34 56 78 90 AB CD EF
+ (2026-01-31 14:51:19.698954)  can0  TX - -  112  [16]  12 34 56 78 90 AB CD EF 12 34 56 78 90 AB CD EF
+ (2026-01-31 14:51:29.358900)  can0  TX B -  112  [08]  12 34 56 78 90 AB CD EF
+```
+
+## Remove hardware interfaces
+
+To remove the hardware CAN interface:
+
+```bash
+sudo ip link set down can0
 ```
 
 ## Sources
