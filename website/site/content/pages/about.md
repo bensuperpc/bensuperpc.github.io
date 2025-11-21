@@ -1,7 +1,8 @@
 +++
 title = "About"
 path = "about"
-template = "pages.html"
+template = "pages_with_fa.html"
+extra.enable_fontawesome = true
 draft = false
 aliases = ["en/about"]
 +++
