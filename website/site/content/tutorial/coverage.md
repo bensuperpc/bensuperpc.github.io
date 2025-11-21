@@ -18,7 +18,7 @@ series = "Features"
 
 ## Introduction
 
-This tutorial shows how to set up a C/C++ project with CMake and GCOVR to generate code coverage reports. This allows you to precisely verify which parts of the source code and which conditional branches (if, switch, etc.) are actually covered by the tests.
+This tutorial shows how to set up a C/C++ project with CMake and GCOVR to generate code coverage reports, this allows you to precisely verify which parts of the source code and which conditional branches (if, switch, etc.) are actually covered by the tests.
 
 We’ll use a small sample project based on Google Test, but the method is also compatible with other frameworks such as Catch2, Boost.Test, or Doctest.
 
@@ -31,7 +31,6 @@ We’ll use a small sample project based on Google Test, but the method is also 
 - Ninja (optional, but recommended)
 
 A distribution like **Ubuntu 22.04**, **Debian 12** or higher is recommended for this tutorial, but you can use any Linux distribution with the required versions of the tools.
-
 
 ### Installing Dependencies
 
@@ -175,13 +174,56 @@ Here is the rendering of the report in the browser:
 You can also generate a report in XML or JSON for integration with other tools:
 
 ```bash
-gcovr --root "." --decisions --calls --exclude "tests/*" --exclude "build/*" --exclude "main.cpp" --xml-pretty --output "build/coverage.xml"
+gcovr --root "." --decisions --calls --exclude "tests/" --exclude "build/" --exclude "main.cpp" --xml-pretty --output "build/coverage.xml"
 ```
 
 Or in JSON :
 
 ```bash
-gcovr --root "." --decisions --calls --exclude "tests/*" --exclude "build/*" --exclude "main.cpp" --json-pretty --output "build/coverage.json"
+gcovr --root "." --decisions --calls --exclude "tests/" --exclude "build/" --exclude "main.cpp" --json-pretty --output "build/coverage.json"
+```
+
+## CI/CD Integration
+
+You can integrate code coverage generation into your CI/CD pipeline to automatically generate reports on each commit or merge request.
+
+Here is an example of a Gitlab CI to generate a coverage report and fail the pipeline if the coverage is below a certain threshold:
+
+```yaml
+variables:
+  # If someone forgets to add tests on new feature, the pipeline will fail if coverage is below these thresholds
+  MIN_LINE_COVERAGE: 50
+  MIN_FUNCTION_COVERAGE: 50
+  MIN_BRANCH_COVERAGE: 50
+  MIN_DECISION_COVERAGE: 50
+
+stages:
+  - coverage
+
+coverage_stage:
+  stage: coverage
+  script:
+    # Compile the project with coverage flags
+    - cmake -S . -B build -G Ninja -DCMAKE_CXX_FLAGS="-O0 -g --coverage" -DCMAKE_EXE_LINKER_FLAGS="--coverage" && cmake --build build
+    # Run tests to generate coverage data
+    - ctest --verbose --repeat until-fail:1 --parallel 1 --schedule-random --test-dir build || true
+    # Create directory for HTML coverage reports
+    - mkdir -p "coverage_html_$CI_COMMIT_SHORT_SHA"
+    # Generate HTML coverage reports
+    - gcovr --root "." --exclude "tests/" --exclude "build/" --exclude "main.cpp" --decisions --calls --html --html-theme green --html-details -o "coverage_html_$CI_COMMIT_SHORT_SHA/coverage.html"
+    # Generate XML coverage report (for Gitlab)
+    - gcovr --root "." --exclude "tests/" --exclude "build/" --exclude "main.cpp" --decisions --calls --xml-pretty -o coverage.xml
+    # Check minimum coverage thresholds
+    - gcovr --root "." --exclude "tests/" --exclude "build/" --exclude "main.cpp" --decisions --calls --print-summary --fail-under-line $MIN_LINE_COVERAGE --fail-under-branch $MIN_BRANCH_COVERAGE --fail-under-function $MIN_FUNCTION_COVERAGE --fail-under-decision $MIN_DECISION_COVERAGE
+  artifacts:
+    name: "$CI_PROJECT_NAME-$CI_COMMIT_SHORT_SHA"
+    expire_in: 7 days
+    when: always
+    paths:
+      - "coverage_html_$CI_COMMIT_SHORT_SHA/*"
+      - "coverage.xml"
+  # Parse coverage from coverage.xml file
+  coverage: '/lines: (\d+\.\d+)%/'
 ```
 
 ## Sources

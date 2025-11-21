@@ -29,11 +29,11 @@ The benchmark is done using the **PNG** format as input, and the output formats 
 |      RAM      |                                                64GB DDR4 3200MHz                                                 |
 |      OS       |                                                     Manjaro                                                      |
 |   Compiler    |                                                    GCC 14.2.1                                                    |
-|     cwebp     |                          [1.5.0](https://archlinux.org/packages/extra/x86_64/libwebp/)                           |
-|    avifenc    |                          [1.2.1](https://archlinux.org/packages/extra/x86_64/libavif/)                           |
+|     cwebp     |                          [1.6.0](https://archlinux.org/packages/extra/x86_64/libwebp/)                           |
+|    avifenc    |                          [1.3.0](https://archlinux.org/packages/extra/x86_64/libavif/)                           |
 |     cjxl      |                          [0.11.1](https://archlinux.org/packages/extra/x86_64/libjxl/)                           |
-|    ffmpeg     |                           [7.1.1](https://archlinux.org/packages/extra/x86_64/ffmpeg/)                           |
-| Docker Image  | [docker.io/bensuperpc/multimedia:1.0.0-archlinux-base-20250507](https://github.com/bensuperpc/docker-multimedia) |
+|    ffmpeg     |                           [8.0.1](https://archlinux.org/packages/extra/x86_64/ffmpeg/)                           |
+| Docker Image  | [docker.io/bensuperpc/multimedia:1.0.0-archlinux-base-20251121](https://github.com/bensuperpc/docker-multimedia) |
 
 ## Lossless compression
 

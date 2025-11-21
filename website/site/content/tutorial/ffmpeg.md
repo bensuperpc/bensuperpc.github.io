@@ -124,7 +124,7 @@ SSIM V: For chrominance (V) channel, 0-1, 1 is perfect match
 SSIM All: Average of YUV, 0-1, 1 is perfect match
 
 ```bash
-ffmpeg -i output.mkv -i input.mkv -lavfi ssim -f null –
+ffmpeg -i output.mkv -i input.mkv -lavfi ssim -f null -
 ```
 
 ### Get PSNR
@@ -135,7 +135,7 @@ PSNR V: For chrominance (V) channel, in dB higher is better
 PSNR All: Average of YUV, in dB higher is better
 
 ```bash
-ffmpeg -i output.mkv -i input.mkv -lavfi psnr -f null –
+ffmpeg -i output.mkv -i input.mkv -lavfi psnr -f null -
 ```
 
 ### Get VMAF
@@ -143,7 +143,7 @@ ffmpeg -i output.mkv -i input.mkv -lavfi psnr -f null –
 VMAF score, higher is better
 
 ```bash
-ffmpeg -i output.mkv -i input.mkv -lavfi libvmaf -f null –
+ffmpeg -i output.mkv -i input.mkv -lavfi libvmaf -f null -
 ```
 
 Output into a json file

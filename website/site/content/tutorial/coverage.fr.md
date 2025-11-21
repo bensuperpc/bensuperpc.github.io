@@ -175,14 +175,59 @@ Voici le rendu du rapport sur le navigateur :
 Vous pouvez également générer un rapport en XML ou JSON pour une intégration avec d'autres outils :
 
 ```bash
-gcovr --root "." --decisions --calls --exclude "tests/*" --exclude "build/*" --exclude "main.cpp" --xml-pretty --output "build/coverage.xml"
+gcovr --root "." --decisions --calls --exclude "tests/" --exclude "build/" --exclude "main.cpp" --xml-pretty --output "build/coverage.xml"
 ```
 
-Ou en JSON :
+Or in JSON :
 
 ```bash
-gcovr --root "." --decisions --calls --exclude "tests/*" --exclude "build/*" --exclude "main.cpp" --json-pretty --output "build/coverage.json"
+gcovr --root "." --decisions --calls --exclude "tests/" --exclude "build/" --exclude "main.cpp" --json-pretty --output "build/coverage.json"
 ```
+
+## CI/CD Integration
+
+Vous pouvez intégrer la génération de couverture de code à votre pipeline CI/CD afin de générer automatiquement des rapports pour chaque commit ou demande de fusion.
+
+Voici un exemple de GitLab CI pour générer un rapport de couverture et fail le pipeline si la couverture est inférieure à un certains seuils:
+
+```yaml
+variables:
+  # Si quelqu'un oublie d'ajouter des tests sur une nouvelle fonctionnalité, le pipeline échouera si la couverture est inférieure à ces seuils
+  MIN_LINE_COVERAGE: 50
+  MIN_FUNCTION_COVERAGE: 50
+  MIN_BRANCH_COVERAGE: 50
+  MIN_DECISION_COVERAGE: 50
+
+stages:
+  - coverage
+
+coverage_stage:
+  stage: coverage
+  script:
+    # Compiler le projet avec les flags de couverture
+    - cmake -S . -B build -G Ninja -DCMAKE_CXX_FLAGS="-O0 -g --coverage" -DCMAKE_EXE_LINKER_FLAGS="--coverage" && cmake --build build
+    # Exécuter les tests pour générer les données de couverture
+    - ctest --verbose --repeat until-fail:1 --parallel 1 --schedule-random --test-dir build || true
+    # Créer le répertoire pour les rapports de couverture HTML
+    - mkdir -p "coverage_html_$CI_COMMIT_SHORT_SHA"
+    # Générer les rapports de couverture HTML
+    - gcovr --root "." --exclude "tests/" --exclude "build/" --exclude "main.cpp" --decisions --calls --html --html-theme green --html-details -o "coverage_html_$CI_COMMIT_SHORT_SHA/coverage.html"
+    # Générer le rapport de couverture XML (pour Gitlab)
+    - gcovr --root "." --exclude "tests/" --exclude "build/" --exclude "main.cpp" --decisions --calls --xml-pretty -o coverage.xml
+    # Vérifier les seuils minimum de couverture
+    - gcovr --root "." --exclude "tests/" --exclude "build/" --exclude "main.cpp" --decisions --calls --print-summary --fail-under-line $MIN_LINE_COVERAGE --fail-under-branch $MIN_BRANCH_COVERAGE --fail-under-function $MIN_FUNCTION_COVERAGE --fail-under-decision $MIN_DECISION_COVERAGE
+  artifacts:
+    name: "$CI_PROJECT_NAME-$CI_COMMIT_SHORT_SHA"
+    expire_in: 7 days
+    when: always
+    paths:
+      - "coverage_html_$CI_COMMIT_SHORT_SHA/*"
+      - "coverage.xml"
+  # Parser le coverage depuis le fichier coverage.xml
+  coverage: '/lines: (\d+\.\d+)%/'
+```
+
+
 
 ## Sources
 

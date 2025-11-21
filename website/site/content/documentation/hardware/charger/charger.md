@@ -34,7 +34,7 @@ series = "Features"
 |      USB PD version      |          3.x          |          3.1          |          3.1          |          3.1          |
 |      USB PD voltage      |   5, 9, 12, 15, 20V   |   5, 9, 12, 15, 20V   |     5, 9, 15, 20V     |   5, 9, 15, 20, 28V   |
 |    USB PD max current    |          5A           |          5A           |          5A           |          5A           |
-|           PPS            |         No ?          |  5V–11V, 4,5V – 20V   |         Yes ?         |   5V–11V, 4,5V–20V    |
+|           PPS            |         No ?          |  5V-11V, 4,5V - 20V   |         Yes ?         |   5V-11V, 4,5V-20V    |
 |        Efficiency        |        85.18%         |        79.20%         |          85%          |          89W          |
 |    Efficiency at 10%     |        73.92%         |        59.18%         |        80.37%         |          84W          |
 |      No load power       |         0.23W         |         0.27W         |         0.27W         |           ?           |
