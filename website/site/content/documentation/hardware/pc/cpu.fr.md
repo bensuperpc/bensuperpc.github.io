@@ -17,60 +17,66 @@ series = "Features"
 
 ## Intel CPU
 
-| **Release** | **Microarch** | **CPU Models/Series**                     | **SIMD instructions**                          | **FMA3**                                   | **AES-NI**                                 |
-| ----------- | ------------- | ----------------------------------------- | ---------------------------------------------- | ------------------------------------------ | ------------------------------------------ |
-| 1979        | 8088/8086     | Intel 8088/8086                           | {{ color2(color="#FF4136", text="No") }}       | {% color(color="#FF4136") %} No {% end %}  | {% color(color="#FF4136") %} No {% end %}  |
-| 1982        | 80286         | Intel 80286                               | {% color(color="#FF4136") %} No {% end %}      | {% color(color="#FF4136") %} No {% end %}  | {% color(color="#FF4136") %} No {% end %}  |
-| 1985        | 80386         | Intel 80386                               | {% color(color="#FF4136") %} No {% end %}      | {% color(color="#FF4136") %} No {% end %}  | {% color(color="#FF4136") %} No {% end %}  |
-| 1989        | 80486         | Intel 80486                               | {% color(color="#FF4136") %} No {% end %}      | {% color(color="#FF4136") %} No {% end %}  | {% color(color="#FF4136") %} No {% end %}  |
-| 1993        | P5 (Pentium)  | Pentium                                   | {% color(color="#FF4136") %} No {% end %}      | {% color(color="#FF4136") %} No {% end %}  | {% color(color="#FF4136") %} No {% end %}  |
-| 1995        | P6            | Pentium Pro                               | {% color(color="#FF4136") %} No {% end %}      | {% color(color="#FF4136") %} No {% end %}  | {% color(color="#FF4136") %} No {% end %}  |
-| 1997        | P6            | Pentium II                                | {% color(color="#FF5645") %} MMX {% end %}     | {% color(color="#FF4136") %} No {% end %}  | {% color(color="#FF4136") %} No {% end %}  |
-| 1999        | P6            | Pentium III                               | {% color(color="#FF6F61") %} SSE {% end %}     | {% color(color="#FF4136") %} No {% end %}  | {% color(color="#FF4136") %} No {% end %}  |
-| 2000        | NetBurst      | Pentium 4 (Willamette/Northwood)          | {% color(color="#FFB347") %} SSE2 {% end %}    | {% color(color="#FF4136") %} No {% end %}  | {% color(color="#FF4136") %} No {% end %}  |
-| 2004        | NetBurst      | Pentium 4/D (Prescott)                    | {% color(color="#FFD700") %} SSE3 {% end %}    | {% color(color="#FF4136") %} No {% end %}  | {% color(color="#FF4136") %} No {% end %}  |
-| 2006        | Core          | Core 2 E6/Q6xxx, E1/E2xxx                 | {% color(color="#FFD700") %} SSE3 {% end %}    | {% color(color="#FF4136") %} No {% end %}  | {% color(color="#FF4136") %} No {% end %}  |
-| 2007        | Penryn        | Core 2 E7/E8/Q8/Q9xxx, E2/E5/E6xxx        | {% color(color="#ADFF2F") %} SSSE3 {% end %}   | {% color(color="#FF4136") %} No {% end %}  | {% color(color="#FF4136") %} No {% end %}  |
-| 2008        | Nehalem       | Core i3/i5/i7 9xx                         | {% color(color="#2ECC40") %} SSE4 {% end %}    | {% color(color="#FF4136") %} No {% end %}  | {% color(color="#FF4136") %} No {% end %}  |
-| 2010        | Westmere      | Core i3/i5/i7 xxx, Pentium G69xx          | {% color(color="#00C49A") %} SSE4.2 {% end %}  | {% color(color="#FF4136") %} No {% end %}  | {% color(color="#1AC7FF") %} Yes {% end %} |
-| 2011        | Sandy Bridge  | Core i3/i5/i7 2xxx, Pentium G6xx/G8xx     | {% color(color="#00D100") %} AVX {% end %}     | {% color(color="#FF4136") %} No {% end %}  | {% color(color="#1AC7FF") %} Yes {% end %} |
-| 2012        | Ivy Bridge    | Core i3/i5/i7 3xxx, Pentium G2xxx         | {% color(color="#00D100") %} AVX {% end %}     | {% color(color="#FF4136") %} No {% end %}  | {% color(color="#1AC7FF") %} Yes {% end %} |
-| 2013-2014   | Haswell       | Core i3/i5/i7 4xxx, Pentium G3xxx         | {% color(color="#00CED1") %} AVX2 {% end %}    | {% color(color="#1AC7FF") %} Yes {% end %} | {% color(color="#1AC7FF") %} Yes {% end %} |
-| 2014        | Broadwell     | Core i3/i5/i7 5xxx                        | {% color(color="#00CED1") %} AVX2 {% end %}    | {% color(color="#1AC7FF") %} Yes {% end %} | {% color(color="#1AC7FF") %} Yes {% end %} |
-| 2015        | Skylake       | Core i3/i5/i7 6xxx, Pentium G44xx         | {% color(color="#00CED1") %} AVX2 {% end %}    | {% color(color="#1AC7FF") %} Yes {% end %} | {% color(color="#1AC7FF") %} Yes {% end %} |
-| 2016        | Kaby Lake     | Core i3/i5/i7 7xxx, Pentium G45xx/G46xx   | {% color(color="#00CED1") %} AVX2 {% end %}    | {% color(color="#1AC7FF") %} Yes {% end %} | {% color(color="#1AC7FF") %} Yes {% end %} |
-| 2018-2019   | Coffee Lake   | Core i3/i5/i7/i9 8xxx/9xxx, Pentium G5xxx | {% color(color="#00CED1") %} AVX2 {% end %}    | {% color(color="#1AC7FF") %} Yes {% end %} | {% color(color="#1AC7FF") %} Yes {% end %} |
-| 2019        | Ice Lake      | Core i3/i5/i7 10xxxGx (mobile only)       | {% color(color="#1AC7FF") %} AVX-512 {% end %} | {% color(color="#1AC7FF") %} Yes {% end %} | {% color(color="#1AC7FF") %} Yes {% end %} |
-| 2020        | Comet Lake    | Core i3/i5/i7/i9 10xxx, Pentium G6xxx     | {% color(color="#00CED1") %} AVX2 {% end %}    | {% color(color="#1AC7FF") %} Yes {% end %} | {% color(color="#1AC7FF") %} Yes {% end %} |
-| 2020        | Tiger Lake    | Core i3/i5/i7 11xxxGx (mobile only)       | {% color(color="#1AC7FF") %} AVX-512 {% end %} | {% color(color="#1AC7FF") %} Yes {% end %} | {% color(color="#1AC7FF") %} Yes {% end %} |
-| 2021        | Rocket Lake   | Core i3/i5/i7/i9 11xxx                    | {% color(color="#1AC7FF") %} AVX-512 {% end %} | {% color(color="#1AC7FF") %} Yes {% end %} | {% color(color="#1AC7FF") %} Yes {% end %} |
-| 2021        | Alder Lake    | Core i3/i5/i7/i9 12xxx, Pentium G7xxx     | {% color(color="#00CED1") %} AVX2 {% end %}    | {% color(color="#1AC7FF") %} Yes {% end %} | {% color(color="#1AC7FF") %} Yes {% end %} |
-| 2022        | Raptor Lake   | Core i3/i5/i7/i9 13xxx/14xxx              | {% color(color="#00CED1") %} AVX2 {% end %}    | {% color(color="#1AC7FF") %} Yes {% end %} | {% color(color="#1AC7FF") %} Yes {% end %} |
-| 2024        | Meteor Lake   | Core Ultra 3/5/7/9 1xx                    | {% color(color="#00CED1") %} AVX2 {% end %}    | {% color(color="#1AC7FF") %} Yes {% end %} | {% color(color="#1AC7FF") %} Yes {% end %} |
-| 2024        | Lunar Lake    | Core Ultra 3/5/7/9 2xx                    | {% color(color="#00CED1") %} AVX2 {% end %}    | {% color(color="#1AC7FF") %} Yes {% end %} | {% color(color="#1AC7FF") %} Yes {% end %} |
-| 2024        | Arrow Lake    | Core Ultra 3/5/7/9 3xx                    | {% color(color="#00CED1") %} AVX2 {% end %}    | {% color(color="#1AC7FF") %} Yes {% end %} | {% color(color="#1AC7FF") %} Yes {% end %} |
-| 2025 ?      | Nova Lake     | Core Ultra 3/5/7/9 4xx                    | {% color(color="#1EA9FF") %} 10.2 {% end %}    | {% color(color="#1AC7FF") %} Yes {% end %} | {% color(color="#1AC7FF") %} Yes {% end %} |
+| **Release** | **Codename** | **Microarch**            | **CPU Models/Series**                     | **SIMD instructions**                          | **AES-NI**                                 |
+| ----------- | ------------ | ------------------------ | ----------------------------------------- | ---------------------------------------------- | ------------------------------------------ |
+| 1979        | 8088/8086    | 8086                     | Intel 8088/8086                           | {{ color2(color="#FF4136", text="No") }}       | {% color(color="#FF4136") %} No {% end %}  |
+| 1982        | 80286        | 80286                    | Intel 80286                               | {% color(color="#FF4136") %} No {% end %}      | {% color(color="#FF4136") %} No {% end %}  |
+| 1985        | 80386        | 80386                    | Intel 80386                               | {% color(color="#FF4136") %} No {% end %}      | {% color(color="#FF4136") %} No {% end %}  |
+| 1989        | 80486        | 80486                    | Intel 80486                               | {% color(color="#FF4136") %} No {% end %}      | {% color(color="#FF4136") %} No {% end %}  |
+| 1993        | P6           | P5                       | Pentium                                   | {% color(color="#FF4136") %} No {% end %}      | {% color(color="#FF4136") %} No {% end %}  |
+| 1995        | P6           | P6                       | Pentium Pro                               | {% color(color="#FF4136") %} No {% end %}      | {% color(color="#FF4136") %} No {% end %}  |
+| 1997        | Klamath      | P6                       | Pentium II                                | {% color(color="#FF5645") %} MMX {% end %}     | {% color(color="#FF4136") %} No {% end %}  |
+| 1998        | Deschutes    | P6                       | Pentium II                                | {% color(color="#FF5645") %} MMX {% end %}     | {% color(color="#FF4136") %} No {% end %}  |
+| 1999        | Katmai       | P6                       | Pentium III                               | {% color(color="#FF6F61") %} SSE {% end %}     | {% color(color="#FF4136") %} No {% end %}  |
+| 1999        | Coppermine   | P6                       | Pentium III                               | {% color(color="#FF6F61") %} SSE {% end %}     | {% color(color="#FF4136") %} No {% end %}  |
+| 2000        | Willamette   | NetBurst                 | Pentium 4                                 | {% color(color="#FFB347") %} SSE2 {% end %}    | {% color(color="#FF4136") %} No {% end %}  |
+| 2001        | Tualatin     | P6                       | Pentium III                               | {% color(color="#FF6F61") %} SSE {% end %}     | {% color(color="#FF4136") %} No {% end %}  |
+| 2002        | Northwood    | NetBurst                 | Pentium 4                                 | {% color(color="#FFB347") %} SSE2 {% end %}    | {% color(color="#FF4136") %} No {% end %}  |
+| 2004        | Prescott     | NetBurst                 | Pentium 4/D                               | {% color(color="#FFD700") %} SSE3 {% end %}    | {% color(color="#FF4136") %} No {% end %}  |
+| 2004        | Cedar Mill   | NetBurst                 | Pentium 4/D                               | {% color(color="#FFD700") %} SSE3 {% end %}    | {% color(color="#FF4136") %} No {% end %}  |
+| 2006        | Conroe       | Core                     | Core 2 E6xxx, E1/E2xxx                    | {% color(color="#FFD700") %} SSE3 {% end %}    | {% color(color="#FF4136") %} No {% end %}  |
+| 2006        | Kentsfield   | Core                     | Core 2 Q6xxx                              | {% color(color="#FFD700") %} SSE3 {% end %}    | {% color(color="#FF4136") %} No {% end %}  |
+| 2007        | Penryn       | Penryn                   | Core 2 E7/E8/Q8/Q9xxx, E2/E5/E6xxx        | {% color(color="#ADFF2F") %} SSSE3 {% end %}   | {% color(color="#FF4136") %} No {% end %}  |
+| 2008        | Nehalem      | Nehalem                  | Core i3/i5/i7 9xx                         | {% color(color="#2ECC40") %} SSE4 {% end %}    | {% color(color="#FF4136") %} No {% end %}  |
+| 2010        | Westmere     | Westmere                 | Core i3/i5/i7 xxx, Pentium G69xx          | {% color(color="#00C49A") %} SSE4.2 {% end %}  | {% color(color="#1AC7FF") %} Yes {% end %} |
+| 2011        | Sandy Bridge | Sandy Bridge             | Core i3/i5/i7 2xxx, Pentium G6xx/G8xx     | {% color(color="#00D100") %} AVX {% end %}     | {% color(color="#1AC7FF") %} Yes {% end %} |
+| 2012        | Ivy Bridge   | Ivy Bridge               | Core i3/i5/i7 3xxx, Pentium G2xxx         | {% color(color="#00D100") %} AVX {% end %}     | {% color(color="#1AC7FF") %} Yes {% end %} |
+| 2013-2014   | Haswell      | Haswell                  | Core i3/i5/i7 4xxx, Pentium G3xxx         | {% color(color="#00CED1") %} AVX2 {% end %}    | {% color(color="#1AC7FF") %} Yes {% end %} |
+| 2014        | Broadwell    | Broadwell                | Core i3/i5/i7 5xxx                        | {% color(color="#00CED1") %} AVX2 {% end %}    | {% color(color="#1AC7FF") %} Yes {% end %} |
+| 2015        | Skylake      | Skylake                  | Core i3/i5/i7 6xxx, Pentium G44xx         | {% color(color="#00CED1") %} AVX2 {% end %}    | {% color(color="#1AC7FF") %} Yes {% end %} |
+| 2016        | Kaby Lake    | Kaby Lake                | Core i3/i5/i7 7xxx, Pentium G45xx/G46xx   | {% color(color="#00CED1") %} AVX2 {% end %}    | {% color(color="#1AC7FF") %} Yes {% end %} |
+| 2018-2019   | Coffee Lake  | Coffee Lake              | Core i3/i5/i7/i9 8xxx/9xxx, Pentium G5xxx | {% color(color="#00CED1") %} AVX2 {% end %}    | {% color(color="#1AC7FF") %} Yes {% end %} |
+| 2019        | Ice Lake     | Ice Lake                 | Core i3/i5/i7 10xxxGx (mobile only)       | {% color(color="#1AC7FF") %} AVX-512 {% end %} | {% color(color="#1AC7FF") %} Yes {% end %} |
+| 2020        | Comet Lake   | Comet Lake               | Core i3/i5/i7/i9 10xxx, Pentium G6xxx     | {% color(color="#00CED1") %} AVX2 {% end %}    | {% color(color="#1AC7FF") %} Yes {% end %} |
+| 2020        | Tiger Lake   | Willow Cove              | Core i3/i5/i7 11xxxGx (mobile only)       | {% color(color="#1AC7FF") %} AVX-512 {% end %} | {% color(color="#1AC7FF") %} Yes {% end %} |
+| 2021        | Rocket Lake  | Cypress Cove             | Core i3/i5/i7/i9 11xxx                    | {% color(color="#1AC7FF") %} AVX-512 {% end %} | {% color(color="#1AC7FF") %} Yes {% end %} |
+| 2021        | Alder Lake   | Golden Cove / Gracemont  | Core i3/i5/i7/i9 12xxx, Pentium G7xxx     | {% color(color="#00CED1") %} AVX2 {% end %}    | {% color(color="#1AC7FF") %} Yes {% end %} |
+| 2022        | Raptor Lake  | Raptor Cove / Gracemont  | Core i3/i5/i7/i9 13xxx/14xxx              | {% color(color="#00CED1") %} AVX2 {% end %}    | {% color(color="#1AC7FF") %} Yes {% end %} |
+| 2024        | Meteor Lake  | Redwood Cove / Crestmont | Core Ultra 3/5/7/9 1xx                    | {% color(color="#00CED1") %} AVX2 {% end %}    | {% color(color="#1AC7FF") %} Yes {% end %} |
+| 2024        | Lunar Lake   | Lion Cove / Skymont      | Core Ultra 3/5/7/9 2xx                    | {% color(color="#00CED1") %} AVX2 {% end %}    | {% color(color="#1AC7FF") %} Yes {% end %} |
+| 2024        | Arrow Lake   | Lion Cove / Skymont      | Core Ultra 3/5/7/9 3xx                    | {% color(color="#00CED1") %} AVX2 {% end %}    | {% color(color="#1AC7FF") %} Yes {% end %} |
+| 2025 ?      | Nova Lake    | Nova Lake                | Core Ultra 3/5/7/9 4xx ?                  | {% color(color="#009dff") %} 10.2 {% end %}    | {% color(color="#1AC7FF") %} Yes {% end %} |
 
 *Note: Les processeurs **pentium** et **celeron** jusqu'aux **Comet Lake** ne supportent pas AVX, AVX2 et AVX-512.*
 
 ## AMD CPU
 
-| **Release** | **Microarch** | **CPU Models/Series**            | **SIMD instructions**                          | **FMA3**                                    | **AES-NI**                                 |
-| ----------- | ------------- | -------------------------------- | ---------------------------------------------- | ------------------------------------------- | ------------------------------------------ |
-| 1996        | K5            | AMD K5                           | {% color(color="#FF4136") %} No {% end %}      | {% color(color="#FF4136") %} No {% end %}   | {% color(color="#FF4136") %} No {% end %}  |
-| 1997        | K6            | AMD K6, K6-II, K6-III            | {% color(color="#FF5645") %} MMX {% end %}     | {% color(color="#FF4136") %} No {% end %}   | {% color(color="#FF4136") %} No {% end %}  |
-| 1999        | K7 (Athlon)   | AMD Athlon, Duron                | {% color(color="#FF6F61") %} SSE {% end %}     | {% color(color="#FF4136") %} No {% end %}   | {% color(color="#FF4136") %} No {% end %}  |
-| 2003        | K8            | AMD Athlon 64, Opteron           | {% color(color="#FFD700") %} SSE3 {% end %}    | {% color(color="#FF4136") %} No {% end %}   | {% color(color="#FF4136") %} No {% end %}  |
-| 2007        | K10           | AMD Phenom, Phenom II, Athlon II | {% color(color="#ADFF2F") %} SSE4a {% end %}   | {% color(color="#FF4136") %} No {% end %}   | {% color(color="#FF4136") %} No {% end %}  |
-| 2011        | Bulldozer     | AMD FX x1xx, Opteron (Bulldozer) | {% color(color="#00D100") %} AVX {% end %}     | {% color(color="#FFD700") %} FMA4 {% end %} | {% color(color="#1AC7FF") %} Yes {% end %} |
-| 2014        | Steamroller   | AMD APUs (Steamroller)           | {% color(color="#00D100") %} AVX {% end %}     | {% color(color="#1AC7FF") %} Yes {% end %}  | {% color(color="#1AC7FF") %} Yes {% end %} |
-| 2015        | Excavator     | AMD APUs (Excavator)             | {% color(color="#00CED1") %} AVX2 {% end %}    | {% color(color="#1AC7FF") %} Yes {% end %}  | {% color(color="#1AC7FF") %} Yes {% end %} |
-| 2017        | Zen           | AMD Ryzen 1xxx, EPYC 7xx1        | {% color(color="#00CED1") %} AVX2 {% end %}    | {% color(color="#1AC7FF") %} Yes {% end %}  | {% color(color="#1AC7FF") %} Yes {% end %} |
-| 2018        | Zen+          | AMD Ryzen 2xxx                   | {% color(color="#00CED1") %} AVX2 {% end %}    | {% color(color="#1AC7FF") %} Yes {% end %}  | {% color(color="#1AC7FF") %} Yes {% end %} |
-| 2019        | Zen 2         | AMD Ryzen 3xxx, EPYC 7xx2        | {% color(color="#00CED1") %} AVX2 {% end %}    | {% color(color="#1AC7FF") %} Yes {% end %}  | {% color(color="#1AC7FF") %} Yes {% end %} |
-| 2020        | Zen 3         | AMD Ryzen 5xxx, EPYC 7xx3        | {% color(color="#00CED1") %} AVX2 {% end %}    | {% color(color="#1AC7FF") %} Yes {% end %}  | {% color(color="#1AC7FF") %} Yes {% end %} |
-| 2022        | Zen 4         | AMD Ryzen 7xxx, EPYC 4/8/9xx4    | {% color(color="#1AC7FF") %} AVX-512 {% end %} | {% color(color="#1AC7FF") %} Yes {% end %}  | {% color(color="#1AC7FF") %} Yes {% end %} |
-| 2024        | Zen 5         | AMD Ryzen 9xxx, EPYC 9xx5        | {% color(color="#1AC7FF") %} AVX-512 {% end %} | {% color(color="#1AC7FF") %} Yes {% end %}  | {% color(color="#1AC7FF") %} Yes {% end %} |
+| **Release** | **Codename** | **Microarch** | **CPU Models/Series**            | **SIMD instructions**                          | **AES-NI**                                 |
+| ----------- | ------------ | ------------- | -------------------------------- | ---------------------------------------------- | ------------------------------------------ |
+| 1996        | K5           | K5            | AMD K5                           | {% color(color="#FF4136") %} No {% end %}      | {% color(color="#FF4136") %} No {% end %}  |
+| 1997        | K6           | K6            | AMD K6, K6-II, K6-III            | {% color(color="#FF5645") %} MMX {% end %}     | {% color(color="#FF4136") %} No {% end %}  |
+| 1999        | K7           | K7            | AMD Athlon, Duron                | {% color(color="#FF6F61") %} SSE {% end %}     | {% color(color="#FF4136") %} No {% end %}  |
+| 2003        | K8           | K8            | AMD Athlon 64, Opteron           | {% color(color="#FFD700") %} SSE3 {% end %}    | {% color(color="#FF4136") %} No {% end %}  |
+| 2007        | K10          | K10           | AMD Phenom, Phenom II, Athlon II | {% color(color="#ADFF2F") %} SSE4a {% end %}   | {% color(color="#FF4136") %} No {% end %}  |
+| 2011        | Bulldozer    | Bulldozer     | AMD FX x1xx, Opteron (Bulldozer) | {% color(color="#00D100") %} AVX {% end %}     | {% color(color="#1AC7FF") %} Yes {% end %} |
+| 2014        | Steamroller  | Steamroller   | AMD APUs (Steamroller)           | {% color(color="#00D100") %} AVX {% end %}     | {% color(color="#1AC7FF") %} Yes {% end %} |
+| 2015        | Excavator    | Excavator     | AMD APUs (Excavator)             | {% color(color="#00CED1") %} AVX2 {% end %}    | {% color(color="#1AC7FF") %} Yes {% end %} |
+| 2017        | Zen          | Zen           | AMD Ryzen 1xxx, EPYC 7xx1        | {% color(color="#00CED1") %} AVX2 {% end %}    | {% color(color="#1AC7FF") %} Yes {% end %} |
+| 2018        | Zen+         | Zen+          | AMD Ryzen 2xxx                   | {% color(color="#00CED1") %} AVX2 {% end %}    | {% color(color="#1AC7FF") %} Yes {% end %} |
+| 2019        | Zen 2        | Zen 2         | AMD Ryzen 3xxx, EPYC 7xx2        | {% color(color="#00CED1") %} AVX2 {% end %}    | {% color(color="#1AC7FF") %} Yes {% end %} |
+| 2020        | Zen 3        | Zen 3         | AMD Ryzen 5xxx, EPYC 7xx3        | {% color(color="#00CED1") %} AVX2 {% end %}    | {% color(color="#1AC7FF") %} Yes {% end %} |
+| 2022        | Zen 4        | Zen 4         | AMD Ryzen 7xxx, EPYC 4/8/9xx4    | {% color(color="#1AC7FF") %} AVX-512 {% end %} | {% color(color="#1AC7FF") %} Yes {% end %} |
+| 2024        | Zen 5        | Zen 5         | AMD Ryzen 9xxx, EPYC 9xx5        | {% color(color="#1AC7FF") %} AVX-512 {% end %} | {% color(color="#1AC7FF") %} Yes {% end %} |
 
 ## ARM CPU
 

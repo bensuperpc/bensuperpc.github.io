@@ -25,7 +25,7 @@ series = "Features"
 |     -crf      |         -         |           -           |                  Constant Rate Factor, **options depend on the encoder**                   |
 |    -preset    |         -         |           -           |                 Set the encoding speed, **options depend on the encoder**                  |
 |     -tune     |         -         |           -           |                  Set the encoding tune, **options depend on the encoder**                  |
-|     -c:v      |         -         |     -c:v libx265      |                Set the video codec, **options depend on installed codecs**                 |
+|     -c:v      |         -         |     -c:v libsvtav1    |                Set the video codec, **options depend on installed codecs**                 |
 |     -c:a      |         -         |       -c:a copy       |                Set the audio codec, **options depend on installed codecs**                 |
 |     -c:s      |         -         |       -c:s copy       |               Set the subtitle codec, **options depend on installed codecs**               |
 |     -map      |         -         |        -map 0         |                             Map the input stream to the output                             |
@@ -75,12 +75,6 @@ With **AV1AN**, it usefull if you have move than 16 threads, SVT-AV1 is not well
 av1an -i input.mkv --encoder svt-av1 --video-params "--rc 0 --crf 16 --preset 1 --tune 0 --enable-qm=1 --qm-min=0 --qm-max=8" --audio-params "-c:a copy" -o temp_output.mkv
 ```
 
-Copy metadata and chapters:
-
-```bash
-ffmpeg -i temp_output.mkv -i input.mkv -map 0 -map_metadata 1 -map_chapters 1 -c copy output.mkv
-```
-
 Optional for AV1AN:
 
 - Add `--video-filter "scale=1920:-1"` to downscale the video to 1080p
@@ -116,6 +110,12 @@ ffmpeg -i input.mkv -y -c:v libx265 -preset slow -vf scale=1280:-1 -b:v 2000k -m
 ffmpeg -i input.mkv -c:v libx264 -crf 26 -preset slow -c:a copy -c:s copy -map 0 -map_metadata 0 -map_chapters 0 output.mkv
 ```
 
+### Convert video with VAAPI (h264/h265/AV1)
+
+```bash
+ffmpeg -hwaccel vaapi -vaapi_device /dev/dri/renderD128  -i input.mkv -vf 'format=nv12,hwupload' -c:v h264_vaapi -rc_mode CQP -qp 30 -strict unofficial -c:a copy -c:s copy -map 0 -map_metadata 0 -map_chapters 0 output.mkv
+```
+
 ### Get SSIM
 
 SSIM Y: For luma (Y) channel, 0-1, 1 is perfect match
@@ -124,7 +124,7 @@ SSIM V: For chrominance (V) channel, 0-1, 1 is perfect match
 SSIM All: Average of YUV, 0-1, 1 is perfect match
 
 ```bash
-ffmpeg -i output.mkv -i input.mkv -lavfi ssim -f null –
+ffmpeg -i output.mkv -i input.mkv -lavfi ssim -f null -
 ```
 
 ### Get PSNR
@@ -135,7 +135,7 @@ PSNR V: For chrominance (V) channel, in dB higher is better
 PSNR All: Average of YUV, in dB higher is better
 
 ```bash
-ffmpeg -i output.mkv -i input.mkv -lavfi psnr -f null –
+ffmpeg -i output.mkv -i input.mkv -lavfi psnr -f null -
 ```
 
 ### Get VMAF
@@ -143,7 +143,7 @@ ffmpeg -i output.mkv -i input.mkv -lavfi psnr -f null –
 VMAF score, higher is better
 
 ```bash
-ffmpeg -i output.mkv -i input.mkv -lavfi libvmaf -f null –
+ffmpeg -i output.mkv -i input.mkv -lavfi libvmaf -f null -
 ```
 
 Output into a json file
@@ -154,13 +154,11 @@ ffmpeg -i video1.mp4 -i video2.mp4 -lavfi libvmaf="log_path=vmaf.json:log_fmt=js
 
 ### Cut video without re-encoding
 
-Extract from 125s to 200s
+Extract from 125s to 150s
 
 ```bash
-ffmpeg -i input.mp4 -ss 125 -t 75 -copyts -map_metadata 0 -vcodec copy -acodec copy out.mkv
+ffmpeg -i input.mp4 -ss 125 -t 25 -copyts -map_metadata 0 -vcodec copy -acodec copy out.mkv
 ```
-
-Extract from 125s to 150s
 
 ```bash
 ffmpeg -i input.mp4 -ss 125 -to 150 -c copy -copyts -map_metadata 0 -vcodec copy -acodec copy out.mkv

@@ -35,14 +35,15 @@ include_content = true      # include rendered content of page/section in index
 # truncate_content_length = 100 # Truncate at nth character. May be useful if index is getting too large.
 
 [markdown]
-highlight_code = true
-highlight_theme = "css"
 bottom_footnotes = true # adds footnote backreference
 render_emoji = false
 external_links_target_blank = true # rel="noopener"
 external_links_no_follow = false   # rel="nofollow"
 external_links_no_referrer = false # rel="noreferrer"
 smart_punctuation = false          # `...` to `…`, `"quote"` to `“curly”` etc
+
+[markdown.highlighting]
+theme = "synthwave-84"
 
 # Any Extra language you do not use, delete or comment out the extra language sections:
 [languages.fr]
@@ -101,7 +102,7 @@ menu = [
     {url = "categories", name = "Categories", slash = true, blank = false, size="s110"},
     {url = "tags", name = "Tags", slash = true, blank = false, size="s110"},
     {url = "links", name = "Links", slash = true, blank = false, size="s110"},
-    {url = "friends", name = "Friends", slash = true, blank = false, size="s110"},
+    {url = "projects", name = "Projects", slash = true, blank = false, size="s110"},
     {url = "about", name = "About", slash = true, blank = false, size="s110"},
 ]
 menu_footer = [
@@ -167,7 +168,7 @@ seo = true  # enable or disable seo-related meta tags: opengraph, facebook, twit
 
 #head_extra = '<meta name="analytics" content="my-analytics-id" /><meta name="advertising" content="my-advertising-id" />'
 
-head_extra = '<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">'
+#head_extra = '<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">'
 
 # <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 

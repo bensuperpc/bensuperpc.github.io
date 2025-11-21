@@ -1,7 +1,7 @@
 services:
   # zola
   zola:
-    image: ghcr.io/getzola/zola:v0.20.0
+    image: ghcr.io/getzola/zola:v0.22.1
     container_name: zola
     user: ${PUID:-1000}:${PGID:-1000}
     profiles:
@@ -34,7 +34,7 @@ services:
           cpus: '0.001'
           memory: 20M
   zola-build:
-    image: ghcr.io/getzola/zola:v0.20.0
+    image: ghcr.io/getzola/zola:v0.22.1
     container_name: zola-build
     user: ${PUID:-1000}:${PGID:-1000}
     profiles:

@@ -4,7 +4,7 @@ full_stop = "."  # Used at the end of a sentence.
 
 # Menu items should match the names in config.extra.menu
 Posts = "Posts"
-Friends = "Friends"
+Projects = "Projects"
 Categories = "Categories"
 About = "About"
 Links = "Links"
