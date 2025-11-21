@@ -38,7 +38,7 @@ jobs:
 
     steps:
       - name: Checkout main
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: Build and deploy ${{ matrix.site.name }}
         uses: shalzz/zola-deploy-action@v0.21.0
