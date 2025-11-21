@@ -16,9 +16,9 @@ series = "Features"
 
 # Introduction
 
-A comparison of SSDs and focusing on NVMe and PCIe interfaces.
+Une comparaison des SSDs de différentes marques et modèles.
 
-## Samsung SSD
+## Samsung SSD NVMe
 
 | **Modèle**           | **Release** | **NVMe** | **PCIe**      | **Consumption** | **Perfs R/W**    | **IOPS (R/W)** | **Capacity**    | **Memory type** | **TBW (1TB)** | **Memory**      |
 | -------------------- | ----------- | -------- | ------------- | --------------- | ---------------- | -------------- | --------------- | --------------- | ------------- | --------------- |
@@ -35,7 +35,7 @@ A comparison of SSDs and focusing on NVMe and PCIe interfaces.
 | Samsung 990 Pro      | 2022        | 2.0      | 4.0 x4        | 5,5w  / 0,05w   | 7.4 / 6.9 GB/s   | 1400K / 1500K  | 1 TB – 2 TB     | TLC             | 600 TBW       | 1-2 GB LPDDR4   |
 | Samsung 9100 Pro     | 2025        | 2.0      | 5.0 x4        | 9w / 0.05w      | 14.8 / 13.4 GB/s | 2200K / 2600K  | 1 TB – 8 TB     | TLC             | 600 TBW       | 1-4 GB LPDDR4   |
 
-## Western Digital SSD
+## Western Digital SSD NVMe
 
 | **Modèle** | **Release** | **NVMe** | **PCIe** | **Consumption** | **Perfs R/W**    | **IOPS (R/W)** | **Capacity**  | **Memory type** | **TBW (1TB)** | **Memory**    |
 | ---------- | ----------- | -------- | -------- | --------------- | ---------------- | -------------- | ------------- | --------------- | ------------- | ------------- |
@@ -57,6 +57,7 @@ A comparison of SSDs and focusing on NVMe and PCIe interfaces.
 - [Samsung 990 Evo](https://download.semiconductor.samsung.com/resources/data-sheet/samsung_nvme_ssd_990_evo_datasheet_rev.1.1.pdf)
 - [Samsung 990 Evo Plus](https://download.semiconductor.samsung.com/resources/data-sheet/samsung_nvme_ssd_990_evo_plus_datasheet_rev.1.0.pdf)
 - [Samsung 990 Pro](https://download.semiconductor.samsung.com/resources/data-sheet/Samsung_NVMe_SSD_990_PRO_Datasheet_Rev.1.0.pdf)
+- [Samsung 9100 Pro](https://download.semiconductor.samsung.com/resources/data-sheet/Samsung_NVMe_SSD_9100_PRO_Datasheet_Rev.1.0.pdf)
 - [Western Digital SN770](https://documents.westerndigital.com/content/dam/doc-library/en_us/assets/public/western-digital/product/internal-drives/wd-black-ssd/product-brief-wd-black-sn770-nvme-ssd.pdf)
 - [Western Digital SN850](https://documents.westerndigital.com/content/dam/doc-library/en_us/assets/public/western-digital/product/internal-drives/wd-black-ssd/data-sheet-wd-black-sn850-nvme-ssd.pdf)
 - [Western Digital SN850X](https://documents.westerndigital.com/content/dam/doc-library/en_us/assets/public/western-digital/product/internal-drives/wd-black-ssd/data-sheet-wd-black-sn850x-nvme-ssd.pdf)
