@@ -1,7 +1,8 @@
 +++
 title = "À propos"
 path = "fr/about"
-template = "pages.html"
+template = "pages_with_fa.html"
+extra.enable_fontawesome = true
 draft = false
 aliases = ["fr/about"]
 +++
@@ -106,17 +107,19 @@ Specifications:
 
 Voici l'historique de l'évolution de mon ordinateur principal :
 
-| Date  |        Model         |         CPU          |           GPU            |        RAM        |   Memory   |     PSU     |     Monitor     |
-| :---: | :------------------: | :------------------: | :----------------------: | :---------------: | :--------: | :---------: | :-------------: |
-| 2005  |    Custom desktop    | AMD Athlon 64 3000+  |   Nvidia FX 5200 128MB   |  1GB DDR 400MHz   | 250GB HDD  |      ?      |  17" 1280x1024  |
-| 2009  |   Custom  desktop    | AMD Athlon 64 3700+  | ATI Radeon HD 3450 512MB |  1GB DDR 400MHz   | 500GB HDD  |      ?      |  17" 1280x1024  |
-| 2012  |   Custom  desktop    | AMD Athlon II X2 250 |    Nvidia GT 210 1GB     | 4GB DDR3 1333MHz  | 500GB HDD  |      ?      |  17" 1280x1024  |
-| 2013  |   Custom   desktop   |    Intel i3 3240     |    Nvidia GTX 650 2GB    | 32GB DDR3 1600MHz | 128GB SSD  | Akasa 550W  |  17" 1280x1024  |
-| 2015  | Lenovo Ideapad Z710  |   Intel i7 4710MQ    |    Nvidia GT 840 2GB     | 8GB DDR3 1600MHz  | 128GB SSD  | Lenovo 90W  | 17.3" 1600x900  |
-| 2018  |    HP Zbook G3 15    |   Intel i7 6700HQ    |    Quadro M2000M 4GB     | 32GB DDR4 2133MHz | 512GB SSD  |   HP 200W   | 17.3" 1920x1080 |
-| 2019  |      HP Omen 17      |    Intel i7 9750H    |   Nvidia RTX 2070 8GB    | 16GB DDR4 2933MHz | 512GB NVMe |   HP 230W   | 17.3" 1920x1080 |
-| 2021  | Lenovo Legion 15 pro |  AMD Ryzen 7 5800H   |   Nvidia RTX 3070 8GB    | 32GB DDR4 3200MHz |  1TB NVMe  | Lenovo 300W |  16" 2560x1600  |
-| 2024  |  Custom    desktop   |  AMD Ryzen 7 5700X   |  Nvidia RTX 3060 Ti 8GB  | 64GB DDR4 3200MHz |  1TB NVMe  | MPG A1000G  | 32" 1440p 240Hz |
+| Date  |          Model           |         CPU          |           GPU            |        RAM        |   Memory   |     PSU     |     Monitor     |
+| :---: | :----------------------: | :------------------: | :----------------------: | :---------------: | :--------: | :---------: | :-------------: |
+| 2004  |      Custom desktop      | AMD Athlon 64 3000+  |   Nvidia FX 5200 128MB   | 786MB DDR 400MHz  | 250GB HDD  |      ?      |  17" 1280x1024  |
+| 2009  | Packard Bell iMedia 6430 | AMD Athlon 64 3700+  | ATI Radeon HD 3450 512MB |  1GB DDR 400MHz   | 200GB HDD  |      ?      |  17" 1280x1024  |
+| 2012  |     Custom  desktop      | AMD Athlon II X2 250 |    Nvidia GT 210 1GB     | 4GB DDR3 1333MHz  | 500GB HDD  |      ?      |  17" 1280x1024  |
+| 2013  |     Custom   desktop     |    Intel i3 3240     |    Nvidia GTX 650 2GB    | 32GB DDR3 1600MHz | 128GB SSD  | Akasa 550W  |  17" 1280x1024  |
+| 2015  |   Lenovo Ideapad Z710    |   Intel i7 4710MQ    |    Nvidia GT 840 2GB     | 8GB DDR3 1600MHz  | 128GB SSD  | Lenovo 90W  | 17.3" 1600x900  |
+| 2018  |      HP Zbook G3 15      |   Intel i7 6700HQ    |    Quadro M2000M 4GB     | 32GB DDR4 2133MHz | 512GB SSD  |   HP 200W   | 17.3" 1920x1080 |
+| 2019  |        HP Omen 17        |    Intel i7 9750H    |   Nvidia RTX 2070 8GB    | 16GB DDR4 2933MHz | 512GB NVMe |   HP 230W   | 17.3" 1080p 144hz |
+| 2021  |   Lenovo Legion 15 pro   |  AMD Ryzen 7 5800H   |   Nvidia RTX 3070 8GB    | 32GB DDR4 3200MHz |  1TB NVMe  | Lenovo 300W | 27" 1440p 144hz |
+| 2024  |    Custom    desktop     |  AMD Ryzen 7 5700X   |  Nvidia GTX 1070 8GB     | 32GB DDR4 3200MHz |  1TB NVMe  | 550W        | 32" 1440p 240Hz |
+| 2024  |    Custom    desktop     |  AMD Ryzen 7 5700X   |  Nvidia RTX 3060 Ti 8GB  | 64GB DDR4 3200MHz |  2TB NVMe  | MPG A1000G  | 32" 1440p 240Hz |
+| 2025  |    Custom    desktop     |  AMD Ryzen 7 5700X   |   AMD RX 9060 XT 16 GB   | 64GB DDR4 3200MHz |  2TB NVMe  | MPG A1000G  | 32" 1440p 240Hz |
 
 L'historique de l'évolution de mon smartphone principal :
 

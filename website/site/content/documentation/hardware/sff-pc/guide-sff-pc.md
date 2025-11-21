@@ -78,7 +78,7 @@ I recommend using **socketed CPUs**, as they allow for future upgrades to more p
 
 Most SFF PCs come with **35W or 65W CPUs**, **i strongly recommend avoiding CPUs with a higher TDP than what the system supports**, as this can cause overheating and potentially damage the motherboard or PSU.
 
-Most modern software utilizes **AVX2** instructions, which can significantly boost performance in tasks like video encoding/decoding, compression, encryption, etc. Every CPU since **Intel Haswell** (2013) and **AMD Zen** (2017) supports AVX2, except for some low-end models like **Intel Celeron/Pentium/Atom** and **AMD Athlon**.
+Many modern software utilizes **AVX2** instructions, which can significantly boost performance in tasks like video encoding/decoding, compression, encryption, etc. Every CPU since **Intel Haswell** (2013) and **AMD Zen** (2017) supports AVX2, except for some low-end models like **Intel Celeron/Pentium/Atom** and **AMD Athlon**.
 
 #### Intel CPU generations
 
@@ -98,8 +98,9 @@ Most modern software utilizes **AVX2** instructions, which can significantly boo
 | intel | Comet Lake   | 10th Gen    | LGA1200 | DDR4      | 128GB   | 2020-2021 | M70q gen 1        | Re-add hyperthreading on most CPUs                            |
 | intel | Rocket Lake  | 11th Gen    | LGA1200 | DDR4      | 128GB   | 2021-2022 | M70q gen 2        | Add AVX-512 support and better perf                           |
 | intel | Alder Lake   | 12th Gen    | LGA1700 | DDR4-DDR5 | 256GB   | 2021-2022 | M70q gen 3        | Remove AVX-512, Pcore and ECore, AV1 hard dec and improve IPC |
-| intel | Raptor Lake  | 13-14th Gen | LGA1700 | DDR5      | 256GB   | 2022-2023 | M70q gen 4, 5     |                                                               |
-| intel | Arrow Lake   | 15th Gen    | LGA1700 | DDR5      | 256GB   | 2023-2024 | M70q gen 6        | Remove SMT and greatly improve efficiency                     |
+| intel | Raptor Lake  | 13-14th Gen | LGA1700 | DDR5      | 256GB   | 2022-2023 | M70q gen 4, 5     | More Ecores and cache                                         |
+| intel | Arrow Lake   | 15th Gen    | LGA1700 | DDR5      | 256GB   | 2024-2025 | M70q gen 6        | Remove SMT and greatly improve efficiency, AV1 encode         |
+| intel | Nova Lake    | 16th Gen    | LGA1851 | DDR5      | ?       | 2026 ?    |                   | Add AVX10.2/AVX512                                            |
 
 #### AMD CPU generations
 
@@ -110,11 +111,11 @@ Most modern software utilizes **AVX2** instructions, which can significantly boo
 | AMD   | Zen+      | 2nd Gen | AM4    | DDR4     | 64GB    | 2018-2019 |                   |                                                                   |
 | AMD   | Zen 2     | 3rd Gen | AM4    | DDR4     | 128GB   | 2019-2020 | M70q gen 1/2      | On pair with intel Skylake CPUs and fix most of the issues of Zen |
 | AMD   | Zen 3     | 4th Gen | AM4    | DDR4     | 128GB   | 2020-2021 | M70q gen 2        | Improve IPC and power efficiency                                  |
-| AMD   | Zen 4     | 5th Gen | AM5    | DDR5     | 256GB   | 2021-2022 |                   | Add AVX-512 support, better IPC and RDNA iGPU                     |
-| AMD   | Zen 5     | 6th Gen | AM5    | DDR5     | 256GB   | 2022-2023 | M70q gen 5        | Slightly improve IPC qnd full AVX-512 support                     |
+| AMD   | Zen 4     | 5th Gen | AM5    | DDR5     | 128GB   | 2021-2022 |                   | Add AVX-512 support, better IPC and RDNA iGPU                     |
+| AMD   | Zen 5     | 6th Gen | AM5    | DDR5     | 192GB   | 2022-2023 | M70q gen 5        | Slightly improve IPC qnd full AVX-512 support                     |
 
 
-I recommend using **Intel Coffee Lake**, **AMD Zen 2**, or newer CPUs, they offer nice performances and support modern features like NVMe, iGPU Vulkan, HEVC/VP9 10-bit hardware encoding/decoding, AVX2, etc... However, if you’re on a budget, **Haswell** or **Skylake** remains a good option due to the low price of the CPUs and relatively good performance.
+I recommend using **Intel Alder Lake**, **AMD Zen 3**, or newer CPUs, they offer nice performances and support modern features like NVMe, iGPU Vulkan, HEVC 10-bit hardware encoding/decoding, AVX2, etc... However, if you’re on a budget, **Intel Coffee Lake**, **AMD Zen 2** remains a good option due to the low price of the CPUs and relatively good performance, older CPUs like **Intel Haswell** and **AMD Excavator** often not worth it due to their low performance, lack of modern features (NVMe, HEVC or Vulkan etc...) and microcode updates (security and bug fix for CPU).
 
 ### GPU (Graphics Processing Unit)
 
@@ -155,7 +156,7 @@ All SFF PCs have a limited number of ports, ensure that your chosen SFF PC has e
 Common ports include:
 
 - **USB 2.0/3.x**: For peripherals, storage
-- **USB-C**: For peripherals, storage, and sometimes video output
+- **USB-C**: For peripherals, storage, power, and sometimes video output
 - **HDMI/DisplayPort/VGA**: For monitors
 - **Ethernet**: For networking
 - **Audio jacks**: For headphones, microphones, speakers
@@ -170,24 +171,42 @@ Here are general guidelines:
 - **90W**: 65W CPU or 35W CPU + DVD drive/expansion
 - **135W**: 65W CPU + 45W GPU or 100W CPU
 
-You can gain small performance boosts by using an overpowered PSU, especially with middle/high-end CPUs.
+You can gain small performance boosts by using an overpowered PSU, especially since Intel Commet Lake and newer CPUs.
 
 ### Motherboard
 
 Like the PSU, most SFF PCs have a **proprietary motherboard**, sometimes, you can replace it with another model from the same brand (e.g., an M920Q motherboard in an M720Q). However, in most cases, it is best to stick with the original motherboard model.
 
+### Operating System
+
+All SFF PCs x86-based are compatible with most operating systems (Linux, Windows, FreeBSD, even MacOS x86 etc...), i strongly recommend using **Linux** or **FreeBSD** due to its low resource usage, better performance, security, and compatibility with older hardware, some Linux distributions i recommend for SFF PCs.
+
+Standard Linux distributions:
+
+- **Debian**: Stable, well-supported, large software repository, update cycle of ~2 years
+- **Ubuntu**: User-friendly, large community, based on Debian with GNOME desktop
+- **Arch Linux**: Rolling release, highly customizable but high learning curve
+
+Lightweight Linux distributions:
+
+- **Lubuntu**: Ubuntu with LXQt GUI
+
+Multimedia-focused Linux distributions:
+
+- **OSMC**: Lightweight media center distribution based on Debian
+
 ## Lenovo thinkcentre SSF PCs
 
 In this section, we will see the different models of Lenovo thinkcentre SSF PCs.
 
-| Model      | CPU               | Chipset     | SODIMM RAM            | PCIe      | 2.5" Sata | m.2 NVMe | PSREF                                                                                                               |
+| Model      | CPU               | Chipset     | SODIMM RAM³           | PCIe      | 2.5" Sata | m.2 NVMe | PSREF                                                                                                               |
 | ---------- | ----------------- | ----------- | --------------------- | --------- | --------- | -------- | ------------------------------------------------------------------------------------------------------------------- |
 | M72 tiny   | ivy bridge        | Intel H61   | 2x 8GB 1600MHz DDR3   | -         | 1         | -        | [PDF](https://psref.lenovo.com/syspool/Sys/PDF/withdrawnbook/M72e.pdf)                                              |
 | M92 tiny   | ivy bridge        | Intel Q77   | 2x 8GB 1600MHz DDR3   | -         | 1         | -        |                                                                                                                     |
 | M73 tiny   | Haswell           | Intel H81   | 2x 8GB 1600MHz DDR3   | -         | 1         | -        | [PDF](https://psref.lenovo.com/syspool/Sys/PDF/ThinkCentre/ThinkCentre_M73_Tiny/ThinkCentre_M73_Tiny_Spec.pdf)      |
 | M83 tiny   | Haswell           | Intel Q85   | 2x 8GB 1600MHz DDR3   | -         | 1         | -        | [PDF](https://psref.lenovo.com/syspool/Sys/PDF/ThinkCentre/ThinkCentre_M83_Tiny/ThinkCentre_M83_Tiny_Spec.pdf)      |
-| M700q      | Skylake           | Intel B150  | 2x 32GB 2133MHz DDR4  | -         | 1         | 1 (SATA) | [PDF](https://psref.lenovo.com/syspool/Sys/PDF/ThinkCentre/ThinkCentre_M700_Tiny/ThinkCentre_M700_Tiny_Spec.pdf)    |
-| M900q      | Skylake           | Intel Q170  | 2x 32GB 2133MHz DDR4  | -         | 1         | 1        | [PDF](https://psref.lenovo.com/syspool/Sys/PDF/ThinkCentre/ThinkCentre_M900_Tiny/ThinkCentre_M900_Tiny_Spec.pdf)    |
+| M700q      | Skylake           | Intel B150  | 2x 16GB 2133MHz DDR4  | -         | 1         | 1 (SATA) | [PDF](https://psref.lenovo.com/syspool/Sys/PDF/ThinkCentre/ThinkCentre_M700_Tiny/ThinkCentre_M700_Tiny_Spec.pdf)    |
+| M900q      | Skylake           | Intel Q170  | 2x 16GB 2133MHz DDR4  | -         | 1         | 1        | [PDF](https://psref.lenovo.com/syspool/Sys/PDF/ThinkCentre/ThinkCentre_M900_Tiny/ThinkCentre_M900_Tiny_Spec.pdf)    |
 | M710q      | Skylake/Kaby Lake | Intel B250  | 2x 32GB 2400MHz DDR4² | -         | 1         | 1        | [PDF](https://psref.lenovo.com/syspool/Sys/PDF/ThinkCentre/ThinkCentre_M710_Tiny/ThinkCentre_M710_Tiny_Spec.pdf)    |
 | M910q      | Skylake/Kaby Lake | Intel Q270  | 2x 32GB 2400MHz DDR4² | -         | 1         | 2        | [PDF](https://psref.lenovo.com/syspool/Sys/PDF/ThinkCentre/ThinkCentre_M910_Tiny/ThinkCentre_M910_Tiny_Spec.pdf)    |
 | M720q      | Coffee Lake       | Intel B360  | 2x 32GB 2666MHz DDR4² | x8 Gen 3¹ | 1         | 1        | [PDF](https://psref.lenovo.com/syspool/Sys/PDF/ThinkCentre/ThinkCentre_M720_Tiny/ThinkCentre_M720_Tiny_Spec.pdf)    |
@@ -205,8 +224,8 @@ In this section, we will see the different models of Lenovo thinkcentre SSF PCs.
 | P350       | Rocket Lake       | Intel Q570  | 2x 32GB 3200MHz DDR4  | x8 Gen 3  | 1         | 2        | [PDF](https://psref.lenovo.com/syspool/Sys/PDF/ThinkStation/ThinkStation_P350_Tiny/ThinkStation_P350_Tiny_Spec.pdf) |
 | M80q Gen 3 | Alder Lake        | Intel Q670  | 2x 32GB 4800MHz DDR5  | -         | 1         | 2        | [PDF](https://psref.lenovo.com/syspool/Sys/PDF/ThinkCentre/ThinkCentre_M80q_Gen_3/ThinkCentre_M80q_Gen_3_Spec.pdf)  |
 | M90q Gen 3 | Alder Lake        | Intel Q670  | 2x 32GB 4800MHz DDR5  | x8 Gen 4  | 1         | 2        | [PDF](https://psref.lenovo.com/syspool/Sys/PDF/ThinkCentre/ThinkCentre_M90q_Gen_3/ThinkCentre_M90q_Gen_3_Spec.pdf)  |
-| P360       | Alder Lake        | Intel Q670  | 2x 32GB 4800MHz DDR5  | x8 Gen 4  | 1         | 2        | [PDF](https://psref.lenovo.com/syspool/Sys/PDF/ThinkStation/ThinkStation_P360_Tiny/ThinkStation_P360_Tiny_Spec.pdf) |
-| M70q Gen 3 | Alder Lake        | Intel Q670  | 2x 32GB 3200MHz DDR4  | -         | 1         | 2        | [PDF](https://psref.lenovo.com/syspool/Sys/PDF/ThinkCentre/ThinkCentre_M70q_Gen_3/ThinkCentre_M70q_Gen_3_Spec.pdf)  |
+| P360       | Alder Lake        | Intel Q670  | 2x 32GB 4800MHz DDR5  | x8 Gen 4  | 0         | 2        | [PDF](https://psref.lenovo.com/syspool/Sys/PDF/ThinkStation/ThinkStation_P360_Tiny/ThinkStation_P360_Tiny_Spec.pdf) |
+| M70q Gen 3 | Alder Lake        | Intel Q670  | 2x 32GB 3200MHz DDR4  | -         | 1         | 1        | [PDF](https://psref.lenovo.com/syspool/Sys/PDF/ThinkCentre/ThinkCentre_M70q_Gen_3/ThinkCentre_M70q_Gen_3_Spec.pdf)  |
 | M75q Gen 5 | AMD Zen 4         | AMD Pro 600 | 2x 32GB 5200MHz DDR5  | -         | 1         | 1        | [PDF](https://psref.lenovo.com/syspool/Sys/PDF/ThinkCentre/ThinkCentre_M75q_Gen_5/ThinkCentre_M75q_Gen_5_Spec.pdf)  |
 | M70q Gen 4 | Raptor Lake       | Intel Q670  | 2x 32GB 5600MHz DDR5  | -         | 0         | 2        | [PDF](https://psref.lenovo.com/syspool/Sys/PDF/ThinkCentre/ThinkCentre_M70q_Gen_4/ThinkCentre_M70q_Gen_4_Spec.pdf)  |
 | M70q Gen 5 | Raptor Lake       | Intel Q670  | 2x 32GB 5600MHz DDR5  | -         | 0         | 2        | [PDF](https://psref.lenovo.com/syspool/Sys/PDF/ThinkCentre/ThinkCentre_M70q_Gen_5/ThinkCentre_M70q_Gen_5_Spec.pdf)  |
@@ -216,6 +235,8 @@ In this section, we will see the different models of Lenovo thinkcentre SSF PCs.
 
 **²**: RAM speed can be lower depending on the CPU
 
+**³**: Maximum RAM supported is determined by CPU (memory controller) and BIOS, some configurations may support more RAM unofficially.
+
 ### Tools
 
 Bios simulator: [Simulator](https://download.lenovo.com/bsco/index.html#/)
@@ -224,20 +245,37 @@ Bios simulator: [Simulator](https://download.lenovo.com/bsco/index.html#/)
 
 #### Ports
 
+On the back:
+- 2x USB 3.0 Gen 1
+- 2x USB 3.0 Gen 2
+- 1x HDMI 1.4
+- 1x DisplayPort 1.2a
+- 1x Ethernet RJ45
+- 2x port for proprietary accessories (VGA, HDMI, DP, USB-C etc...)
+- 1x Lenovo proprietary power connector
+
+The M720q/M920q does not support HDR through HDMI (1.4) or DisplayPort (1.2a) but 10bit color depth is supported.
+
+On the front:
+- 1x USB 3.0 Gen 1
+- 1x USB-C 3.1 Gen 1
+- 1x Audio headphone jack
+- 1x Audio microphone jack
+
 #### CPU
 
-The M720q/M920q supports all **8th** and **9th** generation Intel 35W CPUs (models with **T** suffix), the **i7-9900T** is the most powerful CPU available for this model, but it is very expensive and hard to find, the i3-8100T, i3-9100T, i5-8500T, i5-8600T, i5-9500T, i5-9600T, i7-8700T, i7-9700T are far more common, affordable and offer nice performances.
+The M720q/M920q supports all **8th** and **9th** generation Intel 35W CPUs (models with **T** suffix), the **i7-9900T** is the most powerful CPU available for this model, but it is very expensive and hard to find, the i3-8100T, i3-9100T, i5-8500T, i5-8600T, i5-9500T, i5-9600T, i7-8700T, i7-9700T are far more common, affordable and still offer good performance.
 
 Avoid Celeron and Pentium, they are pretty slow (missing AVX2, FMA3, etc...), **do not use CPUs with a higher TDP than 35W (65W on M920x)**, this can cause overheating and potentially damage your motherboard (like VRMs) or PSU.
 
 #### RAM
 
-The M720q/M920q/M920x have **two DDR4 SODIMM slots** with a maximum capacity of **64GB** (2x32GB), the maximum frequency is **2400MHz** or **2666MHz** on i5/i7 CPUs, you can use higher frequency, it will downclock to the CPU supported frequency.
+The M720q/M920q/M920x have **two DDR4 SODIMM slots** with a maximum capacity of **64GB** (2x32GB), the maximum frequency is **2400MHz** or **2666MHz** on i5/i7 CPUs, you can use higher frequency, it will downclock to the CPU supported frequency, they are both located under the hatch located under the computer.
 
 #### Storage
 
 You have **two** storage options:
-- **M.2 NVMe**: Only one slot and support PCIe x4 Gen 3, the best choice.
+- **M.2 NVMe PCIe 3.0**: Only one slot and support PCIe x4 Gen 3, i strongly recommend using this option for the best performance.
 - **2.5" SATA**: Slower but it be a good alternative if you need more storage or don't have an M.2 NVMe SSD.
 
 The the **second M.2 slot** missing NVMe on M720q/M920q, you can solder missing components to get working M.2 (SATA): [https://github.com/badger707/m920q-dual-NVME](https://github.com/badger707/m920q-dual-NVME)
@@ -245,8 +283,6 @@ The the **second M.2 slot** missing NVMe on M720q/M920q, you can solder missing 
 #### GPU
 
 All compatible CPU have an integrated GPU, if it is not enough, you can add a **low-profile** GPU with **proprietary PCIe riser card**, you are limited with PCIe 3.0 x8 and 45W TDP. (you also need 135W PSU)
-
-The M720q/M920q does not support HDR through HDMI (1.4) or DisplayPort (1.2a) but 10bit color depth is supported.
 
 #### PSU
 
