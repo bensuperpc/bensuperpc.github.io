@@ -101,7 +101,7 @@ menu = [
     {url = "categories", name = "Categories", slash = true, blank = false, size="s110"},
     {url = "tags", name = "Tags", slash = true, blank = false, size="s110"},
     {url = "links", name = "Links", slash = true, blank = false, size="s110"},
-    {url = "friends", name = "Friends", slash = true, blank = false, size="s110"},
+    {url = "projects", name = "Projects", slash = true, blank = false, size="s110"},
     {url = "about", name = "About", slash = true, blank = false, size="s110"},
 ]
 menu_footer = [
@@ -167,7 +167,7 @@ seo = true  # enable or disable seo-related meta tags: opengraph, facebook, twit
 
 #head_extra = '<meta name="analytics" content="my-analytics-id" /><meta name="advertising" content="my-advertising-id" />'
 
-head_extra = '<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">'
+#head_extra = '<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">'
 
 # <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 

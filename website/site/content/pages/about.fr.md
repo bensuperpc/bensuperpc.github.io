@@ -1,7 +1,8 @@
 +++
 title = "À propos"
 path = "fr/about"
-template = "pages.html"
+template = "pages_with_fa.html"
+extra.enable_fontawesome = true
 draft = false
 aliases = ["fr/about"]
 +++
@@ -9,12 +10,6 @@ aliases = ["fr/about"]
 My name is Bensuperpc, I am a **software engineer** and a Hardware enthusiast, on this website, I will share my projects, benchmarks, and tutorials.
 
 I am **French** and **autistic**, I am passionate about technology, video games, astronomy and history.
-
-## Main projects
-
-### Top repositories and organizations
-
-[![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=dockcross&repo=dockcross&theme=radical)](https://github.com/dockcross/dockcross) [![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=bensuperpc&repo=docker-multimedia&theme=radical)](https://github.com/bensuperpc/docker-multimedia) [![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=bensuperpc&repo=astar&theme=radical)](https://github.com/bensuperpc/astar) [![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=bensuperpc&repo=infrastructure&theme=radical)](https://github.com/bensuperpc/infrastructure) [![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=bensuperpc&repo=benlib&theme=radical)](https://github.com/bensuperpc/benlib) [![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=bensuperpc&repo=RTL9210&theme=radical)](https://github.com/bensuperpc/RTL9210) [![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=bensuperpc&repo=docker-minecraft-server&theme=radical)](https://github.com/bensuperpc/docker-minecraft-server) [![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=bensuperpc&repo=crc32&theme=radical)](https://github.com/bensuperpc/crc32) [![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=bensuperpc&repo=scripts&theme=radical)](https://github.com/bensuperpc/scripts) [![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=bensuperpc&repo=GTASA_code_alternatives&theme=radical)](https://github.com/bensuperpc/GTASA_code_alternatives) [![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=bensuperpc&repo=experimentation&theme=radical)](https://github.com/bensuperpc/experimentation) [![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=bensuperpc&repo=world_of_blocks&theme=radical)](https://github.com/bensuperpc/world_of_blocks)
 
 ## Mon matériel
 
@@ -34,8 +29,8 @@ Specifications:
 - {{ fontawesome(icon="fa-hard-drive") }} 1TB Samsung 980 Pro NVMe PCIe 4.0 SSD (Linux)
 - {{ fontawesome(icon="fa-hard-drive") }} 2TB Samsung 970 EVO Plus NVMe PCIe 3.0 SSD (Windows)
 - {{ fontawesome(icon="fa-hard-drive") }} 4TB Crucial X6 USB 3.2 Gen 2 SSD (Steam library)
-- {{ fontawesome(icon="fa-square-caret-right") }} KFA2 Nvidia RTX 3060 Ti 8GB
-- {{ fontawesome(icon="fa-bolt") }} MSI MPG 1000W 80+ Gold
+- {{ fontawesome(icon="fa-square-caret-right") }} XFX Radeon RX 9060 XT 16GB
+- {{ fontawesome(icon="fa-bolt") }} MSI MPG A1000G PCIe 5.0 80+ Gold
 - {{ fontawesome(icon="fa-box") }} Logitech G502 Hero
 - {{ fontawesome(icon="fa-desktop") }} Samsung Odyssey G7 32" 1440p 240Hz
 - {{ fontawesome(icon="fa-desktop") }} Dell S2721DGF 27" 1440p 165Hz
@@ -106,17 +101,19 @@ Specifications:
 
 Voici l'historique de l'évolution de mon ordinateur principal :
 
-| Date  |        Model         |         CPU          |           GPU            |        RAM        |   Memory   |     PSU     |     Monitor     |
-| :---: | :------------------: | :------------------: | :----------------------: | :---------------: | :--------: | :---------: | :-------------: |
-| 2005  |    Custom desktop    | AMD Athlon 64 3000+  |   Nvidia FX 5200 128MB   |  1GB DDR 400MHz   | 250GB HDD  |      ?      |  17" 1280x1024  |
-| 2009  |   Custom  desktop    | AMD Athlon 64 3700+  | ATI Radeon HD 3450 512MB |  1GB DDR 400MHz   | 500GB HDD  |      ?      |  17" 1280x1024  |
-| 2012  |   Custom  desktop    | AMD Athlon II X2 250 |    Nvidia GT 210 1GB     | 4GB DDR3 1333MHz  | 500GB HDD  |      ?      |  17" 1280x1024  |
-| 2013  |   Custom   desktop   |    Intel i3 3240     |    Nvidia GTX 650 2GB    | 32GB DDR3 1600MHz | 128GB SSD  | Akasa 550W  |  17" 1280x1024  |
-| 2015  | Lenovo Ideapad Z710  |   Intel i7 4710MQ    |    Nvidia GT 840 2GB     | 8GB DDR3 1600MHz  | 128GB SSD  | Lenovo 90W  | 17.3" 1600x900  |
-| 2018  |    HP Zbook G3 15    |   Intel i7 6700HQ    |    Quadro M2000M 4GB     | 32GB DDR4 2133MHz | 512GB SSD  |   HP 200W   | 17.3" 1920x1080 |
-| 2019  |      HP Omen 17      |    Intel i7 9750H    |   Nvidia RTX 2070 8GB    | 16GB DDR4 2933MHz | 512GB NVMe |   HP 230W   | 17.3" 1920x1080 |
-| 2021  | Lenovo Legion 15 pro |  AMD Ryzen 7 5800H   |   Nvidia RTX 3070 8GB    | 32GB DDR4 3200MHz |  1TB NVMe  | Lenovo 300W |  16" 2560x1600  |
-| 2024  |  Custom    desktop   |  AMD Ryzen 7 5700X   |  Nvidia RTX 3060 Ti 8GB  | 64GB DDR4 3200MHz |  1TB NVMe  | MPG A1000G  | 32" 1440p 240Hz |
+| Date  |          Model           |         CPU          |           GPU            |        RAM        |   Memory   |     PSU     |     Monitor     |
+| :---: | :----------------------: | :------------------: | :----------------------: | :---------------: | :--------: | :---------: | :-------------: |
+| 2004  |      Custom desktop      | AMD Athlon 64 3000+  |   Nvidia FX 5200 128MB   | 786MB DDR 400MHz  | 250GB HDD  |      ?      |  17" 1280x1024  |
+| 2009  | Packard Bell iMedia 6430 | AMD Athlon 64 3700+  | ATI Radeon HD 3450 512MB |  1GB DDR 400MHz   | 200GB HDD  |      ?      |  17" 1280x1024  |
+| 2012  |     Custom  desktop      | AMD Athlon II X2 250 |    Nvidia GT 210 1GB     | 4GB DDR3 1333MHz  | 500GB HDD  |      ?      |  17" 1280x1024  |
+| 2013  |     Custom   desktop     |    Intel i3 3240     |    Nvidia GTX 650 2GB    | 32GB DDR3 1600MHz | 128GB SSD  | Akasa 550W  |  17" 1280x1024  |
+| 2015  |   Lenovo Ideapad Z710    |   Intel i7 4710MQ    |    Nvidia GT 840 2GB     | 8GB DDR3 1600MHz  | 128GB SSD  | Lenovo 90W  | 17.3" 1600x900  |
+| 2018  |      HP Zbook G3 15      |   Intel i7 6700HQ    |    Quadro M2000M 4GB     | 32GB DDR4 2133MHz | 512GB SSD  |   HP 200W   | 17.3" 1920x1080 |
+| 2019  |        HP Omen 17        |    Intel i7 9750H    |   Nvidia RTX 2070 8GB    | 16GB DDR4 2933MHz | 512GB NVMe |   HP 230W   | 17.3" 1080p 144hz |
+| 2021  |   Lenovo Legion 15 pro   |  AMD Ryzen 7 5800H   |   Nvidia RTX 3070 8GB    | 32GB DDR4 3200MHz |  1TB NVMe  | Lenovo 300W | 27" 1440p 144hz |
+| 2024  |    Custom    desktop     |  AMD Ryzen 7 5700X   |  Nvidia GTX 1070 8GB     | 32GB DDR4 3200MHz |  1TB NVMe  | 550W        | 32" 1440p 240Hz |
+| 2024  |    Custom    desktop     |  AMD Ryzen 7 5700X   |  Nvidia RTX 3060 Ti 8GB  | 64GB DDR4 3200MHz |  2TB NVMe  | MPG A1000G  | 32" 1440p 240Hz |
+| 2025  |    Custom    desktop     |  AMD Ryzen 7 5700X   |   AMD RX 9060 XT 16 GB   | 64GB DDR4 3200MHz |  2TB NVMe  | MPG A1000G  | 32" 1440p 240Hz |
 
 L'historique de l'évolution de mon smartphone principal :
 
@@ -148,6 +145,22 @@ Et enfin l'évolution du serveur principal :
 {{ img(src="/images/IMG_20190711_205103.webp" class="b1" alt="My cat Daisy" caption="Daisy" link="") }}
 
 {{ img(src="/images/DlCNaHuXgAAoL7L.webp" class="b1" alt="My cat Minette" caption="Minette" link="") }}
+
+## Mes amis
+
+Voici une liste de mes amis (non exhaustive) et leurs sites web:
+
+- [Doalo](https://doalo.fr/)
+- [Greep](https://greep.fr)
+- [Proxy](https://imagisphe.re)
+- [Gnous](https://gnous.eu/)
+- [Sayloriae](https://eaglecraft.fr/)
+- **Fireboy**
+- [Rick](https://gyiwr.tf)
+- [Outout](https://www.enpls.org/)
+- [Patchli](https://patchli.fr/)
+- **Belucraft**
+- **Tanados**
 
 ## Ce site web
 

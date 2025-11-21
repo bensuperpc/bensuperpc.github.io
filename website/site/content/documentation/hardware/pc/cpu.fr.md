@@ -25,10 +25,15 @@ series = "Features"
 | 1989        | 80486         | Intel 80486                               | {% color(color="#FF4136") %} No {% end %}      | {% color(color="#FF4136") %} No {% end %}  | {% color(color="#FF4136") %} No {% end %}  |
 | 1993        | P5 (Pentium)  | Pentium                                   | {% color(color="#FF4136") %} No {% end %}      | {% color(color="#FF4136") %} No {% end %}  | {% color(color="#FF4136") %} No {% end %}  |
 | 1995        | P6            | Pentium Pro                               | {% color(color="#FF4136") %} No {% end %}      | {% color(color="#FF4136") %} No {% end %}  | {% color(color="#FF4136") %} No {% end %}  |
-| 1997        | P6            | Pentium II                                | {% color(color="#FF5645") %} MMX {% end %}     | {% color(color="#FF4136") %} No {% end %}  | {% color(color="#FF4136") %} No {% end %}  |
-| 1999        | P6            | Pentium III                               | {% color(color="#FF6F61") %} SSE {% end %}     | {% color(color="#FF4136") %} No {% end %}  | {% color(color="#FF4136") %} No {% end %}  |
-| 2000        | NetBurst      | Pentium 4 (Willamette/Northwood)          | {% color(color="#FFB347") %} SSE2 {% end %}    | {% color(color="#FF4136") %} No {% end %}  | {% color(color="#FF4136") %} No {% end %}  |
-| 2004        | NetBurst      | Pentium 4/D (Prescott)                    | {% color(color="#FFD700") %} SSE3 {% end %}    | {% color(color="#FF4136") %} No {% end %}  | {% color(color="#FF4136") %} No {% end %}  |
+| 1997        | P6            | Pentium II Klamath                        | {% color(color="#FF5645") %} MMX {% end %}     | {% color(color="#FF4136") %} No {% end %}  | {% color(color="#FF4136") %} No {% end %}  |
+| 1998        | P6            | Pentium II Deschutes                      | {% color(color="#FF5645") %} MMX {% end %}     | {% color(color="#FF4136") %} No {% end %}  | {% color(color="#FF4136") %} No {% end %}  |
+| 1999        | P6            | Pentium III Katmai                        | {% color(color="#FF6F61") %} SSE {% end %}     | {% color(color="#FF4136") %} No {% end %}  | {% color(color="#FF4136") %} No {% end %}  |
+| 1999        | P6            | Pentium III Coppermine                    | {% color(color="#FF6F61") %} SSE {% end %}     | {% color(color="#FF4136") %} No {% end %}  | {% color(color="#FF4136") %} No {% end %}  |
+| 2000        | NetBurst      | Pentium 4 Willamette                      | {% color(color="#FFB347") %} SSE2 {% end %}    | {% color(color="#FF4136") %} No {% end %}  | {% color(color="#FF4136") %} No {% end %}  |
+| 2001        | P6            | Pentium III Tualatin                      | {% color(color="#FF6F61") %} SSE {% end %}     | {% color(color="#FF4136") %} No {% end %}  | {% color(color="#FF4136") %} No {% end %}  |
+| 2002        | NetBurst      | Pentium 4 Northwood                       | {% color(color="#FFB347") %} SSE2 {% end %}    | {% color(color="#FF4136") %} No {% end %}  | {% color(color="#FF4136") %} No {% end %}  |
+| 2004        | NetBurst      | Pentium 4/D Prescott                      | {% color(color="#FFD700") %} SSE3 {% end %}    | {% color(color="#FF4136") %} No {% end %}  | {% color(color="#FF4136") %} No {% end %}  |
+| 2004        | NetBurst      | Pentium 4/D Cedar Mill                    | {% color(color="#FFD700") %} SSE3 {% end %}    | {% color(color="#FF4136") %} No {% end %}  | {% color(color="#FF4136") %} No {% end %}  |
 | 2006        | Core          | Core 2 E6/Q6xxx, E1/E2xxx                 | {% color(color="#FFD700") %} SSE3 {% end %}    | {% color(color="#FF4136") %} No {% end %}  | {% color(color="#FF4136") %} No {% end %}  |
 | 2007        | Penryn        | Core 2 E7/E8/Q8/Q9xxx, E2/E5/E6xxx        | {% color(color="#ADFF2F") %} SSSE3 {% end %}   | {% color(color="#FF4136") %} No {% end %}  | {% color(color="#FF4136") %} No {% end %}  |
 | 2008        | Nehalem       | Core i3/i5/i7 9xx                         | {% color(color="#2ECC40") %} SSE4 {% end %}    | {% color(color="#FF4136") %} No {% end %}  | {% color(color="#FF4136") %} No {% end %}  |
@@ -49,7 +54,7 @@ series = "Features"
 | 2024        | Meteor Lake   | Core Ultra 3/5/7/9 1xx                    | {% color(color="#00CED1") %} AVX2 {% end %}    | {% color(color="#1AC7FF") %} Yes {% end %} | {% color(color="#1AC7FF") %} Yes {% end %} |
 | 2024        | Lunar Lake    | Core Ultra 3/5/7/9 2xx                    | {% color(color="#00CED1") %} AVX2 {% end %}    | {% color(color="#1AC7FF") %} Yes {% end %} | {% color(color="#1AC7FF") %} Yes {% end %} |
 | 2024        | Arrow Lake    | Core Ultra 3/5/7/9 3xx                    | {% color(color="#00CED1") %} AVX2 {% end %}    | {% color(color="#1AC7FF") %} Yes {% end %} | {% color(color="#1AC7FF") %} Yes {% end %} |
-| 2025 ?      | Nova Lake     | Core Ultra 3/5/7/9 4xx                    | {% color(color="#1EA9FF") %} 10.2 {% end %}    | {% color(color="#1AC7FF") %} Yes {% end %} | {% color(color="#1AC7FF") %} Yes {% end %} |
+| 2025 ?      | Nova Lake     | Core Ultra 3/5/7/9 4xx                    | {% color(color="#009dff") %} 10.2 {% end %}    | {% color(color="#1AC7FF") %} Yes {% end %} | {% color(color="#1AC7FF") %} Yes {% end %} |
 
 *Note: Les processeurs **pentium** et **celeron** jusqu'aux **Comet Lake** ne supportent pas AVX, AVX2 et AVX-512.*
 
