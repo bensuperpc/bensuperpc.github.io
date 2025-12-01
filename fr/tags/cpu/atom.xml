@@ -1,0 +1,804 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="fr">
+    <title>Bensuperpc - CPU</title>
+    <subtitle>Le site de Bensuperpc, logiciels et de matériel informatique.</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://bensuperpc.github.io/fr/tags/cpu/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://bensuperpc.github.io"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2025-02-24T00:00:00+00:00</updated>
+    <id>https://bensuperpc.github.io/fr/tags/cpu/atom.xml</id>
+    <entry xml:lang="fr">
+        <title>L&#x27;évolution des CPUs</title>
+        <published>2025-02-24T00:00:00+00:00</published>
+        <updated>2025-02-24T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://bensuperpc.github.io/fr/documentation/hardware/pc/cpu/"/>
+        <id>https://bensuperpc.github.io/fr/documentation/hardware/pc/cpu/</id>
+        
+        <content type="html" xml:base="https://bensuperpc.github.io/fr/documentation/hardware/pc/cpu/">&lt;h1 id=&quot;introduction&quot;&gt;Introduction&lt;&#x2F;h1&gt;
+&lt;h2 id=&quot;intel-cpu&quot;&gt;Intel CPU&lt;&#x2F;h2&gt;
+&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;&lt;strong&gt;Release&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;Microarch&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;CPU Models&#x2F;Series&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;SIMD instructions&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;FMA3&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;AES-NI&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;&#x2F;tr&gt;&lt;&#x2F;thead&gt;&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;1979&lt;&#x2F;td&gt;&lt;td&gt;8088&#x2F;8086&lt;&#x2F;td&gt;&lt;td&gt;Intel 8088&#x2F;8086&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;1982&lt;&#x2F;td&gt;&lt;td&gt;80286&lt;&#x2F;td&gt;&lt;td&gt;Intel 80286&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;1985&lt;&#x2F;td&gt;&lt;td&gt;80386&lt;&#x2F;td&gt;&lt;td&gt;Intel 80386&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;1989&lt;&#x2F;td&gt;&lt;td&gt;80486&lt;&#x2F;td&gt;&lt;td&gt;Intel 80486&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;1993&lt;&#x2F;td&gt;&lt;td&gt;P5 (Pentium)&lt;&#x2F;td&gt;&lt;td&gt;Pentium&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;1995&lt;&#x2F;td&gt;&lt;td&gt;P6&lt;&#x2F;td&gt;&lt;td&gt;Pentium Pro&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;1997&lt;&#x2F;td&gt;&lt;td&gt;P6&lt;&#x2F;td&gt;&lt;td&gt;Pentium II Klamath&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF5645&quot; &gt;
+    MMX
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;1998&lt;&#x2F;td&gt;&lt;td&gt;P6&lt;&#x2F;td&gt;&lt;td&gt;Pentium II Deschutes&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF5645&quot; &gt;
+    MMX
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;1999&lt;&#x2F;td&gt;&lt;td&gt;P6&lt;&#x2F;td&gt;&lt;td&gt;Pentium III Katmai&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF6F61&quot; &gt;
+    SSE
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;1999&lt;&#x2F;td&gt;&lt;td&gt;P6&lt;&#x2F;td&gt;&lt;td&gt;Pentium III Coppermine&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF6F61&quot; &gt;
+    SSE
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2000&lt;&#x2F;td&gt;&lt;td&gt;NetBurst&lt;&#x2F;td&gt;&lt;td&gt;Pentium 4 Willamette&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FFB347&quot; &gt;
+    SSE2
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2001&lt;&#x2F;td&gt;&lt;td&gt;P6&lt;&#x2F;td&gt;&lt;td&gt;Pentium III Tualatin&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF6F61&quot; &gt;
+    SSE
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2002&lt;&#x2F;td&gt;&lt;td&gt;NetBurst&lt;&#x2F;td&gt;&lt;td&gt;Pentium 4 Northwood&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FFB347&quot; &gt;
+    SSE2
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2004&lt;&#x2F;td&gt;&lt;td&gt;NetBurst&lt;&#x2F;td&gt;&lt;td&gt;Pentium 4&#x2F;D Prescott&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FFD700&quot; &gt;
+    SSE3
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2004&lt;&#x2F;td&gt;&lt;td&gt;NetBurst&lt;&#x2F;td&gt;&lt;td&gt;Pentium 4&#x2F;D Cedar Mill&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FFD700&quot; &gt;
+    SSE3
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2006&lt;&#x2F;td&gt;&lt;td&gt;Core&lt;&#x2F;td&gt;&lt;td&gt;Core 2 E6&#x2F;Q6xxx, E1&#x2F;E2xxx&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FFD700&quot; &gt;
+    SSE3
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2007&lt;&#x2F;td&gt;&lt;td&gt;Penryn&lt;&#x2F;td&gt;&lt;td&gt;Core 2 E7&#x2F;E8&#x2F;Q8&#x2F;Q9xxx, E2&#x2F;E5&#x2F;E6xxx&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #ADFF2F&quot; &gt;
+    SSSE3
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2008&lt;&#x2F;td&gt;&lt;td&gt;Nehalem&lt;&#x2F;td&gt;&lt;td&gt;Core i3&#x2F;i5&#x2F;i7 9xx&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #2ECC40&quot; &gt;
+    SSE4
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2010&lt;&#x2F;td&gt;&lt;td&gt;Westmere&lt;&#x2F;td&gt;&lt;td&gt;Core i3&#x2F;i5&#x2F;i7 xxx, Pentium G69xx&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #00C49A&quot; &gt;
+    SSE4.2
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2011&lt;&#x2F;td&gt;&lt;td&gt;Sandy Bridge&lt;&#x2F;td&gt;&lt;td&gt;Core i3&#x2F;i5&#x2F;i7 2xxx, Pentium G6xx&#x2F;G8xx&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #00D100&quot; &gt;
+    AVX
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2012&lt;&#x2F;td&gt;&lt;td&gt;Ivy Bridge&lt;&#x2F;td&gt;&lt;td&gt;Core i3&#x2F;i5&#x2F;i7 3xxx, Pentium G2xxx&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #00D100&quot; &gt;
+    AVX
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2013-2014&lt;&#x2F;td&gt;&lt;td&gt;Haswell&lt;&#x2F;td&gt;&lt;td&gt;Core i3&#x2F;i5&#x2F;i7 4xxx, Pentium G3xxx&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #00CED1&quot; &gt;
+    AVX2
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2014&lt;&#x2F;td&gt;&lt;td&gt;Broadwell&lt;&#x2F;td&gt;&lt;td&gt;Core i3&#x2F;i5&#x2F;i7 5xxx&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #00CED1&quot; &gt;
+    AVX2
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2015&lt;&#x2F;td&gt;&lt;td&gt;Skylake&lt;&#x2F;td&gt;&lt;td&gt;Core i3&#x2F;i5&#x2F;i7 6xxx, Pentium G44xx&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #00CED1&quot; &gt;
+    AVX2
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2016&lt;&#x2F;td&gt;&lt;td&gt;Kaby Lake&lt;&#x2F;td&gt;&lt;td&gt;Core i3&#x2F;i5&#x2F;i7 7xxx, Pentium G45xx&#x2F;G46xx&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #00CED1&quot; &gt;
+    AVX2
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2018-2019&lt;&#x2F;td&gt;&lt;td&gt;Coffee Lake&lt;&#x2F;td&gt;&lt;td&gt;Core i3&#x2F;i5&#x2F;i7&#x2F;i9 8xxx&#x2F;9xxx, Pentium G5xxx&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #00CED1&quot; &gt;
+    AVX2
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2019&lt;&#x2F;td&gt;&lt;td&gt;Ice Lake&lt;&#x2F;td&gt;&lt;td&gt;Core i3&#x2F;i5&#x2F;i7 10xxxGx (mobile only)&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    AVX-512
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2020&lt;&#x2F;td&gt;&lt;td&gt;Comet Lake&lt;&#x2F;td&gt;&lt;td&gt;Core i3&#x2F;i5&#x2F;i7&#x2F;i9 10xxx, Pentium G6xxx&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #00CED1&quot; &gt;
+    AVX2
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2020&lt;&#x2F;td&gt;&lt;td&gt;Tiger Lake&lt;&#x2F;td&gt;&lt;td&gt;Core i3&#x2F;i5&#x2F;i7 11xxxGx (mobile only)&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    AVX-512
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2021&lt;&#x2F;td&gt;&lt;td&gt;Rocket Lake&lt;&#x2F;td&gt;&lt;td&gt;Core i3&#x2F;i5&#x2F;i7&#x2F;i9 11xxx&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    AVX-512
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2021&lt;&#x2F;td&gt;&lt;td&gt;Alder Lake&lt;&#x2F;td&gt;&lt;td&gt;Core i3&#x2F;i5&#x2F;i7&#x2F;i9 12xxx, Pentium G7xxx&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #00CED1&quot; &gt;
+    AVX2
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2022&lt;&#x2F;td&gt;&lt;td&gt;Raptor Lake&lt;&#x2F;td&gt;&lt;td&gt;Core i3&#x2F;i5&#x2F;i7&#x2F;i9 13xxx&#x2F;14xxx&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #00CED1&quot; &gt;
+    AVX2
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2024&lt;&#x2F;td&gt;&lt;td&gt;Meteor Lake&lt;&#x2F;td&gt;&lt;td&gt;Core Ultra 3&#x2F;5&#x2F;7&#x2F;9 1xx&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #00CED1&quot; &gt;
+    AVX2
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2024&lt;&#x2F;td&gt;&lt;td&gt;Lunar Lake&lt;&#x2F;td&gt;&lt;td&gt;Core Ultra 3&#x2F;5&#x2F;7&#x2F;9 2xx&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #00CED1&quot; &gt;
+    AVX2
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2024&lt;&#x2F;td&gt;&lt;td&gt;Arrow Lake&lt;&#x2F;td&gt;&lt;td&gt;Core Ultra 3&#x2F;5&#x2F;7&#x2F;9 3xx&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #00CED1&quot; &gt;
+    AVX2
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2025 ?&lt;&#x2F;td&gt;&lt;td&gt;Nova Lake&lt;&#x2F;td&gt;&lt;td&gt;Core Ultra 3&#x2F;5&#x2F;7&#x2F;9 4xx&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #009dff&quot; &gt;
+    10.2
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
+&lt;p&gt;&lt;em&gt;Note: Les processeurs &lt;strong&gt;pentium&lt;&#x2F;strong&gt; et &lt;strong&gt;celeron&lt;&#x2F;strong&gt; jusqu&#x27;aux &lt;strong&gt;Comet Lake&lt;&#x2F;strong&gt; ne supportent pas AVX, AVX2 et AVX-512.&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;amd-cpu&quot;&gt;AMD CPU&lt;&#x2F;h2&gt;
+&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;&lt;strong&gt;Release&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;Microarch&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;CPU Models&#x2F;Series&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;SIMD instructions&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;FMA3&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;AES-NI&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;&#x2F;tr&gt;&lt;&#x2F;thead&gt;&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;1996&lt;&#x2F;td&gt;&lt;td&gt;K5&lt;&#x2F;td&gt;&lt;td&gt;AMD K5&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;1997&lt;&#x2F;td&gt;&lt;td&gt;K6&lt;&#x2F;td&gt;&lt;td&gt;AMD K6, K6-II, K6-III&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF5645&quot; &gt;
+    MMX
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;1999&lt;&#x2F;td&gt;&lt;td&gt;K7 (Athlon)&lt;&#x2F;td&gt;&lt;td&gt;AMD Athlon, Duron&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF6F61&quot; &gt;
+    SSE
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2003&lt;&#x2F;td&gt;&lt;td&gt;K8&lt;&#x2F;td&gt;&lt;td&gt;AMD Athlon 64, Opteron&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FFD700&quot; &gt;
+    SSE3
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2007&lt;&#x2F;td&gt;&lt;td&gt;K10&lt;&#x2F;td&gt;&lt;td&gt;AMD Phenom, Phenom II, Athlon II&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #ADFF2F&quot; &gt;
+    SSE4a
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2011&lt;&#x2F;td&gt;&lt;td&gt;Bulldozer&lt;&#x2F;td&gt;&lt;td&gt;AMD FX x1xx, Opteron (Bulldozer)&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #00D100&quot; &gt;
+    AVX
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FFD700&quot; &gt;
+    FMA4
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2014&lt;&#x2F;td&gt;&lt;td&gt;Steamroller&lt;&#x2F;td&gt;&lt;td&gt;AMD APUs (Steamroller)&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #00D100&quot; &gt;
+    AVX
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2015&lt;&#x2F;td&gt;&lt;td&gt;Excavator&lt;&#x2F;td&gt;&lt;td&gt;AMD APUs (Excavator)&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #00CED1&quot; &gt;
+    AVX2
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2017&lt;&#x2F;td&gt;&lt;td&gt;Zen&lt;&#x2F;td&gt;&lt;td&gt;AMD Ryzen 1xxx, EPYC 7xx1&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #00CED1&quot; &gt;
+    AVX2
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2018&lt;&#x2F;td&gt;&lt;td&gt;Zen+&lt;&#x2F;td&gt;&lt;td&gt;AMD Ryzen 2xxx&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #00CED1&quot; &gt;
+    AVX2
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2019&lt;&#x2F;td&gt;&lt;td&gt;Zen 2&lt;&#x2F;td&gt;&lt;td&gt;AMD Ryzen 3xxx, EPYC 7xx2&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #00CED1&quot; &gt;
+    AVX2
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2020&lt;&#x2F;td&gt;&lt;td&gt;Zen 3&lt;&#x2F;td&gt;&lt;td&gt;AMD Ryzen 5xxx, EPYC 7xx3&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #00CED1&quot; &gt;
+    AVX2
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2022&lt;&#x2F;td&gt;&lt;td&gt;Zen 4&lt;&#x2F;td&gt;&lt;td&gt;AMD Ryzen 7xxx, EPYC 4&#x2F;8&#x2F;9xx4&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    AVX-512
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2024&lt;&#x2F;td&gt;&lt;td&gt;Zen 5&lt;&#x2F;td&gt;&lt;td&gt;AMD Ryzen 9xxx, EPYC 9xx5&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    AVX-512
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
+&lt;h2 id=&quot;arm-cpu&quot;&gt;ARM CPU&lt;&#x2F;h2&gt;
+&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;&lt;strong&gt;Release&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;Microarch&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;CPU Models&#x2F;Series&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;Inst. length&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;SIMD instructions&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;Out-of-order&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;&#x2F;tr&gt;&lt;&#x2F;thead&gt;&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;?&lt;&#x2F;td&gt;&lt;td&gt;ARMv1&lt;&#x2F;td&gt;&lt;td&gt;ARM1&lt;&#x2F;td&gt;&lt;td&gt;&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;?&lt;&#x2F;td&gt;&lt;td&gt;ARMv2&lt;&#x2F;td&gt;&lt;td&gt;ARM2&lt;&#x2F;td&gt;&lt;td&gt;&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;?&lt;&#x2F;td&gt;&lt;td&gt;ARMv3&lt;&#x2F;td&gt;&lt;td&gt;ARM6&lt;&#x2F;td&gt;&lt;td&gt;32-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;1993&lt;&#x2F;td&gt;&lt;td&gt;ARMv4&lt;&#x2F;td&gt;&lt;td&gt;ARM7&lt;&#x2F;td&gt;&lt;td&gt;32-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;1998&lt;&#x2F;td&gt;&lt;td&gt;ARMv5&lt;&#x2F;td&gt;&lt;td&gt;ARM9&lt;&#x2F;td&gt;&lt;td&gt;32-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2002&lt;&#x2F;td&gt;&lt;td&gt;ARMv6&lt;&#x2F;td&gt;&lt;td&gt;ARM11&lt;&#x2F;td&gt;&lt;td&gt;32-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2005&lt;&#x2F;td&gt;&lt;td&gt;ARMv7&lt;&#x2F;td&gt;&lt;td&gt;Cortex-A8&lt;&#x2F;td&gt;&lt;td&gt;32-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FFD700&quot; &gt;
+    NEON
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2007&lt;&#x2F;td&gt;&lt;td&gt;ARMv7&lt;&#x2F;td&gt;&lt;td&gt;Cortex-A9&lt;&#x2F;td&gt;&lt;td&gt;32-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FFD700&quot; &gt;
+    NEON
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2009&lt;&#x2F;td&gt;&lt;td&gt;ARMv7&lt;&#x2F;td&gt;&lt;td&gt;Cortex-A5&lt;&#x2F;td&gt;&lt;td&gt;32-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FFD700&quot; &gt;
+    NEON
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2011&lt;&#x2F;td&gt;&lt;td&gt;ARMv7&lt;&#x2F;td&gt;&lt;td&gt;Cortex-A7&lt;&#x2F;td&gt;&lt;td&gt;32-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FFD700&quot; &gt;
+    NEON
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2011&lt;&#x2F;td&gt;&lt;td&gt;ARMv7&lt;&#x2F;td&gt;&lt;td&gt;Cortex-A15&lt;&#x2F;td&gt;&lt;td&gt;32-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FFD700&quot; &gt;
+    NEON
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2012&lt;&#x2F;td&gt;&lt;td&gt;ARMv8&lt;&#x2F;td&gt;&lt;td&gt;Cortex-A53&lt;&#x2F;td&gt;&lt;td&gt;32-bit&#x2F;64-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FFD700&quot; &gt;
+    NEON
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2012&lt;&#x2F;td&gt;&lt;td&gt;ARMv8&lt;&#x2F;td&gt;&lt;td&gt;Cortex-A57&lt;&#x2F;td&gt;&lt;td&gt;32-bit&#x2F;64-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FFD700&quot; &gt;
+    NEON
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2013&lt;&#x2F;td&gt;&lt;td&gt;ARMv7&lt;&#x2F;td&gt;&lt;td&gt;Cortex-A12&lt;&#x2F;td&gt;&lt;td&gt;32-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FFD700&quot; &gt;
+    NEON
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2014&lt;&#x2F;td&gt;&lt;td&gt;ARMv7&lt;&#x2F;td&gt;&lt;td&gt;Cortex-A17&lt;&#x2F;td&gt;&lt;td&gt;32-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FFD700&quot; &gt;
+    NEON
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2016&lt;&#x2F;td&gt;&lt;td&gt;ARMv8&lt;&#x2F;td&gt;&lt;td&gt;Cortex-A72&lt;&#x2F;td&gt;&lt;td&gt;32-bit&#x2F;64-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FFD700&quot; &gt;
+    NEON
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2016&lt;&#x2F;td&gt;&lt;td&gt;ARMv8&lt;&#x2F;td&gt;&lt;td&gt;Cortex-A73&lt;&#x2F;td&gt;&lt;td&gt;32-bit&#x2F;64-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FFD700&quot; &gt;
+    NEON
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2016&lt;&#x2F;td&gt;&lt;td&gt;ARMv8&lt;&#x2F;td&gt;&lt;td&gt;Cortex-A32&lt;&#x2F;td&gt;&lt;td&gt;32-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FFD700&quot; &gt;
+    NEON
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2016&lt;&#x2F;td&gt;&lt;td&gt;ARMv8&lt;&#x2F;td&gt;&lt;td&gt;Cortex-A35&lt;&#x2F;td&gt;&lt;td&gt;32-bit&#x2F;64-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FFD700&quot; &gt;
+    NEON
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2017&lt;&#x2F;td&gt;&lt;td&gt;ARMv8.2&lt;&#x2F;td&gt;&lt;td&gt;Cortex-A75&lt;&#x2F;td&gt;&lt;td&gt;32-bit&#x2F;64-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #ADFF2F&quot; &gt;
+    NEON (opt. SVE)
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2017&lt;&#x2F;td&gt;&lt;td&gt;ARMv8.2&lt;&#x2F;td&gt;&lt;td&gt;Cortex-A55&lt;&#x2F;td&gt;&lt;td&gt;32-bit&#x2F;64-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #ADFF2F&quot; &gt;
+    NEON (opt. SVE)
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2018&lt;&#x2F;td&gt;&lt;td&gt;ARMv8.2&lt;&#x2F;td&gt;&lt;td&gt;Cortex-A76&lt;&#x2F;td&gt;&lt;td&gt;32-bit&#x2F;64-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #ADFF2F&quot; &gt;
+    NEON (opt. SVE)
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2019&lt;&#x2F;td&gt;&lt;td&gt;ARMv8.2&lt;&#x2F;td&gt;&lt;td&gt;Cortex-A77&lt;&#x2F;td&gt;&lt;td&gt;32-bit&#x2F;64-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #ADFF2F&quot; &gt;
+    NEON (opt. SVE)
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2019&lt;&#x2F;td&gt;&lt;td&gt;ARMv8.2&lt;&#x2F;td&gt;&lt;td&gt;Cortex-A65&lt;&#x2F;td&gt;&lt;td&gt;32-bit&#x2F;64-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #ADFF2F&quot; &gt;
+    NEON (opt. SVE)
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2020&lt;&#x2F;td&gt;&lt;td&gt;ARMv8.2&lt;&#x2F;td&gt;&lt;td&gt;Cortex-A78&lt;&#x2F;td&gt;&lt;td&gt;32-bit&#x2F;64-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #ADFF2F&quot; &gt;
+    NEON (opt. SVE)
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2020&lt;&#x2F;td&gt;&lt;td&gt;ARMv8.2&lt;&#x2F;td&gt;&lt;td&gt;Cortex-X1&lt;&#x2F;td&gt;&lt;td&gt;32-bit&#x2F;64-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #ADFF2F&quot; &gt;
+    NEON (opt. SVE)
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2021&lt;&#x2F;td&gt;&lt;td&gt;ARMv9&lt;&#x2F;td&gt;&lt;td&gt;Cortex-A710&lt;&#x2F;td&gt;&lt;td&gt;32-bit&#x2F;64-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    SVE2
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2021&lt;&#x2F;td&gt;&lt;td&gt;ARMv9&lt;&#x2F;td&gt;&lt;td&gt;Cortex-A510&lt;&#x2F;td&gt;&lt;td&gt;32-bit&#x2F;64-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    SVE2
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2021&lt;&#x2F;td&gt;&lt;td&gt;ARMv9&lt;&#x2F;td&gt;&lt;td&gt;Cortex-X2&lt;&#x2F;td&gt;&lt;td&gt;32-bit&#x2F;64-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    SVE2
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2022&lt;&#x2F;td&gt;&lt;td&gt;ARMv9&lt;&#x2F;td&gt;&lt;td&gt;Cortex-A715&lt;&#x2F;td&gt;&lt;td&gt;64-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    SVE2
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2022&lt;&#x2F;td&gt;&lt;td&gt;ARMv9&lt;&#x2F;td&gt;&lt;td&gt;Cortex-X3&lt;&#x2F;td&gt;&lt;td&gt;64-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    SVE2
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2023&lt;&#x2F;td&gt;&lt;td&gt;ARMv9.2&lt;&#x2F;td&gt;&lt;td&gt;Cortex-A520&lt;&#x2F;td&gt;&lt;td&gt;64-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    SVE2
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2023&lt;&#x2F;td&gt;&lt;td&gt;ARMv9.2&lt;&#x2F;td&gt;&lt;td&gt;Cortex-A720&lt;&#x2F;td&gt;&lt;td&gt;64-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    SVE2
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2023&lt;&#x2F;td&gt;&lt;td&gt;ARMv9.2&lt;&#x2F;td&gt;&lt;td&gt;Cortex-X4&lt;&#x2F;td&gt;&lt;td&gt;64-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    SVE2
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2024&lt;&#x2F;td&gt;&lt;td&gt;ARMv9.2&lt;&#x2F;td&gt;&lt;td&gt;Cortex-A725&lt;&#x2F;td&gt;&lt;td&gt;64-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    SVE2
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2024&lt;&#x2F;td&gt;&lt;td&gt;ARMv9.2&lt;&#x2F;td&gt;&lt;td&gt;Cortex-X925&lt;&#x2F;td&gt;&lt;td&gt;64-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    SVE2
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2024&#x2F;2025 ?&lt;&#x2F;td&gt;&lt;td&gt;ARMv9.2&lt;&#x2F;td&gt;&lt;td&gt;Cortex-X930&lt;&#x2F;td&gt;&lt;td&gt;64-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    SVE2
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
+&lt;p&gt;&lt;em&gt;Note: Implementation can very by vendor, some may support additional features or optimizations.&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;benchmark&quot;&gt;Benchmark&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;passmark&quot;&gt;PassMark&lt;&#x2F;h3&gt;
+ &lt;figure class=&quot;fi b1&quot;&gt;&lt;img src=&quot;https:&#x2F;&#x2F;bensuperpc.github.io&#x2F;images&#x2F;articles&#x2F;benchmark&#x2F;cpu_performance_st.webp&quot; class=&quot;b1&quot; alt=&quot;cpu_performance_st&quot; width=&quot;7680&quot; height=&quot;4320&quot; loading=&quot;lazy&quot; &#x2F;&gt;&lt;figcaption&gt;PassMark score from 2000 to 2025 in single-thread&lt;&#x2F;figcaption&gt;&lt;&#x2F;figure&gt;
+ &lt;figure class=&quot;fi b1&quot;&gt;&lt;img src=&quot;https:&#x2F;&#x2F;bensuperpc.github.io&#x2F;images&#x2F;articles&#x2F;benchmark&#x2F;cpu_performance_mt.webp&quot; class=&quot;b1&quot; alt=&quot;cpu_performance_mt&quot; width=&quot;7680&quot; height=&quot;4320&quot; loading=&quot;lazy&quot; &#x2F;&gt;&lt;figcaption&gt;PassMark score from 2000 to 2025 in multi-thread&lt;&#x2F;figcaption&gt;&lt;&#x2F;figure&gt;
+</content>
+        
+    </entry>
+</feed>
