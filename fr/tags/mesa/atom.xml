@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="fr">
+    <title>Bensuperpc - Mesa</title>
+    <subtitle>Le site de Bensuperpc, logiciels et de matériel informatique.</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://bensuperpc.github.io/fr/tags/mesa/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://bensuperpc.github.io"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2025-03-21T00:00:00+00:00</updated>
+    <id>https://bensuperpc.github.io/fr/tags/mesa/atom.xml</id>
+    <entry xml:lang="fr">
+        <title>Les pilotes GPU Mesa</title>
+        <published>2025-03-21T00:00:00+00:00</published>
+        <updated>2025-03-21T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://bensuperpc.github.io/fr/documentation/hardware/pc/gpu/"/>
+        <id>https://bensuperpc.github.io/fr/documentation/hardware/pc/gpu/</id>
+        
+        <content type="html" xml:base="https://bensuperpc.github.io/fr/documentation/hardware/pc/gpu/">&lt;h1 id=&quot;introduction&quot;&gt;Introduction&lt;&#x2F;h1&gt;
+&lt;p&gt;Vous trouverez ci-dessous une liste des architectures GPU et de leurs pilotes Mesa et support API correspondants.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;amd-graphics&quot;&gt;AMD Graphics&lt;&#x2F;h2&gt;
+&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;&lt;strong&gt;Release&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;GFX Core&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;Architecture&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;GPU Models&#x2F;Series&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;OpenGL&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;OpenCL&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;Vulkan&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;&#x2F;tr&gt;&lt;&#x2F;thead&gt;&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;2000-2002&lt;&#x2F;td&gt;&lt;td&gt;GFX1&lt;&#x2F;td&gt;&lt;td&gt;-&lt;&#x2F;td&gt;&lt;td&gt;Radeon 7xxx&lt;&#x2F;td&gt;&lt;td&gt;1.3&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2002-2004&lt;&#x2F;td&gt;&lt;td&gt;GFX1&lt;&#x2F;td&gt;&lt;td&gt;-&lt;&#x2F;td&gt;&lt;td&gt;Radeon 8xxx, Radeon 9000, Radeon 9200, Radeon 9250&lt;&#x2F;td&gt;&lt;td&gt;1.4&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2002-2005&lt;&#x2F;td&gt;&lt;td&gt;GFX2&lt;&#x2F;td&gt;&lt;td&gt;-&lt;&#x2F;td&gt;&lt;td&gt;Radeon 9500, Radeon 9600, Radeon 9700, Radeon 9800, Radeon X300-X850&lt;&#x2F;td&gt;&lt;td&gt;2.1&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2004-2005&lt;&#x2F;td&gt;&lt;td&gt;GFX2&lt;&#x2F;td&gt;&lt;td&gt;-&lt;&#x2F;td&gt;&lt;td&gt;Radeon X700, Radeon X800, Radeon X850, Radeon Xpress 200-1250&lt;&#x2F;td&gt;&lt;td&gt;2.1&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2005-2006&lt;&#x2F;td&gt;&lt;td&gt;GFX2&lt;&#x2F;td&gt;&lt;td&gt;-&lt;&#x2F;td&gt;&lt;td&gt;Radeon X1300, Radeon X1600, Radeon X1800, Radeon X1900, Radeon X1950&lt;&#x2F;td&gt;&lt;td&gt;2.1&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2007-2008&lt;&#x2F;td&gt;&lt;td&gt;GFX3&lt;&#x2F;td&gt;&lt;td&gt;Ultra-Threaded SE&lt;&#x2F;td&gt;&lt;td&gt;Radeon HD 2xxx, Radeon HD 3xxx&lt;&#x2F;td&gt;&lt;td&gt;3.3&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2008-2009&lt;&#x2F;td&gt;&lt;td&gt;GFX3&lt;&#x2F;td&gt;&lt;td&gt;TeraScale 1&lt;&#x2F;td&gt;&lt;td&gt;Radeon HD 4xxx&lt;&#x2F;td&gt;&lt;td&gt;3.3&lt;&#x2F;td&gt;&lt;td&gt;1.1&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2009-2011&lt;&#x2F;td&gt;&lt;td&gt;GFX4&lt;&#x2F;td&gt;&lt;td&gt;TeraScale 2&lt;&#x2F;td&gt;&lt;td&gt;Radeon HD 5xxx, Radeon HD 6xxx&lt;&#x2F;td&gt;&lt;td&gt;4.x&lt;&#x2F;td&gt;&lt;td&gt;1.2&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2010-2012&lt;&#x2F;td&gt;&lt;td&gt;GFX5&lt;&#x2F;td&gt;&lt;td&gt;TeraScale 3&lt;&#x2F;td&gt;&lt;td&gt;Radeon HD 69xx, Radeon HD 7xxx (Trinity&#x2F;Richland APUs)&lt;&#x2F;td&gt;&lt;td&gt;4.x&lt;&#x2F;td&gt;&lt;td&gt;2.1&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2012-2013&lt;&#x2F;td&gt;&lt;td&gt;GFX6&lt;&#x2F;td&gt;&lt;td&gt;GCN 1.0&lt;&#x2F;td&gt;&lt;td&gt;Radeon HD 7xxx-8xxx, Radeon R7 240&#x2F;250, Radeon R9 280&#x2F;290&lt;&#x2F;td&gt;&lt;td&gt;4.x&lt;&#x2F;td&gt;&lt;td&gt;2.1&lt;&#x2F;td&gt;&lt;td&gt;1.3&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2013-2014&lt;&#x2F;td&gt;&lt;td&gt;GFX7&lt;&#x2F;td&gt;&lt;td&gt;GCN 2.0&lt;&#x2F;td&gt;&lt;td&gt;Radeon R7 260, Radeon R9 290X, Radeon R9 295X2, Kaveri APUs&lt;&#x2F;td&gt;&lt;td&gt;4.x&lt;&#x2F;td&gt;&lt;td&gt;2.1&lt;&#x2F;td&gt;&lt;td&gt;1.3&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2014-2015&lt;&#x2F;td&gt;&lt;td&gt;GFX8&lt;&#x2F;td&gt;&lt;td&gt;GCN 3.0&lt;&#x2F;td&gt;&lt;td&gt;Radeon R9 285, Radeon R9 380, Radeon R9 390&lt;&#x2F;td&gt;&lt;td&gt;4.x&lt;&#x2F;td&gt;&lt;td&gt;2.1&lt;&#x2F;td&gt;&lt;td&gt;1.4&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2015-2017&lt;&#x2F;td&gt;&lt;td&gt;GFX8.1&lt;&#x2F;td&gt;&lt;td&gt;GCN 4.0&lt;&#x2F;td&gt;&lt;td&gt;Radeon R9 Fury series, Radeon RX 4xx&#x2F;5xx, Stoney Ridge APUs&lt;&#x2F;td&gt;&lt;td&gt;4.x&lt;&#x2F;td&gt;&lt;td&gt;2.1&lt;&#x2F;td&gt;&lt;td&gt;1.4&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2017-2019&lt;&#x2F;td&gt;&lt;td&gt;GFX9&lt;&#x2F;td&gt;&lt;td&gt;GCN 5.0&lt;&#x2F;td&gt;&lt;td&gt;Radeon RX Vega 56&#x2F;64, Radeon VII, Raven Ridge&#x2F;Renoir APUs&lt;&#x2F;td&gt;&lt;td&gt;4.x&lt;&#x2F;td&gt;&lt;td&gt;2.1&lt;&#x2F;td&gt;&lt;td&gt;1.4&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2019-2020&lt;&#x2F;td&gt;&lt;td&gt;GFX10&lt;&#x2F;td&gt;&lt;td&gt;RDNA 1.0&lt;&#x2F;td&gt;&lt;td&gt;Radeon RX 5xxx (Navi 10, Navi 12, Navi 14)&lt;&#x2F;td&gt;&lt;td&gt;4.x&lt;&#x2F;td&gt;&lt;td&gt;2.1&lt;&#x2F;td&gt;&lt;td&gt;1.4&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2020-2022&lt;&#x2F;td&gt;&lt;td&gt;GFX10&lt;&#x2F;td&gt;&lt;td&gt;RDNA 2.0&lt;&#x2F;td&gt;&lt;td&gt;Radeon RX 6xxx (Navi 21, Navi 22, Navi 23, Navi 24), Van Gogh, Raphael APUs&lt;&#x2F;td&gt;&lt;td&gt;4.x&lt;&#x2F;td&gt;&lt;td&gt;2.1&lt;&#x2F;td&gt;&lt;td&gt;1.4&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2022-2024&lt;&#x2F;td&gt;&lt;td&gt;GFX11&lt;&#x2F;td&gt;&lt;td&gt;RDNA 3.0&lt;&#x2F;td&gt;&lt;td&gt;Radeon RX 7xxx (Navi 31, Navi 32, Navi 33), Phoenix APUs (780M, 760M)&lt;&#x2F;td&gt;&lt;td&gt;4.x&lt;&#x2F;td&gt;&lt;td&gt;2.1&lt;&#x2F;td&gt;&lt;td&gt;1.4&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2024&lt;&#x2F;td&gt;&lt;td&gt;GFX11&lt;&#x2F;td&gt;&lt;td&gt;RDNA 3.5&lt;&#x2F;td&gt;&lt;td&gt;Radeon RX 8xxM (Strix Point APUs)&lt;&#x2F;td&gt;&lt;td&gt;4.x&lt;&#x2F;td&gt;&lt;td&gt;2.1&lt;&#x2F;td&gt;&lt;td&gt;1.4&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2025&lt;&#x2F;td&gt;&lt;td&gt;GFX12&lt;&#x2F;td&gt;&lt;td&gt;RDNA 4.0&lt;&#x2F;td&gt;&lt;td&gt;Radeon RX 9xxx&lt;&#x2F;td&gt;&lt;td&gt;4.x&lt;&#x2F;td&gt;&lt;td&gt;2.1&lt;&#x2F;td&gt;&lt;td&gt;1.4&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
+&lt;h3 id=&quot;mesa-drivers&quot;&gt;Mesa drivers&lt;&#x2F;h3&gt;
+&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;&lt;strong&gt;Nom du driver&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;Type&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;Version&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;GFX Core&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;&#x2F;tr&gt;&lt;&#x2F;thead&gt;&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;r200 &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;docs.mesa3d.org&#x2F;amber.html&quot;&gt;mesa-amber&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;td&gt;OpenGL&lt;&#x2F;td&gt;&lt;td&gt;1.5&lt;&#x2F;td&gt;&lt;td&gt;GFX1&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;r300&lt;&#x2F;td&gt;&lt;td&gt;OpenGL&lt;&#x2F;td&gt;&lt;td&gt;1.5&lt;&#x2F;td&gt;&lt;td&gt;GFX2&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;r600&lt;&#x2F;td&gt;&lt;td&gt;OpenGL&lt;&#x2F;td&gt;&lt;td&gt;3.3&lt;&#x2F;td&gt;&lt;td&gt;GFX3-GFX5&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;radeonsi&lt;&#x2F;td&gt;&lt;td&gt;OpenGL&lt;&#x2F;td&gt;&lt;td&gt;4.6&lt;&#x2F;td&gt;&lt;td&gt;GFX6-GFX11&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;radv&lt;&#x2F;td&gt;&lt;td&gt;Vulkan&lt;&#x2F;td&gt;&lt;td&gt;1.4&lt;&#x2F;td&gt;&lt;td&gt;GFX6-GFX11&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
+&lt;h2 id=&quot;intel-graphics&quot;&gt;Intel Graphics&lt;&#x2F;h2&gt;
+&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;&lt;strong&gt;Release&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;GFX Core&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;Architecture&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;GPU Models&#x2F;Series&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;OpenGL&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;OpenCL&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;Vulkan&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;&#x2F;tr&gt;&lt;&#x2F;thead&gt;&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;1998-1999&lt;&#x2F;td&gt;&lt;td&gt;Gen1&lt;&#x2F;td&gt;&lt;td&gt;3D Accelerator&lt;&#x2F;td&gt;&lt;td&gt;i740, i752, i754&lt;&#x2F;td&gt;&lt;td&gt;1.1&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;1999-2003&lt;&#x2F;td&gt;&lt;td&gt;Gen2&lt;&#x2F;td&gt;&lt;td&gt;Extreme Graphics&lt;&#x2F;td&gt;&lt;td&gt;82810, 82815, 82845G, 82855GM, 82865G&lt;&#x2F;td&gt;&lt;td&gt;1.3&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2003-2004&lt;&#x2F;td&gt;&lt;td&gt;Gen3&lt;&#x2F;td&gt;&lt;td&gt;Extreme Graphics 2&lt;&#x2F;td&gt;&lt;td&gt;82852GM, 82855GM, 82915G, 82925X&lt;&#x2F;td&gt;&lt;td&gt;1.4&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2006-2007&lt;&#x2F;td&gt;&lt;td&gt;Gen4&lt;&#x2F;td&gt;&lt;td&gt;GMA 3000&#x2F;3100&lt;&#x2F;td&gt;&lt;td&gt;G965, Q965, X3000, X3100, G31, G33, G35, Q33, Q35&lt;&#x2F;td&gt;&lt;td&gt;2.1&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2007-2009&lt;&#x2F;td&gt;&lt;td&gt;Gen4.5&lt;&#x2F;td&gt;&lt;td&gt;GMA X3500&#x2F;X4500&lt;&#x2F;td&gt;&lt;td&gt;G35, G41, G43, G45, Q43, Q45, B43, X38, X48&lt;&#x2F;td&gt;&lt;td&gt;2.1&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2010&lt;&#x2F;td&gt;&lt;td&gt;Gen5&lt;&#x2F;td&gt;&lt;td&gt;Ironlake&lt;&#x2F;td&gt;&lt;td&gt;HD Graphics (Arrandale, Clarkdale)&lt;&#x2F;td&gt;&lt;td&gt;2.1&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2011&lt;&#x2F;td&gt;&lt;td&gt;Gen6&lt;&#x2F;td&gt;&lt;td&gt;Sandy Bridge&lt;&#x2F;td&gt;&lt;td&gt;HD Graphics 2000&#x2F;3000&lt;&#x2F;td&gt;&lt;td&gt;3.3&lt;&#x2F;td&gt;&lt;td&gt;1.1&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2012&lt;&#x2F;td&gt;&lt;td&gt;Gen7&lt;&#x2F;td&gt;&lt;td&gt;Ivy Bridge&lt;&#x2F;td&gt;&lt;td&gt;HD Graphics 2500&#x2F;4000&lt;&#x2F;td&gt;&lt;td&gt;4.2&lt;&#x2F;td&gt;&lt;td&gt;1.2&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2013&lt;&#x2F;td&gt;&lt;td&gt;Gen7.5&lt;&#x2F;td&gt;&lt;td&gt;Haswell&lt;&#x2F;td&gt;&lt;td&gt;HD Graphics 4200&#x2F;4400&#x2F;4600&#x2F;5000&#x2F;5100&#x2F;5200&lt;&#x2F;td&gt;&lt;td&gt;4.6&lt;&#x2F;td&gt;&lt;td&gt;1.2&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2014-2015&lt;&#x2F;td&gt;&lt;td&gt;Gen8&lt;&#x2F;td&gt;&lt;td&gt;Broadwell&lt;&#x2F;td&gt;&lt;td&gt;HD Graphics 5300&#x2F;5500&#x2F;6000, Iris 6100&lt;&#x2F;td&gt;&lt;td&gt;4.6&lt;&#x2F;td&gt;&lt;td&gt;2.0&lt;&#x2F;td&gt;&lt;td&gt;1.3&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2015-2017&lt;&#x2F;td&gt;&lt;td&gt;Gen9&lt;&#x2F;td&gt;&lt;td&gt;Skylake&lt;&#x2F;td&gt;&lt;td&gt;HD Graphics 5xx, Iris 5xx&lt;&#x2F;td&gt;&lt;td&gt;4.6&lt;&#x2F;td&gt;&lt;td&gt;2.1&lt;&#x2F;td&gt;&lt;td&gt;1.4&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2017-2019&lt;&#x2F;td&gt;&lt;td&gt;Gen9.5&lt;&#x2F;td&gt;&lt;td&gt;Kaby Lake&#x2F;Coffee Lake&lt;&#x2F;td&gt;&lt;td&gt;UHD Graphics 6xx, Iris Plus 6xx&lt;&#x2F;td&gt;&lt;td&gt;4.6&lt;&#x2F;td&gt;&lt;td&gt;2.1&lt;&#x2F;td&gt;&lt;td&gt;1.4&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2019-2020&lt;&#x2F;td&gt;&lt;td&gt;Gen11&lt;&#x2F;td&gt;&lt;td&gt;Ice Lake&lt;&#x2F;td&gt;&lt;td&gt;Iris Plus Graphics (G4, G7)&lt;&#x2F;td&gt;&lt;td&gt;4.6&lt;&#x2F;td&gt;&lt;td&gt;2.1&lt;&#x2F;td&gt;&lt;td&gt;1.4&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2020-2021&lt;&#x2F;td&gt;&lt;td&gt;Gen12&lt;&#x2F;td&gt;&lt;td&gt;Xe-LP&lt;&#x2F;td&gt;&lt;td&gt;UHD Graphics (Rocket Lake), Iris Xe (Alder Lake)&lt;&#x2F;td&gt;&lt;td&gt;4.6&lt;&#x2F;td&gt;&lt;td&gt;2.1&lt;&#x2F;td&gt;&lt;td&gt;1.4&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2022&lt;&#x2F;td&gt;&lt;td&gt;Gen12.7&lt;&#x2F;td&gt;&lt;td&gt;Xe-HPG&#x2F;Xe-HPC&lt;&#x2F;td&gt;&lt;td&gt;Arc Alchemist (A7xx A3xx), Ponte Vecchio&lt;&#x2F;td&gt;&lt;td&gt;4.6&lt;&#x2F;td&gt;&lt;td&gt;3.0&lt;&#x2F;td&gt;&lt;td&gt;1.4&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2024-2025&lt;&#x2F;td&gt;&lt;td&gt;Gen20&lt;&#x2F;td&gt;&lt;td&gt;Xe2-HPG&#x2F;Xe2-LPG&lt;&#x2F;td&gt;&lt;td&gt;Battlemage (B5xx), Lunar Lake&lt;&#x2F;td&gt;&lt;td&gt;4.6&lt;&#x2F;td&gt;&lt;td&gt;3.0&lt;&#x2F;td&gt;&lt;td&gt;1.4&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
+&lt;h3 id=&quot;mesa-drivers-1&quot;&gt;Mesa drivers&lt;&#x2F;h3&gt;
+&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;&lt;strong&gt;Nom du driver&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;Type&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;Version&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;GFX Core&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;&#x2F;tr&gt;&lt;&#x2F;thead&gt;&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;i830&#x2F;i965 (&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;docs.mesa3d.org&#x2F;amber.html&quot;&gt;mesa-amber&lt;&#x2F;a&gt;)&lt;&#x2F;td&gt;&lt;td&gt;OpenGL&lt;&#x2F;td&gt;&lt;td&gt;1.4&lt;&#x2F;td&gt;&lt;td&gt;Gen2&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;i915&lt;&#x2F;td&gt;&lt;td&gt;OpenGL&lt;&#x2F;td&gt;&lt;td&gt;2.1&lt;&#x2F;td&gt;&lt;td&gt;Gen3&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;crocus&lt;&#x2F;td&gt;&lt;td&gt;OpenGL&lt;&#x2F;td&gt;&lt;td&gt;4.6¹&lt;&#x2F;td&gt;&lt;td&gt;Gen4-Gen7.5&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;iris&lt;&#x2F;td&gt;&lt;td&gt;OpenGL&lt;&#x2F;td&gt;&lt;td&gt;4.6&lt;&#x2F;td&gt;&lt;td&gt;Gen8-Gen13&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;hasvk&lt;&#x2F;td&gt;&lt;td&gt;Vulkan&lt;&#x2F;td&gt;&lt;td&gt;1.0 (partial)&lt;&#x2F;td&gt;&lt;td&gt;Gen6-Gen8&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;anv&lt;&#x2F;td&gt;&lt;td&gt;Vulkan&lt;&#x2F;td&gt;&lt;td&gt;1.4&lt;&#x2F;td&gt;&lt;td&gt;Gen9-Gen13&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
+&lt;p&gt;&lt;strong&gt;¹&lt;&#x2F;strong&gt;: Peut varier en fonction du matériel.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;nvidia-graphics&quot;&gt;Nvidia Graphics&lt;&#x2F;h2&gt;
+&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;&lt;strong&gt;Release&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;GFX Core&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;Architecture&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;GPU Models&#x2F;Series&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;OpenGL&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;OpenCL&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;Vulkan&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;&#x2F;tr&gt;&lt;&#x2F;thead&gt;&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;1995&lt;&#x2F;td&gt;&lt;td&gt;NV1&lt;&#x2F;td&gt;&lt;td&gt;?&lt;&#x2F;td&gt;&lt;td&gt;NV1 (Diamond Edge 3D)&lt;&#x2F;td&gt;&lt;td&gt;1.1&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;Cancelled&lt;&#x2F;td&gt;&lt;td&gt;NV2&lt;&#x2F;td&gt;&lt;td&gt;?&lt;&#x2F;td&gt;&lt;td&gt;Cancelled&lt;&#x2F;td&gt;&lt;td&gt;1.1&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;1997&lt;&#x2F;td&gt;&lt;td&gt;NV3&lt;&#x2F;td&gt;&lt;td&gt;?&lt;&#x2F;td&gt;&lt;td&gt;NV3, RIVA 128, RIVA 128ZX&lt;&#x2F;td&gt;&lt;td&gt;1.1&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;1998-1999&lt;&#x2F;td&gt;&lt;td&gt;NV4&lt;&#x2F;td&gt;&lt;td&gt;?&lt;&#x2F;td&gt;&lt;td&gt;RIVA TNT, TNT2, TNT2 Ultra, Vanta, M64&lt;&#x2F;td&gt;&lt;td&gt;1.2&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;1999-2000&lt;&#x2F;td&gt;&lt;td&gt;NV10&lt;&#x2F;td&gt;&lt;td&gt;Celsius¹&lt;&#x2F;td&gt;&lt;td&gt;GeForce 256, GeForce 2, Quadro&lt;&#x2F;td&gt;&lt;td&gt;1.3&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2001-2002&lt;&#x2F;td&gt;&lt;td&gt;NV20&lt;&#x2F;td&gt;&lt;td&gt;Kelvin¹&lt;&#x2F;td&gt;&lt;td&gt;GeForce 3, GeForce 4 Ti&lt;&#x2F;td&gt;&lt;td&gt;1.4&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2003-2004&lt;&#x2F;td&gt;&lt;td&gt;NV30&lt;&#x2F;td&gt;&lt;td&gt;Rankine¹&lt;&#x2F;td&gt;&lt;td&gt;GeForce FX 5xx Series&lt;&#x2F;td&gt;&lt;td&gt;2.1&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2004-2006&lt;&#x2F;td&gt;&lt;td&gt;NV40&lt;&#x2F;td&gt;&lt;td&gt;Curie¹&lt;&#x2F;td&gt;&lt;td&gt;GeForce 6000&#x2F;7000, Quadro FX&lt;&#x2F;td&gt;&lt;td&gt;2.1&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2006-2008&lt;&#x2F;td&gt;&lt;td&gt;G80&lt;&#x2F;td&gt;&lt;td&gt;Tesla (1st Gen)&lt;&#x2F;td&gt;&lt;td&gt;GeForce 8000, 9xx, 1xx, GTX 2xx&lt;&#x2F;td&gt;&lt;td&gt;3.3&lt;&#x2F;td&gt;&lt;td&gt;1.1&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2008-2009&lt;&#x2F;td&gt;&lt;td&gt;GT200&lt;&#x2F;td&gt;&lt;td&gt;Tesla (2nd Gen)&lt;&#x2F;td&gt;&lt;td&gt;GeForce GTX 260, 280, 295&lt;&#x2F;td&gt;&lt;td&gt;3.3&lt;&#x2F;td&gt;&lt;td&gt;1.1&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2010-2011&lt;&#x2F;td&gt;&lt;td&gt;GF100&lt;&#x2F;td&gt;&lt;td&gt;Fermi&lt;&#x2F;td&gt;&lt;td&gt;GeForce GT&#x2F;GTX 4xx&#x2F;5xx, Quadro 4000&#x2F;5000&#x2F;6000&lt;&#x2F;td&gt;&lt;td&gt;4.x&lt;&#x2F;td&gt;&lt;td&gt;1.1&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2012-2013&lt;&#x2F;td&gt;&lt;td&gt;GK100&lt;&#x2F;td&gt;&lt;td&gt;Kepler&lt;&#x2F;td&gt;&lt;td&gt;GeForce GT&#x2F;GTX 6xx&#x2F;7xx, Quadro K-series&lt;&#x2F;td&gt;&lt;td&gt;4.x&lt;&#x2F;td&gt;&lt;td&gt;1.1&lt;&#x2F;td&gt;&lt;td&gt;1.x ?&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2014&lt;&#x2F;td&gt;&lt;td&gt;GM100&lt;&#x2F;td&gt;&lt;td&gt;Maxwell (1st Gen)&lt;&#x2F;td&gt;&lt;td&gt;GeForce GTX 750&#x2F;750 Ti, 8xx&lt;&#x2F;td&gt;&lt;td&gt;4.x&lt;&#x2F;td&gt;&lt;td&gt;1.2&lt;&#x2F;td&gt;&lt;td&gt;1.x ?&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2014-2015&lt;&#x2F;td&gt;&lt;td&gt;GM200&lt;&#x2F;td&gt;&lt;td&gt;Maxwell (2nd Gen)&lt;&#x2F;td&gt;&lt;td&gt;GeForce GT&#x2F;GTX 9xx, Quadro M-series&lt;&#x2F;td&gt;&lt;td&gt;4.6&lt;&#x2F;td&gt;&lt;td&gt;1.2&lt;&#x2F;td&gt;&lt;td&gt;1.x ?&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2016-2017&lt;&#x2F;td&gt;&lt;td&gt;GP100&lt;&#x2F;td&gt;&lt;td&gt;Pascal&lt;&#x2F;td&gt;&lt;td&gt;GeForce GTX 1xxx, Titan Xp, Quadro P-series&lt;&#x2F;td&gt;&lt;td&gt;4.6&lt;&#x2F;td&gt;&lt;td&gt;2.0&lt;&#x2F;td&gt;&lt;td&gt;1.3 ?&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2018-2019&lt;&#x2F;td&gt;&lt;td&gt;TU100&lt;&#x2F;td&gt;&lt;td&gt;Turing&lt;&#x2F;td&gt;&lt;td&gt;GeForce RTX 2xxx, Quadro RTX&lt;&#x2F;td&gt;&lt;td&gt;4.6&lt;&#x2F;td&gt;&lt;td&gt;2.0&lt;&#x2F;td&gt;&lt;td&gt;1.4&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2020-2021&lt;&#x2F;td&gt;&lt;td&gt;GA100&lt;&#x2F;td&gt;&lt;td&gt;Ampere&lt;&#x2F;td&gt;&lt;td&gt;GeForce RTX 3xxx, Quadro RTX A-series&lt;&#x2F;td&gt;&lt;td&gt;4.6&lt;&#x2F;td&gt;&lt;td&gt;3.0&lt;&#x2F;td&gt;&lt;td&gt;1.4&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2022-2023&lt;&#x2F;td&gt;&lt;td&gt;AD100&lt;&#x2F;td&gt;&lt;td&gt;Ada Lovelace&lt;&#x2F;td&gt;&lt;td&gt;GeForce RTX 4xxx,&lt;&#x2F;td&gt;&lt;td&gt;4.6&lt;&#x2F;td&gt;&lt;td&gt;3.0&lt;&#x2F;td&gt;&lt;td&gt;1.4&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2025&lt;&#x2F;td&gt;&lt;td&gt;GB100&lt;&#x2F;td&gt;&lt;td&gt;Blackwell&lt;&#x2F;td&gt;&lt;td&gt;GeForce RTX 5xxx&lt;&#x2F;td&gt;&lt;td&gt;4.6&lt;&#x2F;td&gt;&lt;td&gt;3.0&lt;&#x2F;td&gt;&lt;td&gt;1.4&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
+&lt;p&gt;¹: Les noms de code etaient d&#x27;abord utilises par le driver kernel Nouveau.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;mesa-drivers-2&quot;&gt;Mesa drivers&lt;&#x2F;h3&gt;
+&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;&lt;strong&gt;Nom du driver&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;Type&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;Version&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;GFX Core&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;&#x2F;tr&gt;&lt;&#x2F;thead&gt;&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;nv50&lt;&#x2F;td&gt;&lt;td&gt;OpenGL&lt;&#x2F;td&gt;&lt;td&gt;3.3&lt;&#x2F;td&gt;&lt;td&gt;G80-GT200&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;nvc0&lt;&#x2F;td&gt;&lt;td&gt;OpenGL&lt;&#x2F;td&gt;&lt;td&gt;4.5&lt;&#x2F;td&gt;&lt;td&gt;GF100-?&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;nvk&lt;&#x2F;td&gt;&lt;td&gt;Vulkan&lt;&#x2F;td&gt;&lt;td&gt;1.4¹&lt;&#x2F;td&gt;&lt;td&gt;GK100-GB100&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
+&lt;p&gt;&lt;strong&gt;¹&lt;&#x2F;strong&gt;: Peut varier en fonction du matériel.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;broadcom-videocore&quot;&gt;Broadcom VideoCore&lt;&#x2F;h2&gt;
+&lt;p&gt;Il est principalement utilisé dans les Raspberry Pi.&lt;&#x2F;p&gt;
+&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;&lt;strong&gt;Release&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;GFX Core&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;Architecture&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;SOC Models&#x2F;Series&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;OpenGL&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;OpenCL&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;Vulkan&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;&#x2F;tr&gt;&lt;&#x2F;thead&gt;&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;2012-2016&lt;&#x2F;td&gt;&lt;td&gt;VideoCore IV&lt;&#x2F;td&gt;&lt;td&gt;-&lt;&#x2F;td&gt;&lt;td&gt;BCM2835-BCM2837&lt;&#x2F;td&gt;&lt;td&gt;2.x&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2012-2016&lt;&#x2F;td&gt;&lt;td&gt;VideoCore VI&lt;&#x2F;td&gt;&lt;td&gt;-&lt;&#x2F;td&gt;&lt;td&gt;BCM2711B0&lt;&#x2F;td&gt;&lt;td&gt;3.3&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;td&gt;1.0&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2012-2016&lt;&#x2F;td&gt;&lt;td&gt;VideoCore VII&lt;&#x2F;td&gt;&lt;td&gt;-&lt;&#x2F;td&gt;&lt;td&gt;BCM2712&lt;&#x2F;td&gt;&lt;td&gt;3.3&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;td&gt;1.0&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
+&lt;h3 id=&quot;mesa-drivers-3&quot;&gt;Mesa drivers&lt;&#x2F;h3&gt;
+&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;&lt;strong&gt;Driver name&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;Type&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;Version&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;GFX Core&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;&#x2F;tr&gt;&lt;&#x2F;thead&gt;&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;vc4&lt;&#x2F;td&gt;&lt;td&gt;OpenGL&lt;&#x2F;td&gt;&lt;td&gt;2.1&lt;&#x2F;td&gt;&lt;td&gt;VideoCore IV&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;v3d&lt;&#x2F;td&gt;&lt;td&gt;OpenGL&lt;&#x2F;td&gt;&lt;td&gt;3.3&lt;&#x2F;td&gt;&lt;td&gt;VideoCore VI-VII&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;v3dv&lt;&#x2F;td&gt;&lt;td&gt;Vulkan&lt;&#x2F;td&gt;&lt;td&gt;1.0&lt;&#x2F;td&gt;&lt;td&gt;VideoCore VI-VII&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
+&lt;h2 id=&quot;source&quot;&gt;Source&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.x.org&#x2F;wiki&#x2F;RadeonFeature&#x2F;&quot;&gt;RadeonFeature&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Intel_Graphics_Technology&quot;&gt;IntelGraphics&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;List_of_Nvidia_graphics_processing_units&quot;&gt;NvidiaGraphics&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;List_of_AMD_graphics_processing_units&quot;&gt;AMDGraphics&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;mesamatrix.net&#x2F;&quot;&gt;Mesa Matrix&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;vulkan.gpuinfo.org&#x2F;&quot;&gt;Vulkan Hardware Database&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;airlied.blogspot.com&#x2F;2021&#x2F;04&#x2F;crocus-gallium-for-gen4-7-generation.html&quot;&gt;Crocus&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;wiki.archlinux.org&#x2F;title&#x2F;OpenGL&quot;&gt;OpenGL Archlinux&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.collabora.com&#x2F;news-and-blog&#x2F;news-and-events&#x2F;mesa-25.2-brings-new-hardware-support-for-nouveau-users.html&quot;&gt;Nvk Vulkan Driver&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.khronos.org&#x2F;conformance&#x2F;adopters&#x2F;conformant-products&#x2F;vulkan&quot;&gt;Vulkan conformance&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+        
+    </entry>
+</feed>
