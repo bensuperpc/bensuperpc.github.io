@@ -1,0 +1,1183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="fr">
+    <title>Bensuperpc</title>
+    <subtitle>Le site de Bensuperpc, logiciels et de matériel informatique.</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://blog.bensuperpc.org/fr/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://blog.bensuperpc.org"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2025-08-07T00:00:00+00:00</updated>
+    <id>https://blog.bensuperpc.org/fr/atom.xml</id>
+    <entry xml:lang="fr">
+        <title>Couverture de code C++ avec CMake et GCOVR</title>
+        <published>2025-08-07T00:00:00+00:00</published>
+        <updated>2025-08-07T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.bensuperpc.org/fr/tutorial/coverage/"/>
+        <id>https://blog.bensuperpc.org/fr/tutorial/coverage/</id>
+        
+        <content type="html" xml:base="https://blog.bensuperpc.org/fr/tutorial/coverage/">&lt;h1 id=&quot;couverture-de-code-en-c-c-avec-cmake-et-gcovr&quot;&gt;Couverture de code en C&#x2F;C++, avec CMake et GCOVR&lt;&#x2F;h1&gt;
+&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;&#x2F;h2&gt;
+&lt;p&gt;Ce tutoriel montre comment configurer un projet C&#x2F;C++ avec CMake et GCOVR afin de générer des rapports de couverture de code, cela permet de vérifier précisément quelles parties du code source et quelles branches conditionnelles (if, switch...) sont effectivement couvertes par les tests.&lt;&#x2F;p&gt;
+&lt;p&gt;Nous utiliserons un petit projet d&#x27;exemple basé sur Google Test, mais la méthode est également compatible avec d&#x27;autres frameworks comme &lt;strong&gt;Catch2&lt;&#x2F;strong&gt;, &lt;strong&gt;Boost.Test&lt;&#x2F;strong&gt; ou &lt;strong&gt;Doctest&lt;&#x2F;strong&gt;.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;exigences-minimales&quot;&gt;Exigences minimales&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;CMake 3.15&lt;&#x2F;li&gt;
+&lt;li&gt;GCC ou Clang (C++17)&lt;&#x2F;li&gt;
+&lt;li&gt;Google Test (GTest)&lt;&#x2F;li&gt;
+&lt;li&gt;GCOVR 5.0&lt;&#x2F;li&gt;
+&lt;li&gt;Ninja (optionnel, mais recommandé)&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Une distribution comme &lt;strong&gt;Ubuntu 22.04&lt;&#x2F;strong&gt;, un &lt;strong&gt;Debian 12&lt;&#x2F;strong&gt; ou supérieur est recommandé dans le cadre de ce tutoriel, mais vous pouvez utiliser n&#x27;importe quelle distribution Linux avec les versions requises des outils.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;installation-des-dependances&quot;&gt;Installation des dépendances&lt;&#x2F;h3&gt;
+&lt;p&gt;Pour installer les dépendances nécessaires, vous pouvez utiliser les commandes suivantes :&lt;&#x2F;p&gt;
+&lt;p&gt;Pour &lt;strong&gt;Ubuntu&#x2F;Debian&lt;&#x2F;strong&gt; :&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; class=&quot;language-bash z-code&quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;&lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt; apt-get install cmake build-essential g++ gcovr ninja-build libgtest-dev&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Pour &lt;strong&gt;Fedora&lt;&#x2F;strong&gt; :&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; class=&quot;language-bash z-code&quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;&lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt; dnf install cmake gcc-c++ gcovr ninja-build gtest-devel&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Pour &lt;strong&gt;Arch Linux&lt;&#x2F;strong&gt; :&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; class=&quot;language-bash z-code&quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;&lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt; pacman&lt;span class=&quot;z-variable z-parameter z-option z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-parameter z-shell&quot;&gt; -&lt;&#x2F;span&gt;S&lt;&#x2F;span&gt; cmake gcc gcovr ninja gtest&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h2 id=&quot;qu-est-ce-que-gcovr&quot;&gt;Qu&#x27;est-ce que GCOVR ?&lt;&#x2F;h2&gt;
+&lt;p&gt;GCOVR est un outil open source qui permet de générer des rapports de couverture de code C&#x2F;C++ à partir des données générées lors de l&#x27;exécution des tests.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;projet-d-exemple&quot;&gt;Projet d&#x27;exemple&lt;&#x2F;h2&gt;
+&lt;p&gt;Le projet d&#x27;exemple est une simple application et deux bibliothèques C++, une pour les mathématiques et une pour la physique.&lt;&#x2F;p&gt;
+&lt;p&gt;Voici l’arborescence du projet :&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; class=&quot;language-bash z-code&quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;&lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-support z-function z-dot z-shell&quot;&gt;.&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;&lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;├──&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt; CMakeLists.txt&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;&lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;├──&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt; main.cpp&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;&lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;├──&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt; math&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;&lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;│&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt;   ├── CMakeLists.txt&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;&lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;│&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt;   ├── math.cpp&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;&lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;│&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt;   └── math.hpp&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;&lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;├──&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt; physics&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;&lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;│&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt;   ├── CMakeLists.txt&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;&lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;│&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt;   ├── physics.cpp&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;&lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;│&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt;   └── physics.hpp&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;&lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;└──&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt; tests&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;    &lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;├──&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt; CMakeLists.txt&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;    &lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;└──&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt; test.cpp&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;&lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;4&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt; directories, 10 files&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Vous pouvez télécharger le projet d&#x27;exemple: &lt;!-- Assets --&gt;
+&lt;a href=&quot;https:&#x2F;&#x2F;blog.bensuperpc.org&#x2F;tutorial&#x2F;sources&#x2F;tuto_coverage.7z&quot; target=&quot;_blank&quot;&gt;
+    tuto_coverage.7z
+&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;compilation-avec-couverture&quot;&gt;Compilation avec couverture&lt;&#x2F;h3&gt;
+&lt;p&gt;Pour que la couverture de code fonctionne, le projet doit être compilé avec les options : &lt;code&gt;-O0 -g --coverage&lt;&#x2F;code&gt; et &lt;code&gt;--coverage&lt;&#x2F;code&gt; pour le linkage.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; class=&quot;language-bash z-code&quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;&lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;cmake&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt;&lt;span class=&quot;z-variable z-parameter z-option z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-parameter z-shell&quot;&gt; -&lt;&#x2F;span&gt;S&lt;&#x2F;span&gt; .&lt;span class=&quot;z-variable z-parameter z-option z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-parameter z-shell&quot;&gt; -&lt;&#x2F;span&gt;B&lt;&#x2F;span&gt; build&lt;span class=&quot;z-variable z-parameter z-option z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-parameter z-shell&quot;&gt; -&lt;&#x2F;span&gt;G&lt;&#x2F;span&gt; Ninja&lt;span class=&quot;z-variable z-parameter z-option z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-parameter z-shell&quot;&gt; -&lt;&#x2F;span&gt;DCMAKE_CXX_FLAGS&lt;&#x2F;span&gt;&lt;span class=&quot;z-keyword z-operator z-assignment z-option z-shell&quot;&gt;=&lt;&#x2F;span&gt;&lt;span class=&quot;z-string z-quoted z-double z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-shell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;-O0 -g --coverage&lt;span class=&quot;z-punctuation z-definition z-string z-end z-shell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-option z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-parameter z-shell&quot;&gt; -&lt;&#x2F;span&gt;DCMAKE_EXE_LINKER_FLAGS&lt;&#x2F;span&gt;&lt;span class=&quot;z-keyword z-operator z-assignment z-option z-shell&quot;&gt;=&lt;&#x2F;span&gt;&lt;span class=&quot;z-string z-quoted z-double z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-shell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;--coverage&lt;span class=&quot;z-punctuation z-definition z-string z-end z-shell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-logical z-and z-shell&quot;&gt;&amp;amp;&amp;amp;&lt;&#x2F;span&gt; &lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;cmake&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt;&lt;span class=&quot;z-variable z-parameter z-option z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-parameter z-shell&quot;&gt; --&lt;&#x2F;span&gt;build&lt;&#x2F;span&gt; build&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;L&#x27;option &lt;code&gt;--coverage&lt;&#x2F;code&gt; est équivalente à &lt;code&gt;-fprofile-arcs -ftest-coverage&lt;&#x2F;code&gt; pour GCC&#x2F;Clang, dans un projet classique, il est préférable d&#x27;utiliser des presets CMake plutôt que de spécifier les options manuellement.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;execution-des-tests&quot;&gt;Exécution des tests&lt;&#x2F;h3&gt;
+&lt;p&gt;Une fois le projet compilé, vous pouvez exécuter les tests, cela générera des fichiers sur lesquels GCOVR s’appuie pour générer les rapports de couverture:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;.gcno&lt;&#x2F;code&gt; généré à la compilation, contient les métadonnées pour la couverture&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;.gcda&lt;&#x2F;code&gt; généré à l&#x27;exécution, contient les données de couverture collectées&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;pre data-lang=&quot;bash&quot; class=&quot;language-bash z-code&quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;&lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;ctest&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt;&lt;span class=&quot;z-variable z-parameter z-option z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-parameter z-shell&quot;&gt; --&lt;&#x2F;span&gt;test-dir&lt;&#x2F;span&gt; build&lt;span class=&quot;z-variable z-parameter z-option z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-parameter z-shell&quot;&gt; --&lt;&#x2F;span&gt;output-on-failure&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-option z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-parameter z-shell&quot;&gt; --&lt;&#x2F;span&gt;no-tests&lt;&#x2F;span&gt;&lt;span class=&quot;z-keyword z-operator z-assignment z-option z-shell&quot;&gt;=&lt;&#x2F;span&gt;error&lt;span class=&quot;z-variable z-parameter z-option z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-parameter z-shell&quot;&gt; --&lt;&#x2F;span&gt;repeat&lt;&#x2F;span&gt; until-fail:1&lt;span class=&quot;z-variable z-parameter z-option z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-parameter z-shell&quot;&gt; --&lt;&#x2F;span&gt;schedule-random&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-option z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-parameter z-shell&quot;&gt; --&lt;&#x2F;span&gt;parallel&lt;&#x2F;span&gt; 1&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th style=&quot;text-align: center&quot;&gt;Option&lt;&#x2F;th&gt;&lt;th style=&quot;text-align: center&quot;&gt;Description&lt;&#x2F;th&gt;&lt;&#x2F;tr&gt;&lt;&#x2F;thead&gt;&lt;tbody&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: center&quot;&gt;&lt;code&gt;--test-dir build&lt;&#x2F;code&gt;&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;Spécifie le Répertoire contenant les tests&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: center&quot;&gt;&lt;code&gt;--output-on-failure&lt;&#x2F;code&gt;&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;Affiche la sortie des tests échoués&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: center&quot;&gt;&lt;code&gt;--no-tests=error&lt;&#x2F;code&gt;&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;Génère une erreur si aucun test n&#x27;est trouvé&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: center&quot;&gt;&lt;code&gt;--repeat until-fail:1&lt;&#x2F;code&gt;&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;Répète les tests jusqu&#x27;à ce qu&#x27;un échec se produise, ici 1 fois&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: center&quot;&gt;&lt;code&gt;--schedule-random&lt;&#x2F;code&gt;&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;Fait exécuter les tests dans un ordre aléatoire&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: center&quot;&gt;&lt;code&gt;--parallel 1&lt;&#x2F;code&gt;&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;Exécute les tests en parallèle, ici 1 test à la fois&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
+&lt;p&gt;Vous obtiendrez une sortie similaire à :&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; class=&quot;language-bash z-code&quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;&lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;Test&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt; project &#x2F;home&#x2F;bensuperpc&#x2F;tuto_coverage&#x2F;build&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;    &lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;Start&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt; 3: MathTests.Mul&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;&lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;1&#x2F;7&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt; Test &lt;span class=&quot;z-comment z-line z-number-sign z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-begin z-shell&quot;&gt;#&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-comment z-line z-number-sign z-shell&quot;&gt;3: MathTests.Mul .....................   Passed    0.00 sec&lt;&#x2F;span&gt;&lt;span class=&quot;z-comment z-line z-number-sign z-shell&quot;&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;    &lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;Start&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt; 7: PhysicsTests.GravitationalForce&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;&lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;2&#x2F;7&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt; Test &lt;span class=&quot;z-comment z-line z-number-sign z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-begin z-shell&quot;&gt;#&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-comment z-line z-number-sign z-shell&quot;&gt;7: PhysicsTests.GravitationalForce ...   Passed    0.00 sec&lt;&#x2F;span&gt;&lt;span class=&quot;z-comment z-line z-number-sign z-shell&quot;&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;    &lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;Start&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt; 5: PhysicsTests.Speed&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;&lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;3&#x2F;7&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt; Test &lt;span class=&quot;z-comment z-line z-number-sign z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-begin z-shell&quot;&gt;#&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-comment z-line z-number-sign z-shell&quot;&gt;5: PhysicsTests.Speed ................   Passed    0.00 sec&lt;&#x2F;span&gt;&lt;span class=&quot;z-comment z-line z-number-sign z-shell&quot;&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;    &lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;Start&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt; 2: MathTests.Sub&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;&lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;4&#x2F;7&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt; Test &lt;span class=&quot;z-comment z-line z-number-sign z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-begin z-shell&quot;&gt;#&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-comment z-line z-number-sign z-shell&quot;&gt;2: MathTests.Sub .....................   Passed    0.00 sec&lt;&#x2F;span&gt;&lt;span class=&quot;z-comment z-line z-number-sign z-shell&quot;&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;    &lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;Start&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt; 1: MathTests.Add&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;&lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;5&#x2F;7&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt; Test &lt;span class=&quot;z-comment z-line z-number-sign z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-begin z-shell&quot;&gt;#&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-comment z-line z-number-sign z-shell&quot;&gt;1: MathTests.Add .....................   Passed    0.00 sec&lt;&#x2F;span&gt;&lt;span class=&quot;z-comment z-line z-number-sign z-shell&quot;&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;    &lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;Start&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt; 6: PhysicsTests.KineticEnergy&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;&lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;6&#x2F;7&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt; Test &lt;span class=&quot;z-comment z-line z-number-sign z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-begin z-shell&quot;&gt;#&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-comment z-line z-number-sign z-shell&quot;&gt;6: PhysicsTests.KineticEnergy ........   Passed    0.00 sec&lt;&#x2F;span&gt;&lt;span class=&quot;z-comment z-line z-number-sign z-shell&quot;&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;    &lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;Start&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt; 4: MathTests.Div&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;&lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;7&#x2F;7&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt; Test &lt;span class=&quot;z-comment z-line z-number-sign z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-begin z-shell&quot;&gt;#&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-comment z-line z-number-sign z-shell&quot;&gt;4: MathTests.Div .....................   Passed    0.00 sec&lt;&#x2F;span&gt;&lt;span class=&quot;z-comment z-line z-number-sign z-shell&quot;&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;&lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;100&lt;span class=&quot;z-meta z-group z-expansion z-job z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-variable z-job z-shell&quot;&gt;%&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt; tests passed, 0 tests failed out of 7&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;&lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;Total&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt; Test time (real&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;&#x2F;span&gt;) &lt;span class=&quot;z-keyword z-operator z-assignment z-shell&quot;&gt;=&lt;&#x2F;span&gt;   &lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;0.02&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt; sec&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h3 id=&quot;rapport-html-avec-gcovr&quot;&gt;Rapport HTML avec GCOVR&lt;&#x2F;h3&gt;
+&lt;p&gt;Après l&#x27;exécution des tests, vous pouvez générer un rapport de couverture avec GCOVR, ici nous générons un rapport HTML pour visualiser la couverture de code, mais vous pouvez également générer des rapports en texte brut, XML ou JSON.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; class=&quot;language-bash z-code&quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;&lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;gcovr&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt;&lt;span class=&quot;z-variable z-parameter z-option z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-parameter z-shell&quot;&gt; --&lt;&#x2F;span&gt;root&lt;&#x2F;span&gt; &lt;span class=&quot;z-string z-quoted z-double z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-shell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;.&lt;span class=&quot;z-punctuation z-definition z-string z-end z-shell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-option z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-parameter z-shell&quot;&gt; --&lt;&#x2F;span&gt;decisions&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-option z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-parameter z-shell&quot;&gt; --&lt;&#x2F;span&gt;calls&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-option z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-parameter z-shell&quot;&gt; --&lt;&#x2F;span&gt;html-theme&lt;&#x2F;span&gt; &lt;span class=&quot;z-string z-quoted z-double z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-shell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;green&lt;span class=&quot;z-punctuation z-definition z-string z-end z-shell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-option z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-parameter z-shell&quot;&gt; --&lt;&#x2F;span&gt;exclude&lt;&#x2F;span&gt; &lt;span class=&quot;z-string z-quoted z-double z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-shell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;tests&#x2F;*&lt;span class=&quot;z-punctuation z-definition z-string z-end z-shell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-option z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-parameter z-shell&quot;&gt; --&lt;&#x2F;span&gt;exclude&lt;&#x2F;span&gt; &lt;span class=&quot;z-string z-quoted z-double z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-shell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;build&#x2F;*&lt;span class=&quot;z-punctuation z-definition z-string z-end z-shell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-option z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-parameter z-shell&quot;&gt; --&lt;&#x2F;span&gt;exclude&lt;&#x2F;span&gt; &lt;span class=&quot;z-string z-quoted z-double z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-shell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;main.cpp&lt;span class=&quot;z-punctuation z-definition z-string z-end z-shell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-option z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-parameter z-shell&quot;&gt; --&lt;&#x2F;span&gt;html&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-option z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-parameter z-shell&quot;&gt; --&lt;&#x2F;span&gt;html-details&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-option z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-parameter z-shell&quot;&gt; --&lt;&#x2F;span&gt;output&lt;&#x2F;span&gt; &lt;span class=&quot;z-string z-quoted z-double z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-shell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;build&#x2F;coverage.html&lt;span class=&quot;z-punctuation z-definition z-string z-end z-shell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th style=&quot;text-align: center&quot;&gt;Option&lt;&#x2F;th&gt;&lt;th style=&quot;text-align: center&quot;&gt;Description&lt;&#x2F;th&gt;&lt;&#x2F;tr&gt;&lt;&#x2F;thead&gt;&lt;tbody&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: center&quot;&gt;&lt;code&gt;--root &quot;.&quot;&lt;&#x2F;code&gt;&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;Définit le répertoire racine pour la couverture&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: center&quot;&gt;&lt;code&gt;--decisions&lt;&#x2F;code&gt;&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;Inclut les décisions de couverture dans le rapport&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: center&quot;&gt;&lt;code&gt;--calls&lt;&#x2F;code&gt;&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;Inclut les appels de fonction dans le rapport&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: center&quot;&gt;&lt;code&gt;--html-theme &quot;green&quot;&lt;&#x2F;code&gt;&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;Définit le thème du rapport HTML en vert&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: center&quot;&gt;&lt;code&gt;--exclude &quot;tests&#x2F;*&quot;&lt;&#x2F;code&gt;&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;Exclut les fichiers de test du rapport&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: center&quot;&gt;&lt;code&gt;--exclude &quot;build&#x2F;*&quot;&lt;&#x2F;code&gt;&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;Exclut les fichiers de build du rapport&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: center&quot;&gt;&lt;code&gt;--exclude &quot;main.cpp&quot;&lt;&#x2F;code&gt;&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;Exclut le fichier &lt;code&gt;main.cpp&lt;&#x2F;code&gt; du rapport&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: center&quot;&gt;&lt;code&gt;--html&lt;&#x2F;code&gt;&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;Génère un rapport HTML&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: center&quot;&gt;&lt;code&gt;--html-details&lt;&#x2F;code&gt;&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;Inclut les détails dans le rapport HTML&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: center&quot;&gt;&lt;code&gt;--output &quot;build&#x2F;coverage.html&quot;&lt;&#x2F;code&gt;&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;Spécifie le nom du fichier de sortie pour le rapport HTML&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
+&lt;p&gt;Une fois le rapport HTML généré, vous pouvez l&#x27;ouvrir dans votre navigateur pour visualiser la couverture de code, il devrait être généré dans le fichier &lt;code&gt;build&#x2F;coverage.html&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;Voici le rendu du rapport sur le navigateur :&lt;&#x2F;p&gt;
+ &lt;figure class=&quot;fi b1&quot;&gt;&lt;img src=&quot;https:&#x2F;&#x2F;blog.bensuperpc.org&#x2F;tutorial&#x2F;images&#x2F;Screenshot_20250807_100908.webp&quot; class=&quot;b1&quot; alt=&quot;Page principale&quot; width=&quot;1111&quot; height=&quot;574&quot; loading=&quot;lazy&quot; &#x2F;&gt;&lt;figcaption&gt;Page principale&lt;&#x2F;figcaption&gt;&lt;&#x2F;figure&gt;
+ &lt;figure class=&quot;fi b1&quot;&gt;&lt;img src=&quot;https:&#x2F;&#x2F;blog.bensuperpc.org&#x2F;tutorial&#x2F;images&#x2F;Screenshot_20250807_101010.webp&quot; class=&quot;b1&quot; alt=&quot;Page secondaire&quot; width=&quot;1111&quot; height=&quot;835&quot; loading=&quot;lazy&quot; &#x2F;&gt;&lt;figcaption&gt;Page secondaire&lt;&#x2F;figcaption&gt;&lt;&#x2F;figure&gt;
+&lt;h4 id=&quot;rapport-en-xml-ou-json&quot;&gt;Rapport en XML ou JSON&lt;&#x2F;h4&gt;
+&lt;p&gt;Vous pouvez également générer un rapport en XML ou JSON pour une intégration avec d&#x27;autres outils :&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; class=&quot;language-bash z-code&quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;&lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;gcovr&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt;&lt;span class=&quot;z-variable z-parameter z-option z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-parameter z-shell&quot;&gt; --&lt;&#x2F;span&gt;root&lt;&#x2F;span&gt; &lt;span class=&quot;z-string z-quoted z-double z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-shell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;.&lt;span class=&quot;z-punctuation z-definition z-string z-end z-shell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-option z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-parameter z-shell&quot;&gt; --&lt;&#x2F;span&gt;decisions&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-option z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-parameter z-shell&quot;&gt; --&lt;&#x2F;span&gt;calls&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-option z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-parameter z-shell&quot;&gt; --&lt;&#x2F;span&gt;exclude&lt;&#x2F;span&gt; &lt;span class=&quot;z-string z-quoted z-double z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-shell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;tests&#x2F;&lt;span class=&quot;z-punctuation z-definition z-string z-end z-shell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-option z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-parameter z-shell&quot;&gt; --&lt;&#x2F;span&gt;exclude&lt;&#x2F;span&gt; &lt;span class=&quot;z-string z-quoted z-double z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-shell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;build&#x2F;&lt;span class=&quot;z-punctuation z-definition z-string z-end z-shell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-option z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-parameter z-shell&quot;&gt; --&lt;&#x2F;span&gt;exclude&lt;&#x2F;span&gt; &lt;span class=&quot;z-string z-quoted z-double z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-shell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;main.cpp&lt;span class=&quot;z-punctuation z-definition z-string z-end z-shell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-option z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-parameter z-shell&quot;&gt; --&lt;&#x2F;span&gt;xml-pretty&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-option z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-parameter z-shell&quot;&gt; --&lt;&#x2F;span&gt;output&lt;&#x2F;span&gt; &lt;span class=&quot;z-string z-quoted z-double z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-shell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;build&#x2F;coverage.xml&lt;span class=&quot;z-punctuation z-definition z-string z-end z-shell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Or in JSON :&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; class=&quot;language-bash z-code&quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;&lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;gcovr&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt;&lt;span class=&quot;z-variable z-parameter z-option z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-parameter z-shell&quot;&gt; --&lt;&#x2F;span&gt;root&lt;&#x2F;span&gt; &lt;span class=&quot;z-string z-quoted z-double z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-shell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;.&lt;span class=&quot;z-punctuation z-definition z-string z-end z-shell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-option z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-parameter z-shell&quot;&gt; --&lt;&#x2F;span&gt;decisions&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-option z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-parameter z-shell&quot;&gt; --&lt;&#x2F;span&gt;calls&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-option z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-parameter z-shell&quot;&gt; --&lt;&#x2F;span&gt;exclude&lt;&#x2F;span&gt; &lt;span class=&quot;z-string z-quoted z-double z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-shell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;tests&#x2F;&lt;span class=&quot;z-punctuation z-definition z-string z-end z-shell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-option z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-parameter z-shell&quot;&gt; --&lt;&#x2F;span&gt;exclude&lt;&#x2F;span&gt; &lt;span class=&quot;z-string z-quoted z-double z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-shell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;build&#x2F;&lt;span class=&quot;z-punctuation z-definition z-string z-end z-shell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-option z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-parameter z-shell&quot;&gt; --&lt;&#x2F;span&gt;exclude&lt;&#x2F;span&gt; &lt;span class=&quot;z-string z-quoted z-double z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-shell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;main.cpp&lt;span class=&quot;z-punctuation z-definition z-string z-end z-shell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-option z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-parameter z-shell&quot;&gt; --&lt;&#x2F;span&gt;json-pretty&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-option z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-parameter z-shell&quot;&gt; --&lt;&#x2F;span&gt;output&lt;&#x2F;span&gt; &lt;span class=&quot;z-string z-quoted z-double z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-shell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;build&#x2F;coverage.json&lt;span class=&quot;z-punctuation z-definition z-string z-end z-shell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h2 id=&quot;ci-cd-integration&quot;&gt;CI&#x2F;CD Integration&lt;&#x2F;h2&gt;
+&lt;p&gt;Vous pouvez intégrer la génération de couverture de code à votre pipeline CI&#x2F;CD afin de générer automatiquement des rapports pour chaque commit ou demande de fusion.&lt;&#x2F;p&gt;
+&lt;p&gt;Voici un exemple de GitLab CI pour générer un rapport de couverture et fail le pipeline si la couverture est inférieure à un certains seuils:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;yaml&quot; class=&quot;language-yaml z-code&quot;&gt;&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;&lt;span class=&quot;z-string z-unquoted z-plain z-out z-yaml&quot;&gt;&lt;span class=&quot;z-entity z-name z-tag z-yaml&quot;&gt;variables&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-key-value z-mapping z-yaml&quot;&gt;:&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;  &lt;span class=&quot;z-comment z-line z-number-sign z-yaml&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-line z-number-sign z-yaml&quot;&gt;#&lt;&#x2F;span&gt; Si quelqu&amp;#39;un oublie d&amp;#39;ajouter des tests sur une nouvelle fonctionnalité, le pipeline échouera si la couverture est inférieure à ces seuils
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;  &lt;span class=&quot;z-string z-unquoted z-plain z-out z-yaml&quot;&gt;&lt;span class=&quot;z-entity z-name z-tag z-yaml&quot;&gt;MIN_LINE_COVERAGE&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-key-value z-mapping z-yaml&quot;&gt;:&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-numeric z-integer z-decimal z-yaml&quot;&gt;50&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;  &lt;span class=&quot;z-string z-unquoted z-plain z-out z-yaml&quot;&gt;&lt;span class=&quot;z-entity z-name z-tag z-yaml&quot;&gt;MIN_FUNCTION_COVERAGE&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-key-value z-mapping z-yaml&quot;&gt;:&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-numeric z-integer z-decimal z-yaml&quot;&gt;50&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;  &lt;span class=&quot;z-string z-unquoted z-plain z-out z-yaml&quot;&gt;&lt;span class=&quot;z-entity z-name z-tag z-yaml&quot;&gt;MIN_BRANCH_COVERAGE&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-key-value z-mapping z-yaml&quot;&gt;:&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-numeric z-integer z-decimal z-yaml&quot;&gt;50&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;  &lt;span class=&quot;z-string z-unquoted z-plain z-out z-yaml&quot;&gt;&lt;span class=&quot;z-entity z-name z-tag z-yaml&quot;&gt;MIN_DECISION_COVERAGE&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-key-value z-mapping z-yaml&quot;&gt;:&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-numeric z-integer z-decimal z-yaml&quot;&gt;50&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;&lt;span class=&quot;z-string z-unquoted z-plain z-out z-yaml&quot;&gt;&lt;span class=&quot;z-entity z-name z-tag z-yaml&quot;&gt;stages&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-key-value z-mapping z-yaml&quot;&gt;:&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;  &lt;span class=&quot;z-punctuation z-definition z-block z-sequence z-item z-yaml&quot;&gt;-&lt;&#x2F;span&gt; &lt;span class=&quot;z-string z-unquoted z-plain z-out z-yaml&quot;&gt;coverage&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;&lt;span class=&quot;z-string z-unquoted z-plain z-out z-yaml&quot;&gt;&lt;span class=&quot;z-entity z-name z-tag z-yaml&quot;&gt;coverage_stage&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-key-value z-mapping z-yaml&quot;&gt;:&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;  &lt;span class=&quot;z-string z-unquoted z-plain z-out z-yaml&quot;&gt;&lt;span class=&quot;z-entity z-name z-tag z-yaml&quot;&gt;stage&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-key-value z-mapping z-yaml&quot;&gt;:&lt;&#x2F;span&gt; &lt;span class=&quot;z-string z-unquoted z-plain z-out z-yaml&quot;&gt;coverage&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;  &lt;span class=&quot;z-string z-unquoted z-plain z-out z-yaml&quot;&gt;&lt;span class=&quot;z-entity z-name z-tag z-yaml&quot;&gt;script&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-key-value z-mapping z-yaml&quot;&gt;:&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;    &lt;span class=&quot;z-comment z-line z-number-sign z-yaml&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-line z-number-sign z-yaml&quot;&gt;#&lt;&#x2F;span&gt; Compiler le projet avec les flags de couverture
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;    &lt;span class=&quot;z-punctuation z-definition z-block z-sequence z-item z-yaml&quot;&gt;-&lt;&#x2F;span&gt; &lt;span class=&quot;z-string z-unquoted z-plain z-out z-yaml&quot;&gt;cmake -S . -B build -G Ninja -DCMAKE_CXX_FLAGS=&amp;quot;-O0 -g --coverage&amp;quot; -DCMAKE_EXE_LINKER_FLAGS=&amp;quot;--coverage&amp;quot; &amp;amp;&amp;amp; cmake --build build&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;    &lt;span class=&quot;z-comment z-line z-number-sign z-yaml&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-line z-number-sign z-yaml&quot;&gt;#&lt;&#x2F;span&gt; Exécuter les tests pour générer les données de couverture
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;    &lt;span class=&quot;z-punctuation z-definition z-block z-sequence z-item z-yaml&quot;&gt;-&lt;&#x2F;span&gt; &lt;span class=&quot;z-string z-unquoted z-plain z-out z-yaml&quot;&gt;ctest --verbose --repeat until-fail:1 --parallel 1 --schedule-random --test-dir build || true&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;    &lt;span class=&quot;z-comment z-line z-number-sign z-yaml&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-line z-number-sign z-yaml&quot;&gt;#&lt;&#x2F;span&gt; Créer le répertoire pour les rapports de couverture HTML
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;    &lt;span class=&quot;z-punctuation z-definition z-block z-sequence z-item z-yaml&quot;&gt;-&lt;&#x2F;span&gt; &lt;span class=&quot;z-string z-unquoted z-plain z-out z-yaml&quot;&gt;mkdir -p &amp;quot;coverage_html_$CI_COMMIT_SHORT_SHA&amp;quot;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;    &lt;span class=&quot;z-comment z-line z-number-sign z-yaml&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-line z-number-sign z-yaml&quot;&gt;#&lt;&#x2F;span&gt; Générer les rapports de couverture HTML
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;    &lt;span class=&quot;z-punctuation z-definition z-block z-sequence z-item z-yaml&quot;&gt;-&lt;&#x2F;span&gt; &lt;span class=&quot;z-string z-unquoted z-plain z-out z-yaml&quot;&gt;gcovr --root &amp;quot;.&amp;quot; --exclude &amp;quot;tests&#x2F;&amp;quot; --exclude &amp;quot;build&#x2F;&amp;quot; --exclude &amp;quot;main.cpp&amp;quot; --decisions --calls --html --html-theme green --html-details -o &amp;quot;coverage_html_$CI_COMMIT_SHORT_SHA&#x2F;coverage.html&amp;quot;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;    &lt;span class=&quot;z-comment z-line z-number-sign z-yaml&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-line z-number-sign z-yaml&quot;&gt;#&lt;&#x2F;span&gt; Générer le rapport de couverture XML (pour Gitlab)
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;    &lt;span class=&quot;z-punctuation z-definition z-block z-sequence z-item z-yaml&quot;&gt;-&lt;&#x2F;span&gt; &lt;span class=&quot;z-string z-unquoted z-plain z-out z-yaml&quot;&gt;gcovr --root &amp;quot;.&amp;quot; --exclude &amp;quot;tests&#x2F;&amp;quot; --exclude &amp;quot;build&#x2F;&amp;quot; --exclude &amp;quot;main.cpp&amp;quot; --decisions --calls --xml-pretty -o coverage.xml&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;    &lt;span class=&quot;z-comment z-line z-number-sign z-yaml&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-line z-number-sign z-yaml&quot;&gt;#&lt;&#x2F;span&gt; Vérifier les seuils minimum de couverture
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;    &lt;span class=&quot;z-punctuation z-definition z-block z-sequence z-item z-yaml&quot;&gt;-&lt;&#x2F;span&gt; &lt;span class=&quot;z-string z-unquoted z-plain z-out z-yaml&quot;&gt;gcovr --root &amp;quot;.&amp;quot; --exclude &amp;quot;tests&#x2F;&amp;quot; --exclude &amp;quot;build&#x2F;&amp;quot; --exclude &amp;quot;main.cpp&amp;quot; --decisions --calls --print-summary --fail-under-line $MIN_LINE_COVERAGE --fail-under-branch $MIN_BRANCH_COVERAGE --fail-under-function $MIN_FUNCTION_COVERAGE --fail-under-decision $MIN_DECISION_COVERAGE&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;  &lt;span class=&quot;z-string z-unquoted z-plain z-out z-yaml&quot;&gt;&lt;span class=&quot;z-entity z-name z-tag z-yaml&quot;&gt;artifacts&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-key-value z-mapping z-yaml&quot;&gt;:&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;    &lt;span class=&quot;z-string z-unquoted z-plain z-out z-yaml&quot;&gt;&lt;span class=&quot;z-entity z-name z-tag z-yaml&quot;&gt;name&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-key-value z-mapping z-yaml&quot;&gt;:&lt;&#x2F;span&gt; &lt;span class=&quot;z-string z-quoted z-double z-yaml&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-yaml&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;$CI_PROJECT_NAME-$CI_COMMIT_SHORT_SHA&lt;span class=&quot;z-punctuation z-definition z-string z-end z-yaml&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;    &lt;span class=&quot;z-string z-unquoted z-plain z-out z-yaml&quot;&gt;&lt;span class=&quot;z-entity z-name z-tag z-yaml&quot;&gt;expire_in&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-key-value z-mapping z-yaml&quot;&gt;:&lt;&#x2F;span&gt; &lt;span class=&quot;z-string z-unquoted z-plain z-out z-yaml&quot;&gt;7 days&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;    &lt;span class=&quot;z-string z-unquoted z-plain z-out z-yaml&quot;&gt;&lt;span class=&quot;z-entity z-name z-tag z-yaml&quot;&gt;when&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-key-value z-mapping z-yaml&quot;&gt;:&lt;&#x2F;span&gt; &lt;span class=&quot;z-string z-unquoted z-plain z-out z-yaml&quot;&gt;always&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;    &lt;span class=&quot;z-string z-unquoted z-plain z-out z-yaml&quot;&gt;&lt;span class=&quot;z-entity z-name z-tag z-yaml&quot;&gt;paths&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-key-value z-mapping z-yaml&quot;&gt;:&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;      &lt;span class=&quot;z-punctuation z-definition z-block z-sequence z-item z-yaml&quot;&gt;-&lt;&#x2F;span&gt; &lt;span class=&quot;z-string z-quoted z-double z-yaml&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-yaml&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;coverage_html_$CI_COMMIT_SHORT_SHA&#x2F;*&lt;span class=&quot;z-punctuation z-definition z-string z-end z-yaml&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;      &lt;span class=&quot;z-punctuation z-definition z-block z-sequence z-item z-yaml&quot;&gt;-&lt;&#x2F;span&gt; &lt;span class=&quot;z-string z-quoted z-double z-yaml&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-yaml&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;coverage.xml&lt;span class=&quot;z-punctuation z-definition z-string z-end z-yaml&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;  &lt;span class=&quot;z-comment z-line z-number-sign z-yaml&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-line z-number-sign z-yaml&quot;&gt;#&lt;&#x2F;span&gt; Parser le coverage depuis le fichier coverage.xml
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;  &lt;span class=&quot;z-string z-unquoted z-plain z-out z-yaml&quot;&gt;&lt;span class=&quot;z-entity z-name z-tag z-yaml&quot;&gt;coverage&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-key-value z-mapping z-yaml&quot;&gt;:&lt;&#x2F;span&gt; &lt;span class=&quot;z-string z-quoted z-single z-yaml&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-yaml&quot;&gt;&amp;#39;&lt;&#x2F;span&gt;&#x2F;lines: (\d+\.\d+)%&#x2F;&lt;span class=&quot;z-punctuation z-definition z-string z-end z-yaml&quot;&gt;&amp;#39;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h2 id=&quot;sources&quot;&gt;Sources&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;gcovr.com&#x2F;en&#x2F;latest&#x2F;&quot;&gt;GCOVR&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;google&#x2F;googletest&quot;&gt;Google Test&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="fr">
+        <title>Les pilotes GPU Mesa</title>
+        <published>2025-03-21T00:00:00+00:00</published>
+        <updated>2025-03-21T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.bensuperpc.org/fr/documentation/hardware/pc/gpu/"/>
+        <id>https://blog.bensuperpc.org/fr/documentation/hardware/pc/gpu/</id>
+        
+        <content type="html" xml:base="https://blog.bensuperpc.org/fr/documentation/hardware/pc/gpu/">&lt;h1 id=&quot;introduction&quot;&gt;Introduction&lt;&#x2F;h1&gt;
+&lt;p&gt;Vous trouverez ci-dessous une liste des architectures GPU et de leurs pilotes Mesa et support API correspondants.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;amd-graphics&quot;&gt;AMD Graphics&lt;&#x2F;h2&gt;
+&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;&lt;strong&gt;Release&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;GFX Core&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;Architecture&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;GPU Models&#x2F;Series&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;OpenGL&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;OpenCL&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;Vulkan&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;&#x2F;tr&gt;&lt;&#x2F;thead&gt;&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;2000-2002&lt;&#x2F;td&gt;&lt;td&gt;GFX1&lt;&#x2F;td&gt;&lt;td&gt;-&lt;&#x2F;td&gt;&lt;td&gt;Radeon 7xxx&lt;&#x2F;td&gt;&lt;td&gt;1.3&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2002-2004&lt;&#x2F;td&gt;&lt;td&gt;GFX1&lt;&#x2F;td&gt;&lt;td&gt;-&lt;&#x2F;td&gt;&lt;td&gt;Radeon 8xxx, Radeon 9000, Radeon 9200, Radeon 9250&lt;&#x2F;td&gt;&lt;td&gt;1.4&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2002-2005&lt;&#x2F;td&gt;&lt;td&gt;GFX2&lt;&#x2F;td&gt;&lt;td&gt;-&lt;&#x2F;td&gt;&lt;td&gt;Radeon 9500, Radeon 9600, Radeon 9700, Radeon 9800, Radeon X300-X850&lt;&#x2F;td&gt;&lt;td&gt;2.1&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2004-2005&lt;&#x2F;td&gt;&lt;td&gt;GFX2&lt;&#x2F;td&gt;&lt;td&gt;-&lt;&#x2F;td&gt;&lt;td&gt;Radeon X700, Radeon X800, Radeon X850, Radeon Xpress 200-1250&lt;&#x2F;td&gt;&lt;td&gt;2.1&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2005-2006&lt;&#x2F;td&gt;&lt;td&gt;GFX2&lt;&#x2F;td&gt;&lt;td&gt;-&lt;&#x2F;td&gt;&lt;td&gt;Radeon X1300, Radeon X1600, Radeon X1800, Radeon X1900, Radeon X1950&lt;&#x2F;td&gt;&lt;td&gt;2.1&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2007-2008&lt;&#x2F;td&gt;&lt;td&gt;GFX3&lt;&#x2F;td&gt;&lt;td&gt;Ultra-Threaded SE&lt;&#x2F;td&gt;&lt;td&gt;Radeon HD 2xxx, Radeon HD 3xxx&lt;&#x2F;td&gt;&lt;td&gt;3.3&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2008-2009&lt;&#x2F;td&gt;&lt;td&gt;GFX3&lt;&#x2F;td&gt;&lt;td&gt;TeraScale 1&lt;&#x2F;td&gt;&lt;td&gt;Radeon HD 4xxx&lt;&#x2F;td&gt;&lt;td&gt;3.3&lt;&#x2F;td&gt;&lt;td&gt;1.1&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2009-2011&lt;&#x2F;td&gt;&lt;td&gt;GFX4&lt;&#x2F;td&gt;&lt;td&gt;TeraScale 2&lt;&#x2F;td&gt;&lt;td&gt;Radeon HD 5xxx, Radeon HD 6xxx&lt;&#x2F;td&gt;&lt;td&gt;4.x&lt;&#x2F;td&gt;&lt;td&gt;1.2&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2010-2012&lt;&#x2F;td&gt;&lt;td&gt;GFX5&lt;&#x2F;td&gt;&lt;td&gt;TeraScale 3&lt;&#x2F;td&gt;&lt;td&gt;Radeon HD 69xx, Radeon HD 7xxx (Trinity&#x2F;Richland APUs)&lt;&#x2F;td&gt;&lt;td&gt;4.x&lt;&#x2F;td&gt;&lt;td&gt;2.1&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2012-2013&lt;&#x2F;td&gt;&lt;td&gt;GFX6&lt;&#x2F;td&gt;&lt;td&gt;GCN 1.0&lt;&#x2F;td&gt;&lt;td&gt;Radeon HD 7xxx-8xxx, Radeon R7 240&#x2F;250, Radeon R9 280&#x2F;290&lt;&#x2F;td&gt;&lt;td&gt;4.x&lt;&#x2F;td&gt;&lt;td&gt;2.1&lt;&#x2F;td&gt;&lt;td&gt;1.3&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2013-2014&lt;&#x2F;td&gt;&lt;td&gt;GFX7&lt;&#x2F;td&gt;&lt;td&gt;GCN 2.0&lt;&#x2F;td&gt;&lt;td&gt;Radeon R7 260, Radeon R9 290X, Radeon R9 295X2, Kaveri APUs&lt;&#x2F;td&gt;&lt;td&gt;4.x&lt;&#x2F;td&gt;&lt;td&gt;2.1&lt;&#x2F;td&gt;&lt;td&gt;1.3&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2014-2015&lt;&#x2F;td&gt;&lt;td&gt;GFX8&lt;&#x2F;td&gt;&lt;td&gt;GCN 3.0&lt;&#x2F;td&gt;&lt;td&gt;Radeon R9 285, Radeon R9 380, Radeon R9 390&lt;&#x2F;td&gt;&lt;td&gt;4.x&lt;&#x2F;td&gt;&lt;td&gt;2.1&lt;&#x2F;td&gt;&lt;td&gt;1.4&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2015-2017&lt;&#x2F;td&gt;&lt;td&gt;GFX8.1&lt;&#x2F;td&gt;&lt;td&gt;GCN 4.0&lt;&#x2F;td&gt;&lt;td&gt;Radeon R9 Fury series, Radeon RX 4xx&#x2F;5xx, Stoney Ridge APUs&lt;&#x2F;td&gt;&lt;td&gt;4.x&lt;&#x2F;td&gt;&lt;td&gt;2.1&lt;&#x2F;td&gt;&lt;td&gt;1.4&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2017-2019&lt;&#x2F;td&gt;&lt;td&gt;GFX9&lt;&#x2F;td&gt;&lt;td&gt;GCN 5.0&lt;&#x2F;td&gt;&lt;td&gt;Radeon RX Vega 56&#x2F;64, Radeon VII, Raven Ridge&#x2F;Renoir APUs&lt;&#x2F;td&gt;&lt;td&gt;4.x&lt;&#x2F;td&gt;&lt;td&gt;2.1&lt;&#x2F;td&gt;&lt;td&gt;1.4&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2019-2020&lt;&#x2F;td&gt;&lt;td&gt;GFX10&lt;&#x2F;td&gt;&lt;td&gt;RDNA 1.0&lt;&#x2F;td&gt;&lt;td&gt;Radeon RX 5xxx (Navi 10, Navi 12, Navi 14)&lt;&#x2F;td&gt;&lt;td&gt;4.x&lt;&#x2F;td&gt;&lt;td&gt;2.1&lt;&#x2F;td&gt;&lt;td&gt;1.4&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2020-2022&lt;&#x2F;td&gt;&lt;td&gt;GFX10&lt;&#x2F;td&gt;&lt;td&gt;RDNA 2.0&lt;&#x2F;td&gt;&lt;td&gt;Radeon RX 6xxx (Navi 21, Navi 22, Navi 23, Navi 24), Van Gogh, Raphael APUs&lt;&#x2F;td&gt;&lt;td&gt;4.x&lt;&#x2F;td&gt;&lt;td&gt;2.1&lt;&#x2F;td&gt;&lt;td&gt;1.4&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2022-2024&lt;&#x2F;td&gt;&lt;td&gt;GFX11&lt;&#x2F;td&gt;&lt;td&gt;RDNA 3.0&lt;&#x2F;td&gt;&lt;td&gt;Radeon RX 7xxx (Navi 31, Navi 32, Navi 33), Phoenix APUs (780M, 760M)&lt;&#x2F;td&gt;&lt;td&gt;4.x&lt;&#x2F;td&gt;&lt;td&gt;2.1&lt;&#x2F;td&gt;&lt;td&gt;1.4&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2024&lt;&#x2F;td&gt;&lt;td&gt;GFX11&lt;&#x2F;td&gt;&lt;td&gt;RDNA 3.5&lt;&#x2F;td&gt;&lt;td&gt;Radeon RX 8xxM (Strix Point APUs)&lt;&#x2F;td&gt;&lt;td&gt;4.x&lt;&#x2F;td&gt;&lt;td&gt;2.1&lt;&#x2F;td&gt;&lt;td&gt;1.4&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2025&lt;&#x2F;td&gt;&lt;td&gt;GFX12&lt;&#x2F;td&gt;&lt;td&gt;RDNA 4.0&lt;&#x2F;td&gt;&lt;td&gt;Radeon RX 9xxx&lt;&#x2F;td&gt;&lt;td&gt;4.x&lt;&#x2F;td&gt;&lt;td&gt;2.1&lt;&#x2F;td&gt;&lt;td&gt;1.4&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
+&lt;h3 id=&quot;mesa-drivers&quot;&gt;Mesa drivers&lt;&#x2F;h3&gt;
+&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;&lt;strong&gt;Nom du driver&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;Type&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;Version&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;GFX Core&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;&#x2F;tr&gt;&lt;&#x2F;thead&gt;&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;r200 &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;docs.mesa3d.org&#x2F;amber.html&quot;&gt;mesa-amber&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;td&gt;OpenGL&lt;&#x2F;td&gt;&lt;td&gt;1.5&lt;&#x2F;td&gt;&lt;td&gt;GFX1&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;r300&lt;&#x2F;td&gt;&lt;td&gt;OpenGL&lt;&#x2F;td&gt;&lt;td&gt;1.5&lt;&#x2F;td&gt;&lt;td&gt;GFX2&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;r600&lt;&#x2F;td&gt;&lt;td&gt;OpenGL&lt;&#x2F;td&gt;&lt;td&gt;3.3&lt;&#x2F;td&gt;&lt;td&gt;GFX3-GFX5&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;radeonsi&lt;&#x2F;td&gt;&lt;td&gt;OpenGL&lt;&#x2F;td&gt;&lt;td&gt;4.6&lt;&#x2F;td&gt;&lt;td&gt;GFX6-GFX11&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;radv&lt;&#x2F;td&gt;&lt;td&gt;Vulkan&lt;&#x2F;td&gt;&lt;td&gt;1.4&lt;&#x2F;td&gt;&lt;td&gt;GFX6-GFX11&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
+&lt;h2 id=&quot;intel-graphics&quot;&gt;Intel Graphics&lt;&#x2F;h2&gt;
+&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;&lt;strong&gt;Release&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;GFX Core&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;Architecture&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;GPU Models&#x2F;Series&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;OpenGL&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;OpenCL&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;Vulkan&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;&#x2F;tr&gt;&lt;&#x2F;thead&gt;&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;1998-1999&lt;&#x2F;td&gt;&lt;td&gt;Gen1&lt;&#x2F;td&gt;&lt;td&gt;3D Accelerator&lt;&#x2F;td&gt;&lt;td&gt;i740, i752, i754&lt;&#x2F;td&gt;&lt;td&gt;1.1&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;1999-2003&lt;&#x2F;td&gt;&lt;td&gt;Gen2&lt;&#x2F;td&gt;&lt;td&gt;Extreme Graphics&lt;&#x2F;td&gt;&lt;td&gt;82810, 82815, 82845G, 82855GM, 82865G&lt;&#x2F;td&gt;&lt;td&gt;1.3&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2003-2004&lt;&#x2F;td&gt;&lt;td&gt;Gen3&lt;&#x2F;td&gt;&lt;td&gt;Extreme Graphics 2&lt;&#x2F;td&gt;&lt;td&gt;82852GM, 82855GM, 82915G, 82925X&lt;&#x2F;td&gt;&lt;td&gt;1.4&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2006-2007&lt;&#x2F;td&gt;&lt;td&gt;Gen4&lt;&#x2F;td&gt;&lt;td&gt;GMA 3000&#x2F;3100&lt;&#x2F;td&gt;&lt;td&gt;G965, Q965, X3000, X3100, G31, G33, G35, Q33, Q35&lt;&#x2F;td&gt;&lt;td&gt;2.1&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2007-2009&lt;&#x2F;td&gt;&lt;td&gt;Gen4.5&lt;&#x2F;td&gt;&lt;td&gt;GMA X3500&#x2F;X4500&lt;&#x2F;td&gt;&lt;td&gt;G35, G41, G43, G45, Q43, Q45, B43, X38, X48&lt;&#x2F;td&gt;&lt;td&gt;2.1&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2010&lt;&#x2F;td&gt;&lt;td&gt;Gen5&lt;&#x2F;td&gt;&lt;td&gt;Ironlake&lt;&#x2F;td&gt;&lt;td&gt;HD Graphics (Arrandale, Clarkdale)&lt;&#x2F;td&gt;&lt;td&gt;2.1&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2011&lt;&#x2F;td&gt;&lt;td&gt;Gen6&lt;&#x2F;td&gt;&lt;td&gt;Sandy Bridge&lt;&#x2F;td&gt;&lt;td&gt;HD Graphics 2000&#x2F;3000&lt;&#x2F;td&gt;&lt;td&gt;3.3&lt;&#x2F;td&gt;&lt;td&gt;1.1&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2012&lt;&#x2F;td&gt;&lt;td&gt;Gen7&lt;&#x2F;td&gt;&lt;td&gt;Ivy Bridge&lt;&#x2F;td&gt;&lt;td&gt;HD Graphics 2500&#x2F;4000&lt;&#x2F;td&gt;&lt;td&gt;4.2&lt;&#x2F;td&gt;&lt;td&gt;1.2&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2013&lt;&#x2F;td&gt;&lt;td&gt;Gen7.5&lt;&#x2F;td&gt;&lt;td&gt;Haswell&lt;&#x2F;td&gt;&lt;td&gt;HD Graphics 4200&#x2F;4400&#x2F;4600&#x2F;5000&#x2F;5100&#x2F;5200&lt;&#x2F;td&gt;&lt;td&gt;4.6&lt;&#x2F;td&gt;&lt;td&gt;1.2&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2014-2015&lt;&#x2F;td&gt;&lt;td&gt;Gen8&lt;&#x2F;td&gt;&lt;td&gt;Broadwell&lt;&#x2F;td&gt;&lt;td&gt;HD Graphics 5300&#x2F;5500&#x2F;6000, Iris 6100&lt;&#x2F;td&gt;&lt;td&gt;4.6&lt;&#x2F;td&gt;&lt;td&gt;2.0&lt;&#x2F;td&gt;&lt;td&gt;1.3&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2015-2017&lt;&#x2F;td&gt;&lt;td&gt;Gen9&lt;&#x2F;td&gt;&lt;td&gt;Skylake&lt;&#x2F;td&gt;&lt;td&gt;HD Graphics 5xx, Iris 5xx&lt;&#x2F;td&gt;&lt;td&gt;4.6&lt;&#x2F;td&gt;&lt;td&gt;2.1&lt;&#x2F;td&gt;&lt;td&gt;1.4&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2017-2019&lt;&#x2F;td&gt;&lt;td&gt;Gen9.5&lt;&#x2F;td&gt;&lt;td&gt;Kaby Lake&#x2F;Coffee Lake&lt;&#x2F;td&gt;&lt;td&gt;UHD Graphics 6xx, Iris Plus 6xx&lt;&#x2F;td&gt;&lt;td&gt;4.6&lt;&#x2F;td&gt;&lt;td&gt;2.1&lt;&#x2F;td&gt;&lt;td&gt;1.4&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2019-2020&lt;&#x2F;td&gt;&lt;td&gt;Gen11&lt;&#x2F;td&gt;&lt;td&gt;Ice Lake&lt;&#x2F;td&gt;&lt;td&gt;Iris Plus Graphics (G4, G7)&lt;&#x2F;td&gt;&lt;td&gt;4.6&lt;&#x2F;td&gt;&lt;td&gt;2.1&lt;&#x2F;td&gt;&lt;td&gt;1.4&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2020-2021&lt;&#x2F;td&gt;&lt;td&gt;Gen12&lt;&#x2F;td&gt;&lt;td&gt;Xe-LP&lt;&#x2F;td&gt;&lt;td&gt;UHD Graphics (Rocket Lake), Iris Xe (Alder Lake)&lt;&#x2F;td&gt;&lt;td&gt;4.6&lt;&#x2F;td&gt;&lt;td&gt;2.1&lt;&#x2F;td&gt;&lt;td&gt;1.4&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2022&lt;&#x2F;td&gt;&lt;td&gt;Gen12.7&lt;&#x2F;td&gt;&lt;td&gt;Xe-HPG&#x2F;Xe-HPC&lt;&#x2F;td&gt;&lt;td&gt;Arc Alchemist (A7xx A3xx), Ponte Vecchio&lt;&#x2F;td&gt;&lt;td&gt;4.6&lt;&#x2F;td&gt;&lt;td&gt;3.0&lt;&#x2F;td&gt;&lt;td&gt;1.4&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2024-2025&lt;&#x2F;td&gt;&lt;td&gt;Gen20&lt;&#x2F;td&gt;&lt;td&gt;Xe2-HPG&#x2F;Xe2-LPG&lt;&#x2F;td&gt;&lt;td&gt;Battlemage (B5xx), Lunar Lake&lt;&#x2F;td&gt;&lt;td&gt;4.6&lt;&#x2F;td&gt;&lt;td&gt;3.0&lt;&#x2F;td&gt;&lt;td&gt;1.4&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
+&lt;h3 id=&quot;mesa-drivers-1&quot;&gt;Mesa drivers&lt;&#x2F;h3&gt;
+&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;&lt;strong&gt;Nom du driver&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;Type&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;Version&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;GFX Core&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;&#x2F;tr&gt;&lt;&#x2F;thead&gt;&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;i830&#x2F;i965 (&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;docs.mesa3d.org&#x2F;amber.html&quot;&gt;mesa-amber&lt;&#x2F;a&gt;)&lt;&#x2F;td&gt;&lt;td&gt;OpenGL&lt;&#x2F;td&gt;&lt;td&gt;1.4&lt;&#x2F;td&gt;&lt;td&gt;Gen2&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;i915&lt;&#x2F;td&gt;&lt;td&gt;OpenGL&lt;&#x2F;td&gt;&lt;td&gt;2.1&lt;&#x2F;td&gt;&lt;td&gt;Gen3&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;crocus&lt;&#x2F;td&gt;&lt;td&gt;OpenGL&lt;&#x2F;td&gt;&lt;td&gt;4.6¹&lt;&#x2F;td&gt;&lt;td&gt;Gen4-Gen7.5&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;iris&lt;&#x2F;td&gt;&lt;td&gt;OpenGL&lt;&#x2F;td&gt;&lt;td&gt;4.6&lt;&#x2F;td&gt;&lt;td&gt;Gen8-Gen13&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;hasvk&lt;&#x2F;td&gt;&lt;td&gt;Vulkan&lt;&#x2F;td&gt;&lt;td&gt;1.0 (partial)&lt;&#x2F;td&gt;&lt;td&gt;Gen6-Gen8&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;anv&lt;&#x2F;td&gt;&lt;td&gt;Vulkan&lt;&#x2F;td&gt;&lt;td&gt;1.4&lt;&#x2F;td&gt;&lt;td&gt;Gen9-Gen13&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
+&lt;p&gt;&lt;strong&gt;¹&lt;&#x2F;strong&gt;: Peut varier en fonction du matériel.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;nvidia-graphics&quot;&gt;Nvidia Graphics&lt;&#x2F;h2&gt;
+&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;&lt;strong&gt;Release&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;GFX Core&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;Architecture&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;GPU Models&#x2F;Series&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;OpenGL&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;OpenCL&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;Vulkan&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;&#x2F;tr&gt;&lt;&#x2F;thead&gt;&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;1995&lt;&#x2F;td&gt;&lt;td&gt;NV1&lt;&#x2F;td&gt;&lt;td&gt;?&lt;&#x2F;td&gt;&lt;td&gt;NV1 (Diamond Edge 3D)&lt;&#x2F;td&gt;&lt;td&gt;1.1&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;Cancelled&lt;&#x2F;td&gt;&lt;td&gt;NV2&lt;&#x2F;td&gt;&lt;td&gt;?&lt;&#x2F;td&gt;&lt;td&gt;Cancelled&lt;&#x2F;td&gt;&lt;td&gt;1.1&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;1997&lt;&#x2F;td&gt;&lt;td&gt;NV3&lt;&#x2F;td&gt;&lt;td&gt;?&lt;&#x2F;td&gt;&lt;td&gt;NV3, RIVA 128, RIVA 128ZX&lt;&#x2F;td&gt;&lt;td&gt;1.1&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;1998-1999&lt;&#x2F;td&gt;&lt;td&gt;NV4&lt;&#x2F;td&gt;&lt;td&gt;?&lt;&#x2F;td&gt;&lt;td&gt;RIVA TNT, TNT2, TNT2 Ultra, Vanta, M64&lt;&#x2F;td&gt;&lt;td&gt;1.2&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;1999-2000&lt;&#x2F;td&gt;&lt;td&gt;NV10&lt;&#x2F;td&gt;&lt;td&gt;Celsius¹&lt;&#x2F;td&gt;&lt;td&gt;GeForce 256, GeForce 2, Quadro&lt;&#x2F;td&gt;&lt;td&gt;1.3&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2001-2002&lt;&#x2F;td&gt;&lt;td&gt;NV20&lt;&#x2F;td&gt;&lt;td&gt;Kelvin¹&lt;&#x2F;td&gt;&lt;td&gt;GeForce 3, GeForce 4 Ti&lt;&#x2F;td&gt;&lt;td&gt;1.4&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2003-2004&lt;&#x2F;td&gt;&lt;td&gt;NV30&lt;&#x2F;td&gt;&lt;td&gt;Rankine¹&lt;&#x2F;td&gt;&lt;td&gt;GeForce FX 5xx Series&lt;&#x2F;td&gt;&lt;td&gt;2.1&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2004-2006&lt;&#x2F;td&gt;&lt;td&gt;NV40&lt;&#x2F;td&gt;&lt;td&gt;Curie¹&lt;&#x2F;td&gt;&lt;td&gt;GeForce 6000&#x2F;7000, Quadro FX&lt;&#x2F;td&gt;&lt;td&gt;2.1&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2006-2008&lt;&#x2F;td&gt;&lt;td&gt;G80&lt;&#x2F;td&gt;&lt;td&gt;Tesla (1st Gen)&lt;&#x2F;td&gt;&lt;td&gt;GeForce 8000, 9xx, 1xx, GTX 2xx&lt;&#x2F;td&gt;&lt;td&gt;3.3&lt;&#x2F;td&gt;&lt;td&gt;1.1&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2008-2009&lt;&#x2F;td&gt;&lt;td&gt;GT200&lt;&#x2F;td&gt;&lt;td&gt;Tesla (2nd Gen)&lt;&#x2F;td&gt;&lt;td&gt;GeForce GTX 260, 280, 295&lt;&#x2F;td&gt;&lt;td&gt;3.3&lt;&#x2F;td&gt;&lt;td&gt;1.1&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2010-2011&lt;&#x2F;td&gt;&lt;td&gt;GF100&lt;&#x2F;td&gt;&lt;td&gt;Fermi&lt;&#x2F;td&gt;&lt;td&gt;GeForce GT&#x2F;GTX 4xx&#x2F;5xx, Quadro 4000&#x2F;5000&#x2F;6000&lt;&#x2F;td&gt;&lt;td&gt;4.x&lt;&#x2F;td&gt;&lt;td&gt;1.1&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2012-2013&lt;&#x2F;td&gt;&lt;td&gt;GK100&lt;&#x2F;td&gt;&lt;td&gt;Kepler&lt;&#x2F;td&gt;&lt;td&gt;GeForce GT&#x2F;GTX 6xx&#x2F;7xx, Quadro K-series&lt;&#x2F;td&gt;&lt;td&gt;4.x&lt;&#x2F;td&gt;&lt;td&gt;1.1&lt;&#x2F;td&gt;&lt;td&gt;1.x ?&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2014&lt;&#x2F;td&gt;&lt;td&gt;GM100&lt;&#x2F;td&gt;&lt;td&gt;Maxwell (1st Gen)&lt;&#x2F;td&gt;&lt;td&gt;GeForce GTX 750&#x2F;750 Ti, 8xx&lt;&#x2F;td&gt;&lt;td&gt;4.x&lt;&#x2F;td&gt;&lt;td&gt;1.2&lt;&#x2F;td&gt;&lt;td&gt;1.x ?&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2014-2015&lt;&#x2F;td&gt;&lt;td&gt;GM200&lt;&#x2F;td&gt;&lt;td&gt;Maxwell (2nd Gen)&lt;&#x2F;td&gt;&lt;td&gt;GeForce GT&#x2F;GTX 9xx, Quadro M-series&lt;&#x2F;td&gt;&lt;td&gt;4.6&lt;&#x2F;td&gt;&lt;td&gt;1.2&lt;&#x2F;td&gt;&lt;td&gt;1.x ?&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2016-2017&lt;&#x2F;td&gt;&lt;td&gt;GP100&lt;&#x2F;td&gt;&lt;td&gt;Pascal&lt;&#x2F;td&gt;&lt;td&gt;GeForce GTX 1xxx, Titan Xp, Quadro P-series&lt;&#x2F;td&gt;&lt;td&gt;4.6&lt;&#x2F;td&gt;&lt;td&gt;2.0&lt;&#x2F;td&gt;&lt;td&gt;1.3 ?&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2018-2019&lt;&#x2F;td&gt;&lt;td&gt;TU100&lt;&#x2F;td&gt;&lt;td&gt;Turing&lt;&#x2F;td&gt;&lt;td&gt;GeForce RTX 2xxx, Quadro RTX&lt;&#x2F;td&gt;&lt;td&gt;4.6&lt;&#x2F;td&gt;&lt;td&gt;2.0&lt;&#x2F;td&gt;&lt;td&gt;1.4&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2020-2021&lt;&#x2F;td&gt;&lt;td&gt;GA100&lt;&#x2F;td&gt;&lt;td&gt;Ampere&lt;&#x2F;td&gt;&lt;td&gt;GeForce RTX 3xxx, Quadro RTX A-series&lt;&#x2F;td&gt;&lt;td&gt;4.6&lt;&#x2F;td&gt;&lt;td&gt;3.0&lt;&#x2F;td&gt;&lt;td&gt;1.4&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2022-2023&lt;&#x2F;td&gt;&lt;td&gt;AD100&lt;&#x2F;td&gt;&lt;td&gt;Ada Lovelace&lt;&#x2F;td&gt;&lt;td&gt;GeForce RTX 4xxx,&lt;&#x2F;td&gt;&lt;td&gt;4.6&lt;&#x2F;td&gt;&lt;td&gt;3.0&lt;&#x2F;td&gt;&lt;td&gt;1.4&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2025&lt;&#x2F;td&gt;&lt;td&gt;GB100&lt;&#x2F;td&gt;&lt;td&gt;Blackwell&lt;&#x2F;td&gt;&lt;td&gt;GeForce RTX 5xxx&lt;&#x2F;td&gt;&lt;td&gt;4.6&lt;&#x2F;td&gt;&lt;td&gt;3.0&lt;&#x2F;td&gt;&lt;td&gt;1.4&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
+&lt;p&gt;¹: Les noms de code etaient d&#x27;abord utilises par le driver kernel Nouveau.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;mesa-drivers-2&quot;&gt;Mesa drivers&lt;&#x2F;h3&gt;
+&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;&lt;strong&gt;Nom du driver&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;Type&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;Version&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;GFX Core&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;&#x2F;tr&gt;&lt;&#x2F;thead&gt;&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;nv50&lt;&#x2F;td&gt;&lt;td&gt;OpenGL&lt;&#x2F;td&gt;&lt;td&gt;3.3&lt;&#x2F;td&gt;&lt;td&gt;G80-GT200&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;nvc0&lt;&#x2F;td&gt;&lt;td&gt;OpenGL&lt;&#x2F;td&gt;&lt;td&gt;4.5&lt;&#x2F;td&gt;&lt;td&gt;GF100-?&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;nvk&lt;&#x2F;td&gt;&lt;td&gt;Vulkan&lt;&#x2F;td&gt;&lt;td&gt;1.4¹&lt;&#x2F;td&gt;&lt;td&gt;GK100-GB100&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
+&lt;p&gt;&lt;strong&gt;¹&lt;&#x2F;strong&gt;: Peut varier en fonction du matériel.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;broadcom-videocore&quot;&gt;Broadcom VideoCore&lt;&#x2F;h2&gt;
+&lt;p&gt;Il est principalement utilisé dans les Raspberry Pi.&lt;&#x2F;p&gt;
+&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;&lt;strong&gt;Release&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;GFX Core&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;Architecture&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;SOC Models&#x2F;Series&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;OpenGL&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;OpenCL&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;Vulkan&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;&#x2F;tr&gt;&lt;&#x2F;thead&gt;&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;2012-2016&lt;&#x2F;td&gt;&lt;td&gt;VideoCore IV&lt;&#x2F;td&gt;&lt;td&gt;-&lt;&#x2F;td&gt;&lt;td&gt;BCM2835-BCM2837&lt;&#x2F;td&gt;&lt;td&gt;2.x&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2012-2016&lt;&#x2F;td&gt;&lt;td&gt;VideoCore VI&lt;&#x2F;td&gt;&lt;td&gt;-&lt;&#x2F;td&gt;&lt;td&gt;BCM2711B0&lt;&#x2F;td&gt;&lt;td&gt;3.3&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;td&gt;1.0&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2012-2016&lt;&#x2F;td&gt;&lt;td&gt;VideoCore VII&lt;&#x2F;td&gt;&lt;td&gt;-&lt;&#x2F;td&gt;&lt;td&gt;BCM2712&lt;&#x2F;td&gt;&lt;td&gt;3.3&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;td&gt;1.0&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
+&lt;h3 id=&quot;mesa-drivers-3&quot;&gt;Mesa drivers&lt;&#x2F;h3&gt;
+&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;&lt;strong&gt;Driver name&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;Type&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;Version&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;GFX Core&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;&#x2F;tr&gt;&lt;&#x2F;thead&gt;&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;vc4&lt;&#x2F;td&gt;&lt;td&gt;OpenGL&lt;&#x2F;td&gt;&lt;td&gt;2.1&lt;&#x2F;td&gt;&lt;td&gt;VideoCore IV&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;v3d&lt;&#x2F;td&gt;&lt;td&gt;OpenGL&lt;&#x2F;td&gt;&lt;td&gt;3.3&lt;&#x2F;td&gt;&lt;td&gt;VideoCore VI-VII&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;v3dv&lt;&#x2F;td&gt;&lt;td&gt;Vulkan&lt;&#x2F;td&gt;&lt;td&gt;1.0&lt;&#x2F;td&gt;&lt;td&gt;VideoCore VI-VII&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
+&lt;h2 id=&quot;source&quot;&gt;Source&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.x.org&#x2F;wiki&#x2F;RadeonFeature&#x2F;&quot;&gt;RadeonFeature&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Intel_Graphics_Technology&quot;&gt;IntelGraphics&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;List_of_Nvidia_graphics_processing_units&quot;&gt;NvidiaGraphics&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;List_of_AMD_graphics_processing_units&quot;&gt;AMDGraphics&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;mesamatrix.net&#x2F;&quot;&gt;Mesa Matrix&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;vulkan.gpuinfo.org&#x2F;&quot;&gt;Vulkan Hardware Database&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;airlied.blogspot.com&#x2F;2021&#x2F;04&#x2F;crocus-gallium-for-gen4-7-generation.html&quot;&gt;Crocus&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;wiki.archlinux.org&#x2F;title&#x2F;OpenGL&quot;&gt;OpenGL Archlinux&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.collabora.com&#x2F;news-and-blog&#x2F;news-and-events&#x2F;mesa-25.2-brings-new-hardware-support-for-nouveau-users.html&quot;&gt;Nvk Vulkan Driver&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.khronos.org&#x2F;conformance&#x2F;adopters&#x2F;conformant-products&#x2F;vulkan&quot;&gt;Vulkan conformance&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="fr">
+        <title>L&#x27;évolution des CPUs</title>
+        <published>2025-02-24T00:00:00+00:00</published>
+        <updated>2025-02-24T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.bensuperpc.org/fr/documentation/hardware/pc/cpu/"/>
+        <id>https://blog.bensuperpc.org/fr/documentation/hardware/pc/cpu/</id>
+        
+        <content type="html" xml:base="https://blog.bensuperpc.org/fr/documentation/hardware/pc/cpu/">&lt;h1 id=&quot;introduction&quot;&gt;Introduction&lt;&#x2F;h1&gt;
+&lt;h2 id=&quot;intel-cpu&quot;&gt;Intel CPU&lt;&#x2F;h2&gt;
+&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;&lt;strong&gt;Release&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;Microarch&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;CPU Models&#x2F;Series&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;SIMD instructions&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;FMA3&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;AES-NI&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;&#x2F;tr&gt;&lt;&#x2F;thead&gt;&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;1979&lt;&#x2F;td&gt;&lt;td&gt;8088&#x2F;8086&lt;&#x2F;td&gt;&lt;td&gt;Intel 8088&#x2F;8086&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;1982&lt;&#x2F;td&gt;&lt;td&gt;80286&lt;&#x2F;td&gt;&lt;td&gt;Intel 80286&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;1985&lt;&#x2F;td&gt;&lt;td&gt;80386&lt;&#x2F;td&gt;&lt;td&gt;Intel 80386&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;1989&lt;&#x2F;td&gt;&lt;td&gt;80486&lt;&#x2F;td&gt;&lt;td&gt;Intel 80486&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;1993&lt;&#x2F;td&gt;&lt;td&gt;P5 (Pentium)&lt;&#x2F;td&gt;&lt;td&gt;Pentium&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;1995&lt;&#x2F;td&gt;&lt;td&gt;P6&lt;&#x2F;td&gt;&lt;td&gt;Pentium Pro&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;1997&lt;&#x2F;td&gt;&lt;td&gt;P6&lt;&#x2F;td&gt;&lt;td&gt;Pentium II Klamath&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF5645&quot; &gt;
+    MMX
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;1998&lt;&#x2F;td&gt;&lt;td&gt;P6&lt;&#x2F;td&gt;&lt;td&gt;Pentium II Deschutes&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF5645&quot; &gt;
+    MMX
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;1999&lt;&#x2F;td&gt;&lt;td&gt;P6&lt;&#x2F;td&gt;&lt;td&gt;Pentium III Katmai&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF6F61&quot; &gt;
+    SSE
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;1999&lt;&#x2F;td&gt;&lt;td&gt;P6&lt;&#x2F;td&gt;&lt;td&gt;Pentium III Coppermine&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF6F61&quot; &gt;
+    SSE
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2000&lt;&#x2F;td&gt;&lt;td&gt;NetBurst&lt;&#x2F;td&gt;&lt;td&gt;Pentium 4 Willamette&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FFB347&quot; &gt;
+    SSE2
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2001&lt;&#x2F;td&gt;&lt;td&gt;P6&lt;&#x2F;td&gt;&lt;td&gt;Pentium III Tualatin&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF6F61&quot; &gt;
+    SSE
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2002&lt;&#x2F;td&gt;&lt;td&gt;NetBurst&lt;&#x2F;td&gt;&lt;td&gt;Pentium 4 Northwood&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FFB347&quot; &gt;
+    SSE2
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2004&lt;&#x2F;td&gt;&lt;td&gt;NetBurst&lt;&#x2F;td&gt;&lt;td&gt;Pentium 4&#x2F;D Prescott&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FFD700&quot; &gt;
+    SSE3
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2004&lt;&#x2F;td&gt;&lt;td&gt;NetBurst&lt;&#x2F;td&gt;&lt;td&gt;Pentium 4&#x2F;D Cedar Mill&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FFD700&quot; &gt;
+    SSE3
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2006&lt;&#x2F;td&gt;&lt;td&gt;Core&lt;&#x2F;td&gt;&lt;td&gt;Core 2 E6&#x2F;Q6xxx, E1&#x2F;E2xxx&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FFD700&quot; &gt;
+    SSE3
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2007&lt;&#x2F;td&gt;&lt;td&gt;Penryn&lt;&#x2F;td&gt;&lt;td&gt;Core 2 E7&#x2F;E8&#x2F;Q8&#x2F;Q9xxx, E2&#x2F;E5&#x2F;E6xxx&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #ADFF2F&quot; &gt;
+    SSSE3
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2008&lt;&#x2F;td&gt;&lt;td&gt;Nehalem&lt;&#x2F;td&gt;&lt;td&gt;Core i3&#x2F;i5&#x2F;i7 9xx&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #2ECC40&quot; &gt;
+    SSE4
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2010&lt;&#x2F;td&gt;&lt;td&gt;Westmere&lt;&#x2F;td&gt;&lt;td&gt;Core i3&#x2F;i5&#x2F;i7 xxx, Pentium G69xx&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #00C49A&quot; &gt;
+    SSE4.2
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2011&lt;&#x2F;td&gt;&lt;td&gt;Sandy Bridge&lt;&#x2F;td&gt;&lt;td&gt;Core i3&#x2F;i5&#x2F;i7 2xxx, Pentium G6xx&#x2F;G8xx&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #00D100&quot; &gt;
+    AVX
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2012&lt;&#x2F;td&gt;&lt;td&gt;Ivy Bridge&lt;&#x2F;td&gt;&lt;td&gt;Core i3&#x2F;i5&#x2F;i7 3xxx, Pentium G2xxx&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #00D100&quot; &gt;
+    AVX
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2013-2014&lt;&#x2F;td&gt;&lt;td&gt;Haswell&lt;&#x2F;td&gt;&lt;td&gt;Core i3&#x2F;i5&#x2F;i7 4xxx, Pentium G3xxx&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #00CED1&quot; &gt;
+    AVX2
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2014&lt;&#x2F;td&gt;&lt;td&gt;Broadwell&lt;&#x2F;td&gt;&lt;td&gt;Core i3&#x2F;i5&#x2F;i7 5xxx&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #00CED1&quot; &gt;
+    AVX2
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2015&lt;&#x2F;td&gt;&lt;td&gt;Skylake&lt;&#x2F;td&gt;&lt;td&gt;Core i3&#x2F;i5&#x2F;i7 6xxx, Pentium G44xx&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #00CED1&quot; &gt;
+    AVX2
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2016&lt;&#x2F;td&gt;&lt;td&gt;Kaby Lake&lt;&#x2F;td&gt;&lt;td&gt;Core i3&#x2F;i5&#x2F;i7 7xxx, Pentium G45xx&#x2F;G46xx&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #00CED1&quot; &gt;
+    AVX2
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2018-2019&lt;&#x2F;td&gt;&lt;td&gt;Coffee Lake&lt;&#x2F;td&gt;&lt;td&gt;Core i3&#x2F;i5&#x2F;i7&#x2F;i9 8xxx&#x2F;9xxx, Pentium G5xxx&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #00CED1&quot; &gt;
+    AVX2
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2019&lt;&#x2F;td&gt;&lt;td&gt;Ice Lake&lt;&#x2F;td&gt;&lt;td&gt;Core i3&#x2F;i5&#x2F;i7 10xxxGx (mobile only)&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    AVX-512
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2020&lt;&#x2F;td&gt;&lt;td&gt;Comet Lake&lt;&#x2F;td&gt;&lt;td&gt;Core i3&#x2F;i5&#x2F;i7&#x2F;i9 10xxx, Pentium G6xxx&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #00CED1&quot; &gt;
+    AVX2
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2020&lt;&#x2F;td&gt;&lt;td&gt;Tiger Lake&lt;&#x2F;td&gt;&lt;td&gt;Core i3&#x2F;i5&#x2F;i7 11xxxGx (mobile only)&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    AVX-512
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2021&lt;&#x2F;td&gt;&lt;td&gt;Rocket Lake&lt;&#x2F;td&gt;&lt;td&gt;Core i3&#x2F;i5&#x2F;i7&#x2F;i9 11xxx&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    AVX-512
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2021&lt;&#x2F;td&gt;&lt;td&gt;Alder Lake&lt;&#x2F;td&gt;&lt;td&gt;Core i3&#x2F;i5&#x2F;i7&#x2F;i9 12xxx, Pentium G7xxx&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #00CED1&quot; &gt;
+    AVX2
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2022&lt;&#x2F;td&gt;&lt;td&gt;Raptor Lake&lt;&#x2F;td&gt;&lt;td&gt;Core i3&#x2F;i5&#x2F;i7&#x2F;i9 13xxx&#x2F;14xxx&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #00CED1&quot; &gt;
+    AVX2
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2024&lt;&#x2F;td&gt;&lt;td&gt;Meteor Lake&lt;&#x2F;td&gt;&lt;td&gt;Core Ultra 3&#x2F;5&#x2F;7&#x2F;9 1xx&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #00CED1&quot; &gt;
+    AVX2
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2024&lt;&#x2F;td&gt;&lt;td&gt;Lunar Lake&lt;&#x2F;td&gt;&lt;td&gt;Core Ultra 3&#x2F;5&#x2F;7&#x2F;9 2xx&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #00CED1&quot; &gt;
+    AVX2
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2024&lt;&#x2F;td&gt;&lt;td&gt;Arrow Lake&lt;&#x2F;td&gt;&lt;td&gt;Core Ultra 3&#x2F;5&#x2F;7&#x2F;9 3xx&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #00CED1&quot; &gt;
+    AVX2
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2025 ?&lt;&#x2F;td&gt;&lt;td&gt;Nova Lake&lt;&#x2F;td&gt;&lt;td&gt;Core Ultra 3&#x2F;5&#x2F;7&#x2F;9 4xx&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #009dff&quot; &gt;
+    10.2
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
+&lt;p&gt;&lt;em&gt;Note: Les processeurs &lt;strong&gt;pentium&lt;&#x2F;strong&gt; et &lt;strong&gt;celeron&lt;&#x2F;strong&gt; jusqu&#x27;aux &lt;strong&gt;Comet Lake&lt;&#x2F;strong&gt; ne supportent pas AVX, AVX2 et AVX-512.&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;amd-cpu&quot;&gt;AMD CPU&lt;&#x2F;h2&gt;
+&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;&lt;strong&gt;Release&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;Microarch&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;CPU Models&#x2F;Series&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;SIMD instructions&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;FMA3&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;AES-NI&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;&#x2F;tr&gt;&lt;&#x2F;thead&gt;&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;1996&lt;&#x2F;td&gt;&lt;td&gt;K5&lt;&#x2F;td&gt;&lt;td&gt;AMD K5&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;1997&lt;&#x2F;td&gt;&lt;td&gt;K6&lt;&#x2F;td&gt;&lt;td&gt;AMD K6, K6-II, K6-III&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF5645&quot; &gt;
+    MMX
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;1999&lt;&#x2F;td&gt;&lt;td&gt;K7 (Athlon)&lt;&#x2F;td&gt;&lt;td&gt;AMD Athlon, Duron&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF6F61&quot; &gt;
+    SSE
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2003&lt;&#x2F;td&gt;&lt;td&gt;K8&lt;&#x2F;td&gt;&lt;td&gt;AMD Athlon 64, Opteron&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FFD700&quot; &gt;
+    SSE3
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2007&lt;&#x2F;td&gt;&lt;td&gt;K10&lt;&#x2F;td&gt;&lt;td&gt;AMD Phenom, Phenom II, Athlon II&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #ADFF2F&quot; &gt;
+    SSE4a
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2011&lt;&#x2F;td&gt;&lt;td&gt;Bulldozer&lt;&#x2F;td&gt;&lt;td&gt;AMD FX x1xx, Opteron (Bulldozer)&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #00D100&quot; &gt;
+    AVX
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FFD700&quot; &gt;
+    FMA4
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2014&lt;&#x2F;td&gt;&lt;td&gt;Steamroller&lt;&#x2F;td&gt;&lt;td&gt;AMD APUs (Steamroller)&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #00D100&quot; &gt;
+    AVX
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2015&lt;&#x2F;td&gt;&lt;td&gt;Excavator&lt;&#x2F;td&gt;&lt;td&gt;AMD APUs (Excavator)&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #00CED1&quot; &gt;
+    AVX2
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2017&lt;&#x2F;td&gt;&lt;td&gt;Zen&lt;&#x2F;td&gt;&lt;td&gt;AMD Ryzen 1xxx, EPYC 7xx1&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #00CED1&quot; &gt;
+    AVX2
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2018&lt;&#x2F;td&gt;&lt;td&gt;Zen+&lt;&#x2F;td&gt;&lt;td&gt;AMD Ryzen 2xxx&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #00CED1&quot; &gt;
+    AVX2
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2019&lt;&#x2F;td&gt;&lt;td&gt;Zen 2&lt;&#x2F;td&gt;&lt;td&gt;AMD Ryzen 3xxx, EPYC 7xx2&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #00CED1&quot; &gt;
+    AVX2
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2020&lt;&#x2F;td&gt;&lt;td&gt;Zen 3&lt;&#x2F;td&gt;&lt;td&gt;AMD Ryzen 5xxx, EPYC 7xx3&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #00CED1&quot; &gt;
+    AVX2
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2022&lt;&#x2F;td&gt;&lt;td&gt;Zen 4&lt;&#x2F;td&gt;&lt;td&gt;AMD Ryzen 7xxx, EPYC 4&#x2F;8&#x2F;9xx4&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    AVX-512
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2024&lt;&#x2F;td&gt;&lt;td&gt;Zen 5&lt;&#x2F;td&gt;&lt;td&gt;AMD Ryzen 9xxx, EPYC 9xx5&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    AVX-512
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
+&lt;h2 id=&quot;arm-cpu&quot;&gt;ARM CPU&lt;&#x2F;h2&gt;
+&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;&lt;strong&gt;Release&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;Microarch&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;CPU Models&#x2F;Series&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;Inst. length&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;SIMD instructions&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;Out-of-order&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;&#x2F;tr&gt;&lt;&#x2F;thead&gt;&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;?&lt;&#x2F;td&gt;&lt;td&gt;ARMv1&lt;&#x2F;td&gt;&lt;td&gt;ARM1&lt;&#x2F;td&gt;&lt;td&gt;&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;?&lt;&#x2F;td&gt;&lt;td&gt;ARMv2&lt;&#x2F;td&gt;&lt;td&gt;ARM2&lt;&#x2F;td&gt;&lt;td&gt;&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;?&lt;&#x2F;td&gt;&lt;td&gt;ARMv3&lt;&#x2F;td&gt;&lt;td&gt;ARM6&lt;&#x2F;td&gt;&lt;td&gt;32-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;1993&lt;&#x2F;td&gt;&lt;td&gt;ARMv4&lt;&#x2F;td&gt;&lt;td&gt;ARM7&lt;&#x2F;td&gt;&lt;td&gt;32-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;1998&lt;&#x2F;td&gt;&lt;td&gt;ARMv5&lt;&#x2F;td&gt;&lt;td&gt;ARM9&lt;&#x2F;td&gt;&lt;td&gt;32-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2002&lt;&#x2F;td&gt;&lt;td&gt;ARMv6&lt;&#x2F;td&gt;&lt;td&gt;ARM11&lt;&#x2F;td&gt;&lt;td&gt;32-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2005&lt;&#x2F;td&gt;&lt;td&gt;ARMv7&lt;&#x2F;td&gt;&lt;td&gt;Cortex-A8&lt;&#x2F;td&gt;&lt;td&gt;32-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FFD700&quot; &gt;
+    NEON
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2007&lt;&#x2F;td&gt;&lt;td&gt;ARMv7&lt;&#x2F;td&gt;&lt;td&gt;Cortex-A9&lt;&#x2F;td&gt;&lt;td&gt;32-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FFD700&quot; &gt;
+    NEON
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2009&lt;&#x2F;td&gt;&lt;td&gt;ARMv7&lt;&#x2F;td&gt;&lt;td&gt;Cortex-A5&lt;&#x2F;td&gt;&lt;td&gt;32-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FFD700&quot; &gt;
+    NEON
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2011&lt;&#x2F;td&gt;&lt;td&gt;ARMv7&lt;&#x2F;td&gt;&lt;td&gt;Cortex-A7&lt;&#x2F;td&gt;&lt;td&gt;32-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FFD700&quot; &gt;
+    NEON
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2011&lt;&#x2F;td&gt;&lt;td&gt;ARMv7&lt;&#x2F;td&gt;&lt;td&gt;Cortex-A15&lt;&#x2F;td&gt;&lt;td&gt;32-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FFD700&quot; &gt;
+    NEON
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2012&lt;&#x2F;td&gt;&lt;td&gt;ARMv8&lt;&#x2F;td&gt;&lt;td&gt;Cortex-A53&lt;&#x2F;td&gt;&lt;td&gt;32-bit&#x2F;64-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FFD700&quot; &gt;
+    NEON
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2012&lt;&#x2F;td&gt;&lt;td&gt;ARMv8&lt;&#x2F;td&gt;&lt;td&gt;Cortex-A57&lt;&#x2F;td&gt;&lt;td&gt;32-bit&#x2F;64-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FFD700&quot; &gt;
+    NEON
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2013&lt;&#x2F;td&gt;&lt;td&gt;ARMv7&lt;&#x2F;td&gt;&lt;td&gt;Cortex-A12&lt;&#x2F;td&gt;&lt;td&gt;32-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FFD700&quot; &gt;
+    NEON
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2014&lt;&#x2F;td&gt;&lt;td&gt;ARMv7&lt;&#x2F;td&gt;&lt;td&gt;Cortex-A17&lt;&#x2F;td&gt;&lt;td&gt;32-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FFD700&quot; &gt;
+    NEON
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2016&lt;&#x2F;td&gt;&lt;td&gt;ARMv8&lt;&#x2F;td&gt;&lt;td&gt;Cortex-A72&lt;&#x2F;td&gt;&lt;td&gt;32-bit&#x2F;64-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FFD700&quot; &gt;
+    NEON
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2016&lt;&#x2F;td&gt;&lt;td&gt;ARMv8&lt;&#x2F;td&gt;&lt;td&gt;Cortex-A73&lt;&#x2F;td&gt;&lt;td&gt;32-bit&#x2F;64-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FFD700&quot; &gt;
+    NEON
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2016&lt;&#x2F;td&gt;&lt;td&gt;ARMv8&lt;&#x2F;td&gt;&lt;td&gt;Cortex-A32&lt;&#x2F;td&gt;&lt;td&gt;32-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FFD700&quot; &gt;
+    NEON
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2016&lt;&#x2F;td&gt;&lt;td&gt;ARMv8&lt;&#x2F;td&gt;&lt;td&gt;Cortex-A35&lt;&#x2F;td&gt;&lt;td&gt;32-bit&#x2F;64-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FFD700&quot; &gt;
+    NEON
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2017&lt;&#x2F;td&gt;&lt;td&gt;ARMv8.2&lt;&#x2F;td&gt;&lt;td&gt;Cortex-A75&lt;&#x2F;td&gt;&lt;td&gt;32-bit&#x2F;64-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #ADFF2F&quot; &gt;
+    NEON (opt. SVE)
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2017&lt;&#x2F;td&gt;&lt;td&gt;ARMv8.2&lt;&#x2F;td&gt;&lt;td&gt;Cortex-A55&lt;&#x2F;td&gt;&lt;td&gt;32-bit&#x2F;64-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #ADFF2F&quot; &gt;
+    NEON (opt. SVE)
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2018&lt;&#x2F;td&gt;&lt;td&gt;ARMv8.2&lt;&#x2F;td&gt;&lt;td&gt;Cortex-A76&lt;&#x2F;td&gt;&lt;td&gt;32-bit&#x2F;64-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #ADFF2F&quot; &gt;
+    NEON (opt. SVE)
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2019&lt;&#x2F;td&gt;&lt;td&gt;ARMv8.2&lt;&#x2F;td&gt;&lt;td&gt;Cortex-A77&lt;&#x2F;td&gt;&lt;td&gt;32-bit&#x2F;64-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #ADFF2F&quot; &gt;
+    NEON (opt. SVE)
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2019&lt;&#x2F;td&gt;&lt;td&gt;ARMv8.2&lt;&#x2F;td&gt;&lt;td&gt;Cortex-A65&lt;&#x2F;td&gt;&lt;td&gt;32-bit&#x2F;64-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #ADFF2F&quot; &gt;
+    NEON (opt. SVE)
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2020&lt;&#x2F;td&gt;&lt;td&gt;ARMv8.2&lt;&#x2F;td&gt;&lt;td&gt;Cortex-A78&lt;&#x2F;td&gt;&lt;td&gt;32-bit&#x2F;64-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #ADFF2F&quot; &gt;
+    NEON (opt. SVE)
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2020&lt;&#x2F;td&gt;&lt;td&gt;ARMv8.2&lt;&#x2F;td&gt;&lt;td&gt;Cortex-X1&lt;&#x2F;td&gt;&lt;td&gt;32-bit&#x2F;64-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #ADFF2F&quot; &gt;
+    NEON (opt. SVE)
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2021&lt;&#x2F;td&gt;&lt;td&gt;ARMv9&lt;&#x2F;td&gt;&lt;td&gt;Cortex-A710&lt;&#x2F;td&gt;&lt;td&gt;32-bit&#x2F;64-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    SVE2
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2021&lt;&#x2F;td&gt;&lt;td&gt;ARMv9&lt;&#x2F;td&gt;&lt;td&gt;Cortex-A510&lt;&#x2F;td&gt;&lt;td&gt;32-bit&#x2F;64-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    SVE2
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2021&lt;&#x2F;td&gt;&lt;td&gt;ARMv9&lt;&#x2F;td&gt;&lt;td&gt;Cortex-X2&lt;&#x2F;td&gt;&lt;td&gt;32-bit&#x2F;64-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    SVE2
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2022&lt;&#x2F;td&gt;&lt;td&gt;ARMv9&lt;&#x2F;td&gt;&lt;td&gt;Cortex-A715&lt;&#x2F;td&gt;&lt;td&gt;64-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    SVE2
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2022&lt;&#x2F;td&gt;&lt;td&gt;ARMv9&lt;&#x2F;td&gt;&lt;td&gt;Cortex-X3&lt;&#x2F;td&gt;&lt;td&gt;64-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    SVE2
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2023&lt;&#x2F;td&gt;&lt;td&gt;ARMv9.2&lt;&#x2F;td&gt;&lt;td&gt;Cortex-A520&lt;&#x2F;td&gt;&lt;td&gt;64-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    SVE2
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2023&lt;&#x2F;td&gt;&lt;td&gt;ARMv9.2&lt;&#x2F;td&gt;&lt;td&gt;Cortex-A720&lt;&#x2F;td&gt;&lt;td&gt;64-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    SVE2
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2023&lt;&#x2F;td&gt;&lt;td&gt;ARMv9.2&lt;&#x2F;td&gt;&lt;td&gt;Cortex-X4&lt;&#x2F;td&gt;&lt;td&gt;64-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    SVE2
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2024&lt;&#x2F;td&gt;&lt;td&gt;ARMv9.2&lt;&#x2F;td&gt;&lt;td&gt;Cortex-A725&lt;&#x2F;td&gt;&lt;td&gt;64-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    SVE2
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2024&lt;&#x2F;td&gt;&lt;td&gt;ARMv9.2&lt;&#x2F;td&gt;&lt;td&gt;Cortex-X925&lt;&#x2F;td&gt;&lt;td&gt;64-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    SVE2
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2024&#x2F;2025 ?&lt;&#x2F;td&gt;&lt;td&gt;ARMv9.2&lt;&#x2F;td&gt;&lt;td&gt;Cortex-X930&lt;&#x2F;td&gt;&lt;td&gt;64-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    SVE2
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
+&lt;p&gt;&lt;em&gt;Note: Implementation can very by vendor, some may support additional features or optimizations.&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;benchmark&quot;&gt;Benchmark&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;passmark&quot;&gt;PassMark&lt;&#x2F;h3&gt;
+ &lt;figure class=&quot;fi b1&quot;&gt;&lt;img src=&quot;https:&#x2F;&#x2F;blog.bensuperpc.org&#x2F;images&#x2F;articles&#x2F;benchmark&#x2F;cpu_performance_st.webp&quot; class=&quot;b1&quot; alt=&quot;cpu_performance_st&quot; width=&quot;7680&quot; height=&quot;4320&quot; loading=&quot;lazy&quot; &#x2F;&gt;&lt;figcaption&gt;PassMark score from 2000 to 2025 in single-thread&lt;&#x2F;figcaption&gt;&lt;&#x2F;figure&gt;
+ &lt;figure class=&quot;fi b1&quot;&gt;&lt;img src=&quot;https:&#x2F;&#x2F;blog.bensuperpc.org&#x2F;images&#x2F;articles&#x2F;benchmark&#x2F;cpu_performance_mt.webp&quot; class=&quot;b1&quot; alt=&quot;cpu_performance_mt&quot; width=&quot;7680&quot; height=&quot;4320&quot; loading=&quot;lazy&quot; &#x2F;&gt;&lt;figcaption&gt;PassMark score from 2000 to 2025 in multi-thread&lt;&#x2F;figcaption&gt;&lt;&#x2F;figure&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="fr">
+        <title>Comparison of SSDs</title>
+        <published>2025-02-23T00:00:00+00:00</published>
+        <updated>2025-02-23T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.bensuperpc.org/fr/documentation/hardware/pc/ssd/"/>
+        <id>https://blog.bensuperpc.org/fr/documentation/hardware/pc/ssd/</id>
+        
+        <content type="html" xml:base="https://blog.bensuperpc.org/fr/documentation/hardware/pc/ssd/">&lt;h1 id=&quot;introduction&quot;&gt;Introduction&lt;&#x2F;h1&gt;
+&lt;p&gt;Une comparaison des SSDs de différentes marques et modèles.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;samsung-ssd-nvme&quot;&gt;Samsung SSD NVMe&lt;&#x2F;h2&gt;
+&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;&lt;strong&gt;Modèle&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;Release&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;NVMe&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;PCIe&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;Consumption&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;Perfs R&#x2F;W&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;IOPS (R&#x2F;W)&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;Capacity&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;Memory type&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;TBW (1TB)&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;Memory&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;&#x2F;tr&gt;&lt;&#x2F;thead&gt;&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;Samsung 950 Pro&lt;&#x2F;td&gt;&lt;td&gt;2015&lt;&#x2F;td&gt;&lt;td&gt;1.1&lt;&#x2F;td&gt;&lt;td&gt;3.0 x4&lt;&#x2F;td&gt;&lt;td&gt;5,7w &#x2F; 0,03w&lt;&#x2F;td&gt;&lt;td&gt;2.5 &#x2F; 1.5 GB&#x2F;s&lt;&#x2F;td&gt;&lt;td&gt;300K &#x2F; 110K&lt;&#x2F;td&gt;&lt;td&gt;256 GB - 512 GB&lt;&#x2F;td&gt;&lt;td&gt;MLC&lt;&#x2F;td&gt;&lt;td&gt;800 TBW&lt;&#x2F;td&gt;&lt;td&gt;0.5 GB LPDDR3&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;Samsung 960 Evo&lt;&#x2F;td&gt;&lt;td&gt;2016&lt;&#x2F;td&gt;&lt;td&gt;1.2&lt;&#x2F;td&gt;&lt;td&gt;3.0 x4&lt;&#x2F;td&gt;&lt;td&gt;5,7w &#x2F; 0,04w&lt;&#x2F;td&gt;&lt;td&gt;3.2 &#x2F; 1.9 GB&#x2F;s&lt;&#x2F;td&gt;&lt;td&gt;380K &#x2F; 360K&lt;&#x2F;td&gt;&lt;td&gt;256 GB - 1 To&lt;&#x2F;td&gt;&lt;td&gt;TLC&lt;&#x2F;td&gt;&lt;td&gt;400 TBW&lt;&#x2F;td&gt;&lt;td&gt;0.5-1 GB LPDDR3&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;Samsung 960 Pro&lt;&#x2F;td&gt;&lt;td&gt;2016&lt;&#x2F;td&gt;&lt;td&gt;1.3&lt;&#x2F;td&gt;&lt;td&gt;3.0 x4&lt;&#x2F;td&gt;&lt;td&gt;5,7w &#x2F; 0,04w&lt;&#x2F;td&gt;&lt;td&gt;3.5 &#x2F; 2.1 GB&#x2F;s&lt;&#x2F;td&gt;&lt;td&gt;500K &#x2F; 450K&lt;&#x2F;td&gt;&lt;td&gt;512 GB - 2 To&lt;&#x2F;td&gt;&lt;td&gt;MLC&lt;&#x2F;td&gt;&lt;td&gt;800 TBW&lt;&#x2F;td&gt;&lt;td&gt;0.5-2 GB LPDDR3&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;Samsung 970 Evo&lt;&#x2F;td&gt;&lt;td&gt;2018&lt;&#x2F;td&gt;&lt;td&gt;1.3&lt;&#x2F;td&gt;&lt;td&gt;3.0 x4&lt;&#x2F;td&gt;&lt;td&gt;6w &#x2F; 0,05w&lt;&#x2F;td&gt;&lt;td&gt;3.5 &#x2F; 2.5 GB&#x2F;s&lt;&#x2F;td&gt;&lt;td&gt;500K &#x2F; 480K&lt;&#x2F;td&gt;&lt;td&gt;256 GB - 2 TB&lt;&#x2F;td&gt;&lt;td&gt;TLC&lt;&#x2F;td&gt;&lt;td&gt;600 TBW&lt;&#x2F;td&gt;&lt;td&gt;0.5-2 GB LPDDR3&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;Samsung 970 Evo Plus&lt;&#x2F;td&gt;&lt;td&gt;2021&lt;&#x2F;td&gt;&lt;td&gt;1.3&lt;&#x2F;td&gt;&lt;td&gt;3.0 x4&lt;&#x2F;td&gt;&lt;td&gt;6w &#x2F; 0,05w&lt;&#x2F;td&gt;&lt;td&gt;3.5 &#x2F; 3.3 GB&#x2F;s&lt;&#x2F;td&gt;&lt;td&gt;620K &#x2F; 560K&lt;&#x2F;td&gt;&lt;td&gt;256 GB - 2 TB&lt;&#x2F;td&gt;&lt;td&gt;TLC&lt;&#x2F;td&gt;&lt;td&gt;600 TBW&lt;&#x2F;td&gt;&lt;td&gt;0.5-2 GB LPDDR3&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;Samsung 970 Pro&lt;&#x2F;td&gt;&lt;td&gt;2018&lt;&#x2F;td&gt;&lt;td&gt;1.3&lt;&#x2F;td&gt;&lt;td&gt;3.0 x4&lt;&#x2F;td&gt;&lt;td&gt;5,7w &#x2F; 0,05w&lt;&#x2F;td&gt;&lt;td&gt;3.5 &#x2F; 3.3 GB&#x2F;s&lt;&#x2F;td&gt;&lt;td&gt;500K &#x2F; 450K&lt;&#x2F;td&gt;&lt;td&gt;512 GB - 1 TB&lt;&#x2F;td&gt;&lt;td&gt;MLC&lt;&#x2F;td&gt;&lt;td&gt;1200 TBW&lt;&#x2F;td&gt;&lt;td&gt;0.5-1 GB LPDDR3&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;Samsung 980&lt;&#x2F;td&gt;&lt;td&gt;2021&lt;&#x2F;td&gt;&lt;td&gt;1.4&lt;&#x2F;td&gt;&lt;td&gt;3.0 x4&lt;&#x2F;td&gt;&lt;td&gt;4,6w &#x2F; 0,05w&lt;&#x2F;td&gt;&lt;td&gt;3.5 &#x2F; 3.0 GB&#x2F;s&lt;&#x2F;td&gt;&lt;td&gt;500K &#x2F; 480K&lt;&#x2F;td&gt;&lt;td&gt;256 GB - 1 TB&lt;&#x2F;td&gt;&lt;td&gt;TLC&lt;&#x2F;td&gt;&lt;td&gt;600 TBW&lt;&#x2F;td&gt;&lt;td&gt;-&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;Samsung 980 Pro&lt;&#x2F;td&gt;&lt;td&gt;2021&lt;&#x2F;td&gt;&lt;td&gt;1.4&lt;&#x2F;td&gt;&lt;td&gt;4.0 x4&lt;&#x2F;td&gt;&lt;td&gt;6,2w &#x2F; 0,05w&lt;&#x2F;td&gt;&lt;td&gt;7.0 &#x2F; 5.1 GB&#x2F;s&lt;&#x2F;td&gt;&lt;td&gt;1000K &#x2F; 1000K&lt;&#x2F;td&gt;&lt;td&gt;256 GB - 2 TB&lt;&#x2F;td&gt;&lt;td&gt;TLC&lt;&#x2F;td&gt;&lt;td&gt;600 TBW&lt;&#x2F;td&gt;&lt;td&gt;0.5-2 GB LPDDR3&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;Samsung 990 Evo&lt;&#x2F;td&gt;&lt;td&gt;2023&lt;&#x2F;td&gt;&lt;td&gt;2.0&lt;&#x2F;td&gt;&lt;td&gt;4.0 x4&#x2F;5.0 x2&lt;&#x2F;td&gt;&lt;td&gt;5,5w  &#x2F; 0,05w&lt;&#x2F;td&gt;&lt;td&gt;5.0 &#x2F; 4.2 GB&#x2F;s&lt;&#x2F;td&gt;&lt;td&gt;700K &#x2F; 800K&lt;&#x2F;td&gt;&lt;td&gt;1 TB - 2 TB&lt;&#x2F;td&gt;&lt;td&gt;TLC&lt;&#x2F;td&gt;&lt;td&gt;600 TBW&lt;&#x2F;td&gt;&lt;td&gt;-&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;Samsung 990 Evo Plus&lt;&#x2F;td&gt;&lt;td&gt;2024&lt;&#x2F;td&gt;&lt;td&gt;2.0&lt;&#x2F;td&gt;&lt;td&gt;4.0 x4&#x2F;5.0 x2&lt;&#x2F;td&gt;&lt;td&gt;5,5w  &#x2F; 0,05w&lt;&#x2F;td&gt;&lt;td&gt;7.1 &#x2F; 6.3 GB&#x2F;s&lt;&#x2F;td&gt;&lt;td&gt;850K &#x2F; 1350K&lt;&#x2F;td&gt;&lt;td&gt;1 TB - 4 TB&lt;&#x2F;td&gt;&lt;td&gt;TLC&lt;&#x2F;td&gt;&lt;td&gt;600 TBW&lt;&#x2F;td&gt;&lt;td&gt;-&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;Samsung 990 Pro&lt;&#x2F;td&gt;&lt;td&gt;2022&lt;&#x2F;td&gt;&lt;td&gt;2.0&lt;&#x2F;td&gt;&lt;td&gt;4.0 x4&lt;&#x2F;td&gt;&lt;td&gt;5,5w  &#x2F; 0,05w&lt;&#x2F;td&gt;&lt;td&gt;7.4 &#x2F; 6.9 GB&#x2F;s&lt;&#x2F;td&gt;&lt;td&gt;1400K &#x2F; 1500K&lt;&#x2F;td&gt;&lt;td&gt;1 TB - 2 TB&lt;&#x2F;td&gt;&lt;td&gt;TLC&lt;&#x2F;td&gt;&lt;td&gt;600 TBW&lt;&#x2F;td&gt;&lt;td&gt;1-2 GB LPDDR4&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;Samsung 9100 Pro&lt;&#x2F;td&gt;&lt;td&gt;2025&lt;&#x2F;td&gt;&lt;td&gt;2.0&lt;&#x2F;td&gt;&lt;td&gt;5.0 x4&lt;&#x2F;td&gt;&lt;td&gt;9w &#x2F; 0.05w&lt;&#x2F;td&gt;&lt;td&gt;14.8 &#x2F; 13.4 GB&#x2F;s&lt;&#x2F;td&gt;&lt;td&gt;2200K &#x2F; 2600K&lt;&#x2F;td&gt;&lt;td&gt;1 TB - 8 TB&lt;&#x2F;td&gt;&lt;td&gt;TLC&lt;&#x2F;td&gt;&lt;td&gt;600 TBW&lt;&#x2F;td&gt;&lt;td&gt;1-4 GB LPDDR4&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
+&lt;h2 id=&quot;western-digital-ssd-nvme&quot;&gt;Western Digital SSD NVMe&lt;&#x2F;h2&gt;
+&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;&lt;strong&gt;Modèle&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;Release&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;NVMe&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;PCIe&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;Consumption&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;Perfs R&#x2F;W&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;IOPS (R&#x2F;W)&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;Capacity&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;Memory type&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;TBW (1TB)&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;Memory&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;&#x2F;tr&gt;&lt;&#x2F;thead&gt;&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;WD SN750&lt;&#x2F;td&gt;&lt;td&gt;2019&lt;&#x2F;td&gt;&lt;td&gt;1.3&lt;&#x2F;td&gt;&lt;td&gt;3.0 x4&lt;&#x2F;td&gt;&lt;td&gt;5.8w &#x2F; ?&lt;&#x2F;td&gt;&lt;td&gt;5.1 &#x2F; 4.9 GB&#x2F;s&lt;&#x2F;td&gt;&lt;td&gt;550K &#x2F; 520K&lt;&#x2F;td&gt;&lt;td&gt;256 GB - 4 TB&lt;&#x2F;td&gt;&lt;td&gt;TLC&lt;&#x2F;td&gt;&lt;td&gt;600 TBW&lt;&#x2F;td&gt;&lt;td&gt;0.5-4 GB DDR4&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;WD SN770&lt;&#x2F;td&gt;&lt;td&gt;2022&lt;&#x2F;td&gt;&lt;td&gt;1.4&lt;&#x2F;td&gt;&lt;td&gt;4.0 x4&lt;&#x2F;td&gt;&lt;td&gt;4.6w &#x2F; ?&lt;&#x2F;td&gt;&lt;td&gt;5.1 &#x2F; 4.9 GB&#x2F;s&lt;&#x2F;td&gt;&lt;td&gt;740K &#x2F; 800K&lt;&#x2F;td&gt;&lt;td&gt;256 GB - 2 TB&lt;&#x2F;td&gt;&lt;td&gt;TLC&lt;&#x2F;td&gt;&lt;td&gt;600 TBW&lt;&#x2F;td&gt;&lt;td&gt;-&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;WD SN850&lt;&#x2F;td&gt;&lt;td&gt;2020&lt;&#x2F;td&gt;&lt;td&gt;1.4&lt;&#x2F;td&gt;&lt;td&gt;4.0 x4&lt;&#x2F;td&gt;&lt;td&gt;7w &#x2F; ?&lt;&#x2F;td&gt;&lt;td&gt;7.0 &#x2F; 5.1 GB&#x2F;s&lt;&#x2F;td&gt;&lt;td&gt;1000K &#x2F; 770K&lt;&#x2F;td&gt;&lt;td&gt;512 GB - 2 TB&lt;&#x2F;td&gt;&lt;td&gt;TLC&lt;&#x2F;td&gt;&lt;td&gt;600 TBW&lt;&#x2F;td&gt;&lt;td&gt;0.5-2 GB DDR4&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;WD SN850X&lt;&#x2F;td&gt;&lt;td&gt;2022&lt;&#x2F;td&gt;&lt;td&gt;1.4&lt;&#x2F;td&gt;&lt;td&gt;4.0 x4&lt;&#x2F;td&gt;&lt;td&gt;6,8w &#x2F; ?&lt;&#x2F;td&gt;&lt;td&gt;7.3 &#x2F; 6.6 GB&#x2F;s&lt;&#x2F;td&gt;&lt;td&gt;1200K &#x2F; 1200K&lt;&#x2F;td&gt;&lt;td&gt;1 TB - 8 TB&lt;&#x2F;td&gt;&lt;td&gt;TLC&lt;&#x2F;td&gt;&lt;td&gt;600 TBW&lt;&#x2F;td&gt;&lt;td&gt;1-2 GB DDR4&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;WD SN8100&lt;&#x2F;td&gt;&lt;td&gt;2025&lt;&#x2F;td&gt;&lt;td&gt;2.0&lt;&#x2F;td&gt;&lt;td&gt;5.0 x4&lt;&#x2F;td&gt;&lt;td&gt;7.0w &#x2F; 0,05w&lt;&#x2F;td&gt;&lt;td&gt;14.9 &#x2F; 14.0 GB&#x2F;s&lt;&#x2F;td&gt;&lt;td&gt;2300K &#x2F; 2400K&lt;&#x2F;td&gt;&lt;td&gt;1 TB - 4 TB&lt;&#x2F;td&gt;&lt;td&gt;TLC&lt;&#x2F;td&gt;&lt;td&gt;600 TBW&lt;&#x2F;td&gt;&lt;td&gt;1-4 GB DDR4&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
+&lt;h2 id=&quot;sources-datasheets&quot;&gt;Sources&#x2F;Datasheets&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;download.semiconductor.samsung.com&#x2F;resources&#x2F;data-sheet&#x2F;Samsung_SSD_950_PRO_Data_Sheet_Rev_1_2.pdf&quot;&gt;Samsung 950 Pro&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;download.semiconductor.samsung.com&#x2F;resources&#x2F;brochure&#x2F;NVMe_SSD_960_PRO_EVO_Brochure_Rev_1_1.pdf&quot;&gt;Samsung 960 Pro&#x2F;Evo&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;download.semiconductor.samsung.com&#x2F;resources&#x2F;data-sheet&#x2F;Samsung_NVMe_SSD_970_PRO_Data_Sheet_Rev.1.0.pdf&quot;&gt;Samsung 970 Pro&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;download.semiconductor.samsung.com&#x2F;resources&#x2F;data-sheet&#x2F;Samsung-NVMe-SSD-970-EVO-Data-Sheet_Rev.1.0.pdf&quot;&gt;Samsung 970 Evo&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;download.semiconductor.samsung.com&#x2F;resources&#x2F;data-sheet&#x2F;Samsung_NVMe_SSD_970_EVO_Plus_Data_Sheet_Rev.3.0.pdf&quot;&gt;Samsung 970 Evo Plus&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;download.semiconductor.samsung.com&#x2F;resources&#x2F;data-sheet&#x2F;Samsung_NVMe_SSD_980_Data_Sheet_Rev.1.1.pdf&quot;&gt;Samsung 980&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;download.semiconductor.samsung.com&#x2F;resources&#x2F;data-sheet&#x2F;Samsung-NVMe-SSD-980-PRO-Data-Sheet_Rev.2.1_230509_10129505081019.pdf&quot;&gt;Samsung 980 Pro&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;download.semiconductor.samsung.com&#x2F;resources&#x2F;data-sheet&#x2F;samsung_nvme_ssd_990_evo_datasheet_rev.1.1.pdf&quot;&gt;Samsung 990 Evo&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;download.semiconductor.samsung.com&#x2F;resources&#x2F;data-sheet&#x2F;samsung_nvme_ssd_990_evo_plus_datasheet_rev.1.0.pdf&quot;&gt;Samsung 990 Evo Plus&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;download.semiconductor.samsung.com&#x2F;resources&#x2F;data-sheet&#x2F;Samsung_NVMe_SSD_990_PRO_Datasheet_Rev.1.0.pdf&quot;&gt;Samsung 990 Pro&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;download.semiconductor.samsung.com&#x2F;resources&#x2F;data-sheet&#x2F;Samsung_NVMe_SSD_9100_PRO_Datasheet_Rev.1.0.pdf&quot;&gt;Samsung 9100 Pro&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;documents.westerndigital.com&#x2F;content&#x2F;dam&#x2F;doc-library&#x2F;en_us&#x2F;assets&#x2F;public&#x2F;western-digital&#x2F;product&#x2F;internal-drives&#x2F;wd-black-ssd&#x2F;product-brief-wd-black-sn770-nvme-ssd.pdf&quot;&gt;Western Digital SN770&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;documents.westerndigital.com&#x2F;content&#x2F;dam&#x2F;doc-library&#x2F;en_us&#x2F;assets&#x2F;public&#x2F;western-digital&#x2F;product&#x2F;internal-drives&#x2F;wd-black-ssd&#x2F;data-sheet-wd-black-sn850-nvme-ssd.pdf&quot;&gt;Western Digital SN850&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;documents.westerndigital.com&#x2F;content&#x2F;dam&#x2F;doc-library&#x2F;en_us&#x2F;assets&#x2F;public&#x2F;western-digital&#x2F;product&#x2F;internal-drives&#x2F;wd-black-ssd&#x2F;data-sheet-wd-black-sn850x-nvme-ssd.pdf&quot;&gt;Western Digital SN850X&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;documents.westerndigital.com&#x2F;content&#x2F;dam&#x2F;doc-library&#x2F;en_us&#x2F;assets&#x2F;public&#x2F;western-digital&#x2F;product&#x2F;internal-drives&#x2F;wd-black-ssd&#x2F;data-sheet-wd-black-sn8100-nvme-ssd.pdf&quot;&gt;Western Digital SN8100&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+        
+    </entry>
+</feed>
