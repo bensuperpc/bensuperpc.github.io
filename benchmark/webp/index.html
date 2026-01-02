@@ -1,0 +1,292 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="https://www.bensuperpc.org/js/theme.min.js" integrity="sha384-pb++s6uBRKaQv+iAXpgA/H3IlpLZdO14tTwuCI7uXmz4aaZdByoCcM+6BhynMq/1"></script>
+  <link rel="stylesheet" href="https://www.bensuperpc.org/abridge.css?h=efa77181840e3359de68" />
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="base" content="https://www.bensuperpc.org" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="theme-color" content="#333333" />
+  <meta name="msapplication-TileColor" content="#333333" />
+  <link rel="manifest" href="https://www.bensuperpc.org/manifest.min.json" />
+  <link rel="apple-touch-icon" sizes="180x180" href="https://www.bensuperpc.org/images/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="https://www.bensuperpc.org/images/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="https://www.bensuperpc.org/images/favicon-16x16.png" />
+  <link rel="alternate" type="application/atom+xml" title="Bensuperpc Atom Feed" href="https://www.bensuperpc.org/atom.xml" />
+  <meta name="robots" content="index, follow" />
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <title>Benchmarking Webp format (WIP) | Bensuperpc</title>
+  <meta name="author" content="Bensuperpc" />
+  <meta name="copyright" content="Bensuperpc" />
+  <meta name="description" content="Benchmarking Webp format" />
+  <link rel="canonical" href="https://www.bensuperpc.org/benchmark/webp/" />
+  <meta name="keywords" content="Webp, Benchmarking, avif, webp, png, jpegxl, Abridge, Abridge.css, Zola, Theme, Zola Theme, getzola, Semantic Html, Fast, lightweight" />
+  <meta name="google-site-verification" content="Your Google Site verification code." />
+  <meta name="msvalidate.01" content="Your Bing Site verification code." />
+  <meta property="og:url" content="https://www.bensuperpc.org/benchmark/webp/" />
+  <meta name="twitter:url" content="https://www.bensuperpc.org/benchmark/webp/" />
+  <meta property="og:description" content="Benchmarking Webp format" />
+  <meta name="twitter:description" content="Benchmarking Webp format" />
+  <meta property="og:title" content="Benchmarking Webp format (WIP) | Bensuperpc" />
+  <meta name="twitter:title" content="Benchmarking Webp format (WIP) | Bensuperpc" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://www.bensuperpc.org/images/apple-touch-icon.png" />
+  <meta property="og:image" content="https://www.bensuperpc.org/images/apple-touch-icon.png" />
+  <meta property="og:site_name" content="Bensuperpc" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:type" content="website" />
+  <meta property="og:updated_time" content="2025-02-16" />
+  <meta name="twitter:site" content="@bensuperpc" />
+  <meta name="twitter:creator" content="@bensuperpc" />
+  <script defer src="https://www.bensuperpc.org/js/abridge.min.js?h=e0f9a881a665c86cce9c" integrity="sha384-QF67y7RnPkuDrJNQqn3/7nYxqxWkW/qHI7zN0WTES1aXbf+TotoByRBb835fUE6U"></script>
+  <noscript><link rel="stylesheet" href="https://www.bensuperpc.org/nojs.css" /></noscript>
+</head>
+<body>
+  <header>
+    <nav>
+      <div><big><a href="https://www.bensuperpc.org" title="Bensuperpc"><font color="#f90">B</font>ensuperpc</a></big></div>
+      <div>
+
+        <div>
+          <ul><li><a class="s110" href="https://www.bensuperpc.org/archive/"> Posts </a></li><li><a class="s110" href="https://www.bensuperpc.org/categories/"> Categories </a></li><li><a class="s110" href="https://www.bensuperpc.org/tags/"> Tags </a></li><li><a class="s110" href="https://www.bensuperpc.org/links/"> Links </a></li><li><a class="s110" href="https://www.bensuperpc.org/projects/"> Projects </a></li><li><a class="s110" href="https://www.bensuperpc.org/about/"> About </a></li>
+            <li><div class="dropdown"><i class="svgs world" type="reset"></i>
+                <div class="dropdown-content">
+                <span>English</span><a href="https://www.bensuperpc.org/fr/benchmark/webp/">Français</a></div>
+            </div></li><li><i type="reset" id="mode" class="js svgs adjust"></i></ul>
+        </div>
+
+        <div>
+          <div>
+            <form autocomplete=off class="js" name="goSearch" id="searchbox">
+              <div class="searchd">
+                <input id="searchinput" type="text" placeholder="Search" title="Search" />
+                <button type="submit" title="Search" class="svgs svgm search"></button>
+              </div>
+              <div class="results"><div id="suggestions"></div></div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </nav>
+    <hr />
+  </header>
+  <main>
+    <article>
+      <h1><a href="https://www.bensuperpc.org/benchmark/webp/">Benchmarking Webp format (WIP)</a></h1>
+
+      <span class="s95"> Bensuperpc <span class="rpad"></span> February 16, 2025 <span class="rpad"></span> [<a href="https://www.bensuperpc.org/categories/software/">Software</a>] #<a href="https://www.bensuperpc.org/tags/features/">Features</a>  #<a href="https://www.bensuperpc.org/tags/benchmarking/">Benchmarking</a>  #<a href="https://www.bensuperpc.org/tags/avif/">avif</a>  #<a href="https://www.bensuperpc.org/tags/webp/">webp</a>  #<a href="https://www.bensuperpc.org/tags/png/">png</a>  #<a href="https://www.bensuperpc.org/tags/jpegxl/">jpegxl</a>  #<a href="https://www.bensuperpc.org/tags/format/">Format</a> </span>
+
+    
+        <div class="block">
+      <div class="blockdiv">
+        <a class="b s150" href="https://www.bensuperpc.org/tags/features/">Features (Series)</a><br>
+            <a href="https://www.bensuperpc.org/tutorial/canbus/">CAN bus under Linux (WIP)</a><br>
+            <a class="scur" href="https://www.bensuperpc.org/benchmark/webp/">Benchmarking Webp format (WIP)</a><br> 
+          
+            <a href="https://www.bensuperpc.org/tutorial/ffmpeg/">Tutorial on FFMPEG (WIP)</a><br>
+            <a href="https://www.bensuperpc.org/tutorial/rtl9210/">RTL9210 Firmware and Tools</a><br>
+            <a href="https://www.bensuperpc.org/documentation/hardware/pc/ssd/">Comparison of SSDs</a><br>
+            <a href="https://www.bensuperpc.org/documentation/hardware/pc/cpu/">Evolutions of CPUs (WIP)</a><br>
+            <a href="https://www.bensuperpc.org/documentation/hardware/pc/gpu/">Mesa GPU drivers</a><br>
+            <a href="https://www.bensuperpc.org/tutorial/kubernetes/">Deploy Traefik as a reverse proxy with Kubernetes</a><br>
+            <a href="https://www.bensuperpc.org/tutorial/coverage/">C++ Code Coverage with CMake and GCOVR</a><br>
+            <a href="https://www.bensuperpc.org/documentation/hardware/sff-pc/guide-sff-pc/">A guide to SFF PCs (WIP)</a><br>
+      </div>
+    </div>
+
+
+<h1 id="introduction">Introduction</h1>
+<p>Webp is a image format created by Google in early 2010's, in this article, we will benchmark it against others lossless formats like avif, png, jpegxl.</p>
+<p>The benchmark is done using the <strong>PNG</strong> format as input, and the output formats are <strong>Webp</strong>, <strong>Avif</strong>, and <strong>JpegXL</strong>.</p>
+<h2 id="setup">Setup</h2>
+<table><thead><tr><th style="text-align: center">Specification</th><th style="text-align: center">Value</th></tr></thead><tbody>
+<tr><td style="text-align: center">CPU</td><td style="text-align: center">AMD Ryzen 7 5700X 8c16t (3.4 GHz / 4.6 GHz)</td></tr>
+<tr><td style="text-align: center">GPU</td><td style="text-align: center">NVIDIA GeForce RTX 3060 Ti 8GB GDDR6</td></tr>
+<tr><td style="text-align: center">RAM</td><td style="text-align: center">64GB DDR4 3200MHz</td></tr>
+<tr><td style="text-align: center">OS</td><td style="text-align: center">Manjaro</td></tr>
+<tr><td style="text-align: center">Compiler</td><td style="text-align: center">GCC 14.2.1</td></tr>
+<tr><td style="text-align: center">cwebp</td><td style="text-align: center"><a rel="noopener" target="_blank" href="https://archlinux.org/packages/extra/x86_64/libwebp/">1.6.0</a></td></tr>
+<tr><td style="text-align: center">avifenc</td><td style="text-align: center"><a rel="noopener" target="_blank" href="https://archlinux.org/packages/extra/x86_64/libavif/">1.3.0</a></td></tr>
+<tr><td style="text-align: center">cjxl</td><td style="text-align: center"><a rel="noopener" target="_blank" href="https://archlinux.org/packages/extra/x86_64/libjxl/">0.11.1</a></td></tr>
+<tr><td style="text-align: center">ffmpeg</td><td style="text-align: center"><a rel="noopener" target="_blank" href="https://archlinux.org/packages/extra/x86_64/ffmpeg/">8.0.1</a></td></tr>
+<tr><td style="text-align: center">Docker Image</td><td style="text-align: center"><a rel="noopener" target="_blank" href="https://github.com/bensuperpc/docker-multimedia">docker.io/bensuperpc/multimedia:1.0.0-archlinux-base-20251121</a></td></tr>
+</tbody></table>
+<h2 id="lossless-compression">Lossless compression</h2>
+<p>The dataset for the <strong>lossless</strong> benchmark is:</p>
+<ul>
+<li>~9940 screenshots (32'257 Mo) from Minecraft (720p to 1440p, some 2160p).</li>
+<li>~10313 screenshots (42'247 Mo) from Fortnite, Battlefield, 7 Days to Die, and GTA V etc... (1080p to 1440p, some 2160p).</li>
+<li>~5485 screenshots (2'572 Mo) from desktop applications (240p to 1440p).</li>
+</ul>
+<p>The PNG to Webp lossless compression command is:</p>
+<pre data-lang="bash" class="language-bash z-code"><code class="language-bash" data-lang="bash"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">cwebp</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>quiet</span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>metadata</span> all<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>lossless</span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>exact</span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>z</span> <span class="z-keyword z-operator z-assignment z-redirection z-shell">&lt;</span>Compression<span class="z-keyword z-operator z-assignment z-redirection z-shell">&gt;</span> <span class="z-keyword z-operator z-assignment z-redirection z-shell">&lt;</span>Input<span class="z-keyword z-operator z-assignment z-redirection z-shell">&gt;</span> <span class="z-punctuation z-terminator z-file-descriptor z-shell">-</span>o <span class="z-keyword z-operator z-assignment z-redirection z-shell">&lt;</span>Output<span class="z-keyword z-operator z-assignment z-redirection z-shell">&gt;</span>
+</span></span></code></pre>
+<p>The options are:</p>
+<ul>
+<li><code>-quiet</code>: Quiet mode.</li>
+<li><code>-metadata all</code>: Copy all metadata.</li>
+<li><code>-lossless</code>: Lossless compression.</li>
+<li><code>-exact</code>: Use exact mode, keep invisible pixels.</li>
+<li><code>-z &lt;Compression&gt;</code>: Compression level, from 0 to 9, 9 best compression.</li>
+<li><code>-mt</code>: Use multi-threading (we don't use it for the benchmark, gnu parallel is used).</li>
+<li><code>&lt;Input&gt;</code>: Input PNG file.</li>
+<li><code>&lt;Output&gt;</code>: Output Webp file.</li>
+</ul>
+<p>For PNG to Avif lossless compression:</p>
+<pre data-lang="bash" class="language-bash z-code"><code class="language-bash" data-lang="bash"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">avifenc</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>jobs</span> 1<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>lossless</span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>speed</span> <span class="z-keyword z-operator z-assignment z-redirection z-shell">&lt;</span>Compression<span class="z-keyword z-operator z-assignment z-redirection z-shell">&gt;</span> <span class="z-punctuation z-terminator z-file-descriptor z-shell">-</span>-codec <span class="z-keyword z-operator z-assignment z-redirection z-shell">&lt;</span>codec<span class="z-keyword z-operator z-assignment z-redirection z-shell">&gt;</span> <span class="z-keyword z-operator z-assignment z-redirection z-shell">&lt;</span>Input<span class="z-keyword z-operator z-assignment z-redirection z-shell">&gt;</span> <span class="z-punctuation z-terminator z-file-descriptor z-shell">-</span>-output <span class="z-keyword z-operator z-assignment z-redirection z-shell">&lt;</span>Output<span class="z-keyword z-operator z-assignment z-redirection z-shell">&gt;</span>
+</span></span></code></pre>
+<p>The options are:</p>
+<ul>
+<li><code>--lossless</code>: Lossless compression.</li>
+<li><code>--speed &lt;Compression&gt;</code>: Compression level, from 0 to 9, 9 best compression.</li>
+<li><code>--jobs 1</code>: Number of jobs.</li>
+<li><code>--codec</code>: Use the <em>aom</em> codec, only codec available for lossless compression (11-2024).</li>
+<li><code>&lt;Input&gt;</code>: Input PNG file.</li>
+<li><code>&lt;Output&gt;</code>: Output Avif file.</li>
+</ul>
+<p>For PNG to JPGXL lossless compression:</p>
+<pre data-lang="bash" class="language-bash z-code"><code class="language-bash" data-lang="bash"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">cjxl</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>num_threads</span> 1<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>quiet</span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>effort</span> <span class="z-keyword z-operator z-assignment z-redirection z-shell">&lt;</span>Compression<span class="z-keyword z-operator z-assignment z-redirection z-shell">&gt;</span> <span class="z-punctuation z-terminator z-file-descriptor z-shell">-</span>-distance 0.0<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>brotli_effort</span> 11 <span class="z-keyword z-operator z-assignment z-redirection z-shell">&lt;</span>Input<span class="z-keyword z-operator z-assignment z-redirection z-shell">&gt;</span> <span class="z-keyword z-operator z-assignment z-redirection z-shell">&lt;</span>Output<span class="z-keyword z-operator z-assignment z-redirection z-shell">&gt;</span>
+</span></span></code></pre>
+<p>The options are:</p>
+<ul>
+<li><code>--quiet</code>: Quiet mode.</li>
+<li><code>--num_threads 1</code>: Number of threads.</li>
+<li><code>--effort &lt;Compression&gt;</code>: Compression level, from 0 to 9, 9 best compression.</li>
+<li><code>--distance 0.0</code>: The quality, 0.0 is "mathematically lossless".</li>
+<li><code>--brotli_effort 11</code>: Brotli compression level, 11 best compression.</li>
+<li><code>&lt;Input&gt;</code>: Input PNG file.</li>
+<li><code>&lt;Output&gt;</code>: Output JPGXL file.</li>
+</ul>
+<h2 id="results">Results</h2>
+<p>Desktop applications (901 Mo):</p>
+<table><thead><tr><th style="text-align: center">Format</th><th style="text-align: center">Compression</th><th style="text-align: center">Size (Mo)</th><th style="text-align: center">Ratio (%)</th><th style="text-align: center">Time (s)</th></tr></thead><tbody>
+<tr><td style="text-align: center">png</td><td style="text-align: center">-</td><td style="text-align: center">901</td><td style="text-align: center">100.0</td><td style="text-align: center">-</td></tr>
+<tr><td style="text-align: center">webp</td><td style="text-align: center">0</td><td style="text-align: center">879</td><td style="text-align: center">97.5</td><td style="text-align: center">150</td></tr>
+<tr><td style="text-align: center">webp</td><td style="text-align: center">1</td><td style="text-align: center">660</td><td style="text-align: center">72.2</td><td style="text-align: center">176</td></tr>
+<tr><td style="text-align: center">webp</td><td style="text-align: center">2</td><td style="text-align: center">637</td><td style="text-align: center">70.7</td><td style="text-align: center">178</td></tr>
+<tr><td style="text-align: center">webp</td><td style="text-align: center">3</td><td style="text-align: center">602</td><td style="text-align: center">66.8</td><td style="text-align: center">181</td></tr>
+<tr><td style="text-align: center">webp</td><td style="text-align: center">4</td><td style="text-align: center">601</td><td style="text-align: center">66.7</td><td style="text-align: center">185</td></tr>
+<tr><td style="text-align: center">webp</td><td style="text-align: center">5</td><td style="text-align: center">598</td><td style="text-align: center">66.3</td><td style="text-align: center">198</td></tr>
+<tr><td style="text-align: center">webp</td><td style="text-align: center">6</td><td style="text-align: center">588</td><td style="text-align: center">65.2</td><td style="text-align: center">206</td></tr>
+<tr><td style="text-align: center">webp</td><td style="text-align: center">7</td><td style="text-align: center">585</td><td style="text-align: center">64.9</td><td style="text-align: center">211</td></tr>
+<tr><td style="text-align: center">webp</td><td style="text-align: center">8</td><td style="text-align: center">575</td><td style="text-align: center">63.8</td><td style="text-align: center">283</td></tr>
+<tr><td style="text-align: center">webp</td><td style="text-align: center">9</td><td style="text-align: center">560</td><td style="text-align: center">62.1</td><td style="text-align: center">1017</td></tr>
+<tr><td style="text-align: center">jpegxl</td><td style="text-align: center">1</td><td style="text-align: center">956</td><td style="text-align: center">106.1</td><td style="text-align: center">215</td></tr>
+<tr><td style="text-align: center">jpegxl</td><td style="text-align: center">2</td><td style="text-align: center">900</td><td style="text-align: center">99.8</td><td style="text-align: center">261</td></tr>
+<tr><td style="text-align: center">jpegxl</td><td style="text-align: center">3</td><td style="text-align: center">848</td><td style="text-align: center">94.1</td><td style="text-align: center">492</td></tr>
+<tr><td style="text-align: center">jpegxl</td><td style="text-align: center">4</td><td style="text-align: center">778</td><td style="text-align: center">86.3</td><td style="text-align: center">735</td></tr>
+<tr><td style="text-align: center">jpegxl</td><td style="text-align: center">5</td><td style="text-align: center">659</td><td style="text-align: center">73.1</td><td style="text-align: center">713</td></tr>
+<tr><td style="text-align: center">jpegxl</td><td style="text-align: center">6</td><td style="text-align: center">640</td><td style="text-align: center">71.0</td><td style="text-align: center">762</td></tr>
+<tr><td style="text-align: center">jpegxl</td><td style="text-align: center">7</td><td style="text-align: center">604</td><td style="text-align: center">67.0</td><td style="text-align: center">780</td></tr>
+<tr><td style="text-align: center">jpegxl</td><td style="text-align: center">8</td><td style="text-align: center">579</td><td style="text-align: center">64.2</td><td style="text-align: center">1407</td></tr>
+<tr><td style="text-align: center">jpegxl</td><td style="text-align: center">9</td><td style="text-align: center">569</td><td style="text-align: center">63.1</td><td style="text-align: center">2450</td></tr>
+</tbody></table>
+<h2 id="cleanup">Cleanup</h2>
+<pre data-lang="bash" class="language-bash z-code"><code class="language-bash" data-lang="bash"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">find</span></span><span class="z-meta z-function-call z-arguments z-shell"> .<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>type</span> f<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>name</span> <span class="z-string z-quoted z-double z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&quot;</span>*.webp<span class="z-punctuation z-definition z-string z-end z-shell">&quot;</span></span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>delete</span></span>
+</span></code></pre>
+<h2 id="sources">Sources</h2>
+<ul>
+<li><a rel="noopener" target="_blank" href="https://developers.google.com/speed/webp/docs/cwebp">cWebp</a></li>
+<li><a rel="noopener" target="_blank" href="https://aomediacodec.github.io/av1-avif/">Avif</a></li>
+<li><a rel="noopener" target="_blank" href="https://jpegxl.info/">JpegXL</a></li>
+</ul>
+
+      <nav>
+        <div>
+          <a href="https://www.bensuperpc.org/tutorial/rtl9210/">&#8249; RTL9210 Firmware and Tools</a>
+        </div>
+        <div>
+          <a href="https://www.bensuperpc.org/tutorial/ffmpeg/"> Tutorial on FFMPEG (WIP) &#8250;</a>
+        </div>
+      </nav>
+    </article>
+
+    <div class="sblock">
+      <div class="blockdiv">
+        <a class="b s150" href="https://www.bensuperpc.org/tags/features/">Series</a><br>
+
+          
+          
+      <a href="https://www.bensuperpc.org/tutorial/canbus/">CAN bus under Linux (WIP)</a><br>
+
+          
+
+          
+
+          
+
+          
+            
+      <a class="scur" href="https://www.bensuperpc.org/benchmark/webp/">Benchmarking Webp format (WIP)</a><br>
+    
+
+          
+            <a href="https://www.bensuperpc.org/tutorial/ffmpeg/">Tutorial on FFMPEG (WIP)</a><br>
+          
+            <a href="https://www.bensuperpc.org/tutorial/rtl9210/">RTL9210 Firmware and Tools</a><br>
+          
+            <details>
+              <summary>More...</summary>
+            </details>
+            <div class="hidden_li">
+                <a href="https://www.bensuperpc.org/documentation/hardware/pc/ssd/">Comparison of SSDs</a><br>
+                <a href="https://www.bensuperpc.org/documentation/hardware/pc/cpu/">Evolutions of CPUs (WIP)</a><br>
+                <a href="https://www.bensuperpc.org/documentation/hardware/pc/gpu/">Mesa GPU drivers</a><br>
+                <a href="https://www.bensuperpc.org/tutorial/kubernetes/">Deploy Traefik as a reverse proxy with Kubernetes</a><br>
+                <a href="https://www.bensuperpc.org/tutorial/coverage/">C++ Code Coverage with CMake and GCOVR</a><br>
+            </div>
+        
+      <a href="https://www.bensuperpc.org/documentation/hardware/sff-pc/guide-sff-pc/">A guide to SFF PCs (WIP)</a><br>
+
+        
+      </div>
+      <div class="blockdiv sticky">
+        <a class="b s150" href="#">Index</a>
+        <div>
+          <a href="#introduction">Introduction</a>
+        </div>
+        <div class="hpad">
+          <a href="#setup"><small>- Setup</small></a>
+        </div>
+        <div class="hpad">
+          <a href="#lossless-compression"><small>- Lossless compression</small></a>
+        </div>
+        <div class="hpad">
+          <a href="#results"><small>- Results</small></a>
+        </div>
+        <div class="hpad">
+          <a href="#cleanup"><small>- Cleanup</small></a>
+        </div>
+        <div class="hpad">
+          <a href="#sources"><small>- Sources</small></a>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <hr />
+    <div class="c">
+      <nav class="tpad"><div><a type="application/atom+xml" href="https://www.bensuperpc.org/atom.xml" target="_blank" title="Bensuperpc Atom Feed"><i type="Button" class="svg rss" title="Bensuperpc Atom Feed"></i></a><a class="js m-protected" href="#YmVuc3VwZXJwY0BnbWFpbC5jb20=" target="_blank" title="Mail"><i type="Button" class="svg mail" title="Mail"></i></a><a href="https://mastodon.social/@bensuperpc" target="_blank" title="Mastodon" rel="me"><i type="Button" class="svg mastodon" title="Mastodon"></i></a><a href="https://matrix.example.com/" target="_blank" title="Element"><i type="Button" class="svg element" title="Element"></i></a><a href="https://discord.com/invite/etzX79VS" target="_blank" title="Discord"><i type="Button" class="svg discord" title="Discord"></i></a><a href="https://twitter.com/bensuperpc/" target="_blank" title="Twitter"><i type="Button" class="svg twitter" title="Twitter"></i></a><a href="https://github.com/bensuperpc/" target="_blank" title="Github"><i type="Button" class="svg github" title="Github"></i></a><a href="https://pypi.org/user/bensuperpc/" target="_blank" title="Python"><i type="Button" class="svg python" title="Python"></i></a><a href="https://hub.docker.com/u/bensuperpc/" target="_blank" title="Docker"><i type="Button" class="svg docker" title="Docker"></i></a><a href="https://www.youtube.com/channel&#x2F;bensuperpc" target="_blank" title="YouTube"><i type="Button" class="svg youtube" title="YouTube"></i></a><a href="https://www.twitch.tv/bensuperpc/" target="_blank" title="Twitch"><i type="Button" class="svg twitch" title="Twitch"></i></a><a href="https://www.ko-fi.com/discord/" target="_blank" title="Support me on Ko-fi"><i type="Button" class="svg kofi" title="Support me on Ko-fi"></i></a><a href="https://www.buymeacoffee.com/bensuperpc/" target="_blank" title="Buy Me A Coffee"><i type="Button" class="svg buymeacoffee" title="Buy Me A Coffee"></i></a><a href="https://t.me/bensuperpc/" target="_blank" title="Telegram"><i type="Button" class="svg telegram" title="Telegram"></i></a></div></nav>
+      <nav class="vpad">
+        <a class="rpad s90" href="https://www.bensuperpc.org/about/"> About </a>
+        <a class="rpad s90" href="https://www.bensuperpc.org/contact/"> Contact </a>
+        <a class="rpad s90" href="https://www.bensuperpc.org/privacy/"> Privacy </a>
+        <a class="rpad s90" href="https://www.bensuperpc.org/sitemap.xml" target="_blank"> Sitemap </a>
+      </nav>
+          
+      <p class="s80"> <span id="year">2026</span> Bensuperpc • <a rel="noopener" target="_blank" href="https://github.com/bensuperpc/bensuperpc.github.io">bensuperpc.github.io</a></p>
+      <p class="s90">Powered by <a href="https://www.getzola.org/" target="_blank">Zola</a> &#38; <a href="https://github.com/Jieiku/abridge/" target="_blank">Abridge</a> theme</p>
+    </div>
+  </footer><span class="topout">
+<span class="topleft"> </span><a href="#" class="top" title="Back to Top"><i class="svgs svgh angu"></i></a>
+</span>
+</body>
+</html>

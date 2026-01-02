@@ -1,0 +1,360 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="https://www.bensuperpc.org/js/theme.min.js" integrity="sha384-pb++s6uBRKaQv+iAXpgA/H3IlpLZdO14tTwuCI7uXmz4aaZdByoCcM+6BhynMq/1"></script>
+  <link rel="stylesheet" href="https://www.bensuperpc.org/abridge.css?h=efa77181840e3359de68" />
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="base" content="https://www.bensuperpc.org" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="theme-color" content="#333333" />
+  <meta name="msapplication-TileColor" content="#333333" />
+  <link rel="manifest" href="https://www.bensuperpc.org/manifest.min.json" />
+  <link rel="apple-touch-icon" sizes="180x180" href="https://www.bensuperpc.org/images/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="https://www.bensuperpc.org/images/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="https://www.bensuperpc.org/images/favicon-16x16.png" />
+  <link rel="alternate" type="application/atom+xml" title="Bensuperpc Atom Feed" href="https://www.bensuperpc.org/atom.xml" />
+  <meta name="robots" content="index, follow" />
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <title>C++ Code Coverage with CMake and GCOVR | Bensuperpc</title>
+  <meta name="author" content="Bensuperpc" />
+  <meta name="copyright" content="Bensuperpc" />
+  <meta name="description" content="This tutorial shows how to set up a C++ project with CMake and GCOVR to generate code coverage reports." />
+  <link rel="canonical" href="https://www.bensuperpc.org/tutorial/coverage/" />
+  <meta name="keywords" content="coverage, GCOVR, code coverage, testing, software quality, Abridge, Abridge.css, Zola, Theme, Zola Theme, getzola, Semantic Html, Fast, lightweight" />
+  <meta name="google-site-verification" content="Your Google Site verification code." />
+  <meta name="msvalidate.01" content="Your Bing Site verification code." />
+  <meta property="og:url" content="https://www.bensuperpc.org/tutorial/coverage/" />
+  <meta name="twitter:url" content="https://www.bensuperpc.org/tutorial/coverage/" />
+  <meta property="og:description" content="This tutorial shows how to set up a C++ project with CMake and GCOVR to generate code coverage reports." />
+  <meta name="twitter:description" content="This tutorial shows how to set up a C++ project with CMake and GCOVR to generate code coverage reports." />
+  <meta property="og:title" content="C++ Code Coverage with CMake and GCOVR | Bensuperpc" />
+  <meta name="twitter:title" content="C++ Code Coverage with CMake and GCOVR | Bensuperpc" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://www.bensuperpc.org/images/apple-touch-icon.png" />
+  <meta property="og:image" content="https://www.bensuperpc.org/images/apple-touch-icon.png" />
+  <meta property="og:site_name" content="Bensuperpc" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:type" content="website" />
+  <meta property="og:updated_time" content="2025-08-07" />
+  <meta name="twitter:site" content="@bensuperpc" />
+  <meta name="twitter:creator" content="@bensuperpc" />
+  <script defer src="https://www.bensuperpc.org/js/abridge.min.js?h=e0f9a881a665c86cce9c" integrity="sha384-QF67y7RnPkuDrJNQqn3/7nYxqxWkW/qHI7zN0WTES1aXbf+TotoByRBb835fUE6U"></script>
+  <noscript><link rel="stylesheet" href="https://www.bensuperpc.org/nojs.css" /></noscript>
+</head>
+<body>
+  <header>
+    <nav>
+      <div><big><a href="https://www.bensuperpc.org" title="Bensuperpc"><font color="#f90">B</font>ensuperpc</a></big></div>
+      <div>
+
+        <div>
+          <ul><li><a class="s110" href="https://www.bensuperpc.org/archive/"> Posts </a></li><li><a class="s110" href="https://www.bensuperpc.org/categories/"> Categories </a></li><li><a class="s110" href="https://www.bensuperpc.org/tags/"> Tags </a></li><li><a class="s110" href="https://www.bensuperpc.org/links/"> Links </a></li><li><a class="s110" href="https://www.bensuperpc.org/projects/"> Projects </a></li><li><a class="s110" href="https://www.bensuperpc.org/about/"> About </a></li>
+            <li><div class="dropdown"><i class="svgs world" type="reset"></i>
+                <div class="dropdown-content">
+                <span>English</span><a href="https://www.bensuperpc.org/fr/tutorial/coverage/">Français</a></div>
+            </div></li><li><i type="reset" id="mode" class="js svgs adjust"></i></ul>
+        </div>
+
+        <div>
+          <div>
+            <form autocomplete=off class="js" name="goSearch" id="searchbox">
+              <div class="searchd">
+                <input id="searchinput" type="text" placeholder="Search" title="Search" />
+                <button type="submit" title="Search" class="svgs svgm search"></button>
+              </div>
+              <div class="results"><div id="suggestions"></div></div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </nav>
+    <hr />
+  </header>
+  <main>
+    <article>
+      <h1><a href="https://www.bensuperpc.org/tutorial/coverage/">C++ Code Coverage with CMake and GCOVR</a></h1>
+
+      <span class="s95"> Bensuperpc <span class="rpad"></span> August 07, 2025 <span class="rpad"></span> [<a href="https://www.bensuperpc.org/categories/software/">Software</a>] #<a href="https://www.bensuperpc.org/tags/features/">Features</a>  #<a href="https://www.bensuperpc.org/tags/code-coverage/">Code coverage</a>  #<a href="https://www.bensuperpc.org/tags/testing/">Testing</a>  #<a href="https://www.bensuperpc.org/tags/gcovr/">GCOVR</a> </span>
+
+    
+        <div class="block">
+      <div class="blockdiv">
+        <a class="b s150" href="https://www.bensuperpc.org/tags/features/">Features (Series)</a><br>
+            <a href="https://www.bensuperpc.org/tutorial/canbus/">CAN bus under Linux (WIP)</a><br>
+            <a href="https://www.bensuperpc.org/benchmark/webp/">Benchmarking Webp format (WIP)</a><br>
+            <a href="https://www.bensuperpc.org/tutorial/ffmpeg/">Tutorial on FFMPEG (WIP)</a><br>
+            <a href="https://www.bensuperpc.org/tutorial/rtl9210/">RTL9210 Firmware and Tools</a><br>
+            <a href="https://www.bensuperpc.org/documentation/hardware/pc/ssd/">Comparison of SSDs</a><br>
+            <a href="https://www.bensuperpc.org/documentation/hardware/pc/cpu/">Evolutions of CPUs (WIP)</a><br>
+            <a href="https://www.bensuperpc.org/documentation/hardware/pc/gpu/">Mesa GPU drivers</a><br>
+            <a href="https://www.bensuperpc.org/tutorial/kubernetes/">Deploy Traefik as a reverse proxy with Kubernetes</a><br>
+            <a class="scur" href="https://www.bensuperpc.org/tutorial/coverage/">C++ Code Coverage with CMake and GCOVR</a><br> 
+          
+            <a href="https://www.bensuperpc.org/documentation/hardware/sff-pc/guide-sff-pc/">A guide to SFF PCs (WIP)</a><br>
+      </div>
+    </div>
+
+
+<h1 id="code-coverage-in-c-c-with-cmake-and-gcovr">Code Coverage in C/C++ with CMake and GCOVR</h1>
+<h2 id="introduction">Introduction</h2>
+<p>This tutorial shows how to set up a C/C++ project with CMake and GCOVR to generate code coverage reports, this allows you to precisely verify which parts of the source code and which conditional branches (if, switch, etc.) are actually covered by the tests.</p>
+<p>We’ll use a small sample project based on Google Test, but the method is also compatible with other frameworks such as Catch2, Boost.Test, or Doctest.</p>
+<h2 id="minimum-requirements">Minimum Requirements</h2>
+<ul>
+<li>CMake 3.15</li>
+<li>GCC or Clang (C++17)</li>
+<li>Google Test (GTest)</li>
+<li>GCOVR 5.0</li>
+<li>Ninja (optional, but recommended)</li>
+</ul>
+<p>A distribution like <strong>Ubuntu 22.04</strong>, <strong>Debian 12</strong> or higher is recommended for this tutorial, but you can use any Linux distribution with the required versions of the tools.</p>
+<h3 id="installing-dependencies">Installing Dependencies</h3>
+<p>To install the necessary dependencies, you can use the following commands:</p>
+<p>For <strong>Ubuntu/Debian</strong> :</p>
+<pre data-lang="bash" class="language-bash z-code"><code class="language-bash" data-lang="bash"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">sudo</span></span><span class="z-meta z-function-call z-arguments z-shell"> apt-get install cmake build-essential g++ gcovr ninja-build libgtest-dev</span>
+</span></code></pre>
+<p>For <strong>Fedora</strong> :</p>
+<pre data-lang="bash" class="language-bash z-code"><code class="language-bash" data-lang="bash"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">sudo</span></span><span class="z-meta z-function-call z-arguments z-shell"> dnf install cmake gcc-c++ gcovr ninja-build gtest-devel</span>
+</span></code></pre>
+<p>For <strong>Arch Linux</strong> :</p>
+<pre data-lang="bash" class="language-bash z-code"><code class="language-bash" data-lang="bash"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">sudo</span></span><span class="z-meta z-function-call z-arguments z-shell"> pacman<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>S</span> cmake gcc gcovr ninja gtest</span>
+</span></code></pre>
+<h2 id="what-is-gcovr">What is GCOVR?</h2>
+<p>GCOVR is an open-source tool that generates C/C++ code coverage reports from the data produced during test execution.</p>
+<h2 id="sample-project">Sample Project</h2>
+<p>The sample project is a simple application and two C++ libraries, one for mathematics and one for physics.</p>
+<p>Here is the project structure:</p>
+<pre data-lang="bash" class="language-bash z-code"><code class="language-bash" data-lang="bash"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-support z-function z-dot z-shell">.</span></span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">├──</span></span><span class="z-meta z-function-call z-arguments z-shell"> CMakeLists.txt</span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">├──</span></span><span class="z-meta z-function-call z-arguments z-shell"> main.cpp</span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">├──</span></span><span class="z-meta z-function-call z-arguments z-shell"> math</span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">│</span></span><span class="z-meta z-function-call z-arguments z-shell">   ├── CMakeLists.txt</span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">│</span></span><span class="z-meta z-function-call z-arguments z-shell">   ├── math.cpp</span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">│</span></span><span class="z-meta z-function-call z-arguments z-shell">   └── math.hpp</span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">├──</span></span><span class="z-meta z-function-call z-arguments z-shell"> physics</span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">│</span></span><span class="z-meta z-function-call z-arguments z-shell">   ├── CMakeLists.txt</span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">│</span></span><span class="z-meta z-function-call z-arguments z-shell">   ├── physics.cpp</span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">│</span></span><span class="z-meta z-function-call z-arguments z-shell">   └── physics.hpp</span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">└──</span></span><span class="z-meta z-function-call z-arguments z-shell"> tests</span>
+</span><span class="z-source z-shell z-bash">    <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">├──</span></span><span class="z-meta z-function-call z-arguments z-shell"> CMakeLists.txt</span>
+</span><span class="z-source z-shell z-bash">    <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">└──</span></span><span class="z-meta z-function-call z-arguments z-shell"> test.cpp</span>
+</span><span class="z-source z-shell z-bash">
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">4</span></span><span class="z-meta z-function-call z-arguments z-shell"> directories, 10 files</span>
+</span></code></pre>
+<p>You can download the sample project: <!-- Assets -->
+<a href="https://www.bensuperpc.org/tutorial/sources/tuto_coverage.7z" target="_blank">
+    tuto_coverage.7z
+</a></p>
+<h3 id="compilation-with-coverage">Compilation with Coverage</h3>
+<p>To enable code coverage, the project must be compiled with the options: <code>-O0 -g --coverage</code> and <code>--coverage</code> for linking.</p>
+<pre data-lang="bash" class="language-bash z-code"><code class="language-bash" data-lang="bash"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">cmake</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>S</span> .<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>B</span> build<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>G</span> Ninja<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>DCMAKE_CXX_FLAGS</span><span class="z-keyword z-operator z-assignment z-option z-shell">=</span><span class="z-string z-quoted z-double z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&quot;</span>-O0 -g --coverage<span class="z-punctuation z-definition z-string z-end z-shell">&quot;</span></span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>DCMAKE_EXE_LINKER_FLAGS</span><span class="z-keyword z-operator z-assignment z-option z-shell">=</span><span class="z-string z-quoted z-double z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&quot;</span>--coverage<span class="z-punctuation z-definition z-string z-end z-shell">&quot;</span></span></span> <span class="z-keyword z-operator z-logical z-and z-shell">&amp;&amp;</span> <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">cmake</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>build</span> build</span>
+</span></code></pre>
+<p>The <code>--coverage</code> option is equivalent to <code>-fprofile-arcs -ftest-coverage</code> for GCC/Clang, in a classic project, it is preferable to use CMake presets rather than specifying the options manually.</p>
+<h3 id="running-tests">Running Tests</h3>
+<p>Once the project is compiled, you can run the tests, this will generate files on which GCOVR relies to generate coverage reports:</p>
+<ul>
+<li><code>.gcno</code> generated at compile time, contains metadata for coverage</li>
+<li><code>.gcda</code> generated at runtime, contains the collected coverage data</li>
+</ul>
+<pre data-lang="bash" class="language-bash z-code"><code class="language-bash" data-lang="bash"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">ctest</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>test-dir</span> build<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>output-on-failure</span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>no-tests</span><span class="z-keyword z-operator z-assignment z-option z-shell">=</span>error<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>repeat</span> until-fail:1<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>schedule-random</span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>parallel</span> 1</span>
+</span></code></pre>
+<table><thead><tr><th style="text-align: center">Option</th><th style="text-align: center">Description</th></tr></thead><tbody>
+<tr><td style="text-align: center"><code>--test-dir build</code></td><td style="text-align: center">Specify the directory containing the tests</td></tr>
+<tr><td style="text-align: center"><code>--output-on-failure</code></td><td style="text-align: center">Show the output of failed tests</td></tr>
+<tr><td style="text-align: center"><code>--no-tests=error</code></td><td style="text-align: center">Generates an error if no tests are found</td></tr>
+<tr><td style="text-align: center"><code>--repeat until-fail:1</code></td><td style="text-align: center">Repeats the tests until a failure occurs, here 1 time</td></tr>
+<tr><td style="text-align: center"><code>--schedule-random</code></td><td style="text-align: center">Runs the tests in random order</td></tr>
+<tr><td style="text-align: center"><code>--parallel 1</code></td><td style="text-align: center">Runs the tests in parallel, here 1 test at a time</td></tr>
+</tbody></table>
+<p>You will get output similar to:</p>
+<pre data-lang="bash" class="language-bash z-code"><code class="language-bash" data-lang="bash"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">Test</span></span><span class="z-meta z-function-call z-arguments z-shell"> project /home/bensuperpc/tuto_coverage/build</span>
+</span><span class="z-source z-shell z-bash">    <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">Start</span></span><span class="z-meta z-function-call z-arguments z-shell"> 3: MathTests.Mul</span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">1/7</span></span><span class="z-meta z-function-call z-arguments z-shell"> Test <span class="z-comment z-line z-number-sign z-shell"><span class="z-punctuation z-definition z-comment z-begin z-shell">#</span></span><span class="z-comment z-line z-number-sign z-shell">3: MathTests.Mul .....................   Passed    0.00 sec</span><span class="z-comment z-line z-number-sign z-shell">
+</span></span></span><span class="z-source z-shell z-bash">    <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">Start</span></span><span class="z-meta z-function-call z-arguments z-shell"> 7: PhysicsTests.GravitationalForce</span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">2/7</span></span><span class="z-meta z-function-call z-arguments z-shell"> Test <span class="z-comment z-line z-number-sign z-shell"><span class="z-punctuation z-definition z-comment z-begin z-shell">#</span></span><span class="z-comment z-line z-number-sign z-shell">7: PhysicsTests.GravitationalForce ...   Passed    0.00 sec</span><span class="z-comment z-line z-number-sign z-shell">
+</span></span></span><span class="z-source z-shell z-bash">    <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">Start</span></span><span class="z-meta z-function-call z-arguments z-shell"> 5: PhysicsTests.Speed</span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">3/7</span></span><span class="z-meta z-function-call z-arguments z-shell"> Test <span class="z-comment z-line z-number-sign z-shell"><span class="z-punctuation z-definition z-comment z-begin z-shell">#</span></span><span class="z-comment z-line z-number-sign z-shell">5: PhysicsTests.Speed ................   Passed    0.00 sec</span><span class="z-comment z-line z-number-sign z-shell">
+</span></span></span><span class="z-source z-shell z-bash">    <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">Start</span></span><span class="z-meta z-function-call z-arguments z-shell"> 2: MathTests.Sub</span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">4/7</span></span><span class="z-meta z-function-call z-arguments z-shell"> Test <span class="z-comment z-line z-number-sign z-shell"><span class="z-punctuation z-definition z-comment z-begin z-shell">#</span></span><span class="z-comment z-line z-number-sign z-shell">2: MathTests.Sub .....................   Passed    0.00 sec</span><span class="z-comment z-line z-number-sign z-shell">
+</span></span></span><span class="z-source z-shell z-bash">    <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">Start</span></span><span class="z-meta z-function-call z-arguments z-shell"> 1: MathTests.Add</span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">5/7</span></span><span class="z-meta z-function-call z-arguments z-shell"> Test <span class="z-comment z-line z-number-sign z-shell"><span class="z-punctuation z-definition z-comment z-begin z-shell">#</span></span><span class="z-comment z-line z-number-sign z-shell">1: MathTests.Add .....................   Passed    0.00 sec</span><span class="z-comment z-line z-number-sign z-shell">
+</span></span></span><span class="z-source z-shell z-bash">    <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">Start</span></span><span class="z-meta z-function-call z-arguments z-shell"> 6: PhysicsTests.KineticEnergy</span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">6/7</span></span><span class="z-meta z-function-call z-arguments z-shell"> Test <span class="z-comment z-line z-number-sign z-shell"><span class="z-punctuation z-definition z-comment z-begin z-shell">#</span></span><span class="z-comment z-line z-number-sign z-shell">6: PhysicsTests.KineticEnergy ........   Passed    0.00 sec</span><span class="z-comment z-line z-number-sign z-shell">
+</span></span></span><span class="z-source z-shell z-bash">    <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">Start</span></span><span class="z-meta z-function-call z-arguments z-shell"> 4: MathTests.Div</span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">7/7</span></span><span class="z-meta z-function-call z-arguments z-shell"> Test <span class="z-comment z-line z-number-sign z-shell"><span class="z-punctuation z-definition z-comment z-begin z-shell">#</span></span><span class="z-comment z-line z-number-sign z-shell">4: MathTests.Div .....................   Passed    0.00 sec</span><span class="z-comment z-line z-number-sign z-shell">
+</span></span></span><span class="z-source z-shell z-bash">
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">100<span class="z-meta z-group z-expansion z-job z-shell"><span class="z-punctuation z-definition z-variable z-job z-shell">%</span></span></span></span><span class="z-meta z-function-call z-arguments z-shell"> tests passed, 0 tests failed out of 7</span>
+</span><span class="z-source z-shell z-bash">
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">Total</span></span><span class="z-meta z-function-call z-arguments z-shell"> Test time (real</span><span class="z-meta z-function-call z-shell"></span>) <span class="z-keyword z-operator z-assignment z-shell">=</span>   <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">0.02</span></span><span class="z-meta z-function-call z-arguments z-shell"> sec</span>
+</span></code></pre>
+<h3 id="html-report-with-gcovr">HTML Report with GCOVR</h3>
+<p>After running the tests, you can generate a coverage report with GCOVR, here we generate an HTML report to visualize the code coverage, but you can also generate reports in plain text, XML or JSON.</p>
+<pre data-lang="bash" class="language-bash z-code"><code class="language-bash" data-lang="bash"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">gcovr</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>root</span> <span class="z-string z-quoted z-double z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&quot;</span>.<span class="z-punctuation z-definition z-string z-end z-shell">&quot;</span></span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>decisions</span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>calls</span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>html-theme</span> <span class="z-string z-quoted z-double z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&quot;</span>green<span class="z-punctuation z-definition z-string z-end z-shell">&quot;</span></span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>exclude</span> <span class="z-string z-quoted z-double z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&quot;</span>tests/*<span class="z-punctuation z-definition z-string z-end z-shell">&quot;</span></span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>exclude</span> <span class="z-string z-quoted z-double z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&quot;</span>build/*<span class="z-punctuation z-definition z-string z-end z-shell">&quot;</span></span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>exclude</span> <span class="z-string z-quoted z-double z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&quot;</span>main.cpp<span class="z-punctuation z-definition z-string z-end z-shell">&quot;</span></span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>html</span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>html-details</span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>output</span> <span class="z-string z-quoted z-double z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&quot;</span>build/coverage.html<span class="z-punctuation z-definition z-string z-end z-shell">&quot;</span></span></span>
+</span></code></pre>
+<table><thead><tr><th style="text-align: center">Option</th><th style="text-align: center">Description</th></tr></thead><tbody>
+<tr><td style="text-align: center"><code>--root "."</code></td><td style="text-align: center">Sets the root directory for coverage</td></tr>
+<tr><td style="text-align: center"><code>--decisions</code></td><td style="text-align: center">Includes coverage decisions in the report</td></tr>
+<tr><td style="text-align: center"><code>--calls</code></td><td style="text-align: center">Includes function calls in the report</td></tr>
+<tr><td style="text-align: center"><code>--html-theme "green"</code></td><td style="text-align: center">Sets the HTML report theme to green</td></tr>
+<tr><td style="text-align: center"><code>--exclude "tests/*"</code></td><td style="text-align: center">Excludes test files from the report</td></tr>
+<tr><td style="text-align: center"><code>--exclude "build/*"</code></td><td style="text-align: center">Excludes build files from the report</td></tr>
+<tr><td style="text-align: center"><code>--exclude "main.cpp"</code></td><td style="text-align: center">Excludes the <code>main.cpp</code> file from the report</td></tr>
+<tr><td style="text-align: center"><code>--html</code></td><td style="text-align: center">Generates an HTML report</td></tr>
+<tr><td style="text-align: center"><code>--html-details</code></td><td style="text-align: center">Includes details in the HTML report</td></tr>
+<tr><td style="text-align: center"><code>--output "build/coverage.html"</code></td><td style="text-align: center">Specifies the output file name for the HTML report</td></tr>
+</tbody></table>
+<p>Once the HTML report is generated, you can open it in your browser to visualize the code coverage, it should be generated in the file <code>build/coverage.html</code>.</p>
+<p>Here is the rendering of the report in the browser:</p>
+ <figure class="fi b1"><img src="https://www.bensuperpc.org/tutorial/images/Screenshot_20250807_100908.webp" class="b1" alt="Main Page" width="1111" height="574" loading="lazy" /><figcaption>Main Page</figcaption></figure>
+ <figure class="fi b1"><img src="https://www.bensuperpc.org/tutorial/images/Screenshot_20250807_101010.webp" class="b1" alt="Secondary Page" width="1111" height="835" loading="lazy" /><figcaption>Secondary Page</figcaption></figure>
+<h4 id="xml-or-json-report">XML or JSON Report</h4>
+<p>You can also generate a report in XML or JSON for integration with other tools:</p>
+<pre data-lang="bash" class="language-bash z-code"><code class="language-bash" data-lang="bash"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">gcovr</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>root</span> <span class="z-string z-quoted z-double z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&quot;</span>.<span class="z-punctuation z-definition z-string z-end z-shell">&quot;</span></span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>decisions</span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>calls</span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>exclude</span> <span class="z-string z-quoted z-double z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&quot;</span>tests/<span class="z-punctuation z-definition z-string z-end z-shell">&quot;</span></span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>exclude</span> <span class="z-string z-quoted z-double z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&quot;</span>build/<span class="z-punctuation z-definition z-string z-end z-shell">&quot;</span></span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>exclude</span> <span class="z-string z-quoted z-double z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&quot;</span>main.cpp<span class="z-punctuation z-definition z-string z-end z-shell">&quot;</span></span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>xml-pretty</span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>output</span> <span class="z-string z-quoted z-double z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&quot;</span>build/coverage.xml<span class="z-punctuation z-definition z-string z-end z-shell">&quot;</span></span></span>
+</span></code></pre>
+<p>Or in JSON :</p>
+<pre data-lang="bash" class="language-bash z-code"><code class="language-bash" data-lang="bash"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">gcovr</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>root</span> <span class="z-string z-quoted z-double z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&quot;</span>.<span class="z-punctuation z-definition z-string z-end z-shell">&quot;</span></span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>decisions</span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>calls</span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>exclude</span> <span class="z-string z-quoted z-double z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&quot;</span>tests/<span class="z-punctuation z-definition z-string z-end z-shell">&quot;</span></span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>exclude</span> <span class="z-string z-quoted z-double z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&quot;</span>build/<span class="z-punctuation z-definition z-string z-end z-shell">&quot;</span></span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>exclude</span> <span class="z-string z-quoted z-double z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&quot;</span>main.cpp<span class="z-punctuation z-definition z-string z-end z-shell">&quot;</span></span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>json-pretty</span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>output</span> <span class="z-string z-quoted z-double z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&quot;</span>build/coverage.json<span class="z-punctuation z-definition z-string z-end z-shell">&quot;</span></span></span>
+</span></code></pre>
+<h2 id="ci-cd-integration">CI/CD Integration</h2>
+<p>You can integrate code coverage generation into your CI/CD pipeline to automatically generate reports on each commit or merge request.</p>
+<p>Here is an example of a Gitlab CI to generate a coverage report and fail the pipeline if the coverage is below a certain threshold:</p>
+<pre data-lang="yaml" class="language-yaml z-code"><code class="language-yaml" data-lang="yaml"><span class="z-source z-yaml"><span class="z-string z-unquoted z-plain z-out z-yaml"><span class="z-entity z-name z-tag z-yaml">variables</span></span><span class="z-punctuation z-separator z-key-value z-mapping z-yaml">:</span>
+</span><span class="z-source z-yaml">  <span class="z-comment z-line z-number-sign z-yaml"><span class="z-punctuation z-definition z-comment z-line z-number-sign z-yaml">#</span> If someone forgets to add tests on new feature, the pipeline will fail if coverage is below these thresholds
+</span></span><span class="z-source z-yaml">  <span class="z-string z-unquoted z-plain z-out z-yaml"><span class="z-entity z-name z-tag z-yaml">MIN_LINE_COVERAGE</span></span><span class="z-punctuation z-separator z-key-value z-mapping z-yaml">:</span> <span class="z-constant z-numeric z-integer z-decimal z-yaml">50</span>
+</span><span class="z-source z-yaml">  <span class="z-string z-unquoted z-plain z-out z-yaml"><span class="z-entity z-name z-tag z-yaml">MIN_FUNCTION_COVERAGE</span></span><span class="z-punctuation z-separator z-key-value z-mapping z-yaml">:</span> <span class="z-constant z-numeric z-integer z-decimal z-yaml">50</span>
+</span><span class="z-source z-yaml">  <span class="z-string z-unquoted z-plain z-out z-yaml"><span class="z-entity z-name z-tag z-yaml">MIN_BRANCH_COVERAGE</span></span><span class="z-punctuation z-separator z-key-value z-mapping z-yaml">:</span> <span class="z-constant z-numeric z-integer z-decimal z-yaml">50</span>
+</span><span class="z-source z-yaml">  <span class="z-string z-unquoted z-plain z-out z-yaml"><span class="z-entity z-name z-tag z-yaml">MIN_DECISION_COVERAGE</span></span><span class="z-punctuation z-separator z-key-value z-mapping z-yaml">:</span> <span class="z-constant z-numeric z-integer z-decimal z-yaml">50</span>
+</span><span class="z-source z-yaml">
+</span><span class="z-source z-yaml"><span class="z-string z-unquoted z-plain z-out z-yaml"><span class="z-entity z-name z-tag z-yaml">stages</span></span><span class="z-punctuation z-separator z-key-value z-mapping z-yaml">:</span>
+</span><span class="z-source z-yaml">  <span class="z-punctuation z-definition z-block z-sequence z-item z-yaml">-</span> <span class="z-string z-unquoted z-plain z-out z-yaml">coverage</span>
+</span><span class="z-source z-yaml">
+</span><span class="z-source z-yaml"><span class="z-string z-unquoted z-plain z-out z-yaml"><span class="z-entity z-name z-tag z-yaml">coverage_stage</span></span><span class="z-punctuation z-separator z-key-value z-mapping z-yaml">:</span>
+</span><span class="z-source z-yaml">  <span class="z-string z-unquoted z-plain z-out z-yaml"><span class="z-entity z-name z-tag z-yaml">stage</span></span><span class="z-punctuation z-separator z-key-value z-mapping z-yaml">:</span> <span class="z-string z-unquoted z-plain z-out z-yaml">coverage</span>
+</span><span class="z-source z-yaml">  <span class="z-string z-unquoted z-plain z-out z-yaml"><span class="z-entity z-name z-tag z-yaml">script</span></span><span class="z-punctuation z-separator z-key-value z-mapping z-yaml">:</span>
+</span><span class="z-source z-yaml">    <span class="z-comment z-line z-number-sign z-yaml"><span class="z-punctuation z-definition z-comment z-line z-number-sign z-yaml">#</span> Compile the project with coverage flags
+</span></span><span class="z-source z-yaml">    <span class="z-punctuation z-definition z-block z-sequence z-item z-yaml">-</span> <span class="z-string z-unquoted z-plain z-out z-yaml">cmake -S . -B build -G Ninja -DCMAKE_CXX_FLAGS=&quot;-O0 -g --coverage&quot; -DCMAKE_EXE_LINKER_FLAGS=&quot;--coverage&quot; &amp;&amp; cmake --build build</span>
+</span><span class="z-source z-yaml">    <span class="z-comment z-line z-number-sign z-yaml"><span class="z-punctuation z-definition z-comment z-line z-number-sign z-yaml">#</span> Run tests to generate coverage data
+</span></span><span class="z-source z-yaml">    <span class="z-punctuation z-definition z-block z-sequence z-item z-yaml">-</span> <span class="z-string z-unquoted z-plain z-out z-yaml">ctest --verbose --repeat until-fail:1 --parallel 1 --schedule-random --test-dir build || true</span>
+</span><span class="z-source z-yaml">    <span class="z-comment z-line z-number-sign z-yaml"><span class="z-punctuation z-definition z-comment z-line z-number-sign z-yaml">#</span> Create directory for HTML coverage reports
+</span></span><span class="z-source z-yaml">    <span class="z-punctuation z-definition z-block z-sequence z-item z-yaml">-</span> <span class="z-string z-unquoted z-plain z-out z-yaml">mkdir -p &quot;coverage_html_$CI_COMMIT_SHORT_SHA&quot;</span>
+</span><span class="z-source z-yaml">    <span class="z-comment z-line z-number-sign z-yaml"><span class="z-punctuation z-definition z-comment z-line z-number-sign z-yaml">#</span> Generate HTML coverage reports
+</span></span><span class="z-source z-yaml">    <span class="z-punctuation z-definition z-block z-sequence z-item z-yaml">-</span> <span class="z-string z-unquoted z-plain z-out z-yaml">gcovr --root &quot;.&quot; --exclude &quot;tests/&quot; --exclude &quot;build/&quot; --exclude &quot;main.cpp&quot; --decisions --calls --html --html-theme green --html-details -o &quot;coverage_html_$CI_COMMIT_SHORT_SHA/coverage.html&quot;</span>
+</span><span class="z-source z-yaml">    <span class="z-comment z-line z-number-sign z-yaml"><span class="z-punctuation z-definition z-comment z-line z-number-sign z-yaml">#</span> Generate XML coverage report (for Gitlab)
+</span></span><span class="z-source z-yaml">    <span class="z-punctuation z-definition z-block z-sequence z-item z-yaml">-</span> <span class="z-string z-unquoted z-plain z-out z-yaml">gcovr --root &quot;.&quot; --exclude &quot;tests/&quot; --exclude &quot;build/&quot; --exclude &quot;main.cpp&quot; --decisions --calls --xml-pretty -o coverage.xml</span>
+</span><span class="z-source z-yaml">    <span class="z-comment z-line z-number-sign z-yaml"><span class="z-punctuation z-definition z-comment z-line z-number-sign z-yaml">#</span> Check minimum coverage thresholds
+</span></span><span class="z-source z-yaml">    <span class="z-punctuation z-definition z-block z-sequence z-item z-yaml">-</span> <span class="z-string z-unquoted z-plain z-out z-yaml">gcovr --root &quot;.&quot; --exclude &quot;tests/&quot; --exclude &quot;build/&quot; --exclude &quot;main.cpp&quot; --decisions --calls --print-summary --fail-under-line $MIN_LINE_COVERAGE --fail-under-branch $MIN_BRANCH_COVERAGE --fail-under-function $MIN_FUNCTION_COVERAGE --fail-under-decision $MIN_DECISION_COVERAGE</span>
+</span><span class="z-source z-yaml">  <span class="z-string z-unquoted z-plain z-out z-yaml"><span class="z-entity z-name z-tag z-yaml">artifacts</span></span><span class="z-punctuation z-separator z-key-value z-mapping z-yaml">:</span>
+</span><span class="z-source z-yaml">    <span class="z-string z-unquoted z-plain z-out z-yaml"><span class="z-entity z-name z-tag z-yaml">name</span></span><span class="z-punctuation z-separator z-key-value z-mapping z-yaml">:</span> <span class="z-string z-quoted z-double z-yaml"><span class="z-punctuation z-definition z-string z-begin z-yaml">&quot;</span>$CI_PROJECT_NAME-$CI_COMMIT_SHORT_SHA<span class="z-punctuation z-definition z-string z-end z-yaml">&quot;</span></span>
+</span><span class="z-source z-yaml">    <span class="z-string z-unquoted z-plain z-out z-yaml"><span class="z-entity z-name z-tag z-yaml">expire_in</span></span><span class="z-punctuation z-separator z-key-value z-mapping z-yaml">:</span> <span class="z-string z-unquoted z-plain z-out z-yaml">7 days</span>
+</span><span class="z-source z-yaml">    <span class="z-string z-unquoted z-plain z-out z-yaml"><span class="z-entity z-name z-tag z-yaml">when</span></span><span class="z-punctuation z-separator z-key-value z-mapping z-yaml">:</span> <span class="z-string z-unquoted z-plain z-out z-yaml">always</span>
+</span><span class="z-source z-yaml">    <span class="z-string z-unquoted z-plain z-out z-yaml"><span class="z-entity z-name z-tag z-yaml">paths</span></span><span class="z-punctuation z-separator z-key-value z-mapping z-yaml">:</span>
+</span><span class="z-source z-yaml">      <span class="z-punctuation z-definition z-block z-sequence z-item z-yaml">-</span> <span class="z-string z-quoted z-double z-yaml"><span class="z-punctuation z-definition z-string z-begin z-yaml">&quot;</span>coverage_html_$CI_COMMIT_SHORT_SHA/*<span class="z-punctuation z-definition z-string z-end z-yaml">&quot;</span></span>
+</span><span class="z-source z-yaml">      <span class="z-punctuation z-definition z-block z-sequence z-item z-yaml">-</span> <span class="z-string z-quoted z-double z-yaml"><span class="z-punctuation z-definition z-string z-begin z-yaml">&quot;</span>coverage.xml<span class="z-punctuation z-definition z-string z-end z-yaml">&quot;</span></span>
+</span><span class="z-source z-yaml">  <span class="z-comment z-line z-number-sign z-yaml"><span class="z-punctuation z-definition z-comment z-line z-number-sign z-yaml">#</span> Parse coverage from coverage.xml file
+</span></span><span class="z-source z-yaml">  <span class="z-string z-unquoted z-plain z-out z-yaml"><span class="z-entity z-name z-tag z-yaml">coverage</span></span><span class="z-punctuation z-separator z-key-value z-mapping z-yaml">:</span> <span class="z-string z-quoted z-single z-yaml"><span class="z-punctuation z-definition z-string z-begin z-yaml">&#39;</span>/lines: (\d+\.\d+)%/<span class="z-punctuation z-definition z-string z-end z-yaml">&#39;</span></span>
+</span></code></pre>
+<h2 id="sources">Sources</h2>
+<ul>
+<li><a rel="noopener" target="_blank" href="https://gcovr.com/en/latest/">GCOVR</a></li>
+<li><a rel="noopener" target="_blank" href="https://github.com/google/googletest">Google Test</a></li>
+</ul>
+
+      <nav>
+        <div>
+          <a href="https://www.bensuperpc.org/documentation/hardware/sff-pc/guide-sff-pc/">&#8249; A guide to SFF PCs (WIP)</a>
+        </div>
+        <div>
+          <a href="https://www.bensuperpc.org/tutorial/kubernetes/"> Deploy Traefik as a reverse proxy with Kubernetes &#8250;</a>
+        </div>
+      </nav>
+    </article>
+
+    <div class="sblock">
+      <div class="blockdiv">
+        <a class="b s150" href="https://www.bensuperpc.org/tags/features/">Series</a><br>
+
+          
+          
+      <a href="https://www.bensuperpc.org/tutorial/canbus/">CAN bus under Linux (WIP)</a><br>
+
+          
+            <details>
+              <summary>More...</summary>
+            </details>
+            <div class="hidden_li">
+                <a href="https://www.bensuperpc.org/benchmark/webp/">Benchmarking Webp format (WIP)</a><br>
+                <a href="https://www.bensuperpc.org/tutorial/ffmpeg/">Tutorial on FFMPEG (WIP)</a><br>
+                <a href="https://www.bensuperpc.org/tutorial/rtl9210/">RTL9210 Firmware and Tools</a><br>
+                <a href="https://www.bensuperpc.org/documentation/hardware/pc/ssd/">Comparison of SSDs</a><br>
+                <a href="https://www.bensuperpc.org/documentation/hardware/pc/cpu/">Evolutions of CPUs (WIP)</a><br>
+            </div>
+
+          
+
+          
+            <a href="https://www.bensuperpc.org/documentation/hardware/pc/gpu/">Mesa GPU drivers</a><br>
+            <a href="https://www.bensuperpc.org/tutorial/kubernetes/">Deploy Traefik as a reverse proxy with Kubernetes</a><br>
+
+          
+            
+      <a class="scur" href="https://www.bensuperpc.org/tutorial/coverage/">C++ Code Coverage with CMake and GCOVR</a><br>
+    
+
+          
+        
+      <a href="https://www.bensuperpc.org/documentation/hardware/sff-pc/guide-sff-pc/">A guide to SFF PCs (WIP)</a><br>
+
+        
+      </div>
+      <div class="blockdiv sticky">
+        <a class="b s150" href="#">Index</a>
+        <div>
+          <a href="#code-coverage-in-c-c-with-cmake-and-gcovr">Code Coverage in C&#x2F;C++ with CMake and GCOVR</a>
+        </div>
+        <div class="hpad">
+          <a href="#introduction"><small>- Introduction</small></a>
+        </div>
+        <div class="hpad">
+          <a href="#minimum-requirements"><small>- Minimum Requirements</small></a>
+        </div>
+        <div class="hpad">
+          <a href="#what-is-gcovr"><small>- What is GCOVR?</small></a>
+        </div>
+        <div class="hpad">
+          <a href="#sample-project"><small>- Sample Project</small></a>
+        </div>
+        <div class="hpad">
+          <a href="#ci-cd-integration"><small>- CI&#x2F;CD Integration</small></a>
+        </div>
+        <div class="hpad">
+          <a href="#sources"><small>- Sources</small></a>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <hr />
+    <div class="c">
+      <nav class="tpad"><div><a type="application/atom+xml" href="https://www.bensuperpc.org/atom.xml" target="_blank" title="Bensuperpc Atom Feed"><i type="Button" class="svg rss" title="Bensuperpc Atom Feed"></i></a><a class="js m-protected" href="#YmVuc3VwZXJwY0BnbWFpbC5jb20=" target="_blank" title="Mail"><i type="Button" class="svg mail" title="Mail"></i></a><a href="https://mastodon.social/@bensuperpc" target="_blank" title="Mastodon" rel="me"><i type="Button" class="svg mastodon" title="Mastodon"></i></a><a href="https://matrix.example.com/" target="_blank" title="Element"><i type="Button" class="svg element" title="Element"></i></a><a href="https://discord.com/invite/etzX79VS" target="_blank" title="Discord"><i type="Button" class="svg discord" title="Discord"></i></a><a href="https://twitter.com/bensuperpc/" target="_blank" title="Twitter"><i type="Button" class="svg twitter" title="Twitter"></i></a><a href="https://github.com/bensuperpc/" target="_blank" title="Github"><i type="Button" class="svg github" title="Github"></i></a><a href="https://pypi.org/user/bensuperpc/" target="_blank" title="Python"><i type="Button" class="svg python" title="Python"></i></a><a href="https://hub.docker.com/u/bensuperpc/" target="_blank" title="Docker"><i type="Button" class="svg docker" title="Docker"></i></a><a href="https://www.youtube.com/channel&#x2F;bensuperpc" target="_blank" title="YouTube"><i type="Button" class="svg youtube" title="YouTube"></i></a><a href="https://www.twitch.tv/bensuperpc/" target="_blank" title="Twitch"><i type="Button" class="svg twitch" title="Twitch"></i></a><a href="https://www.ko-fi.com/discord/" target="_blank" title="Support me on Ko-fi"><i type="Button" class="svg kofi" title="Support me on Ko-fi"></i></a><a href="https://www.buymeacoffee.com/bensuperpc/" target="_blank" title="Buy Me A Coffee"><i type="Button" class="svg buymeacoffee" title="Buy Me A Coffee"></i></a><a href="https://t.me/bensuperpc/" target="_blank" title="Telegram"><i type="Button" class="svg telegram" title="Telegram"></i></a></div></nav>
+      <nav class="vpad">
+        <a class="rpad s90" href="https://www.bensuperpc.org/about/"> About </a>
+        <a class="rpad s90" href="https://www.bensuperpc.org/contact/"> Contact </a>
+        <a class="rpad s90" href="https://www.bensuperpc.org/privacy/"> Privacy </a>
+        <a class="rpad s90" href="https://www.bensuperpc.org/sitemap.xml" target="_blank"> Sitemap </a>
+      </nav>
+          
+      <p class="s80"> <span id="year">2026</span> Bensuperpc • <a rel="noopener" target="_blank" href="https://github.com/bensuperpc/bensuperpc.github.io">bensuperpc.github.io</a></p>
+      <p class="s90">Powered by <a href="https://www.getzola.org/" target="_blank">Zola</a> &#38; <a href="https://github.com/Jieiku/abridge/" target="_blank">Abridge</a> theme</p>
+    </div>
+  </footer><span class="topout">
+<span class="topleft"> </span><a href="#" class="top" title="Back to Top"><i class="svgs svgh angu"></i></a>
+</span>
+</body>
+</html>
