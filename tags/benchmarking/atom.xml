@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Bensuperpc - Benchmarking</title>
+    <subtitle>Bensuperpc website, talk about software and hardware stuff.</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://bensuperpc.github.io/tags/benchmarking/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://bensuperpc.github.io"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2025-02-16T00:00:00+00:00</updated>
+    <id>https://bensuperpc.github.io/tags/benchmarking/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Benchmarking Webp format (WIP)</title>
+        <published>2025-02-16T00:00:00+00:00</published>
+        <updated>2025-02-16T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://bensuperpc.github.io/benchmark/webp/"/>
+        <id>https://bensuperpc.github.io/benchmark/webp/</id>
+        
+        <content type="html" xml:base="https://bensuperpc.github.io/benchmark/webp/">&lt;h1 id=&quot;introduction&quot;&gt;Introduction&lt;&#x2F;h1&gt;
+&lt;p&gt;Webp is a image format created by Google in early 2010&#x27;s, in this article, we will benchmark it against others lossless formats like avif, png, jpegxl.&lt;&#x2F;p&gt;
+&lt;p&gt;The benchmark is done using the &lt;strong&gt;PNG&lt;&#x2F;strong&gt; format as input, and the output formats are &lt;strong&gt;Webp&lt;&#x2F;strong&gt;, &lt;strong&gt;Avif&lt;&#x2F;strong&gt;, and &lt;strong&gt;JpegXL&lt;&#x2F;strong&gt;.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;setup&quot;&gt;Setup&lt;&#x2F;h2&gt;
+&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th style=&quot;text-align: center&quot;&gt;Specification&lt;&#x2F;th&gt;&lt;th style=&quot;text-align: center&quot;&gt;Value&lt;&#x2F;th&gt;&lt;&#x2F;tr&gt;&lt;&#x2F;thead&gt;&lt;tbody&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: center&quot;&gt;CPU&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;AMD Ryzen 7 5700X 8c16t (3.4 GHz &#x2F; 4.6 GHz)&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: center&quot;&gt;GPU&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;NVIDIA GeForce RTX 3060 Ti 8GB GDDR6&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: center&quot;&gt;RAM&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;64GB DDR4 3200MHz&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: center&quot;&gt;OS&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;Manjaro&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: center&quot;&gt;Compiler&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;GCC 14.2.1&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: center&quot;&gt;cwebp&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;archlinux.org&#x2F;packages&#x2F;extra&#x2F;x86_64&#x2F;libwebp&#x2F;&quot;&gt;1.6.0&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: center&quot;&gt;avifenc&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;archlinux.org&#x2F;packages&#x2F;extra&#x2F;x86_64&#x2F;libavif&#x2F;&quot;&gt;1.3.0&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: center&quot;&gt;cjxl&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;archlinux.org&#x2F;packages&#x2F;extra&#x2F;x86_64&#x2F;libjxl&#x2F;&quot;&gt;0.11.1&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: center&quot;&gt;ffmpeg&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;archlinux.org&#x2F;packages&#x2F;extra&#x2F;x86_64&#x2F;ffmpeg&#x2F;&quot;&gt;8.0.1&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: center&quot;&gt;Docker Image&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;bensuperpc&#x2F;docker-multimedia&quot;&gt;docker.io&#x2F;bensuperpc&#x2F;multimedia:1.0.0-archlinux-base-20251121&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
+&lt;h2 id=&quot;lossless-compression&quot;&gt;Lossless compression&lt;&#x2F;h2&gt;
+&lt;p&gt;The dataset for the &lt;strong&gt;lossless&lt;&#x2F;strong&gt; benchmark is:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;~9940 screenshots (32&#x27;257 Mo) from Minecraft (720p to 1440p, some 2160p).&lt;&#x2F;li&gt;
+&lt;li&gt;~10313 screenshots (42&#x27;247 Mo) from Fortnite, Battlefield, 7 Days to Die, and GTA V etc... (1080p to 1440p, some 2160p).&lt;&#x2F;li&gt;
+&lt;li&gt;~5485 screenshots (2&#x27;572 Mo) from desktop applications (240p to 1440p).&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;The PNG to Webp lossless compression command is:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; class=&quot;language-bash z-code&quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;&lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;cwebp&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt;&lt;span class=&quot;z-variable z-parameter z-option z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-parameter z-shell&quot;&gt; -&lt;&#x2F;span&gt;quiet&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-option z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-parameter z-shell&quot;&gt; -&lt;&#x2F;span&gt;metadata&lt;&#x2F;span&gt; all&lt;span class=&quot;z-variable z-parameter z-option z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-parameter z-shell&quot;&gt; -&lt;&#x2F;span&gt;lossless&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-option z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-parameter z-shell&quot;&gt; -&lt;&#x2F;span&gt;exact&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-option z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-parameter z-shell&quot;&gt; -&lt;&#x2F;span&gt;z&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-assignment z-redirection z-shell&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;Compression&lt;span class=&quot;z-keyword z-operator z-assignment z-redirection z-shell&quot;&gt;&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-assignment z-redirection z-shell&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;Input&lt;span class=&quot;z-keyword z-operator z-assignment z-redirection z-shell&quot;&gt;&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-punctuation z-terminator z-file-descriptor z-shell&quot;&gt;-&lt;&#x2F;span&gt;o &lt;span class=&quot;z-keyword z-operator z-assignment z-redirection z-shell&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;Output&lt;span class=&quot;z-keyword z-operator z-assignment z-redirection z-shell&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;The options are:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;-quiet&lt;&#x2F;code&gt;: Quiet mode.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;-metadata all&lt;&#x2F;code&gt;: Copy all metadata.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;-lossless&lt;&#x2F;code&gt;: Lossless compression.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;-exact&lt;&#x2F;code&gt;: Use exact mode, keep invisible pixels.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;-z &amp;lt;Compression&amp;gt;&lt;&#x2F;code&gt;: Compression level, from 0 to 9, 9 best compression.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;-mt&lt;&#x2F;code&gt;: Use multi-threading (we don&#x27;t use it for the benchmark, gnu parallel is used).&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;Input&amp;gt;&lt;&#x2F;code&gt;: Input PNG file.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;Output&amp;gt;&lt;&#x2F;code&gt;: Output Webp file.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;For PNG to Avif lossless compression:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; class=&quot;language-bash z-code&quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;&lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;avifenc&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt;&lt;span class=&quot;z-variable z-parameter z-option z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-parameter z-shell&quot;&gt; --&lt;&#x2F;span&gt;jobs&lt;&#x2F;span&gt; 1&lt;span class=&quot;z-variable z-parameter z-option z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-parameter z-shell&quot;&gt; --&lt;&#x2F;span&gt;lossless&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-option z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-parameter z-shell&quot;&gt; --&lt;&#x2F;span&gt;speed&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-assignment z-redirection z-shell&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;Compression&lt;span class=&quot;z-keyword z-operator z-assignment z-redirection z-shell&quot;&gt;&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-punctuation z-terminator z-file-descriptor z-shell&quot;&gt;-&lt;&#x2F;span&gt;-codec &lt;span class=&quot;z-keyword z-operator z-assignment z-redirection z-shell&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;codec&lt;span class=&quot;z-keyword z-operator z-assignment z-redirection z-shell&quot;&gt;&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-assignment z-redirection z-shell&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;Input&lt;span class=&quot;z-keyword z-operator z-assignment z-redirection z-shell&quot;&gt;&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-punctuation z-terminator z-file-descriptor z-shell&quot;&gt;-&lt;&#x2F;span&gt;-output &lt;span class=&quot;z-keyword z-operator z-assignment z-redirection z-shell&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;Output&lt;span class=&quot;z-keyword z-operator z-assignment z-redirection z-shell&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;The options are:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;--lossless&lt;&#x2F;code&gt;: Lossless compression.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;--speed &amp;lt;Compression&amp;gt;&lt;&#x2F;code&gt;: Compression level, from 0 to 9, 9 best compression.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;--jobs 1&lt;&#x2F;code&gt;: Number of jobs.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;--codec&lt;&#x2F;code&gt;: Use the &lt;em&gt;aom&lt;&#x2F;em&gt; codec, only codec available for lossless compression (11-2024).&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;Input&amp;gt;&lt;&#x2F;code&gt;: Input PNG file.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;Output&amp;gt;&lt;&#x2F;code&gt;: Output Avif file.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;For PNG to JPGXL lossless compression:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; class=&quot;language-bash z-code&quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;&lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;cjxl&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt;&lt;span class=&quot;z-variable z-parameter z-option z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-parameter z-shell&quot;&gt; --&lt;&#x2F;span&gt;num_threads&lt;&#x2F;span&gt; 1&lt;span class=&quot;z-variable z-parameter z-option z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-parameter z-shell&quot;&gt; --&lt;&#x2F;span&gt;quiet&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-option z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-parameter z-shell&quot;&gt; --&lt;&#x2F;span&gt;effort&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-assignment z-redirection z-shell&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;Compression&lt;span class=&quot;z-keyword z-operator z-assignment z-redirection z-shell&quot;&gt;&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-punctuation z-terminator z-file-descriptor z-shell&quot;&gt;-&lt;&#x2F;span&gt;-distance 0.0&lt;span class=&quot;z-variable z-parameter z-option z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-parameter z-shell&quot;&gt; --&lt;&#x2F;span&gt;brotli_effort&lt;&#x2F;span&gt; 11 &lt;span class=&quot;z-keyword z-operator z-assignment z-redirection z-shell&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;Input&lt;span class=&quot;z-keyword z-operator z-assignment z-redirection z-shell&quot;&gt;&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-assignment z-redirection z-shell&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;Output&lt;span class=&quot;z-keyword z-operator z-assignment z-redirection z-shell&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;The options are:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;--quiet&lt;&#x2F;code&gt;: Quiet mode.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;--num_threads 1&lt;&#x2F;code&gt;: Number of threads.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;--effort &amp;lt;Compression&amp;gt;&lt;&#x2F;code&gt;: Compression level, from 0 to 9, 9 best compression.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;--distance 0.0&lt;&#x2F;code&gt;: The quality, 0.0 is &quot;mathematically lossless&quot;.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;--brotli_effort 11&lt;&#x2F;code&gt;: Brotli compression level, 11 best compression.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;Input&amp;gt;&lt;&#x2F;code&gt;: Input PNG file.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;Output&amp;gt;&lt;&#x2F;code&gt;: Output JPGXL file.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2 id=&quot;results&quot;&gt;Results&lt;&#x2F;h2&gt;
+&lt;p&gt;Desktop applications (901 Mo):&lt;&#x2F;p&gt;
+&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th style=&quot;text-align: center&quot;&gt;Format&lt;&#x2F;th&gt;&lt;th style=&quot;text-align: center&quot;&gt;Compression&lt;&#x2F;th&gt;&lt;th style=&quot;text-align: center&quot;&gt;Size (Mo)&lt;&#x2F;th&gt;&lt;th style=&quot;text-align: center&quot;&gt;Ratio (%)&lt;&#x2F;th&gt;&lt;th style=&quot;text-align: center&quot;&gt;Time (s)&lt;&#x2F;th&gt;&lt;&#x2F;tr&gt;&lt;&#x2F;thead&gt;&lt;tbody&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: center&quot;&gt;png&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;-&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;901&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;100.0&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;-&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: center&quot;&gt;webp&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;0&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;879&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;97.5&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;150&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: center&quot;&gt;webp&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;1&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;660&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;72.2&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;176&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: center&quot;&gt;webp&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;2&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;637&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;70.7&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;178&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: center&quot;&gt;webp&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;3&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;602&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;66.8&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;181&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: center&quot;&gt;webp&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;4&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;601&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;66.7&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;185&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: center&quot;&gt;webp&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;5&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;598&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;66.3&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;198&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: center&quot;&gt;webp&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;6&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;588&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;65.2&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;206&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: center&quot;&gt;webp&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;7&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;585&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;64.9&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;211&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: center&quot;&gt;webp&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;8&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;575&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;63.8&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;283&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: center&quot;&gt;webp&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;9&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;560&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;62.1&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;1017&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: center&quot;&gt;jpegxl&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;1&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;956&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;106.1&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;215&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: center&quot;&gt;jpegxl&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;2&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;900&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;99.8&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;261&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: center&quot;&gt;jpegxl&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;3&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;848&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;94.1&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;492&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: center&quot;&gt;jpegxl&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;4&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;778&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;86.3&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;735&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: center&quot;&gt;jpegxl&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;5&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;659&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;73.1&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;713&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: center&quot;&gt;jpegxl&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;6&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;640&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;71.0&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;762&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: center&quot;&gt;jpegxl&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;7&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;604&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;67.0&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;780&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: center&quot;&gt;jpegxl&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;8&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;579&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;64.2&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;1407&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: center&quot;&gt;jpegxl&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;9&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;569&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;63.1&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: center&quot;&gt;2450&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
+&lt;h2 id=&quot;cleanup&quot;&gt;Cleanup&lt;&#x2F;h2&gt;
+&lt;pre data-lang=&quot;bash&quot; class=&quot;language-bash z-code&quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;&lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;find&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt; .&lt;span class=&quot;z-variable z-parameter z-option z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-parameter z-shell&quot;&gt; -&lt;&#x2F;span&gt;type&lt;&#x2F;span&gt; f&lt;span class=&quot;z-variable z-parameter z-option z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-parameter z-shell&quot;&gt; -&lt;&#x2F;span&gt;name&lt;&#x2F;span&gt; &lt;span class=&quot;z-string z-quoted z-double z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-shell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;*.webp&lt;span class=&quot;z-punctuation z-definition z-string z-end z-shell&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-option z-shell&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-parameter z-shell&quot;&gt; -&lt;&#x2F;span&gt;delete&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h2 id=&quot;sources&quot;&gt;Sources&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;developers.google.com&#x2F;speed&#x2F;webp&#x2F;docs&#x2F;cwebp&quot;&gt;cWebp&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;aomediacodec.github.io&#x2F;av1-avif&#x2F;&quot;&gt;Avif&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;jpegxl.info&#x2F;&quot;&gt;JpegXL&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+        
+    </entry>
+</feed>
