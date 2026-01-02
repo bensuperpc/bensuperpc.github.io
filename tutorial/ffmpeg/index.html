@@ -1,0 +1,445 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="https://blog.bensuperpc.org/js/theme.min.js" integrity="sha384-pb++s6uBRKaQv+iAXpgA/H3IlpLZdO14tTwuCI7uXmz4aaZdByoCcM+6BhynMq/1"></script>
+  <link rel="stylesheet" href="https://blog.bensuperpc.org/abridge.css?h=efa77181840e3359de68" />
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="base" content="https://blog.bensuperpc.org" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="theme-color" content="#333333" />
+  <meta name="msapplication-TileColor" content="#333333" />
+  <link rel="manifest" href="https://blog.bensuperpc.org/manifest.min.json" />
+  <link rel="apple-touch-icon" sizes="180x180" href="https://blog.bensuperpc.org/images/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="https://blog.bensuperpc.org/images/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="https://blog.bensuperpc.org/images/favicon-16x16.png" />
+  <link rel="alternate" type="application/atom+xml" title="Bensuperpc Atom Feed" href="https://blog.bensuperpc.org/atom.xml" />
+  <meta name="robots" content="index, follow" />
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <title>Tutorial on FFMPEG (WIP) | Bensuperpc</title>
+  <meta name="author" content="Bensuperpc" />
+  <meta name="copyright" content="Bensuperpc" />
+  <meta name="description" content="Tutorial on FFMPEG" />
+  <link rel="canonical" href="https://blog.bensuperpc.org/tutorial/ffmpeg/" />
+  <meta name="keywords" content="FFMPEG, AV1, x265, x264, SVT-AV1, Rav1e, Audio, Video, Image, Metadata, Abridge, Abridge.css, Zola, Theme, Zola Theme, getzola, Semantic Html, Fast, lightweight" />
+  <meta name="google-site-verification" content="Your Google Site verification code." />
+  <meta name="msvalidate.01" content="Your Bing Site verification code." />
+  <meta property="og:url" content="https://blog.bensuperpc.org/tutorial/ffmpeg/" />
+  <meta name="twitter:url" content="https://blog.bensuperpc.org/tutorial/ffmpeg/" />
+  <meta property="og:description" content="Tutorial on FFMPEG" />
+  <meta name="twitter:description" content="Tutorial on FFMPEG" />
+  <meta property="og:title" content="Tutorial on FFMPEG (WIP) | Bensuperpc" />
+  <meta name="twitter:title" content="Tutorial on FFMPEG (WIP) | Bensuperpc" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://blog.bensuperpc.org/images/apple-touch-icon.png" />
+  <meta property="og:image" content="https://blog.bensuperpc.org/images/apple-touch-icon.png" />
+  <meta property="og:site_name" content="Bensuperpc" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:type" content="website" />
+  <meta property="og:updated_time" content="2025-02-16" />
+  <meta name="twitter:site" content="@bensuperpc" />
+  <meta name="twitter:creator" content="@bensuperpc" />
+  <script defer src="https://blog.bensuperpc.org/js/abridge.min.js?h=e0f9a881a665c86cce9c" integrity="sha384-QF67y7RnPkuDrJNQqn3/7nYxqxWkW/qHI7zN0WTES1aXbf+TotoByRBb835fUE6U"></script>
+  <noscript><link rel="stylesheet" href="https://blog.bensuperpc.org/nojs.css" /></noscript>
+</head>
+<body>
+  <header>
+    <nav>
+      <div><big><a href="https://blog.bensuperpc.org" title="Bensuperpc"><font color="#f90">B</font>ensuperpc</a></big></div>
+      <div>
+
+        <div>
+          <ul><li><a class="s110" href="https://blog.bensuperpc.org/archive/"> Posts </a></li><li><a class="s110" href="https://blog.bensuperpc.org/categories/"> Categories </a></li><li><a class="s110" href="https://blog.bensuperpc.org/tags/"> Tags </a></li><li><a class="s110" href="https://blog.bensuperpc.org/links/"> Links </a></li><li><a class="s110" href="https://blog.bensuperpc.org/projects/"> Projects </a></li><li><a class="s110" href="https://blog.bensuperpc.org/about/"> About </a></li>
+            <li><div class="dropdown"><i class="svgs world" type="reset"></i>
+                <div class="dropdown-content">
+                <span>English</span><a href="https://blog.bensuperpc.org/fr/tutorial/ffmpeg/">Français</a></div>
+            </div></li><li><i type="reset" id="mode" class="js svgs adjust"></i></ul>
+        </div>
+
+        <div>
+          <div>
+            <form autocomplete=off class="js" name="goSearch" id="searchbox">
+              <div class="searchd">
+                <input id="searchinput" type="text" placeholder="Search" title="Search" />
+                <button type="submit" title="Search" class="svgs svgm search"></button>
+              </div>
+              <div class="results"><div id="suggestions"></div></div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </nav>
+    <hr />
+  </header>
+  <main>
+    <article>
+      <h1><a href="https://blog.bensuperpc.org/tutorial/ffmpeg/">Tutorial on FFMPEG (WIP)</a></h1>
+
+      <span class="s95"> Bensuperpc <span class="rpad"></span> February 16, 2025 <span class="rpad"></span> #<a href="https://blog.bensuperpc.org/tags/features/">Features</a>  #<a href="https://blog.bensuperpc.org/tags/ffmpeg/">FFMPEG</a>  #<a href="https://blog.bensuperpc.org/tags/av1/">AV1</a>  #<a href="https://blog.bensuperpc.org/tags/x265/">x265</a>  #<a href="https://blog.bensuperpc.org/tags/x264/">x264</a>  #<a href="https://blog.bensuperpc.org/tags/svt-av1/">SVT-AV1</a>  #<a href="https://blog.bensuperpc.org/tags/rav1e/">Rav1e</a>  #<a href="https://blog.bensuperpc.org/tags/audio/">Audio</a>  #<a href="https://blog.bensuperpc.org/tags/video/">Video</a>  #<a href="https://blog.bensuperpc.org/tags/image/">Image</a>  #<a href="https://blog.bensuperpc.org/tags/metadata/">Metadata</a> </span>
+
+    
+        <div class="block">
+      <div class="blockdiv">
+        <a class="b s150" href="https://blog.bensuperpc.org/tags/features/">Features (Series)</a><br>
+            <a href="https://blog.bensuperpc.org/tutorial/canbus/">CAN bus under Linux (WIP)</a><br>
+            <a href="https://blog.bensuperpc.org/benchmark/webp/">Benchmarking Webp format (WIP)</a><br>
+            <a class="scur" href="https://blog.bensuperpc.org/tutorial/ffmpeg/">Tutorial on FFMPEG (WIP)</a><br> 
+          
+            <a href="https://blog.bensuperpc.org/tutorial/rtl9210/">RTL9210 Firmware and Tools</a><br>
+            <a href="https://blog.bensuperpc.org/documentation/hardware/pc/ssd/">Comparison of SSDs</a><br>
+            <a href="https://blog.bensuperpc.org/documentation/hardware/pc/cpu/">Evolutions of CPUs (WIP)</a><br>
+            <a href="https://blog.bensuperpc.org/documentation/hardware/pc/gpu/">Mesa GPU drivers</a><br>
+            <a href="https://blog.bensuperpc.org/tutorial/kubernetes/">Deploy Traefik as a reverse proxy with Kubernetes</a><br>
+            <a href="https://blog.bensuperpc.org/tutorial/coverage/">C++ Code Coverage with CMake and GCOVR</a><br>
+            <a href="https://blog.bensuperpc.org/documentation/hardware/sff-pc/guide-sff-pc/">A guide to SFF PCs (WIP)</a><br>
+      </div>
+    </div>
+
+
+<h2 id="about-ffmpeg">About FFMPEG</h2>
+<h3 id="convert-video-to-av1-crf-svt-av1">Convert video to AV1 CRF (SVT-AV1)</h3>
+<table><thead><tr><th style="text-align: center">Option</th><th style="text-align: center">default</th><th style="text-align: center">Example</th><th style="text-align: center">Description</th></tr></thead><tbody>
+<tr><td style="text-align: center">-vf</td><td style="text-align: center">-</td><td style="text-align: center">-vf scale=1920:-1</td><td style="text-align: center">Downscale the video to 1080p</td></tr>
+<tr><td style="text-align: center">-g</td><td style="text-align: center">?</td><td style="text-align: center">-g 60</td><td style="text-align: center">Set the keyframe interval of x frames, lower value increase quality but increase file size</td></tr>
+<tr><td style="text-align: center">-pix_fmt</td><td style="text-align: center">Depends on source</td><td style="text-align: center">-pix_fmt yuv420p</td><td style="text-align: center">Set the pixel format, yuv420p for 8-bit, yuv420p10le for 10-bit ect...</td></tr>
+<tr><td style="text-align: center">-crf</td><td style="text-align: center">-</td><td style="text-align: center">-</td><td style="text-align: center">Constant Rate Factor, <strong>options depend on the encoder</strong></td></tr>
+<tr><td style="text-align: center">-preset</td><td style="text-align: center">-</td><td style="text-align: center">-</td><td style="text-align: center">Set the encoding speed, <strong>options depend on the encoder</strong></td></tr>
+<tr><td style="text-align: center">-tune</td><td style="text-align: center">-</td><td style="text-align: center">-</td><td style="text-align: center">Set the encoding tune, <strong>options depend on the encoder</strong></td></tr>
+<tr><td style="text-align: center">-c:v</td><td style="text-align: center">-</td><td style="text-align: center">-c:v libx265</td><td style="text-align: center">Set the video codec, <strong>options depend on installed codecs</strong></td></tr>
+<tr><td style="text-align: center">-c:a</td><td style="text-align: center">-</td><td style="text-align: center">-c:a copy</td><td style="text-align: center">Set the audio codec, <strong>options depend on installed codecs</strong></td></tr>
+<tr><td style="text-align: center">-c:s</td><td style="text-align: center">-</td><td style="text-align: center">-c:s copy</td><td style="text-align: center">Set the subtitle codec, <strong>options depend on installed codecs</strong></td></tr>
+<tr><td style="text-align: center">-map</td><td style="text-align: center">-</td><td style="text-align: center">-map 0</td><td style="text-align: center">Map the input stream to the output</td></tr>
+<tr><td style="text-align: center">-map_metadata</td><td style="text-align: center">-</td><td style="text-align: center">-map_metadata 0</td><td style="text-align: center">Map the metadata to the output</td></tr>
+<tr><td style="text-align: center">-map_chapters</td><td style="text-align: center">-</td><td style="text-align: center">-map_chapters 0</td><td style="text-align: center">Map the chapters to the output</td></tr>
+<tr><td style="text-align: center">-fps_mode</td><td style="text-align: center">auto</td><td style="text-align: center">-fps_mode passthrough</td><td style="text-align: center">Set the frame rate mode, passthrough, cfr, vfr, auto</td></tr>
+<tr><td style="text-align: center">-loglevel</td><td style="text-align: center">-</td><td style="text-align: center">-loglevel error</td><td style="text-align: center">Set the log level, error, warning, info, verbose, debug, trace</td></tr>
+<tr><td style="text-align: center">-hide_banner</td><td style="text-align: center">-</td><td style="text-align: center">-hide_banner</td><td style="text-align: center">Hide the banner</td></tr>
+<tr><td style="text-align: center">-y</td><td style="text-align: center">-</td><td style="text-align: center">-y</td><td style="text-align: center">Overwrite output files without asking</td></tr>
+</tbody></table>
+<p>This table shows the most common options for SVT-AV1, like the preset, crf, and svtav1-params.</p>
+<p><strong>For svtav1-params each option is separated by a colon <code>:</code>, option and value are separated by <code>=</code>, like <code>tune=0:enable-qm=1:qm-min=0</code>.</strong></p>
+<table><thead><tr><th style="text-align: center">Option</th><th style="text-align: center">default</th><th style="text-align: center">Min/Max</th><th style="text-align: center">Example</th><th style="text-align: center">Description</th></tr></thead><tbody>
+<tr><td style="text-align: center">-preset</td><td style="text-align: center">4</td><td style="text-align: center">-preset 4</td><td style="text-align: center">0-12</td><td style="text-align: center">0 for slowest, 12 for fastest encoding</td></tr>
+<tr><td style="text-align: center">-crf</td><td style="text-align: center">18</td><td style="text-align: center">-crf 30</td><td style="text-align: center">0-63</td><td style="text-align: center">Constant Rate Factor, lower value increase quality</td></tr>
+<tr><td style="text-align: center">-svtav1-params</td><td style="text-align: center">-</td><td style="text-align: center">-</td><td style="text-align: center">-svtav1-params tune=0:enable-qm=1</td><td style="text-align: center">SVT-AV1 specific options</td></tr>
+<tr><td style="text-align: center">tune</td><td style="text-align: center">1</td><td style="text-align: center">0-1</td><td style="text-align: center">-svtav1-params tune=0</td><td style="text-align: center">0 for subjective quality, 1 for objective quality (PSNR)</td></tr>
+<tr><td style="text-align: center">enable-qm</td><td style="text-align: center">0</td><td style="text-align: center">0-1</td><td style="text-align: center">-svtav1-params enable-qm=1</td><td style="text-align: center">Enable quantization matrices</td></tr>
+<tr><td style="text-align: center">qm-min</td><td style="text-align: center">8</td><td style="text-align: center">0-15</td><td style="text-align: center">-svtav1-params qm-min=0</td><td style="text-align: center">Minimum quantization matrix</td></tr>
+<tr><td style="text-align: center">qm-max</td><td style="text-align: center">15</td><td style="text-align: center">0-15</td><td style="text-align: center">-svtav1-params qm-max=10</td><td style="text-align: center">Maximum quantization matrix</td></tr>
+<tr><td style="text-align: center">aq-mode</td><td style="text-align: center">2</td><td style="text-align: center">0-2</td><td style="text-align: center">-svtav1-params aq-mode=2</td><td style="text-align: center">Adaptive quantization mode</td></tr>
+<tr><td style="text-align: center">enable-overlays</td><td style="text-align: center">0</td><td style="text-align: center">0-1</td><td style="text-align: center">-svtav1-params enable-overlays=1</td><td style="text-align: center">Enable overlays</td></tr>
+<tr><td style="text-align: center">film-grain</td><td style="text-align: center">0</td><td style="text-align: center">0-12</td><td style="text-align: center">-svtav1-params film-grain=8</td><td style="text-align: center">Add film grain to the video</td></tr>
+</tbody></table>
+<p>More information about the options can be found in the <a rel="noopener" target="_blank" href="https://gitlab.com/AOMediaCodec/SVT-AV1/-/blob/master/Docs/Parameters.md?ref_type=heads">SVT-AV1 documentation</a></p>
+<p>Example of encoding CRF for very high quality (Maybe little overkill, preset 4 and crf 20 is a good start for 1080p).</p>
+<pre data-lang="bash" class="language-bash z-code"><code class="language-bash" data-lang="bash"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">ffmpeg</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>i</span> input.mkv<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>c</span>:v libsvtav1<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>preset</span> 1<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>crf</span> 14<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>svtav1-params</span> tune=0:enable-qm=1:qm-min=0:qm-max=8<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>c</span>:a copy<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>c</span>:s copy<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>map</span> 0<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>map_metadata</span> 0<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>map_chapters</span> 0 output.mkv</span>
+</span></code></pre>
+<ul>
+<li><strong>-preset 1</strong>: i recommend to use 4-6 for good quality and speed, 3 or lower for better quality but it <strong>really</strong> slow (~2x slower per lower step, for minimal gain).</li>
+<li><strong>-crf 14</strong>: CRF 20-24 is a good start, 14 for very high quality bit bigger file size.</li>
+<li><strong>tune=0</strong>: Enable subjective quality, 1 for objective quality (PSNR).</li>
+<li><strong>enable-qm=1</strong>: Enable quantization matrices.</li>
+<li><strong>qm-min=0</strong>: Minimum quantization matrix, reduce it for lower compression in certain zones, the <em>8</em> default is little too high, 0-4 is a good start.</li>
+<li><strong>qm-max=8</strong>: Maximum quantization matrix, increase it for higher compression in certain zones, the <em>15</em> default is little too high, 8-12 is a good start.</li>
+</ul>
+<p>With <strong>AV1AN</strong>, it usefull if you have move than 16 threads, SVT-AV1 is not well optimized for over 16 threads, AV11AN encode the video in parallel <strong>per scene</strong>.</p>
+<pre data-lang="bash" class="language-bash z-code"><code class="language-bash" data-lang="bash"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">av1an</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>i</span> input.mkv<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>encoder</span> svt-av1<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>video-params</span> <span class="z-string z-quoted z-double z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&quot;</span>--rc 0 --crf 16 --preset 1 --tune 0 --enable-qm=1 --qm-min=0 --qm-max=8<span class="z-punctuation z-definition z-string z-end z-shell">&quot;</span></span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>audio-params</span> <span class="z-string z-quoted z-double z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&quot;</span>-c:a copy<span class="z-punctuation z-definition z-string z-end z-shell">&quot;</span></span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>o</span> temp_output.mkv</span>
+</span></code></pre>
+<p>Copy metadata and chapters:</p>
+<pre data-lang="bash" class="language-bash z-code"><code class="language-bash" data-lang="bash"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">ffmpeg</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>i</span> temp_output.mkv<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>i</span> input.mkv<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>map</span> 0<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>map_metadata</span> 1<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>map_chapters</span> 1<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>c</span> copy output.mkv</span>
+</span></code></pre>
+<p>Optional for AV1AN:</p>
+<ul>
+<li>Add <code>--video-filter "scale=1920:-1"</code> to downscale the video to 1080p</li>
+<li>Add <code>--keyint 60</code> in video-params to set the keyframe interval to 60 frames (every 1 seconds at 60fps), lower value increase quality but increase file size</li>
+</ul>
+<h3 id="convert-video-to-av1-crf-aom">Convert video to AV1 CRF(AOM)</h3>
+<pre data-lang="bash" class="language-bash z-code"><code class="language-bash" data-lang="bash"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">ffmpeg</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>i</span> input.mkv<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>c</span>:v libaom-av1<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>crf</span> 18<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>cpu-used</span> 3<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>row-mt</span> 1<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>c</span>:a copy<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>c</span>:s copy<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>map</span> 0<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>map_metadata</span> 0<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>map_chapters</span> 0 output.mkv</span>
+</span></code></pre>
+<h3 id="convert-video-to-av1-crf-rav1e">Convert video to AV1 CRF (Rav1e)</h3>
+<pre data-lang="bash" class="language-bash z-code"><code class="language-bash" data-lang="bash"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">ffmpeg</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>i</span> input.mkv<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>y</span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>c</span>:v librav1e<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>crf</span> 18<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>speed</span> 3<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>c</span>:a copy<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>c</span>:s copy<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>map</span> 0<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>map_metadata</span> 0<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>map_chapters</span> 0 output.mkv</span>
+</span></code></pre>
+<h3 id="convert-video-to-h265-crf-x265">Convert video to h265 CRF (x265)</h3>
+<pre data-lang="bash" class="language-bash z-code"><code class="language-bash" data-lang="bash"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">ffmpeg</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>i</span> input.mkv<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>y</span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>c</span>:v libx265<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>crf</span> 18<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>preset</span> slower<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>c</span>:a copy<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>c</span>:s copy<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>map</span> 0<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>map_metadata</span> 0<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>map_chapters</span> 0 output.mkv</span>
+</span></code></pre>
+<h3 id="convert-video-to-h265-abr-2-pass-and-scale-to-720p-x265">Convert video to h265 ABR 2 pass and scale to 720p (x265)</h3>
+<pre data-lang="bash" class="language-bash z-code"><code class="language-bash" data-lang="bash"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">ffmpeg</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>i</span> input.mkv<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>y</span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>c</span>:v libx265<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>preset</span> slow<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>vf</span> scale=1280:-1<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>b</span>:v 2000k<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>minrate</span> 500k<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>maxrate</span> 6000k<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>bufsize</span> 12000k<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>pass</span> 1<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>an</span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>f</span> null /dev/null</span> <span class="z-keyword z-operator z-logical z-and z-shell">&amp;&amp;</span> <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">ffmpeg</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>i</span> input.mkv<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>preset</span> slow<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>vf</span> scale=1280:-1<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>c</span>:v libx265<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>b</span>:v 2000k<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>minrate</span> 500k<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>maxrate</span> 6000k<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>bufsize</span> 12000k<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>pass</span> 2<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>c</span>:a copy<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>c</span>:s copy<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>map</span> 0<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>map_metadata</span> 0<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>map_chapters</span> 0 output.mkv</span>
+</span></code></pre>
+<h3 id="convert-video-to-h264-crf-x264">Convert video to h264 CRF (x264)</h3>
+<pre data-lang="bash" class="language-bash z-code"><code class="language-bash" data-lang="bash"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">ffmpeg</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>i</span> input.mkv<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>c</span>:v libx264<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>crf</span> 26<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>preset</span> slow<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>c</span>:a copy<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>c</span>:s copy<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>map</span> 0<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>map_metadata</span> 0<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>map_chapters</span> 0 output.mkv</span>
+</span></code></pre>
+<h3 id="get-ssim">Get SSIM</h3>
+<p>SSIM Y: For luma (Y) channel, 0-1, 1 is perfect match
+SSIM U: For chrominance (U) channel, 0-1, 1 is perfect match
+SSIM V: For chrominance (V) channel, 0-1, 1 is perfect match
+SSIM All: Average of YUV, 0-1, 1 is perfect match</p>
+<pre data-lang="bash" class="language-bash z-code"><code class="language-bash" data-lang="bash"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">ffmpeg</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>i</span> output.mkv<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>i</span> input.mkv<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>lavfi</span> ssim<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>f</span> null -</span>
+</span></code></pre>
+<h3 id="get-psnr">Get PSNR</h3>
+<p>PSNR Y: For luma (Y) channel, in dB higher is better
+PSNR U: For chrominance (U) channel, in dB higher is better
+PSNR V: For chrominance (V) channel, in dB higher is better
+PSNR All: Average of YUV, in dB higher is better</p>
+<pre data-lang="bash" class="language-bash z-code"><code class="language-bash" data-lang="bash"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">ffmpeg</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>i</span> output.mkv<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>i</span> input.mkv<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>lavfi</span> psnr<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>f</span> null -</span>
+</span></code></pre>
+<h3 id="get-vmaf">Get VMAF</h3>
+<p>VMAF score, higher is better</p>
+<pre data-lang="bash" class="language-bash z-code"><code class="language-bash" data-lang="bash"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">ffmpeg</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>i</span> output.mkv<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>i</span> input.mkv<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>lavfi</span> libvmaf<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>f</span> null -</span>
+</span></code></pre>
+<p>Output into a json file</p>
+<pre data-lang="bash" class="language-bash z-code"><code class="language-bash" data-lang="bash"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">ffmpeg</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>i</span> video1.mp4<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>i</span> video2.mp4<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>lavfi</span> libvmaf=<span class="z-string z-quoted z-double z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&quot;</span>log_path=vmaf.json:log_fmt=json<span class="z-punctuation z-definition z-string z-end z-shell">&quot;</span></span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>f</span> null -</span>
+</span></code></pre>
+<h3 id="cut-video-without-re-encoding">Cut video without re-encoding</h3>
+<p>Extract from 125s to 200s</p>
+<pre data-lang="bash" class="language-bash z-code"><code class="language-bash" data-lang="bash"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">ffmpeg</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>i</span> input.mp4<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>ss</span> 125<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>t</span> 75<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>copyts</span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>map_metadata</span> 0<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>vcodec</span> copy<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>acodec</span> copy out.mkv</span>
+</span></code></pre>
+<p>Extract from 125s to 150s</p>
+<pre data-lang="bash" class="language-bash z-code"><code class="language-bash" data-lang="bash"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">ffmpeg</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>i</span> input.mp4<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>ss</span> 125<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>to</span> 150<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>c</span> copy<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>copyts</span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>map_metadata</span> 0<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>vcodec</span> copy<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>acodec</span> copy out.mkv</span>
+</span></code></pre>
+<h3 id="import-watermark">Import watermark</h3>
+<p>Import watermark at 10:10 from the top left corner</p>
+<pre data-lang="bash" class="language-bash z-code"><code class="language-bash" data-lang="bash"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">ffmpeg</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>i</span> input.mp4<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>i</span> watermark.png<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>filter_complex</span> <span class="z-string z-quoted z-double z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&quot;</span>overlay=10:10<span class="z-punctuation z-definition z-string z-end z-shell">&quot;</span></span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>c</span>:a copy<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>c</span>:s copy<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>map</span> 0<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>map_metadata</span> 0<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>map_chapters</span> 0 output.mp4</span>
+</span></code></pre>
+<h3 id="change-video-speed">Change video speed</h3>
+<p>Speed up the video by 2x</p>
+<pre data-lang="bash" class="language-bash z-code"><code class="language-bash" data-lang="bash"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">ffmpeg</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>i</span> input.mp4<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>vf</span> <span class="z-string z-quoted z-double z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&quot;</span>setpts=0.5*PTS<span class="z-punctuation z-definition z-string z-end z-shell">&quot;</span></span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>af</span> <span class="z-string z-quoted z-double z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&quot;</span>atempo=2.0<span class="z-punctuation z-definition z-string z-end z-shell">&quot;</span></span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>map_metadata</span> 0 output.mp4</span>
+</span></code></pre>
+<p>Change the video frame rate to 30fps (2x slower if the original is 60fps)</p>
+<pre data-lang="bash" class="language-bash z-code"><code class="language-bash" data-lang="bash"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">ffmpeg</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>i</span> input.mp4<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>filter</span>:v fps=fps=30<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>map_metadata</span> 0 output.mp4</span>
+</span></code></pre>
+<h3 id="convert-video-to-gif">Convert video to gif</h3>
+<pre data-lang="bash" class="language-bash z-code"><code class="language-bash" data-lang="bash"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">ffmpeg</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>i</span> input.mp4<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>vf</span> <span class="z-string z-quoted z-double z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&quot;</span>fps=24,scale=480:-1:flags=lanczos<span class="z-punctuation z-definition z-string z-end z-shell">&quot;</span></span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>c</span>:v gif<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>map_metadata</span> 0 output.gif</span>
+</span></code></pre>
+<h3 id="add-vintage-look-effect-to-video-and-play-it-with-ffplay">Add vintage look effect to video and play it with ffplay</h3>
+<pre data-lang="bash" class="language-bash z-code"><code class="language-bash" data-lang="bash"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">ffplay</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>i</span> input.mp4<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>vf</span> <span class="z-string z-quoted z-double z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&quot;</span>curves=vintage,noise=alls=30:allf=t+u,hue=s=0.7,eq=contrast=0.85:brightness=-0.1:saturation=0.7,gblur=sigma=1.5,colorbalance=rm=0.2:gm=0.1:bm=-0.2,vignette<span class="z-punctuation z-definition z-string z-end z-shell">&quot;</span></span></span>
+</span></code></pre>
+<ul>
+<li><strong>curves=vintage</strong>: Add a vintage look</li>
+<li><strong>noise=alls=30:allf=t+u</strong>: Add noise</li>
+<li><strong>hue=s=0.7</strong>: Reduces saturation</li>
+<li><strong>eq=contrast=0.85:brightness=-0.01:saturation=0.7</strong>: Adjust contrast, brightness and saturation</li>
+<li><strong>gblur=sigma=1.5</strong>: Add a gaussian blur</li>
+<li><strong>colorbalance=rm=0.2:gm=0.1:bm=-0.2</strong>: Adjust color balance to sepia tone</li>
+<li><strong>vignette</strong>: Add a vignette</li>
+</ul>
+<h2 id="image-commands-examples">Image commands examples</h2>
+<h3 id="convert-images-png-to-webp-lossless">Convert images png to webp (lossless)</h3>
+<pre data-lang="bash" class="language-bash z-code"><code class="language-bash" data-lang="bash"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">find</span></span><span class="z-meta z-function-call z-arguments z-shell"> .<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>name</span> <span class="z-string z-quoted z-double z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&quot;</span>*.png<span class="z-punctuation z-definition z-string z-end z-shell">&quot;</span></span></span> <span class="z-keyword z-operator z-logical z-pipe z-shell">|</span> <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">parallel</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>eta</span> cwebp<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>metadata</span> all<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>lossless</span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>exact</span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>z</span> 9 <span class="z-string z-quoted z-double z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&quot;</span>{}<span class="z-punctuation z-definition z-string z-end z-shell">&quot;</span></span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>o</span> <span class="z-string z-quoted z-double z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&quot;</span>{.}.webp<span class="z-punctuation z-definition z-string z-end z-shell">&quot;</span></span></span> <span class="z-keyword z-operator z-logical z-and z-shell">&amp;&amp;</span> <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">find</span></span><span class="z-meta z-function-call z-arguments z-shell"> .<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>name</span> <span class="z-string z-quoted z-double z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&quot;</span>*.png<span class="z-punctuation z-definition z-string z-end z-shell">&quot;</span></span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>exec</span> sh<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>c</span> <span class="z-string z-quoted z-single z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&#39;</span>touch -r &quot;${0%.*}.png&quot; &quot;${0%.*}.webp&quot;<span class="z-punctuation z-definition z-string z-end z-shell">&#39;</span></span> <span class="z-string z-quoted z-double z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&quot;</span>{}<span class="z-punctuation z-definition z-string z-end z-shell">&quot;</span></span> <span class="z-string z-quoted z-single z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&#39;</span>;<span class="z-punctuation z-definition z-string z-end z-shell">&#39;</span></span></span>
+</span></code></pre>
+<h3 id="get-difference-between-two-images">Get difference between two images</h3>
+<pre data-lang="bash" class="language-bash z-code"><code class="language-bash" data-lang="bash"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">compare</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>metric</span> AE input1.png input2.webp null:</span>
+</span></code></pre>
+<p>Or with ImageMagick</p>
+<pre data-lang="bash" class="language-bash z-code"><code class="language-bash" data-lang="bash"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">magick</span></span><span class="z-meta z-function-call z-arguments z-shell"> input1.png ppm:-</span> <span class="z-keyword z-operator z-logical z-pipe z-shell">|</span> <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">magick</span></span><span class="z-meta z-function-call z-arguments z-shell"> input2.webp ppm:-</span> <span class="z-keyword z-operator z-logical z-pipe z-shell">|</span> <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">diff</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>q</span> - <span class="z-keyword z-operator z-assignment z-redirection z-process z-shell">&lt;</span><span class="z-punctuation z-section z-parens z-begin z-shell">(</span><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">magick</span></span><span class="z-meta z-function-call z-arguments z-shell"> input2.webp ppm:-</span><span class="z-punctuation z-section z-parens z-end z-shell">)</span></span>
+</span></code></pre>
+<h2 id="audio-commands-examples"> Audio commands examples</h2>
+<h3 id="generate-audio-spectrogram-with-sox">Generate audio spectrogram with sox</h3>
+<p>You can generate a spectrogram with sox, for example with a flac file to detect "fake" flac files.</p>
+<pre data-lang="bash" class="language-bash z-code"><code class="language-bash" data-lang="bash"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">sox</span></span><span class="z-meta z-function-call z-arguments z-shell"> input_audio.flac<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>n</span> spectrogram<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>o</span> output_spectrogram.png</span>
+</span></code></pre>
+<p><em>Add <code>-t flac</code> if the input file is not recognized as flac.</em></p>
+<h3 id="increase-audio-volume-without-re-encoding">Increase audio volume without re-encoding</h3>
+<pre data-lang="bash" class="language-bash z-code"><code class="language-bash" data-lang="bash"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">ffmpeg</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>i</span> input.mp4<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>af</span> <span class="z-string z-quoted z-double z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&quot;</span>volume=2.0<span class="z-punctuation z-definition z-string z-end z-shell">&quot;</span></span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>c</span>:v copy<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>c</span>:a copy<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>c</span>:s copy<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>map</span> 0<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>map_metadata</span> 0<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>map_chapters</span> 0 output.mp4</span>
+</span></code></pre>
+<h3 id="convert-audio">Convert audio</h3>
+<table><thead><tr><th style="text-align: center">Audio lib</th><th style="text-align: center">Max bitrate</th><th style="text-align: center">Extension</th></tr></thead><tbody>
+<tr><td style="text-align: center">libmp3lame</td><td style="text-align: center">320kbps</td><td style="text-align: center">mp3</td></tr>
+<tr><td style="text-align: center">aac</td><td style="text-align: center">250kbps</td><td style="text-align: center">m4a</td></tr>
+<tr><td style="text-align: center">libopus</td><td style="text-align: center">250kbps</td><td style="text-align: center">opus</td></tr>
+<tr><td style="text-align: center">flac</td><td style="text-align: center">lossless</td><td style="text-align: center">flac</td></tr>
+</tbody></table>
+<p>Convert audio to mp3</p>
+<pre data-lang="bash" class="language-bash z-code"><code class="language-bash" data-lang="bash"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">ffmpeg</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>i</span> input.flac<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>c</span>:a libmp3lame<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>b</span>:a 320k output.mp3</span>
+</span></code></pre>
+<p>Convert audio to lossy or "fake" flac</p>
+<pre data-lang="bash" class="language-bash z-code"><code class="language-bash" data-lang="bash"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">ffmpeg</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>i</span> output.mp3 output.flac</span>
+</span></code></pre>
+<p>Remove noise from audio</p>
+<pre data-lang="bash" class="language-bash z-code"><code class="language-bash" data-lang="bash"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">ffmpeg</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>i</span> input.mp3<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>af</span> <span class="z-string z-quoted z-double z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&quot;</span>highpass=f=200, lowpass=f=3000<span class="z-punctuation z-definition z-string z-end z-shell">&quot;</span></span> output.mp3</span>
+</span></code></pre>
+<h2 id="metadata-commands-examples">Metadata commands examples</h2>
+<h3 id="get-metadata-from-audio-or-video-file">Get metadata from audio or video file</h3>
+<pre data-lang="bash" class="language-bash z-code"><code class="language-bash" data-lang="bash"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">ffprobe</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>v</span> quiet<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>print_format</span> json<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>show_format</span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>show_streams</span> input.mp4</span>
+</span></code></pre>
+<h3 id="youtube-dlp">Youtube-dlp</h3>
+<p>Download audio from youtube video without re-encoding:</p>
+<pre data-lang="bash" class="language-bash z-code"><code class="language-bash" data-lang="bash"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">yt-dlp</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>f</span> bestaudio<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>extract-audio</span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>embed-thumbnail</span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>embed-metadata</span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>embed-chapters</span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>output</span> <span class="z-string z-quoted z-double z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&quot;</span>%(title)s.%(ext)s<span class="z-punctuation z-definition z-string z-end z-shell">&quot;</span></span> <span class="z-string z-quoted z-double z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&quot;</span>https://www.youtube.com/watch?v=video_playlist_id<span class="z-punctuation z-definition z-string z-end z-shell">&quot;</span></span></span>
+</span></code></pre>
+<p>Download video from youtube video without re-encoding:</p>
+<pre data-lang="bash" class="language-bash z-code"><code class="language-bash" data-lang="bash"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">yt-dlp</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>f</span> <span class="z-string z-quoted z-double z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&quot;</span>bestvideo+(251/mergeall[format_id~=251-])<span class="z-punctuation z-definition z-string z-end z-shell">&quot;</span></span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>audio-multistreams</span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>sub-langs</span> <span class="z-string z-quoted z-double z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&quot;</span>all,-live_chat<span class="z-punctuation z-definition z-string z-end z-shell">&quot;</span></span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>embed-chapters</span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>embed-metadata</span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>merge-output-format</span> mkv<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>output</span> <span class="z-string z-quoted z-double z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&quot;</span>%(title)s.%(ext)s<span class="z-punctuation z-definition z-string z-end z-shell">&quot;</span></span> <span class="z-string z-quoted z-double z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&quot;</span>https://www.youtube.com/watch?v=video_id<span class="z-punctuation z-definition z-string z-end z-shell">&quot;</span></span></span>
+</span></code></pre>
+<h2 id="useful-links">Useful links</h2>
+<ul>
+<li><a rel="noopener" target="_blank" href="https://ffmpeg.org/">FFMPEG</a></li>
+<li><a rel="noopener" target="_blank" href="https://imagemagick.org/">ImageMagick</a></li>
+<li><a rel="noopener" target="_blank" href="https://gist.github.com/BlueSwordM/86dfcb6ab38a93a524472a0cbe4c4100">Simple SVT-AV1 Beginner Guide</a></li>
+<li><a rel="noopener" target="_blank" href="https://gitlab.com/AOMediaCodec/SVT-AV1/-/blob/master/Docs/CommonQuestions.md">CommonQuestions SVT-AV1</a></li>
+<li><a rel="noopener" target="_blank" href="https://ottverse.com/create-vintage-videos-using-ffmpeg/">Vintage look with ffmpeg</a></li>
+<li><a rel="noopener" target="_blank" href="https://ffmpeg.org/ffmpeg-filters.html">FFMPEG filters</a></li>
+<li><a rel="noopener" target="_blank" href="https://trac.ffmpeg.org/wiki/Encode/MP3">FFMPEG Lame</a></li>
+<li><a rel="noopener" target="_blank" href="https://wiki.x266.mov/blog/svt-av1-deep-dive">Encoding Animation with SVT-AV1: A Deep Dive</a></li>
+</ul>
+<h2 id="license">License</h2>
+<p><a href="https://blog.bensuperpc.org/tutorial/ffmpeg/LICENSE">MIT</a></p>
+
+      <nav>
+        <div>
+          <a href="https://blog.bensuperpc.org/benchmark/webp/">&#8249; Benchmarking Webp format (WIP)</a>
+        </div>
+        <div>
+          <a href="https://blog.bensuperpc.org/tutorial/canbus/"> CAN bus under Linux (WIP) &#8250;</a>
+        </div>
+      </nav>
+    </article>
+
+    <div class="sblock">
+      <div class="blockdiv">
+        <a class="b s150" href="https://blog.bensuperpc.org/tags/features/">Series</a><br>
+
+          
+          
+      <a href="https://blog.bensuperpc.org/tutorial/canbus/">CAN bus under Linux (WIP)</a><br>
+
+          
+
+          
+
+          
+            <a href="https://blog.bensuperpc.org/benchmark/webp/">Benchmarking Webp format (WIP)</a><br>
+
+          
+            
+      <a class="scur" href="https://blog.bensuperpc.org/tutorial/ffmpeg/">Tutorial on FFMPEG (WIP)</a><br>
+    
+
+          
+            <a href="https://blog.bensuperpc.org/tutorial/rtl9210/">RTL9210 Firmware and Tools</a><br>
+          
+            <a href="https://blog.bensuperpc.org/documentation/hardware/pc/ssd/">Comparison of SSDs</a><br>
+          
+            <details>
+              <summary>More...</summary>
+            </details>
+            <div class="hidden_li">
+                <a href="https://blog.bensuperpc.org/documentation/hardware/pc/cpu/">Evolutions of CPUs (WIP)</a><br>
+                <a href="https://blog.bensuperpc.org/documentation/hardware/pc/gpu/">Mesa GPU drivers</a><br>
+                <a href="https://blog.bensuperpc.org/tutorial/kubernetes/">Deploy Traefik as a reverse proxy with Kubernetes</a><br>
+                <a href="https://blog.bensuperpc.org/tutorial/coverage/">C++ Code Coverage with CMake and GCOVR</a><br>
+            </div>
+        
+      <a href="https://blog.bensuperpc.org/documentation/hardware/sff-pc/guide-sff-pc/">A guide to SFF PCs (WIP)</a><br>
+
+        
+      </div>
+      <div class="blockdiv sticky">
+        <a class="b s150" href="#">Index</a>
+        <div>
+          <a href="#about-ffmpeg">About FFMPEG</a>
+        </div>
+        <div class="hpad">
+          <a href="#convert-video-to-av1-crf-svt-av1"><small>- Convert video to AV1 CRF (SVT-AV1)</small></a>
+        </div>
+        <div class="hpad">
+          <a href="#convert-video-to-av1-crf-aom"><small>- Convert video to AV1 CRF(AOM)</small></a>
+        </div>
+        <div class="hpad">
+          <a href="#convert-video-to-av1-crf-rav1e"><small>- Convert video to AV1 CRF (Rav1e)</small></a>
+        </div>
+        <div class="hpad">
+          <a href="#convert-video-to-h265-crf-x265"><small>- Convert video to h265 CRF (x265)</small></a>
+        </div>
+        <div class="hpad">
+          <a href="#convert-video-to-h265-abr-2-pass-and-scale-to-720p-x265"><small>- Convert video to h265 ABR 2 pass and scale to 720p (x265)</small></a>
+        </div>
+        <div class="hpad">
+          <a href="#convert-video-to-h264-crf-x264"><small>- Convert video to h264 CRF (x264)</small></a>
+        </div>
+        <div class="hpad">
+          <a href="#get-ssim"><small>- Get SSIM</small></a>
+        </div>
+        <div class="hpad">
+          <a href="#get-psnr"><small>- Get PSNR</small></a>
+        </div>
+        <div class="hpad">
+          <a href="#get-vmaf"><small>- Get VMAF</small></a>
+        </div>
+        <div class="hpad">
+          <a href="#cut-video-without-re-encoding"><small>- Cut video without re-encoding</small></a>
+        </div>
+        <div class="hpad">
+          <a href="#import-watermark"><small>- Import watermark</small></a>
+        </div>
+        <div class="hpad">
+          <a href="#change-video-speed"><small>- Change video speed</small></a>
+        </div>
+        <div class="hpad">
+          <a href="#convert-video-to-gif"><small>- Convert video to gif</small></a>
+        </div>
+        <div class="hpad">
+          <a href="#add-vintage-look-effect-to-video-and-play-it-with-ffplay"><small>- Add vintage look effect to video and play it with ffplay</small></a>
+        </div>
+        <div>
+          <a href="#image-commands-examples">Image commands examples</a>
+        </div>
+        <div class="hpad">
+          <a href="#convert-images-png-to-webp-lossless"><small>- Convert images png to webp (lossless)</small></a>
+        </div>
+        <div class="hpad">
+          <a href="#get-difference-between-two-images"><small>- Get difference between two images</small></a>
+        </div>
+        <div>
+          <a href="#audio-commands-examples"> Audio commands examples</a>
+        </div>
+        <div class="hpad">
+          <a href="#generate-audio-spectrogram-with-sox"><small>- Generate audio spectrogram with sox</small></a>
+        </div>
+        <div class="hpad">
+          <a href="#increase-audio-volume-without-re-encoding"><small>- Increase audio volume without re-encoding</small></a>
+        </div>
+        <div class="hpad">
+          <a href="#convert-audio"><small>- Convert audio</small></a>
+        </div>
+        <div>
+          <a href="#metadata-commands-examples">Metadata commands examples</a>
+        </div>
+        <div class="hpad">
+          <a href="#get-metadata-from-audio-or-video-file"><small>- Get metadata from audio or video file</small></a>
+        </div>
+        <div class="hpad">
+          <a href="#youtube-dlp"><small>- Youtube-dlp</small></a>
+        </div>
+        <div>
+          <a href="#useful-links">Useful links</a>
+        </div>
+        <div>
+          <a href="#license">License</a>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <hr />
+    <div class="c">
+      <nav class="tpad"><div><a type="application/atom+xml" href="https://blog.bensuperpc.org/atom.xml" target="_blank" title="Bensuperpc Atom Feed"><i type="Button" class="svg rss" title="Bensuperpc Atom Feed"></i></a><a class="js m-protected" href="#YmVuc3VwZXJwY0BnbWFpbC5jb20=" target="_blank" title="Mail"><i type="Button" class="svg mail" title="Mail"></i></a><a href="https://mastodon.social/@bensuperpc" target="_blank" title="Mastodon" rel="me"><i type="Button" class="svg mastodon" title="Mastodon"></i></a><a href="https://matrix.example.com/" target="_blank" title="Element"><i type="Button" class="svg element" title="Element"></i></a><a href="https://discord.com/invite/etzX79VS" target="_blank" title="Discord"><i type="Button" class="svg discord" title="Discord"></i></a><a href="https://twitter.com/bensuperpc/" target="_blank" title="Twitter"><i type="Button" class="svg twitter" title="Twitter"></i></a><a href="https://github.com/bensuperpc/" target="_blank" title="Github"><i type="Button" class="svg github" title="Github"></i></a><a href="https://pypi.org/user/bensuperpc/" target="_blank" title="Python"><i type="Button" class="svg python" title="Python"></i></a><a href="https://hub.docker.com/u/bensuperpc/" target="_blank" title="Docker"><i type="Button" class="svg docker" title="Docker"></i></a><a href="https://www.youtube.com/channel&#x2F;bensuperpc" target="_blank" title="YouTube"><i type="Button" class="svg youtube" title="YouTube"></i></a><a href="https://www.twitch.tv/bensuperpc/" target="_blank" title="Twitch"><i type="Button" class="svg twitch" title="Twitch"></i></a><a href="https://www.ko-fi.com/discord/" target="_blank" title="Support me on Ko-fi"><i type="Button" class="svg kofi" title="Support me on Ko-fi"></i></a><a href="https://www.buymeacoffee.com/bensuperpc/" target="_blank" title="Buy Me A Coffee"><i type="Button" class="svg buymeacoffee" title="Buy Me A Coffee"></i></a><a href="https://t.me/bensuperpc/" target="_blank" title="Telegram"><i type="Button" class="svg telegram" title="Telegram"></i></a></div></nav>
+      <nav class="vpad">
+        <a class="rpad s90" href="https://blog.bensuperpc.org/about/"> About </a>
+        <a class="rpad s90" href="https://blog.bensuperpc.org/contact/"> Contact </a>
+        <a class="rpad s90" href="https://blog.bensuperpc.org/privacy/"> Privacy </a>
+        <a class="rpad s90" href="https://blog.bensuperpc.org/sitemap.xml" target="_blank"> Sitemap </a>
+      </nav>
+          
+      <p class="s80"> <span id="year">2026</span> Bensuperpc • <a rel="noopener" target="_blank" href="https://github.com/bensuperpc/bensuperpc.github.io">bensuperpc.github.io</a></p>
+      <p class="s90">Powered by <a href="https://www.getzola.org/" target="_blank">Zola</a> &#38; <a href="https://github.com/Jieiku/abridge/" target="_blank">Abridge</a> theme</p>
+    </div>
+  </footer><span class="topout">
+<span class="topleft"> </span><a href="#" class="top" title="Back to Top"><i class="svgs svgh angu"></i></a>
+</span>
+</body>
+</html>

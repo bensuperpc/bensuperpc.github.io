@@ -1,0 +1,5 @@
+
+Sitemap: https://blog.bensuperpc.org/sitemap.xml
+User-Agent: *
+Allow: /
+Host: https://blog.bensuperpc.org

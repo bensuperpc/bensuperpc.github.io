@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Bensuperpc - Tiny</title>
+    <subtitle>Bensuperpc website, talk about software and hardware stuff.</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://blog.bensuperpc.org/tags/tiny/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://blog.bensuperpc.org"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2025-12-27T00:00:00+00:00</updated>
+    <id>https://blog.bensuperpc.org/tags/tiny/atom.xml</id>
+    <entry xml:lang="en">
+        <title>A guide to SFF PCs (WIP)</title>
+        <published>2025-12-27T00:00:00+00:00</published>
+        <updated>2025-12-27T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.bensuperpc.org/documentation/hardware/sff-pc/guide-sff-pc/"/>
+        <id>https://blog.bensuperpc.org/documentation/hardware/sff-pc/guide-sff-pc/</id>
+        
+        <content type="html" xml:base="https://blog.bensuperpc.org/documentation/hardware/sff-pc/guide-sff-pc/">&lt;h1 id=&quot;a-guide-to-sff-pcs&quot;&gt;A Guide to SFF PCs&lt;&#x2F;h1&gt;
+&lt;p&gt;Welcome to the guide to SFF PCs.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;introduction-to-sff-pcs&quot;&gt;Introduction to SFF PCs&lt;&#x2F;h2&gt;
+&lt;p&gt;In this section, we will explore different aspects of SFF PCs, including their components and software, with a focus on &lt;strong&gt;Linux&lt;&#x2F;strong&gt; and &lt;strong&gt;open-source&lt;&#x2F;strong&gt; solutions, Windows have often lower lifetime support and proprietary software.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;what-is-an-sff-pc&quot;&gt;What is an SFF PC?&lt;&#x2F;h3&gt;
+&lt;p&gt;An SFF PC is a &lt;strong&gt;Small Form Factor PC&lt;&#x2F;strong&gt;, it is usually very compact, power-efficient, and can be used for various purposes, they are commonly found in schools, offices, and home servers.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;why-should-i-choose-an-sff-pc&quot;&gt;Why should I choose an SFF PC?&lt;&#x2F;h3&gt;
+&lt;p&gt;There are many reasons to choose an SFF PC:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Compact&lt;&#x2F;strong&gt;: SFF PCs are very small and can fit almost anywhere. (~1-3 liters)&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Power-efficient&lt;&#x2F;strong&gt;: They consume less power, especially models with T or U series processors.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Affordable&lt;&#x2F;strong&gt;: SFF PCs are often cheaper than traditional full desktop PCs, especially on the second-hand market.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;why-shouldn-t-i-choose-an-sff-pc&quot;&gt;Why shouldn&#x27;t I choose an SFF PC?&lt;&#x2F;h3&gt;
+&lt;p&gt;There are also some drawbacks to consider:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Limited upgradeability&lt;&#x2F;strong&gt;: Many SFF PCs have limited upgrade options, and some components are not replaceable.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Fewer ports&lt;&#x2F;strong&gt;: Compared to larger desktops, SFF PCs typically have fewer connectivity options.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Performance constraints&lt;&#x2F;strong&gt;: Due to their small size and thermal limitations, performance may be lower than full-sized PCs.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Proprietary components&lt;&#x2F;strong&gt;: Some models use proprietary parts, making repairs and upgrades more difficult.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;what-are-some-examples-of-sff-pcs&quot;&gt;What are some examples of SFF PCs?&lt;&#x2F;h3&gt;
+&lt;p&gt;Here are some well-known brands and models:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Lenovo ThinkCentre&lt;&#x2F;strong&gt;: M73 Tiny, M710q, M720q, M70q gen 1, M75q gen 1, M90q gen 3&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Dell OptiPlex&lt;&#x2F;strong&gt;: 3040, 3050, 3060, 3070, 5040, 5050, 5060, 5070&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;HP EliteDesk&lt;&#x2F;strong&gt;: 800 G1 Mini, 800 G2 Mini&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Intel NUC&lt;&#x2F;strong&gt;: NUC6i3SYH, NUC6i5SYH, NUC6i7KYK, NUC7i3BNH, NUC7i5BNH, NUC7i7BNH&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Zotac ZBOX&lt;&#x2F;strong&gt;: CI660 Nano, CI640 Nano, CI620 Nano, CI540 Nano, CI520 Nano, CI327 Nano&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Asus VivoMini&lt;&#x2F;strong&gt;: UN65, UN65U, UN65U-M023M, UN65U-M021M, UN65U-M022M, UN65U-M020M&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Many other brands and models are available on the market.&lt;&#x2F;p&gt;
+&lt;p&gt;For second-hand options, i recommend &lt;strong&gt;Lenovo, Dell, and HP&lt;&#x2F;strong&gt;. These brands offer plenty of affordable models that are often upgradable (RAM, SSD, CPU, PSU) and great Linux compatibility.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;arm-sff-pcs&quot;&gt;ARM SFF PCs&lt;&#x2F;h3&gt;
+&lt;p&gt;SFF PCs are usually x86-based, but ARM-based SFF PCs have been gaining popularity in recent years, they are generally cheaper and more power-efficient but come with limitations:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Limited software compatibility&lt;&#x2F;strong&gt;: They are not compatible with traditional x86&#x2F;PC software and drivers can be missing or outdated.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Limited upgrade options&lt;&#x2F;strong&gt;: Components are often soldered and non-replaceable.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Lower performance&lt;&#x2F;strong&gt;: Compared to x86 counterparts, ARM-based SFF PCs may struggle with demanding tasks (encoding, gaming, etc.).&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;In this guide, we will focus on x86 SFF PCs and the Raspberry Pi.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;sff-pc-components&quot;&gt;SFF PC Components&lt;&#x2F;h2&gt;
+&lt;p&gt;In this section, we will look at the main components of SFF PCs.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;cpu-central-processing-unit&quot;&gt;CPU (Central Processing Unit)&lt;&#x2F;h3&gt;
+&lt;p&gt;I recommend using &lt;strong&gt;socketed CPUs&lt;&#x2F;strong&gt;, as they allow for future upgrades to more powerful models (within the same TDP range), for example on Thinkcentre tiny M720q, you can upgrade from a slow &lt;strong&gt;Intel Celeron G4900T&lt;&#x2F;strong&gt; to a powerful &lt;strong&gt;Intel i9-9900T&lt;&#x2F;strong&gt; without any issues (somtime just need update of Intel ME and BIOS).&lt;&#x2F;p&gt;
+&lt;p&gt;Most SFF PCs come with &lt;strong&gt;35W or 65W CPUs&lt;&#x2F;strong&gt;, &lt;strong&gt;i strongly recommend avoiding CPUs with a higher TDP than what the system supports&lt;&#x2F;strong&gt;, as this can cause overheating and potentially damage the motherboard or PSU.&lt;&#x2F;p&gt;
+&lt;p&gt;Many modern software utilizes &lt;strong&gt;AVX2&lt;&#x2F;strong&gt; instructions, which can significantly boost performance in tasks like video encoding&#x2F;decoding, compression, encryption, etc. Every CPU since &lt;strong&gt;Intel Haswell&lt;&#x2F;strong&gt; (2013) and &lt;strong&gt;AMD Zen&lt;&#x2F;strong&gt; (2017) supports AVX2, except for some low-end models like &lt;strong&gt;Intel Celeron&#x2F;Pentium&#x2F;Atom&lt;&#x2F;strong&gt; and &lt;strong&gt;AMD Athlon&lt;&#x2F;strong&gt;.&lt;&#x2F;p&gt;
+&lt;h4 id=&quot;intel-cpu-generations&quot;&gt;Intel CPU generations&lt;&#x2F;h4&gt;
+&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Brand&lt;&#x2F;th&gt;&lt;th&gt;CPU arch&lt;&#x2F;th&gt;&lt;th&gt;CPU Gen&lt;&#x2F;th&gt;&lt;th&gt;Socket&lt;&#x2F;th&gt;&lt;th&gt;RAM Type&lt;&#x2F;th&gt;&lt;th&gt;Max RAM&lt;&#x2F;th&gt;&lt;th&gt;Year&lt;&#x2F;th&gt;&lt;th&gt;Exemple of SSF PC&lt;&#x2F;th&gt;&lt;th&gt;Remarks&lt;&#x2F;th&gt;&lt;&#x2F;tr&gt;&lt;&#x2F;thead&gt;&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;intel&lt;&#x2F;td&gt;&lt;td&gt;Core&lt;&#x2F;td&gt;&lt;td&gt;Core 2&lt;&#x2F;td&gt;&lt;td&gt;LGA775&lt;&#x2F;td&gt;&lt;td&gt;DDR2-DDR3&lt;&#x2F;td&gt;&lt;td&gt;8GB&lt;&#x2F;td&gt;&lt;td&gt;2006-2007&lt;&#x2F;td&gt;&lt;td&gt;&lt;&#x2F;td&gt;&lt;td&gt;Huge performance improvement over Netburst&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;intel&lt;&#x2F;td&gt;&lt;td&gt;Penryn&lt;&#x2F;td&gt;&lt;td&gt;Core 2&lt;&#x2F;td&gt;&lt;td&gt;LGA775&lt;&#x2F;td&gt;&lt;td&gt;DDR2-DDR3&lt;&#x2F;td&gt;&lt;td&gt;8GB&lt;&#x2F;td&gt;&lt;td&gt;2007-2008&lt;&#x2F;td&gt;&lt;td&gt;&lt;&#x2F;td&gt;&lt;td&gt;Better perf efficiency&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;intel&lt;&#x2F;td&gt;&lt;td&gt;Nehalem&lt;&#x2F;td&gt;&lt;td&gt;1st Gen&lt;&#x2F;td&gt;&lt;td&gt;LGA1156&lt;&#x2F;td&gt;&lt;td&gt;DDR3&lt;&#x2F;td&gt;&lt;td&gt;16GB&lt;&#x2F;td&gt;&lt;td&gt;2008-2009&lt;&#x2F;td&gt;&lt;td&gt;&lt;&#x2F;td&gt;&lt;td&gt;SMT, Memory controller on CPU and monolithic quad-core&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;intel&lt;&#x2F;td&gt;&lt;td&gt;Westmere&lt;&#x2F;td&gt;&lt;td&gt;1st Gen&lt;&#x2F;td&gt;&lt;td&gt;LGA1156&lt;&#x2F;td&gt;&lt;td&gt;DDR3&lt;&#x2F;td&gt;&lt;td&gt;16GB&lt;&#x2F;td&gt;&lt;td&gt;2010-2011&lt;&#x2F;td&gt;&lt;td&gt;&lt;&#x2F;td&gt;&lt;td&gt;Better perf efficiency&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;intel&lt;&#x2F;td&gt;&lt;td&gt;Sandy Bridge&lt;&#x2F;td&gt;&lt;td&gt;2nd Gen&lt;&#x2F;td&gt;&lt;td&gt;LGA1155&lt;&#x2F;td&gt;&lt;td&gt;DDR3&lt;&#x2F;td&gt;&lt;td&gt;32GB&lt;&#x2F;td&gt;&lt;td&gt;2011-2012&lt;&#x2F;td&gt;&lt;td&gt;M72 tiny&lt;&#x2F;td&gt;&lt;td&gt;Add AVX support, good iGPU and greatly improve perf&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;intel&lt;&#x2F;td&gt;&lt;td&gt;Ivy Bridge&lt;&#x2F;td&gt;&lt;td&gt;3rd Gen&lt;&#x2F;td&gt;&lt;td&gt;LGA1155&lt;&#x2F;td&gt;&lt;td&gt;DDR3&lt;&#x2F;td&gt;&lt;td&gt;32GB&lt;&#x2F;td&gt;&lt;td&gt;2012-2013&lt;&#x2F;td&gt;&lt;td&gt;M72 tiny&lt;&#x2F;td&gt;&lt;td&gt;Better perf efficiency&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;intel&lt;&#x2F;td&gt;&lt;td&gt;Haswell&lt;&#x2F;td&gt;&lt;td&gt;4th Gen&lt;&#x2F;td&gt;&lt;td&gt;LGA1150&lt;&#x2F;td&gt;&lt;td&gt;DDR3&lt;&#x2F;td&gt;&lt;td&gt;32GB&lt;&#x2F;td&gt;&lt;td&gt;2013-2014&lt;&#x2F;td&gt;&lt;td&gt;M73 tiny&lt;&#x2F;td&gt;&lt;td&gt;Support AVX2 and FMA3, improve perf&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;intel&lt;&#x2F;td&gt;&lt;td&gt;Broadwell&lt;&#x2F;td&gt;&lt;td&gt;5th Gen&lt;&#x2F;td&gt;&lt;td&gt;LGA1150&lt;&#x2F;td&gt;&lt;td&gt;DDR3&lt;&#x2F;td&gt;&lt;td&gt;32GB&lt;&#x2F;td&gt;&lt;td&gt;2014-2015&lt;&#x2F;td&gt;&lt;td&gt;&lt;&#x2F;td&gt;&lt;td&gt;Better perf efficiency&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;intel&lt;&#x2F;td&gt;&lt;td&gt;Skylake&lt;&#x2F;td&gt;&lt;td&gt;6th Gen&lt;&#x2F;td&gt;&lt;td&gt;LGA1151&lt;&#x2F;td&gt;&lt;td&gt;DDR3-DDR4&lt;&#x2F;td&gt;&lt;td&gt;64GB&lt;&#x2F;td&gt;&lt;td&gt;2015-2016&lt;&#x2F;td&gt;&lt;td&gt;M700, M710q&lt;&#x2F;td&gt;&lt;td&gt;HEVC&#x2F;VP9 8-bit hardware enc&#x2F;dec, iGPU vulkan and NVMe support&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;intel&lt;&#x2F;td&gt;&lt;td&gt;Kaby Lake&lt;&#x2F;td&gt;&lt;td&gt;7th Gen&lt;&#x2F;td&gt;&lt;td&gt;LGA1151&lt;&#x2F;td&gt;&lt;td&gt;DDR4&lt;&#x2F;td&gt;&lt;td&gt;64GB&lt;&#x2F;td&gt;&lt;td&gt;2016-2017&lt;&#x2F;td&gt;&lt;td&gt;M710q&lt;&#x2F;td&gt;&lt;td&gt;HEVC&#x2F;VP9 10-bit hardware enc&#x2F;dec support&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;intel&lt;&#x2F;td&gt;&lt;td&gt;Coffee Lake&lt;&#x2F;td&gt;&lt;td&gt;8-9th Gen&lt;&#x2F;td&gt;&lt;td&gt;LGA1151&lt;&#x2F;td&gt;&lt;td&gt;DDR4&lt;&#x2F;td&gt;&lt;td&gt;64GB&lt;&#x2F;td&gt;&lt;td&gt;2017-2019&lt;&#x2F;td&gt;&lt;td&gt;M720q&lt;&#x2F;td&gt;&lt;td&gt;Increase core count and remove SMT on 9th gen CPUs&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;intel&lt;&#x2F;td&gt;&lt;td&gt;Comet Lake&lt;&#x2F;td&gt;&lt;td&gt;10th Gen&lt;&#x2F;td&gt;&lt;td&gt;LGA1200&lt;&#x2F;td&gt;&lt;td&gt;DDR4&lt;&#x2F;td&gt;&lt;td&gt;128GB&lt;&#x2F;td&gt;&lt;td&gt;2020-2021&lt;&#x2F;td&gt;&lt;td&gt;M70q gen 1&lt;&#x2F;td&gt;&lt;td&gt;Re-add SMT on most CPUs&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;intel&lt;&#x2F;td&gt;&lt;td&gt;Rocket Lake&lt;&#x2F;td&gt;&lt;td&gt;11th Gen&lt;&#x2F;td&gt;&lt;td&gt;LGA1200&lt;&#x2F;td&gt;&lt;td&gt;DDR4&lt;&#x2F;td&gt;&lt;td&gt;128GB&lt;&#x2F;td&gt;&lt;td&gt;2021-2022&lt;&#x2F;td&gt;&lt;td&gt;M70q gen 2&lt;&#x2F;td&gt;&lt;td&gt;Add AVX-512 support and better perf&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;intel&lt;&#x2F;td&gt;&lt;td&gt;Alder Lake&lt;&#x2F;td&gt;&lt;td&gt;12th Gen&lt;&#x2F;td&gt;&lt;td&gt;LGA1700&lt;&#x2F;td&gt;&lt;td&gt;DDR4-DDR5&lt;&#x2F;td&gt;&lt;td&gt;256GB&lt;&#x2F;td&gt;&lt;td&gt;2021-2022&lt;&#x2F;td&gt;&lt;td&gt;M70q gen 3&lt;&#x2F;td&gt;&lt;td&gt;Remove AVX-512, Pcore and ECore, AV1 hard dec and improve IPC&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;intel&lt;&#x2F;td&gt;&lt;td&gt;Raptor Lake&lt;&#x2F;td&gt;&lt;td&gt;13-14th Gen&lt;&#x2F;td&gt;&lt;td&gt;LGA1700&lt;&#x2F;td&gt;&lt;td&gt;DDR5&lt;&#x2F;td&gt;&lt;td&gt;256GB&lt;&#x2F;td&gt;&lt;td&gt;2022-2023&lt;&#x2F;td&gt;&lt;td&gt;M70q gen 4, 5&lt;&#x2F;td&gt;&lt;td&gt;More Ecores and cache&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;intel&lt;&#x2F;td&gt;&lt;td&gt;Arrow Lake&lt;&#x2F;td&gt;&lt;td&gt;15th Gen&lt;&#x2F;td&gt;&lt;td&gt;LGA1700&lt;&#x2F;td&gt;&lt;td&gt;DDR5&lt;&#x2F;td&gt;&lt;td&gt;256GB&lt;&#x2F;td&gt;&lt;td&gt;2024-2025&lt;&#x2F;td&gt;&lt;td&gt;M70q gen 6&lt;&#x2F;td&gt;&lt;td&gt;Remove SMT, gain big perf per thread, AV1 encode, Ray Tracing&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;intel&lt;&#x2F;td&gt;&lt;td&gt;Nova Lake&lt;&#x2F;td&gt;&lt;td&gt;16th Gen&lt;&#x2F;td&gt;&lt;td&gt;LGA1851&lt;&#x2F;td&gt;&lt;td&gt;DDR5&lt;&#x2F;td&gt;&lt;td&gt;?&lt;&#x2F;td&gt;&lt;td&gt;2026 ?&lt;&#x2F;td&gt;&lt;td&gt;&lt;&#x2F;td&gt;&lt;td&gt;(Re)add AVX10.2&#x2F;AVX512 support&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
+&lt;h4 id=&quot;amd-cpu-generations&quot;&gt;AMD CPU generations&lt;&#x2F;h4&gt;
+&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Brand&lt;&#x2F;th&gt;&lt;th&gt;CPU arch&lt;&#x2F;th&gt;&lt;th&gt;CPU Gen&lt;&#x2F;th&gt;&lt;th&gt;Socket&lt;&#x2F;th&gt;&lt;th&gt;RAM Type&lt;&#x2F;th&gt;&lt;th&gt;Max RAM&lt;&#x2F;th&gt;&lt;th&gt;Year&lt;&#x2F;th&gt;&lt;th&gt;Exemple of SSF PC&lt;&#x2F;th&gt;&lt;th&gt;Remarks&lt;&#x2F;th&gt;&lt;&#x2F;tr&gt;&lt;&#x2F;thead&gt;&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;AMD&lt;&#x2F;td&gt;&lt;td&gt;Excavator&lt;&#x2F;td&gt;&lt;td&gt;4th Gen&lt;&#x2F;td&gt;&lt;td&gt;AM4&lt;&#x2F;td&gt;&lt;td&gt;DDR4&lt;&#x2F;td&gt;&lt;td&gt;32GB&lt;&#x2F;td&gt;&lt;td&gt;2015-2016&lt;&#x2F;td&gt;&lt;td&gt;&lt;&#x2F;td&gt;&lt;td&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;AMD&lt;&#x2F;td&gt;&lt;td&gt;Zen&lt;&#x2F;td&gt;&lt;td&gt;1st Gen&lt;&#x2F;td&gt;&lt;td&gt;AM4&lt;&#x2F;td&gt;&lt;td&gt;DDR4&lt;&#x2F;td&gt;&lt;td&gt;64GB&lt;&#x2F;td&gt;&lt;td&gt;2017-2018&lt;&#x2F;td&gt;&lt;td&gt;M715Q&lt;&#x2F;td&gt;&lt;td&gt;Huge performance improvement and on pair with intel Haswell CPUs&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;AMD&lt;&#x2F;td&gt;&lt;td&gt;Zen+&lt;&#x2F;td&gt;&lt;td&gt;2nd Gen&lt;&#x2F;td&gt;&lt;td&gt;AM4&lt;&#x2F;td&gt;&lt;td&gt;DDR4&lt;&#x2F;td&gt;&lt;td&gt;64GB&lt;&#x2F;td&gt;&lt;td&gt;2018-2019&lt;&#x2F;td&gt;&lt;td&gt;&lt;&#x2F;td&gt;&lt;td&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;AMD&lt;&#x2F;td&gt;&lt;td&gt;Zen 2&lt;&#x2F;td&gt;&lt;td&gt;3rd Gen&lt;&#x2F;td&gt;&lt;td&gt;AM4&lt;&#x2F;td&gt;&lt;td&gt;DDR4&lt;&#x2F;td&gt;&lt;td&gt;128GB&lt;&#x2F;td&gt;&lt;td&gt;2019-2020&lt;&#x2F;td&gt;&lt;td&gt;M70q gen 1&#x2F;2&lt;&#x2F;td&gt;&lt;td&gt;On pair with intel Skylake CPUs and fix most of the issues of Zen&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;AMD&lt;&#x2F;td&gt;&lt;td&gt;Zen 3&lt;&#x2F;td&gt;&lt;td&gt;4th Gen&lt;&#x2F;td&gt;&lt;td&gt;AM4&lt;&#x2F;td&gt;&lt;td&gt;DDR4&lt;&#x2F;td&gt;&lt;td&gt;128GB&lt;&#x2F;td&gt;&lt;td&gt;2020-2021&lt;&#x2F;td&gt;&lt;td&gt;M70q gen 2&lt;&#x2F;td&gt;&lt;td&gt;Improve IPC and power efficiency&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;AMD&lt;&#x2F;td&gt;&lt;td&gt;Zen 4&lt;&#x2F;td&gt;&lt;td&gt;5th Gen&lt;&#x2F;td&gt;&lt;td&gt;AM5&lt;&#x2F;td&gt;&lt;td&gt;DDR5&lt;&#x2F;td&gt;&lt;td&gt;128GB&lt;&#x2F;td&gt;&lt;td&gt;2021-2022&lt;&#x2F;td&gt;&lt;td&gt;&lt;&#x2F;td&gt;&lt;td&gt;Add AVX-512 support, better IPC and RDNA iGPU&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;AMD&lt;&#x2F;td&gt;&lt;td&gt;Zen 5&lt;&#x2F;td&gt;&lt;td&gt;6th Gen&lt;&#x2F;td&gt;&lt;td&gt;AM5&lt;&#x2F;td&gt;&lt;td&gt;DDR5&lt;&#x2F;td&gt;&lt;td&gt;192GB&lt;&#x2F;td&gt;&lt;td&gt;2022-2023&lt;&#x2F;td&gt;&lt;td&gt;M70q gen 5&lt;&#x2F;td&gt;&lt;td&gt;Slightly improve IPC and AVX-512 support perf&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
+&lt;p&gt;I recommend using &lt;strong&gt;Intel Alder Lake&lt;&#x2F;strong&gt;, &lt;strong&gt;AMD Zen 3&lt;&#x2F;strong&gt;, or newer CPUs, they offer nice performances and support modern features like NVMe, iGPU Vulkan, HEVC 10-bit hardware encoding&#x2F;decoding, AVX2, etc... However, if you’re on a budget, &lt;strong&gt;Intel Coffee Lake&lt;&#x2F;strong&gt;, &lt;strong&gt;AMD Zen 2&lt;&#x2F;strong&gt; remains a good option due to the low price of the CPUs and relatively good performance, older CPUs like &lt;strong&gt;Intel Haswell&lt;&#x2F;strong&gt; and &lt;strong&gt;AMD Excavator&lt;&#x2F;strong&gt; often not worth it due to their low performance, lack of modern features (NVMe, HEVC or Vulkan etc...) and microcode updates (security and bug fix for CPU).&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;gpu-graphics-processing-unit&quot;&gt;GPU (Graphics Processing Unit)&lt;&#x2F;h3&gt;
+&lt;p&gt;Most SFF PCs have only an integrated GPU, they are sufficient for light GPU tasks and are very power efficient, some SFF PCs can add a dedicated GPU (like M720Q&#x2F;M920Q), these are low-profile and use PCIe x4&#x2F;x8 lanes, which can be useful for light gaming, networking, etc... &lt;strong&gt;Ensure the PSU and motherboard can support the PCIe card&#x27;s power consumption.&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;I recommend Intel iGPUs from &lt;strong&gt;Skylake or newer&lt;&#x2F;strong&gt; (Intel HD 500 series and newer) or AMD iGPUs from &lt;strong&gt;Zen 2 or newer&lt;&#x2F;strong&gt; (Vega and newer).&lt;&#x2F;p&gt;
+&lt;p&gt;These GPUs support modern graphics APIs such as OpenGL 4.6 and Vulkan (up to 1.4 on Linux via Mesa), and provide hardware acceleration for common video codecs like AVC&#x2F;H.264, HEVC&#x2F;H.265, and VP9.&lt;&#x2F;p&gt;
+&lt;p&gt;AV1 hardware decoding is available on Intel Alder Lake or newer, and on AMD RDNA2&#x2F;Zen 4-based iGPUs or newer, for encoding, Intel Arc GPUs, Arrow lake or AMD RDNA3-based GPUs are required.&lt;&#x2F;p&gt;
+&lt;p&gt;Vulkan (1.3&#x2F;1.4) has become increasingly important in recent years, especially with the emergence of Vulkan Video extensions, which aim to improve efficiency by reducing CPU overhead compared to traditional APIs such as VA-API or VDPAU.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;ram-random-access-memory&quot;&gt;RAM (Random Access Memory)&lt;&#x2F;h3&gt;
+&lt;p&gt;SFF PCs typically have &lt;strong&gt;two RAM slots&lt;&#x2F;strong&gt;, supporting DDR3, DDR4, or DDR5 RAM &lt;strong&gt;depending on the CPU and motherboard&lt;&#x2F;strong&gt;, the maximum capacity usually ranges from 16GB to 256GB, i recommend using &lt;strong&gt;two identical RAM sticks&lt;&#x2F;strong&gt; to enable dual-channel (double the bandwidth), you can use higher-frequency RAM than what the CPU officially supports, the RAM will downclock to maximum supported frequency by memory controller.&lt;&#x2F;p&gt;
+&lt;p&gt;Most SSF PCs support &lt;strong&gt;SO-DIMM&lt;&#x2F;strong&gt; (RAM in Laptop), which is smaller than standard DIMM RAM, but they have similar performances.&lt;&#x2F;p&gt;
+&lt;p&gt;I recommend using &lt;strong&gt;DDR4&lt;&#x2F;strong&gt; or &lt;strong&gt;DDR5&lt;&#x2F;strong&gt; RAM, as it is the most common, well-supported, here are some general recommendations (in 2025):&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;4GB&lt;&#x2F;strong&gt;: Barebones Linux server, light applications. (small website hosting, router, NAS)&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;8GB&lt;&#x2F;strong&gt;: Light to medium applications. (web browsing, office work, small servers)&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;16GB&lt;&#x2F;strong&gt;: Recommended for most use cases. (basic game server, CI build server, light development)&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;32GB+&lt;&#x2F;strong&gt;: Optimal for multitasking. (AAA gaming, video&#x2F;photo editing, rendering)&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;64GB+&lt;&#x2F;strong&gt;: Heavy multitasking. (virtualization, machine learning, scientific computing, CAD)&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;storage&quot;&gt;Storage&lt;&#x2F;h3&gt;
+&lt;p&gt;SFF PCs have &lt;strong&gt;four main storage options&lt;&#x2F;strong&gt; (depending on the model):&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;M.2 NVMe SSD&lt;&#x2F;strong&gt;: Very fast and present in most SFF PCs since 2015, the best choice.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;M.2 SATA SSD&lt;&#x2F;strong&gt;: Uses the same connector as NVMe but operates at SATA speeds. (e.g., ThinkCentre M700)&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;2.5&quot; SATA SSD&lt;&#x2F;strong&gt;: Slower than M.2 NVMe but a good alternative if M.2 is unavailable.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;2.5&quot; SATA HDD&lt;&#x2F;strong&gt;: Very slow and generally not recommended, but can be replaced with an SSD.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Onboard eMMC&lt;&#x2F;strong&gt;: Soldered storage on the motherboard, &lt;strong&gt;avoid it&lt;&#x2F;strong&gt;, it is slow, limited and non-replaceable.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;I recommend using &lt;strong&gt;M.2 NVMe SSDs&lt;&#x2F;strong&gt;, be mindful of the size (2242, 2260, 2280), connector type (B, M, B+M), and whether it&#x27;s single or double-sided.&lt;&#x2F;p&gt;
+&lt;p&gt;You can use SSDs &lt;strong&gt;PCIe 4.0 x4&lt;&#x2F;strong&gt; on &lt;strong&gt;PCIe 3.0 x2&lt;&#x2F;strong&gt; or &lt;strong&gt;x4&lt;&#x2F;strong&gt; slots and vice versa, &lt;strong&gt;the SSD will automatically adjust to the maximum speed supported by both parts&lt;&#x2F;strong&gt;.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;ports&quot;&gt;Ports&lt;&#x2F;h3&gt;
+&lt;p&gt;All SFF PCs have a limited number of ports, ensure that your chosen SFF PC has enough ports for your needs, some models support expansion for additional ports (most Lenovo ThinkCentre tiny models).&lt;&#x2F;p&gt;
+&lt;p&gt;Common ports include:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;USB type A&lt;&#x2F;strong&gt;: For peripherals, storage, mouse, keyboard, etc...&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;USB type C&lt;&#x2F;strong&gt;: Same as USB type A, sometimes video output and&#x2F;or thunderbolt support&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;HDMI&#x2F;DisplayPort&#x2F;VGA&lt;&#x2F;strong&gt;: For monitors&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Ethernet&lt;&#x2F;strong&gt;: For networking&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Audio jacks&lt;&#x2F;strong&gt;: For headphones, microphones, speakers&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;psu-power-supply-unit&quot;&gt;PSU (Power Supply Unit)&lt;&#x2F;h3&gt;
+&lt;p&gt;Most SFF PCs use an &lt;strong&gt;external power supply&lt;&#x2F;strong&gt;, often with a proprietary connector.&lt;&#x2F;p&gt;
+&lt;p&gt;Here are general guidelines:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;45W&lt;&#x2F;strong&gt;: 15W CPU&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;65W&lt;&#x2F;strong&gt;: 35W CPU&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;90W&lt;&#x2F;strong&gt;: 65W CPU or 35W CPU + DVD drive&#x2F;expansion&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;135W&lt;&#x2F;strong&gt;: 65W CPU + 45W GPU or 100W CPU&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;You can gain &lt;strong&gt;small performance boosts&lt;&#x2F;strong&gt; by using an overpowered PSU, especially since Intel &lt;strong&gt;Commet Lake&lt;&#x2F;strong&gt; and newer CPUs.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;motherboard&quot;&gt;Motherboard&lt;&#x2F;h3&gt;
+&lt;p&gt;Like the PSU, most SFF PCs have a &lt;strong&gt;proprietary motherboard&lt;&#x2F;strong&gt;, sometimes, you can replace it with another model from the same brand (e.g., an M920Q motherboard in an M720Q), however, in most cases, it is best to stick with the original motherboard model.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;operating-system&quot;&gt;Operating System&lt;&#x2F;h3&gt;
+&lt;p&gt;All SFF PCs x86-based are compatible with most operating systems (Linux, Windows, FreeBSD, even MacOS x86 etc...), i strongly recommend using &lt;strong&gt;Linux&lt;&#x2F;strong&gt; or &lt;strong&gt;FreeBSD&lt;&#x2F;strong&gt; due to its low resource usage, better performance, security, and compatibility with older hardware, some Linux distributions i recommend for SFF PCs.&lt;&#x2F;p&gt;
+&lt;p&gt;Standard Linux distributions:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Debian&lt;&#x2F;strong&gt;: Stable, well-supported, large software repository, update cycle of ~2 years&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Ubuntu&lt;&#x2F;strong&gt;: User-friendly, large community, based on Debian with GNOME desktop&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Arch Linux&lt;&#x2F;strong&gt;: Rolling release and cutting-edge software, highly customizable but high learning curve&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;NixOS&lt;&#x2F;strong&gt;: Fully declarative and reproducible configuration, unique package management system&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Lightweight Linux distributions:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Lubuntu&lt;&#x2F;strong&gt;: Ubuntu with LXQt GUI&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Xubuntu&lt;&#x2F;strong&gt;: Ubuntu with XFCE GUI&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Stitaz&lt;&#x2F;strong&gt;: Extremely lightweight, can run on very old hardware but old kernels and software.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Multimedia-focused Linux distributions:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;OSMC&lt;&#x2F;strong&gt;: Lightweight media center distribution based on Debian&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2 id=&quot;lenovo-thinkcentre-ssf-pcs&quot;&gt;Lenovo thinkcentre SSF PCs&lt;&#x2F;h2&gt;
+&lt;p&gt;In this section, we will see the different models of Lenovo thinkcentre SSF PCs.&lt;&#x2F;p&gt;
+&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Model&lt;&#x2F;th&gt;&lt;th&gt;CPU&lt;&#x2F;th&gt;&lt;th&gt;Chipset&lt;&#x2F;th&gt;&lt;th&gt;SODIMM RAM³&lt;&#x2F;th&gt;&lt;th&gt;PCIe&lt;&#x2F;th&gt;&lt;th&gt;2.5&quot; Sata&lt;&#x2F;th&gt;&lt;th&gt;m.2 NVMe&lt;&#x2F;th&gt;&lt;th&gt;PSREF&lt;&#x2F;th&gt;&lt;&#x2F;tr&gt;&lt;&#x2F;thead&gt;&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;M72 tiny&lt;&#x2F;td&gt;&lt;td&gt;ivy bridge&lt;&#x2F;td&gt;&lt;td&gt;Intel H61&lt;&#x2F;td&gt;&lt;td&gt;2x 8GB 1600MHz DDR3&lt;&#x2F;td&gt;&lt;td&gt;-&lt;&#x2F;td&gt;&lt;td&gt;1&lt;&#x2F;td&gt;&lt;td&gt;-&lt;&#x2F;td&gt;&lt;td&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;psref.lenovo.com&#x2F;syspool&#x2F;Sys&#x2F;PDF&#x2F;withdrawnbook&#x2F;M72e.pdf&quot;&gt;PDF&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;M92 tiny&lt;&#x2F;td&gt;&lt;td&gt;ivy bridge&lt;&#x2F;td&gt;&lt;td&gt;Intel Q77&lt;&#x2F;td&gt;&lt;td&gt;2x 8GB 1600MHz DDR3&lt;&#x2F;td&gt;&lt;td&gt;-&lt;&#x2F;td&gt;&lt;td&gt;1&lt;&#x2F;td&gt;&lt;td&gt;-&lt;&#x2F;td&gt;&lt;td&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;psref.lenovo.com&#x2F;syspool&#x2F;Sys&#x2F;PDF&#x2F;withdrawnbook&#x2F;M92&amp;amp;M92p.pdf&quot;&gt;PDF&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;M73 tiny&lt;&#x2F;td&gt;&lt;td&gt;Haswell&lt;&#x2F;td&gt;&lt;td&gt;Intel H81&lt;&#x2F;td&gt;&lt;td&gt;2x 8GB 1600MHz DDR3&lt;&#x2F;td&gt;&lt;td&gt;-&lt;&#x2F;td&gt;&lt;td&gt;1&lt;&#x2F;td&gt;&lt;td&gt;-&lt;&#x2F;td&gt;&lt;td&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;psref.lenovo.com&#x2F;syspool&#x2F;Sys&#x2F;PDF&#x2F;ThinkCentre&#x2F;ThinkCentre_M73_Tiny&#x2F;ThinkCentre_M73_Tiny_Spec.pdf&quot;&gt;PDF&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;M83 tiny&lt;&#x2F;td&gt;&lt;td&gt;Haswell&lt;&#x2F;td&gt;&lt;td&gt;Intel Q85&lt;&#x2F;td&gt;&lt;td&gt;2x 8GB 1600MHz DDR3&lt;&#x2F;td&gt;&lt;td&gt;-&lt;&#x2F;td&gt;&lt;td&gt;1&lt;&#x2F;td&gt;&lt;td&gt;-&lt;&#x2F;td&gt;&lt;td&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;psref.lenovo.com&#x2F;syspool&#x2F;Sys&#x2F;PDF&#x2F;ThinkCentre&#x2F;ThinkCentre_M83_Tiny&#x2F;ThinkCentre_M83_Tiny_Spec.pdf&quot;&gt;PDF&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;M700q&lt;&#x2F;td&gt;&lt;td&gt;Skylake&lt;&#x2F;td&gt;&lt;td&gt;Intel B150&lt;&#x2F;td&gt;&lt;td&gt;2x 16GB 2133MHz DDR4&lt;&#x2F;td&gt;&lt;td&gt;-&lt;&#x2F;td&gt;&lt;td&gt;1&lt;&#x2F;td&gt;&lt;td&gt;1 (Sata)&lt;&#x2F;td&gt;&lt;td&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;psref.lenovo.com&#x2F;syspool&#x2F;Sys&#x2F;PDF&#x2F;ThinkCentre&#x2F;ThinkCentre_M700_Tiny&#x2F;ThinkCentre_M700_Tiny_Spec.pdf&quot;&gt;PDF&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;M900q&lt;&#x2F;td&gt;&lt;td&gt;Skylake&lt;&#x2F;td&gt;&lt;td&gt;Intel Q170&lt;&#x2F;td&gt;&lt;td&gt;2x 16GB 2133MHz DDR4&lt;&#x2F;td&gt;&lt;td&gt;-&lt;&#x2F;td&gt;&lt;td&gt;1&lt;&#x2F;td&gt;&lt;td&gt;1&lt;&#x2F;td&gt;&lt;td&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;psref.lenovo.com&#x2F;syspool&#x2F;Sys&#x2F;PDF&#x2F;ThinkCentre&#x2F;ThinkCentre_M900_Tiny&#x2F;ThinkCentre_M900_Tiny_Spec.pdf&quot;&gt;PDF&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;M710q&lt;&#x2F;td&gt;&lt;td&gt;Skylake&#x2F;Kaby Lake&lt;&#x2F;td&gt;&lt;td&gt;Intel B250&lt;&#x2F;td&gt;&lt;td&gt;2x 32GB 2400MHz DDR4²&lt;&#x2F;td&gt;&lt;td&gt;-&lt;&#x2F;td&gt;&lt;td&gt;1&lt;&#x2F;td&gt;&lt;td&gt;1&lt;&#x2F;td&gt;&lt;td&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;psref.lenovo.com&#x2F;syspool&#x2F;Sys&#x2F;PDF&#x2F;ThinkCentre&#x2F;ThinkCentre_M710_Tiny&#x2F;ThinkCentre_M710_Tiny_Spec.pdf&quot;&gt;PDF&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;M910q&lt;&#x2F;td&gt;&lt;td&gt;Skylake&#x2F;Kaby Lake&lt;&#x2F;td&gt;&lt;td&gt;Intel Q270&lt;&#x2F;td&gt;&lt;td&gt;2x 32GB 2400MHz DDR4²&lt;&#x2F;td&gt;&lt;td&gt;-&lt;&#x2F;td&gt;&lt;td&gt;1&lt;&#x2F;td&gt;&lt;td&gt;2&lt;&#x2F;td&gt;&lt;td&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;psref.lenovo.com&#x2F;syspool&#x2F;Sys&#x2F;PDF&#x2F;ThinkCentre&#x2F;ThinkCentre_M910_Tiny&#x2F;ThinkCentre_M910_Tiny_Spec.pdf&quot;&gt;PDF&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;M720q&lt;&#x2F;td&gt;&lt;td&gt;Coffee Lake&lt;&#x2F;td&gt;&lt;td&gt;Intel B360&lt;&#x2F;td&gt;&lt;td&gt;2x 32GB 2666MHz DDR4²&lt;&#x2F;td&gt;&lt;td&gt;x8 Gen 3¹&lt;&#x2F;td&gt;&lt;td&gt;1&lt;&#x2F;td&gt;&lt;td&gt;1&lt;&#x2F;td&gt;&lt;td&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;psref.lenovo.com&#x2F;syspool&#x2F;Sys&#x2F;PDF&#x2F;ThinkCentre&#x2F;ThinkCentre_M720_Tiny&#x2F;ThinkCentre_M720_Tiny_Spec.pdf&quot;&gt;PDF&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;M920q&lt;&#x2F;td&gt;&lt;td&gt;Coffee Lake&lt;&#x2F;td&gt;&lt;td&gt;Intel Q370&lt;&#x2F;td&gt;&lt;td&gt;2x 32GB 2666MHz DDR4²&lt;&#x2F;td&gt;&lt;td&gt;x8 Gen 3¹&lt;&#x2F;td&gt;&lt;td&gt;1&lt;&#x2F;td&gt;&lt;td&gt;1&lt;&#x2F;td&gt;&lt;td&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;psref.lenovo.com&#x2F;syspool&#x2F;Sys&#x2F;PDF&#x2F;ThinkCentre&#x2F;ThinkCentre_M920_Tiny&#x2F;ThinkCentre_M920_Tiny_Spec.pdf&quot;&gt;PDF&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;M920x&lt;&#x2F;td&gt;&lt;td&gt;Coffee Lake&lt;&#x2F;td&gt;&lt;td&gt;Intel Q370&lt;&#x2F;td&gt;&lt;td&gt;2x 32GB 2666MHz DDR4²&lt;&#x2F;td&gt;&lt;td&gt;x8 Gen 3¹&lt;&#x2F;td&gt;&lt;td&gt;1&lt;&#x2F;td&gt;&lt;td&gt;2&lt;&#x2F;td&gt;&lt;td&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;psref.lenovo.com&#x2F;syspool&#x2F;Sys&#x2F;PDF&#x2F;ThinkCentre&#x2F;ThinkCentre_M920x_Tiny&#x2F;ThinkCentre_M920x_Tiny_Spec.pdf&quot;&gt;PDF&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;P330&lt;&#x2F;td&gt;&lt;td&gt;Coffee Lake&lt;&#x2F;td&gt;&lt;td&gt;Intel Q370&lt;&#x2F;td&gt;&lt;td&gt;2x 32GB 2666MHz DDR4&lt;&#x2F;td&gt;&lt;td&gt;x8 Gen 3¹&lt;&#x2F;td&gt;&lt;td&gt;1&lt;&#x2F;td&gt;&lt;td&gt;2&lt;&#x2F;td&gt;&lt;td&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;psref.lenovo.com&#x2F;syspool&#x2F;Sys&#x2F;PDF&#x2F;ThinkStation&#x2F;ThinkStation_P330_Tiny&#x2F;ThinkStation_P330_Tiny_Spec.pdf&quot;&gt;PDF&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;M75q&lt;&#x2F;td&gt;&lt;td&gt;AMD Zen 2&lt;&#x2F;td&gt;&lt;td&gt;AMD Pro 500&lt;&#x2F;td&gt;&lt;td&gt;2x 32GB 2933MHz DDR4&lt;&#x2F;td&gt;&lt;td&gt;-&lt;&#x2F;td&gt;&lt;td&gt;1&lt;&#x2F;td&gt;&lt;td&gt;1&lt;&#x2F;td&gt;&lt;td&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;psref.lenovo.com&#x2F;syspool&#x2F;Sys&#x2F;PDF&#x2F;ThinkCentre&#x2F;ThinkCentre_M75q_Tiny&#x2F;ThinkCentre_M75q_Tiny_Spec.PDF&quot;&gt;PDF&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;M75q Gen 2&lt;&#x2F;td&gt;&lt;td&gt;AMD Zen 3&lt;&#x2F;td&gt;&lt;td&gt;AMD Pro 500&lt;&#x2F;td&gt;&lt;td&gt;2x 32GB 3200MHz DDR4&lt;&#x2F;td&gt;&lt;td&gt;-&lt;&#x2F;td&gt;&lt;td&gt;1&lt;&#x2F;td&gt;&lt;td&gt;1&lt;&#x2F;td&gt;&lt;td&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;psref.lenovo.com&#x2F;syspool&#x2F;Sys&#x2F;PDF&#x2F;ThinkCentre&#x2F;ThinkCentre_M75q_Gen_2&#x2F;ThinkCentre_M75q_Gen_2_Spec.pdf&quot;&gt;PDF&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;M70q&lt;&#x2F;td&gt;&lt;td&gt;Comet Lake&lt;&#x2F;td&gt;&lt;td&gt;Intel H470&lt;&#x2F;td&gt;&lt;td&gt;2x 32GB 2933MHz DDR4&lt;&#x2F;td&gt;&lt;td&gt;-&lt;&#x2F;td&gt;&lt;td&gt;1&lt;&#x2F;td&gt;&lt;td&gt;1&lt;&#x2F;td&gt;&lt;td&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;psref.lenovo.com&#x2F;syspool&#x2F;Sys&#x2F;PDF&#x2F;ThinkCentre&#x2F;ThinkCentre_M70q&#x2F;ThinkCentre_M70q_Spec.pdf&quot;&gt;PDF&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;M80q&lt;&#x2F;td&gt;&lt;td&gt;Comet Lake&lt;&#x2F;td&gt;&lt;td&gt;Intel Q470&lt;&#x2F;td&gt;&lt;td&gt;2x 32GB 2933MHz DDR4&lt;&#x2F;td&gt;&lt;td&gt;-&lt;&#x2F;td&gt;&lt;td&gt;1&lt;&#x2F;td&gt;&lt;td&gt;1&lt;&#x2F;td&gt;&lt;td&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;psref.lenovo.com&#x2F;syspool&#x2F;Sys&#x2F;PDF&#x2F;ThinkCentre&#x2F;ThinkCentre_M80q&#x2F;ThinkCentre_M80q_Spec.pdf&quot;&gt;PDF&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;M90q&lt;&#x2F;td&gt;&lt;td&gt;Comet Lake&lt;&#x2F;td&gt;&lt;td&gt;Intel Q470&lt;&#x2F;td&gt;&lt;td&gt;2x 32GB 2933MHz DDR4&lt;&#x2F;td&gt;&lt;td&gt;x8 Gen 3&lt;&#x2F;td&gt;&lt;td&gt;1&lt;&#x2F;td&gt;&lt;td&gt;2&lt;&#x2F;td&gt;&lt;td&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;psref.lenovo.com&#x2F;syspool&#x2F;Sys&#x2F;PDF&#x2F;ThinkCentre&#x2F;ThinkCentre_M90q&#x2F;ThinkCentre_M90q_Spec.pdf&quot;&gt;PDF&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;P340&lt;&#x2F;td&gt;&lt;td&gt;Comet Lake&lt;&#x2F;td&gt;&lt;td&gt;Intel Q470&lt;&#x2F;td&gt;&lt;td&gt;2x 32GB 2933MHz DDR4&lt;&#x2F;td&gt;&lt;td&gt;x8 Gen 3&lt;&#x2F;td&gt;&lt;td&gt;1&lt;&#x2F;td&gt;&lt;td&gt;2&lt;&#x2F;td&gt;&lt;td&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;psref.lenovo.com&#x2F;syspool&#x2F;Sys&#x2F;PDF&#x2F;ThinkStation&#x2F;ThinkStation_P340_Tiny&#x2F;ThinkStation_P340_Tiny_Spec.pdf&quot;&gt;PDF&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;M70q Gen 2&lt;&#x2F;td&gt;&lt;td&gt;Rocket Lake&lt;&#x2F;td&gt;&lt;td&gt;Intel B560&lt;&#x2F;td&gt;&lt;td&gt;2x 32GB 3200MHz DDR4&lt;&#x2F;td&gt;&lt;td&gt;-&lt;&#x2F;td&gt;&lt;td&gt;1&lt;&#x2F;td&gt;&lt;td&gt;1&lt;&#x2F;td&gt;&lt;td&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;psref.lenovo.com&#x2F;syspool&#x2F;Sys&#x2F;PDF&#x2F;ThinkCentre&#x2F;ThinkCentre_M70q_Gen_2&#x2F;ThinkCentre_M70q_Gen_2_Spec.pdf&quot;&gt;PDF&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;M90q Gen 2&lt;&#x2F;td&gt;&lt;td&gt;Rocket Lake&lt;&#x2F;td&gt;&lt;td&gt;Intel Q570&lt;&#x2F;td&gt;&lt;td&gt;2x 32GB 3200MHz DDR4&lt;&#x2F;td&gt;&lt;td&gt;x8 Gen 3&lt;&#x2F;td&gt;&lt;td&gt;1&lt;&#x2F;td&gt;&lt;td&gt;2&lt;&#x2F;td&gt;&lt;td&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;psref.lenovo.com&#x2F;syspool&#x2F;Sys&#x2F;PDF&#x2F;ThinkCentre&#x2F;ThinkCentre_M90q_Gen_2&#x2F;ThinkCentre_M90q_Gen_2_Spec.pdf&quot;&gt;PDF&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;P350&lt;&#x2F;td&gt;&lt;td&gt;Rocket Lake&lt;&#x2F;td&gt;&lt;td&gt;Intel Q570&lt;&#x2F;td&gt;&lt;td&gt;2x 32GB 3200MHz DDR4&lt;&#x2F;td&gt;&lt;td&gt;x8 Gen 3&lt;&#x2F;td&gt;&lt;td&gt;1&lt;&#x2F;td&gt;&lt;td&gt;2&lt;&#x2F;td&gt;&lt;td&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;psref.lenovo.com&#x2F;syspool&#x2F;Sys&#x2F;PDF&#x2F;ThinkStation&#x2F;ThinkStation_P350_Tiny&#x2F;ThinkStation_P350_Tiny_Spec.pdf&quot;&gt;PDF&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;M80q Gen 3&lt;&#x2F;td&gt;&lt;td&gt;Alder Lake&lt;&#x2F;td&gt;&lt;td&gt;Intel Q670&lt;&#x2F;td&gt;&lt;td&gt;2x 32GB 4800MHz DDR5&lt;&#x2F;td&gt;&lt;td&gt;-&lt;&#x2F;td&gt;&lt;td&gt;1&lt;&#x2F;td&gt;&lt;td&gt;2&lt;&#x2F;td&gt;&lt;td&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;psref.lenovo.com&#x2F;syspool&#x2F;Sys&#x2F;PDF&#x2F;ThinkCentre&#x2F;ThinkCentre_M80q_Gen_3&#x2F;ThinkCentre_M80q_Gen_3_Spec.pdf&quot;&gt;PDF&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;M90q Gen 3&lt;&#x2F;td&gt;&lt;td&gt;Alder Lake&lt;&#x2F;td&gt;&lt;td&gt;Intel Q670&lt;&#x2F;td&gt;&lt;td&gt;2x 32GB 4800MHz DDR5&lt;&#x2F;td&gt;&lt;td&gt;x8 Gen 4&lt;&#x2F;td&gt;&lt;td&gt;1&lt;&#x2F;td&gt;&lt;td&gt;2&lt;&#x2F;td&gt;&lt;td&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;psref.lenovo.com&#x2F;syspool&#x2F;Sys&#x2F;PDF&#x2F;ThinkCentre&#x2F;ThinkCentre_M90q_Gen_3&#x2F;ThinkCentre_M90q_Gen_3_Spec.pdf&quot;&gt;PDF&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;P360&lt;&#x2F;td&gt;&lt;td&gt;Alder Lake&lt;&#x2F;td&gt;&lt;td&gt;Intel Q670&lt;&#x2F;td&gt;&lt;td&gt;2x 32GB 4800MHz DDR5&lt;&#x2F;td&gt;&lt;td&gt;x8 Gen 4&lt;&#x2F;td&gt;&lt;td&gt;0&lt;&#x2F;td&gt;&lt;td&gt;2&lt;&#x2F;td&gt;&lt;td&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;psref.lenovo.com&#x2F;syspool&#x2F;Sys&#x2F;PDF&#x2F;ThinkStation&#x2F;ThinkStation_P360_Tiny&#x2F;ThinkStation_P360_Tiny_Spec.pdf&quot;&gt;PDF&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;M70q Gen 3&lt;&#x2F;td&gt;&lt;td&gt;Alder Lake&lt;&#x2F;td&gt;&lt;td&gt;Intel Q670&lt;&#x2F;td&gt;&lt;td&gt;2x 32GB 3200MHz DDR4&lt;&#x2F;td&gt;&lt;td&gt;-&lt;&#x2F;td&gt;&lt;td&gt;1&lt;&#x2F;td&gt;&lt;td&gt;1&lt;&#x2F;td&gt;&lt;td&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;psref.lenovo.com&#x2F;syspool&#x2F;Sys&#x2F;PDF&#x2F;ThinkCentre&#x2F;ThinkCentre_M70q_Gen_3&#x2F;ThinkCentre_M70q_Gen_3_Spec.pdf&quot;&gt;PDF&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;M75q Gen 5&lt;&#x2F;td&gt;&lt;td&gt;AMD Zen 4&lt;&#x2F;td&gt;&lt;td&gt;AMD Pro 600&lt;&#x2F;td&gt;&lt;td&gt;2x 32GB 5200MHz DDR5&lt;&#x2F;td&gt;&lt;td&gt;-&lt;&#x2F;td&gt;&lt;td&gt;1&lt;&#x2F;td&gt;&lt;td&gt;1&lt;&#x2F;td&gt;&lt;td&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;psref.lenovo.com&#x2F;syspool&#x2F;Sys&#x2F;PDF&#x2F;ThinkCentre&#x2F;ThinkCentre_M75q_Gen_5&#x2F;ThinkCentre_M75q_Gen_5_Spec.pdf&quot;&gt;PDF&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;M70q Gen 4&lt;&#x2F;td&gt;&lt;td&gt;Raptor Lake&lt;&#x2F;td&gt;&lt;td&gt;Intel Q670&lt;&#x2F;td&gt;&lt;td&gt;2x 32GB 5600MHz DDR5²&lt;&#x2F;td&gt;&lt;td&gt;-&lt;&#x2F;td&gt;&lt;td&gt;0&lt;&#x2F;td&gt;&lt;td&gt;2&lt;&#x2F;td&gt;&lt;td&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;psref.lenovo.com&#x2F;syspool&#x2F;Sys&#x2F;PDF&#x2F;ThinkCentre&#x2F;ThinkCentre_M70q_Gen_4&#x2F;ThinkCentre_M70q_Gen_4_Spec.pdf&quot;&gt;PDF&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;M70q Gen 5&lt;&#x2F;td&gt;&lt;td&gt;Raptor Lake&lt;&#x2F;td&gt;&lt;td&gt;Intel Q670&lt;&#x2F;td&gt;&lt;td&gt;2x 32GB 5600MHz DDR5²&lt;&#x2F;td&gt;&lt;td&gt;-&lt;&#x2F;td&gt;&lt;td&gt;0&lt;&#x2F;td&gt;&lt;td&gt;2&lt;&#x2F;td&gt;&lt;td&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;psref.lenovo.com&#x2F;syspool&#x2F;Sys&#x2F;PDF&#x2F;ThinkCentre&#x2F;ThinkCentre_M70q_Gen_5&#x2F;ThinkCentre_M70q_Gen_5_Spec.pdf&quot;&gt;PDF&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;M70q Gen 6&lt;&#x2F;td&gt;&lt;td&gt;Arrow Lake&lt;&#x2F;td&gt;&lt;td&gt;Intel B860 or Q870&lt;&#x2F;td&gt;&lt;td&gt;2x 32GB 5600MHz DDR5&lt;&#x2F;td&gt;&lt;td&gt;-&lt;&#x2F;td&gt;&lt;td&gt;0&lt;&#x2F;td&gt;&lt;td&gt;2&lt;&#x2F;td&gt;&lt;td&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;psref.lenovo.com&#x2F;syspool&#x2F;Sys&#x2F;PDF&#x2F;ThinkCentre&#x2F;ThinkCentre_M70q_Gen_6&#x2F;ThinkCentre_M70q_Gen_6_Spec.pdf&quot;&gt;PDF&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
+&lt;p&gt;&lt;strong&gt;¹&lt;&#x2F;strong&gt;: You need proprietary riser card to use the PCIe slot&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;²&lt;&#x2F;strong&gt;: RAM speed can be lower depending on the CPU&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;³&lt;&#x2F;strong&gt;: Maximum RAM supported is determined by CPU (memory controller) and BIOS, some configurations may support more RAM unofficially.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;tools&quot;&gt;Tools&lt;&#x2F;h3&gt;
+&lt;p&gt;Lenovo Bios&#x2F;UEFI simulator: &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;download.lenovo.com&#x2F;bsco&#x2F;index.html#&#x2F;&quot;&gt;Simulator&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;m710q-and-m910q&quot;&gt;M710q and M910q&lt;&#x2F;h3&gt;
+&lt;h4 id=&quot;ports-1&quot;&gt;Ports&lt;&#x2F;h4&gt;
+ &lt;figure class=&quot;fi&quot;&gt;&lt;img src=&quot;https:&#x2F;&#x2F;blog.bensuperpc.org&#x2F;images&#x2F;articles&#x2F;SSF-PC&#x2F;lenovo-thinkcentre-m710q-front.webp&quot; alt=&quot;Front of M710q&quot; width=&quot;721&quot; height=&quot;147&quot; loading=&quot;lazy&quot; &#x2F;&gt;&lt;figcaption&gt;Front of M710q&lt;&#x2F;figcaption&gt;&lt;&#x2F;figure&gt;
+&lt;p&gt;On the front:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;2x USB 3.1 Gen 1&lt;&#x2F;li&gt;
+&lt;li&gt;1x Audio headphone jack&lt;&#x2F;li&gt;
+&lt;li&gt;1x Audio microphone jack&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+ &lt;figure class=&quot;fi&quot;&gt;&lt;img src=&quot;https:&#x2F;&#x2F;blog.bensuperpc.org&#x2F;images&#x2F;articles&#x2F;SSF-PC&#x2F;lenovo-thinkcentre-m710q-back.webp&quot; alt=&quot;Back of M710q&quot; width=&quot;725&quot; height=&quot;150&quot; loading=&quot;lazy&quot; &#x2F;&gt;&lt;figcaption&gt;Back of M710q&lt;&#x2F;figcaption&gt;&lt;&#x2F;figure&gt;
+&lt;p&gt;On the back:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;4x USB 3.1 Gen 1&lt;&#x2F;li&gt;
+&lt;li&gt;1x HDMI 1.4&lt;&#x2F;li&gt;
+&lt;li&gt;1x DisplayPort 1.2a&lt;&#x2F;li&gt;
+&lt;li&gt;1x Ethernet RJ45&lt;&#x2F;li&gt;
+&lt;li&gt;1x Lenovo proprietary power connector&lt;&#x2F;li&gt;
+&lt;li&gt;2x proprietary port for accessories (VGA, HDMI, DP, USB-C etc...)&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;The M710q&#x2F;M910q does not support HDR through HDMI (1.4) or DisplayPort (1.2a) but 10bit color depth is supported.&lt;&#x2F;p&gt;
+&lt;h4 id=&quot;cpu&quot;&gt;CPU&lt;&#x2F;h4&gt;
+&lt;p&gt;The M710q&#x2F;M910q supports all &lt;strong&gt;6th&lt;&#x2F;strong&gt; and &lt;strong&gt;7th&lt;&#x2F;strong&gt; generation Intel 35W CPUs (models with &lt;strong&gt;T&lt;&#x2F;strong&gt; suffix), i recommend 7th gen for HEVC 10-bit hardware encoding&#x2F;decoding support.&lt;&#x2F;p&gt;
+&lt;h4 id=&quot;ram&quot;&gt;RAM&lt;&#x2F;h4&gt;
+&lt;p&gt;The M710q&#x2F;M910q have &lt;strong&gt;two DDR4 SODIMM slots&lt;&#x2F;strong&gt; with a maximum capacity of &lt;strong&gt;32GB&lt;&#x2F;strong&gt; (2x16GB), the maximum frequency is &lt;strong&gt;2133MHz&lt;&#x2F;strong&gt; or &lt;strong&gt;2400MHz&lt;&#x2F;strong&gt; on &lt;strong&gt;7th&lt;&#x2F;strong&gt; gen.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;m720q-m920q-and-m920x&quot;&gt;M720q, M920q and M920x&lt;&#x2F;h3&gt;
+&lt;h4 id=&quot;ports-2&quot;&gt;Ports&lt;&#x2F;h4&gt;
+ &lt;figure class=&quot;fi&quot;&gt;&lt;img src=&quot;https:&#x2F;&#x2F;blog.bensuperpc.org&#x2F;images&#x2F;articles&#x2F;SSF-PC&#x2F;lenovo-thinkcentre-m720q-front.webp&quot; alt=&quot;Front of M720q&quot; width=&quot;1107&quot; height=&quot;234&quot; loading=&quot;lazy&quot; &#x2F;&gt;&lt;figcaption&gt;Front of M720q&lt;&#x2F;figcaption&gt;&lt;&#x2F;figure&gt;
+&lt;p&gt;On the front:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;The power button&lt;&#x2F;li&gt;
+&lt;li&gt;1x Audio microphone jack&lt;&#x2F;li&gt;
+&lt;li&gt;1x Audio headphone jack&lt;&#x2F;li&gt;
+&lt;li&gt;1x USB-C 3.1 Gen 1&lt;&#x2F;li&gt;
+&lt;li&gt;1x USB 3.1 Gen 1&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+ &lt;figure class=&quot;fi&quot;&gt;&lt;img src=&quot;https:&#x2F;&#x2F;blog.bensuperpc.org&#x2F;images&#x2F;articles&#x2F;SSF-PC&#x2F;lenovo-thinkcentre-m720q-back.webp&quot; alt=&quot;Back of M720q&quot; width=&quot;1105&quot; height=&quot;221&quot; loading=&quot;lazy&quot; &#x2F;&gt;&lt;figcaption&gt;Back of M720q&lt;&#x2F;figcaption&gt;&lt;&#x2F;figure&gt;
+&lt;p&gt;On the back:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;1x Lenovo proprietary power connector&lt;&#x2F;li&gt;
+&lt;li&gt;1x DisplayPort 1.2a&lt;&#x2F;li&gt;
+&lt;li&gt;2x USB 3.1 Gen 1&lt;&#x2F;li&gt;
+&lt;li&gt;1x HDMI 1.4&lt;&#x2F;li&gt;
+&lt;li&gt;2x USB 3.1 Gen 2&lt;&#x2F;li&gt;
+&lt;li&gt;1x Ethernet RJ45&lt;&#x2F;li&gt;
+&lt;li&gt;2x port for proprietary accessories (VGA, HDMI, DP, USB-C etc...)&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;The M720q&#x2F;M920q does not support HDR through HDMI (1.4) or DisplayPort (1.2a) but 10bit color depth is supported.&lt;&#x2F;p&gt;
+&lt;h4 id=&quot;cpu-1&quot;&gt;CPU&lt;&#x2F;h4&gt;
+&lt;p&gt;The M720q&#x2F;M920q supports all &lt;strong&gt;8th&lt;&#x2F;strong&gt; and &lt;strong&gt;9th&lt;&#x2F;strong&gt; generation Intel 35W CPUs (models with &lt;strong&gt;T&lt;&#x2F;strong&gt; suffix), the &lt;strong&gt;i7-9900T&lt;&#x2F;strong&gt; is the most powerful CPU available for this model, but it is very expensive and hard to find, the i3-8100T, i3-9100T, i5-8500T, i5-8600T, i5-9500T, i5-9600T, i7-8700T, i7-9700T are far more common, affordable and still offer good performance.&lt;&#x2F;p&gt;
+&lt;p&gt;Avoid Celeron and Pentium, they are pretty slow (missing AVX2, FMA3, etc...), &lt;strong&gt;do not use CPUs with a higher TDP than 35W (65W on M920x)&lt;&#x2F;strong&gt;, this can cause overheating and potentially damage your motherboard (like VRMs) or PSU.&lt;&#x2F;p&gt;
+&lt;h4 id=&quot;ram-1&quot;&gt;RAM&lt;&#x2F;h4&gt;
+&lt;p&gt;The M720q&#x2F;M920q&#x2F;M920x have &lt;strong&gt;two DDR4 SODIMM slots&lt;&#x2F;strong&gt; with a maximum capacity of &lt;strong&gt;64GB&lt;&#x2F;strong&gt; (2x32GB), the maximum frequency is &lt;strong&gt;2400MHz&lt;&#x2F;strong&gt; or &lt;strong&gt;2666MHz&lt;&#x2F;strong&gt; on i5&#x2F;i7 CPUs.&lt;&#x2F;p&gt;
+&lt;h4 id=&quot;storage-1&quot;&gt;Storage&lt;&#x2F;h4&gt;
+&lt;p&gt;You have &lt;strong&gt;two&lt;&#x2F;strong&gt; storage options:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;M.2 NVMe PCIe 3.0&lt;&#x2F;strong&gt;: Only one slot and support PCIe x4 Gen 3&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;2.5&quot; SATA&lt;&#x2F;strong&gt;: Slower but it be a good alternative if you need more storage or don&#x27;t have an M.2 NVMe SSD&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;The the &lt;strong&gt;second M.2 slot&lt;&#x2F;strong&gt; missing NVMe on M720q&#x2F;M920q, you can solder missing components to get working M.2 (SATA): &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;badger707&#x2F;m920q-dual-NVME&quot;&gt;https:&#x2F;&#x2F;github.com&#x2F;badger707&#x2F;m920q-dual-NVME&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;h4 id=&quot;gpu&quot;&gt;GPU&lt;&#x2F;h4&gt;
+&lt;p&gt;All compatible CPU have an integrated GPU, if it is not enough, you can add a &lt;strong&gt;low-profile&lt;&#x2F;strong&gt; GPU with &lt;strong&gt;proprietary PCIe riser card&lt;&#x2F;strong&gt;, you are limited with PCIe 3.0 x8 and 45W TDP (you also need 135W PSU).&lt;&#x2F;p&gt;
+&lt;h4 id=&quot;psu&quot;&gt;PSU&lt;&#x2F;h4&gt;
+&lt;p&gt;The proprietary PSU used for the M720q has a &lt;strong&gt;65W&lt;&#x2F;strong&gt;, &lt;strong&gt;90W&lt;&#x2F;strong&gt;, &lt;strong&gt;135W&lt;&#x2F;strong&gt; power rating, &lt;strong&gt;90W&lt;&#x2F;strong&gt; is minimum when you use expansion cards or powerful CPU. (i7 or i9 CPU)&lt;&#x2F;p&gt;
+&lt;h4 id=&quot;expansion-and-accessories&quot;&gt;Expansion and accessories&lt;&#x2F;h4&gt;
+&lt;p&gt;The M720q supports multiple expansion options:&lt;&#x2F;p&gt;
+&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Type&lt;&#x2F;th&gt;&lt;th&gt;Model&lt;&#x2F;th&gt;&lt;th&gt;Description&lt;&#x2F;th&gt;&lt;&#x2F;tr&gt;&lt;&#x2F;thead&gt;&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;VGA Port Card&lt;&#x2F;td&gt;&lt;td&gt;01AJ935&lt;&#x2F;td&gt;&lt;td&gt;Add 1 VGA Port outputs&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;VGA Port Card&lt;&#x2F;td&gt;&lt;td&gt;5C50W00881&lt;&#x2F;td&gt;&lt;td&gt;Add 1 VGA Port outputs&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;Display Port Card&lt;&#x2F;td&gt;&lt;td&gt;01AJ937&lt;&#x2F;td&gt;&lt;td&gt;Add 1 Display Port outputs&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;HDMI Port Card&lt;&#x2F;td&gt;&lt;td&gt;01AJ938&lt;&#x2F;td&gt;&lt;td&gt;Add 1 HDMI Port outputs&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;USB-C Port Card&lt;&#x2F;td&gt;&lt;td&gt;01AJ939&lt;&#x2F;td&gt;&lt;td&gt;Add 1 USB-C Port outputs&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;Riser PCIe x8&lt;&#x2F;td&gt;&lt;td&gt;01AJ940&lt;&#x2F;td&gt;&lt;td&gt;Add 1 PCIe x8 slot&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;COM RS232 Port Card&lt;&#x2F;td&gt;&lt;td&gt;04X2733&lt;&#x2F;td&gt;&lt;td&gt;Add 1 COM RS232 Port outputs&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;Vesa Mount&lt;&#x2F;td&gt;&lt;td&gt;4XF0N03161&lt;&#x2F;td&gt;&lt;td&gt;Vesa Mount + screws&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;Vesa Mount&lt;&#x2F;td&gt;&lt;td&gt;SM10U47670&lt;&#x2F;td&gt;&lt;td&gt;Vesa Mount + screws&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;Vesa Mount&lt;&#x2F;td&gt;&lt;td&gt;01EF310&lt;&#x2F;td&gt;&lt;td&gt;Vesa Mount + screws&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;Vesa Mount&lt;&#x2F;td&gt;&lt;td&gt;01EF645&lt;&#x2F;td&gt;&lt;td&gt;Vesa Mount + screws&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;Vesa Mount&lt;&#x2F;td&gt;&lt;td&gt;5M10U49625&lt;&#x2F;td&gt;&lt;td&gt;Vesa Mount + screws&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;USB hub&lt;&#x2F;td&gt;&lt;td&gt;01EF647&lt;&#x2F;td&gt;&lt;td&gt;USB hub with RS232&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;Wifi antenna&lt;&#x2F;td&gt;&lt;td&gt;00XJ126&lt;&#x2F;td&gt;&lt;td&gt;Internal Wifi antenna&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;Radiator with fan&lt;&#x2F;td&gt;&lt;td&gt;01MN633&lt;&#x2F;td&gt;&lt;td&gt;Radiator with fan&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;Radiator with fan&lt;&#x2F;td&gt;&lt;td&gt;01MN632&lt;&#x2F;td&gt;&lt;td&gt;Radiator with fan&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
+&lt;h4 id=&quot;bios&quot;&gt;BIOS&lt;&#x2F;h4&gt;
+&lt;p&gt;To update the BIOS, you &lt;strong&gt;must&lt;&#x2F;strong&gt; update &lt;strong&gt;Intel Management Engine&lt;&#x2F;strong&gt; first, then update the BIOS, otherwise you risk boot loop with older BIOS versions.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;sources&quot;&gt;Sources&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;forums.servethehome.com&#x2F;index.php?threads&#x2F;lenovo-thinkcentre-thinkstation-tiny-project-tinyminimicro-reference-thread.34925&#x2F;&quot;&gt;Project TinyMiniMicro&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;forums.servethehome.com&#x2F;index.php?threads&#x2F;tiny-mini-micro-pc-experiences.30230&#x2F;&quot;&gt;Tiny&#x2F;Mini&#x2F;Micro PC experiences&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Small_form_factor&quot;&gt;Wikipedia&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.cpu-world.com&#x2F;&quot;&gt;cpu-world&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+        
+    </entry>
+</feed>
