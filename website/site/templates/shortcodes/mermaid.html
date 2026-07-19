@@ -1,0 +1,8 @@
+{#- Loads mermaid.js so ```mermaid code fences on this page render as diagrams. #}
+{#- Usage: put {{/* mermaid() */}} anywhere in the page (once is enough, even with several diagrams). #}
+{%- set integrity = config.extra.integrity | default(value=true) -%}
+{%- if config.extra.search_library == "offline" %}{% set integrity = false %}{% endif %}
+
+<script>window.mermaidDarkDefault = {% if config.extra.js_switcher_default == "light" %}false{% else %}true{% endif %};</script>
+<script defer src="{{ get_url(path="js/mermaid.min.js", trailing_slash=false, cachebust=true) }}"{%- if integrity %} integrity="sha384-{{ get_hash(path="js/mermaid.min.js", sha_type=384, base64=true) | safe }}"{%- endif %}></script>
+<script defer src="{{ get_url(path="js/mermaid-init.js", trailing_slash=false, cachebust=true) }}"{%- if integrity %} integrity="sha384-{{ get_hash(path="js/mermaid-init.js", sha_type=384, base64=true) | safe }}"{%- endif %}></script>

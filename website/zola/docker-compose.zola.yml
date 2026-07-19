@@ -3,11 +3,12 @@ services:
   zola:
     image: ghcr.io/getzola/zola:v0.22.1
     container_name: zola
-    user: ${PUID:-1000}:${PGID:-1000}
+    extends:
+      file: ../common.yml
+      service: service-base
     profiles:
       - zola
       - zola-dev
-    restart: on-failure:5
     env_file:
       - ./env/zola.env
     working_dir: /project
@@ -20,11 +21,6 @@ services:
       - public_www:/tmpfs/public:rw
     networks:
       - infra-network
-    security_opt:
-      - no-new-privileges:true
-    read_only: true
-    cap_drop:
-      - SYS_ADMIN
     deploy:
       resources:
         limits:
@@ -36,7 +32,9 @@ services:
   zola-build:
     image: ghcr.io/getzola/zola:v0.22.1
     container_name: zola-build
-    user: ${PUID:-1000}:${PGID:-1000}
+    extends:
+      file: ../common.yml
+      service: service-base
     profiles:
       - zola-build
     env_file:
@@ -48,11 +46,6 @@ services:
       - ./../build:/site:rw
     networks:
       - infra-network
-    security_opt:
-      - no-new-privileges:true
-    read_only: true
-    cap_drop:
-      - SYS_ADMIN
 
 volumes:
   public_www:

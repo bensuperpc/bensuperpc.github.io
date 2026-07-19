@@ -3,7 +3,6 @@ title = "A guide to SFF PCs (WIP)"
 description = "A guide to SFF PCs"
 date = 2025-12-27T00:00:00Z
 draft = false
-aliases = ["fr/documentation/hardware/sff-pc"]
 
 [taxonomies]
 tags = ["Features","SFF","Tiny","Thinkcentre"]

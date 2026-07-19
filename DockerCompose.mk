@@ -1,8 +1,8 @@
 #//////////////////////////////////////////////////////////////
 #//                                                          //
-#//  docker-multimedia, 2024                                 //
+#//  docker-multimedia, 2026                                 //
 #//  Created: 30, May, 2021                                  //
-#//  Modified: 14 November, 2024                             //
+#//  Modified: 19 July, 2026                                 //
 #//  file: -                                                 //
 #//  -                                                       //
 #//  Source:                                                 //
@@ -15,70 +15,63 @@ PROJECT_DIRECTORY ?= infrastructure
 
 DOCKER_EXEC ?= docker
 
-DOCKER_PROFILES ?= main_infrastructure
+CONFIG_DIRECTORY ?= presets
+CONFIG_FILES ?= $(addprefix $(CONFIG_DIRECTORY)/,$(addsuffix .conf,$(CONFIGS)))
+include $(CONFIG_FILES)
 
-PROFILE_CMD ?= $(addprefix --profile ,$(DOCKER_PROFILES))
+DOCKER_PROFILES ?=
+EXTRA_PROFILES ?=
+
+PROFILE_CMD ?= $(addprefix --profile ,$(DOCKER_PROFILES) $(EXTRA_PROFILES))
 
 COMPOSE_FILES ?=  $(shell find ./$(PROJECT_DIRECTORY) -maxdepth 1 -name 'docker-compose*.yml' -type f | sed -e 's/^/--file /')
 COMPOSE_DIR ?= --project-directory ./$(PROJECT_DIRECTORY)
 
 UID ?= 1000
 GID ?= 1000
+TZ ?= Europe/Paris
 
-ENV_ARG_VAR ?= PUID=$(UID) PGID=$(GID)
+ENV_ARG_VAR ?= PUID=$(UID) PGID=$(GID) TZ=$(TZ)
 
 DOCKER_COMPOSE_COMMAND ?= $(ENV_ARG_VAR) $(DOCKER_EXEC) compose $(COMPOSE_DIR) $(COMPOSE_FILES) $(PROFILE_CMD)
 
 .PHONY: build all
 all: start
 
-.PHONY: build
-build:
-	$(DOCKER_COMPOSE_COMMAND) build
+GENERIC_TARGETS := build down up run config logs pull images start restart stop
 
-.PHONY: start
-start:
+.PHONY: $(GENERIC_TARGETS)
+$(GENERIC_TARGETS):
+	$(DOCKER_COMPOSE_COMMAND) $@
+
+.PHONY: start-detached
+start-detached:
 	$(DOCKER_COMPOSE_COMMAND) up -d
 
-.PHONY: start-at
-start-at:
-	$(DOCKER_COMPOSE_COMMAND) up
-
-.PHONY: docker-check
-docker-check:
-	$(DOCKER_COMPOSE_COMMAND) config
-
-.PHONY: stop
-stop: down
-
-.PHONY: down
-down:
-	$(DOCKER_COMPOSE_COMMAND) down
-
-.PHONY: restart
-restart: stop start
-
-.PHONY: logs
-logs:
-	$(DOCKER_COMPOSE_COMMAND) logs
+.PHONY: no-start
+no-start:
+	$(DOCKER_COMPOSE_COMMAND) up --no-start
 
 .PHONY: state
 state:
 	$(DOCKER_COMPOSE_COMMAND) ps
 	$(DOCKER_COMPOSE_COMMAND) top
 
-.PHONY: update-docker
-update-docker:
-	$(DOCKER_COMPOSE_COMMAND) pull
+.PHONY: volumes
+volumes:
+	$(DOCKER_COMPOSE_COMMAND) config --volumes
 
-.PHONY: update
-update: update-docker
+.PHONY: git-update
+git-update: 
 #	git submodule update --init --recursive --remote
 	git pull --recurse-submodules --all --progress
 
+.PHONY: update
+update: git-update
+
 .PHONY: clean
 clean:
-	docker system prune -f
+	$(ENV_ARG_VAR) $(DOCKER_EXEC) system prune -f
 
 .PHONY: purge
 purge:

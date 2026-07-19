@@ -1,0 +1,10 @@
+{#- Loads Chart.js so this page can draw charts. #}
+{#- Usage: put {{/* chartjs() */}} right before your own #}
+{#- <canvas> + <script>new Chart(...)</script> block in the markdown (raw HTML passes through untouched). #}
+{#- Not deferred on purpose: a hand-written instantiation <script> right after it needs `Chart` #}
+{#- to already exist, so this must run synchronously (same as Chart.js's own docs). #}
+{#- https://www.chartjs.org/docs/latest/ #}
+{%- set integrity = config.extra.integrity | default(value=true) -%}
+{%- if config.extra.search_library == "offline" %}{% set integrity = false %}{% endif %}
+
+<script src="{{ get_url(path="js/chart.min.js", trailing_slash=false, cachebust=true) }}"{%- if integrity %} integrity="sha384-{{ get_hash(path="js/chart.min.js", sha_type=384, base64=true) | safe }}"{%- endif %}></script>

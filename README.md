@@ -25,7 +25,7 @@ This is my new website, I'm working on it, it's **not finished yet**.
 Clone this repository to your local machine using:
 
 ```sh
-git clone --recurse-submodules --remote-submodules https://github.com/bensuperpc/bensuperpc_website.git
+git clone --recurse-submodules --remote-submodules https://github.com/bensuperpc/bensuperpc.github.io.git
 ```
 
 Go to the folder

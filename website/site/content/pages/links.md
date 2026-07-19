@@ -6,6 +6,8 @@ draft = false
 aliases = ["en/links", "en/useful-links", "fr/links"]
 +++
 
+{{ mermaid() }}
+
 # Useful links
 
 Here is a list of useful links.
@@ -132,3 +134,11 @@ Here is a list of useful links.
 - [Best similar](https://bestsimilar.com/) - Find similar movies
 - [Neal.fun](https://neal.fun/deep-sea/) - Fun interactive web experiments
 - [Because Recollection](http://because-recollection.com/) - Interactive musical experience
+
+
+```mermaid
+pie title Pets adopted by volunteers
+    "Dogs" : 386
+    "Cats" : 85
+    "Rats" : 15
+```

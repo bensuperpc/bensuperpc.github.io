@@ -2,8 +2,10 @@
 
 {%- block header %}
     {% if page.extra.enable_fontawesome %}
+    {%- set integrity = config.extra.integrity | default(value=true) -%}
+    {%- if config.extra.search_library == "offline" %}{% set integrity = false %}{% endif %}
     <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+          href="{{ get_url(path="fontawesome/css/all.min.css", trailing_slash=false, cachebust=true) }}"{%- if integrity %} integrity="sha384-{{ get_hash(path="fontawesome/css/all.min.css", sha_type=384, base64=true) | safe }}"{%- endif %}>
     {% endif %}
     {{ super() }}
 {% endblock header %}
