@@ -1,0 +1,318 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <script src="https://www.bensuperpc.org/js/theme.min.js" integrity="sha384-pb++s6uBRKaQv+iAXpgA/H3IlpLZdO14tTwuCI7uXmz4aaZdByoCcM+6BhynMq/1"></script>
+  <link rel="stylesheet" href="https://www.bensuperpc.org/abridge.css?h=e30c3d6057b77d800c87" />
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="base" content="https://www.bensuperpc.org" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="theme-color" content="#333333" />
+  <meta name="msapplication-TileColor" content="#333333" />
+  <link rel="manifest" href="https://www.bensuperpc.org/manifest.min.json" />
+  <link rel="apple-touch-icon" sizes="180x180" href="https://www.bensuperpc.org/images/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="https://www.bensuperpc.org/images/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="https://www.bensuperpc.org/images/favicon-16x16.png" />
+  <link rel="alternate" type="application/atom+xml" title="Bensuperpc Atom Feed" href="https://www.bensuperpc.org/fr/atom.xml" />
+  <meta name="robots" content="index, follow" />
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <title>Couverture de code C++ avec CMake et GCOVR | Bensuperpc</title>
+  <meta name="author" content="Bensuperpc" />
+  <meta name="copyright" content="Bensuperpc" />
+  <meta name="description" content="Ce tutoriel montre comment configurer un projet C++ avec CMake et GCOVR pour générer des rapports de couverture de code." />
+  <link rel="canonical" href="https://www.bensuperpc.org/fr/tutorial/coverage/" />
+  <meta name="keywords" content="coverage, GCOVR, code coverage, testing, software quality, Abridge, Abridge.css, Zola, Theme, Zola Theme, getzola, Semantic Html, Fast, lightweight" />
+  <meta name="google-site-verification" content="Your Google Site verification code." />
+  <meta name="msvalidate.01" content="Your Bing Site verification code." />
+  <meta property="og:url" content="https://www.bensuperpc.org/fr/tutorial/coverage/" />
+  <meta name="twitter:url" content="https://www.bensuperpc.org/fr/tutorial/coverage/" />
+  <meta property="og:description" content="Ce tutoriel montre comment configurer un projet C++ avec CMake et GCOVR pour générer des rapports de couverture de code." />
+  <meta name="twitter:description" content="Ce tutoriel montre comment configurer un projet C++ avec CMake et GCOVR pour générer des rapports de couverture de code." />
+  <meta property="og:title" content="Couverture de code C++ avec CMake et GCOVR | Bensuperpc" />
+  <meta name="twitter:title" content="Couverture de code C++ avec CMake et GCOVR | Bensuperpc" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://www.bensuperpc.org/images/apple-touch-icon.png" />
+  <meta property="og:image" content="https://www.bensuperpc.org/images/apple-touch-icon.png" />
+  <meta property="og:site_name" content="Bensuperpc" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:type" content="website" />
+  <meta property="og:updated_time" content="2025-08-07" />
+  <meta name="twitter:site" content="@bensuperpc" />
+  <meta name="twitter:creator" content="@bensuperpc" />
+  <script defer src="https://talk.hyvor.com/embed/embed.js" type="module"></script>
+  <script defer src="https://www.bensuperpc.org/js/abridge.min.js?h=e0f9a881a665c86cce9c" integrity="sha384-QF67y7RnPkuDrJNQqn3/7nYxqxWkW/qHI7zN0WTES1aXbf+TotoByRBb835fUE6U"></script>
+  <script defer src="https://www.bensuperpc.org/js/lunr.stemmer.support.min.js" integrity="sha384-f0MKdC/9ZSGTpDiuWusC0SbLXNCBp6NgzDZpjR/4UdHXAQBqvTEKyinnsa1wQ7oA"></script>
+  <script defer src="https://www.bensuperpc.org/js/lunr.fr.min.js" integrity="sha384-1HGSEcRn5f1GEUN1Ef/8A0uUQQI1YZuH89+bhgj29JIOV8uNd6YTI0FwWnrOpEkD"></script>
+  <noscript><link rel="stylesheet" href="https://www.bensuperpc.org/nojs.css" /></noscript>
+</head>
+<body>
+  <header>
+    <nav>
+      <div><big><a href="https://www.bensuperpc.org/fr/" title="Bensuperpc"><font color="#f90">B</font>ensuperpc</a></big></div>
+      <div>
+
+        <div>
+          <ul><li><a class="s110" href="https://www.bensuperpc.org/fr/archive/"> Articles </a></li><li><a class="s110" href="https://www.bensuperpc.org/fr/categories/"> Catégories </a></li><li><a class="s110" href="https://www.bensuperpc.org/fr/tags/"> Tags </a></li><li><a class="s110" href="https://www.bensuperpc.org/fr/links/"> Liens </a></li><li><a class="s110" href="https://www.bensuperpc.org/fr/projects/"> Projects </a></li><li><a class="s110" href="https://www.bensuperpc.org/fr/about/"> A propos </a></li>
+            <li><div class="dropdown"><i class="svgs world" type="reset"></i>
+                <div class="dropdown-content">
+                <span>Français</span><a href="https://www.bensuperpc.org/tutorial/coverage/">English</a></div>
+            </div></li><li><i type="reset" id="mode" class="js svgs adjust"></i></ul>
+        </div>
+
+        <div>
+          <div>
+            <form autocomplete=off class="js" name="goSearch" id="searchbox">
+              <div class="searchd">
+                <input id="searchinput" type="text" placeholder="Search" title="Search" />
+                <button type="submit" title="Search" class="svgs svgm search"></button>
+              </div>
+              <div class="results"><div id="suggestions"></div></div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </nav>
+    <hr />
+  </header>
+  <main>
+    <article>
+      <h1><a href="https://www.bensuperpc.org/fr/tutorial/coverage/">Couverture de code C++ avec CMake et GCOVR</a></h1>
+
+      <span class="s95"> Bensuperpc <span class="rpad"></span> août 07, 2025 <span class="rpad"></span> [<a href="https://www.bensuperpc.org/fr/categories/software/">Software</a>] #<a href="https://www.bensuperpc.org/fr/tags/features/">Features</a>  #<a href="https://www.bensuperpc.org/fr/tags/code-coverage/">Code coverage</a>  #<a href="https://www.bensuperpc.org/fr/tags/testing/">Testing</a>  #<a href="https://www.bensuperpc.org/fr/tags/gcovr/">GCOVR</a> </span>
+
+    
+        <div class="block">
+      <div class="blockdiv">
+        <a class="b s150" href="https://www.bensuperpc.org/fr/tags/features/">Features (Series)</a><br>
+            <a href="https://www.bensuperpc.org/fr/documentation/hardware/pc/ssd/">Comparison of SSDs</a><br>
+            <a href="https://www.bensuperpc.org/fr/documentation/hardware/pc/cpu/">L&#x27;évolution des CPUs</a><br>
+            <a href="https://www.bensuperpc.org/fr/documentation/hardware/pc/gpu/">Les pilotes GPU Mesa</a><br>
+            <a class="scur" href="https://www.bensuperpc.org/fr/tutorial/coverage/">Couverture de code C++ avec CMake et GCOVR</a><br> 
+          
+            <a href="https://www.bensuperpc.org/fr/documentation/hardware/sff-pc/guide-sff-pc/">Guide des PC SFF (WIP)</a><br>
+      </div>
+    </div>
+
+
+<h1 id="couverture-de-code-en-c-c-avec-cmake-et-gcovr">Couverture de code en C/C++, avec CMake et GCOVR</h1>
+<h2 id="introduction">Introduction</h2>
+<p>Ce tutoriel montre comment configurer un projet C/C++ avec CMake et GCOVR afin de générer des rapports de couverture de code, cela permet de vérifier précisément quelles parties du code source et quelles branches conditionnelles (if, switch...) sont effectivement couvertes par les tests.</p>
+<p>Nous utiliserons un petit projet d'exemple basé sur Google Test, mais la méthode est également compatible avec d'autres frameworks comme <strong>Catch2</strong>, <strong>Boost.Test</strong> ou <strong>Doctest</strong>.</p>
+<h2 id="exigences-minimales">Exigences minimales</h2>
+<ul>
+<li>CMake 3.15</li>
+<li>GCC ou Clang (C++17)</li>
+<li>Google Test (GTest)</li>
+<li>GCOVR 5.0</li>
+<li>Ninja (optionnel, mais recommandé)</li>
+</ul>
+<p>Une distribution comme <strong>Ubuntu 22.04</strong>, un <strong>Debian 12</strong> ou supérieur est recommandé dans le cadre de ce tutoriel, mais vous pouvez utiliser n'importe quelle distribution Linux avec les versions requises des outils.</p>
+<h3 id="installation-des-dependances">Installation des dépendances</h3>
+<p>Pour installer les dépendances nécessaires, vous pouvez utiliser les commandes suivantes :</p>
+<p>Pour <strong>Ubuntu/Debian</strong> :</p>
+<pre class="giallo" style="color: #FFFFFF; background-color: #262335;"><code data-lang="shellscript"><span class="giallo-l"><span style="color: #FE4450;">sudo</span><span> apt-get install cmake build-essential g++ gcovr ninja-build libgtest-dev</span></span></code></pre>
+<p>Pour <strong>Fedora</strong> :</p>
+<pre class="giallo" style="color: #FFFFFF; background-color: #262335;"><code data-lang="shellscript"><span class="giallo-l"><span style="color: #FE4450;">sudo</span><span> dnf install cmake gcc-c++ gcovr ninja-build gtest-devel</span></span></code></pre>
+<p>Pour <strong>Arch Linux</strong> :</p>
+<pre class="giallo" style="color: #FFFFFF; background-color: #262335;"><code data-lang="shellscript"><span class="giallo-l"><span style="color: #FE4450;">sudo</span><span> pacman</span><span style="color: #F97E72;"> -S</span><span> cmake gcc gcovr ninja gtest</span></span></code></pre><h2 id="qu-est-ce-que-gcovr">Qu'est-ce que GCOVR ?</h2>
+<p>GCOVR est un outil open source qui permet de générer des rapports de couverture de code C/C++ à partir des données générées lors de l'exécution des tests.</p>
+<h2 id="projet-d-exemple">Projet d'exemple</h2>
+<p>Le projet d'exemple est une simple application et deux bibliothèques C++, une pour les mathématiques et une pour la physique.</p>
+<p>Voici l’arborescence du projet :</p>
+<pre class="giallo" style="color: #FFFFFF; background-color: #262335;"><code data-lang="shellscript"><span class="giallo-l"><span style="color: #36F9F6;">.</span></span>
+<span class="giallo-l"><span style="color: #FE4450;">├──</span><span> CMakeLists.txt</span></span>
+<span class="giallo-l"><span style="color: #FE4450;">├──</span><span> main.cpp</span></span>
+<span class="giallo-l"><span style="color: #FE4450;">├──</span><span> math</span></span>
+<span class="giallo-l"><span style="color: #FE4450;">│  </span><span> ├── CMakeLists.txt</span></span>
+<span class="giallo-l"><span style="color: #FE4450;">│  </span><span> ├── math.cpp</span></span>
+<span class="giallo-l"><span style="color: #FE4450;">│  </span><span> └── math.hpp</span></span>
+<span class="giallo-l"><span style="color: #FE4450;">├──</span><span> physics</span></span>
+<span class="giallo-l"><span style="color: #FE4450;">│  </span><span> ├── CMakeLists.txt</span></span>
+<span class="giallo-l"><span style="color: #FE4450;">│  </span><span> ├── physics.cpp</span></span>
+<span class="giallo-l"><span style="color: #FE4450;">│  </span><span> └── physics.hpp</span></span>
+<span class="giallo-l"><span style="color: #FE4450;">└──</span><span> tests</span></span>
+<span class="giallo-l"><span style="color: #FE4450;">    ├──</span><span> CMakeLists.txt</span></span>
+<span class="giallo-l"><span style="color: #FE4450;">    └──</span><span> test.cpp</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #FE4450;">4</span><span> directories,</span><span style="color: #F97E72;"> 10</span><span> files</span></span></code></pre>
+<p>Vous pouvez télécharger le projet d'exemple: <!-- Assets -->
+<a href="https://www.bensuperpc.org/tutorial/sources/tuto_coverage.7z" target="_blank">
+    tuto_coverage.7z
+</a></p>
+<h3 id="compilation-avec-couverture">Compilation avec couverture</h3>
+<p>Pour que la couverture de code fonctionne, le projet doit être compilé avec les options : <code>-O0 -g --coverage</code> et <code>--coverage</code> pour le linkage.</p>
+<pre class="giallo" style="color: #FFFFFF; background-color: #262335;"><code data-lang="shellscript"><span class="giallo-l"><span style="color: #FE4450;">cmake</span><span style="color: #F97E72;"> -S</span><span> .</span><span style="color: #F97E72;"> -B</span><span> build</span><span style="color: #F97E72;"> -G</span><span> Ninja</span><span style="color: #F97E72;"> -DCMAKE_CXX_FLAGS=</span><span style="color: #FF8B39;">&quot;-O0 -g --coverage&quot;</span><span style="color: #F97E72;"> -DCMAKE_EXE_LINKER_FLAGS=</span><span style="color: #FF8B39;">&quot;--coverage&quot;</span><span> &amp;&amp;</span><span style="color: #FE4450;"> cmake</span><span style="color: #F97E72;"> --build</span><span> build</span></span></code></pre>
+<p>L'option <code>--coverage</code> est équivalente à <code>-fprofile-arcs -ftest-coverage</code> pour GCC/Clang, dans un projet classique, il est préférable d'utiliser des presets CMake plutôt que de spécifier les options manuellement.</p>
+<h3 id="execution-des-tests">Exécution des tests</h3>
+<p>Une fois le projet compilé, vous pouvez exécuter les tests, cela générera des fichiers sur lesquels GCOVR s’appuie pour générer les rapports de couverture:</p>
+<ul>
+<li><code>.gcno</code> généré à la compilation, contient les métadonnées pour la couverture</li>
+<li><code>.gcda</code> généré à l'exécution, contient les données de couverture collectées</li>
+</ul>
+<pre class="giallo" style="color: #FFFFFF; background-color: #262335;"><code data-lang="shellscript"><span class="giallo-l"><span style="color: #FE4450;">ctest</span><span style="color: #F97E72;"> --test-dir</span><span> build</span><span style="color: #F97E72;"> --output-on-failure --no-tests=error --repeat</span><span> until-fail:1</span><span style="color: #F97E72;"> --schedule-random --parallel 1</span></span></code></pre><table><thead><tr><th style="text-align: center">Option</th><th style="text-align: center">Description</th></tr></thead><tbody>
+<tr><td style="text-align: center"><code>--test-dir build</code></td><td style="text-align: center">Spécifie le Répertoire contenant les tests</td></tr>
+<tr><td style="text-align: center"><code>--output-on-failure</code></td><td style="text-align: center">Affiche la sortie des tests échoués</td></tr>
+<tr><td style="text-align: center"><code>--no-tests=error</code></td><td style="text-align: center">Génère une erreur si aucun test n'est trouvé</td></tr>
+<tr><td style="text-align: center"><code>--repeat until-fail:1</code></td><td style="text-align: center">Répète les tests jusqu'à ce qu'un échec se produise, ici 1 fois</td></tr>
+<tr><td style="text-align: center"><code>--schedule-random</code></td><td style="text-align: center">Fait exécuter les tests dans un ordre aléatoire</td></tr>
+<tr><td style="text-align: center"><code>--parallel 1</code></td><td style="text-align: center">Exécute les tests en parallèle, ici 1 test à la fois</td></tr>
+</tbody></table>
+<p>Vous obtiendrez une sortie similaire à :</p>
+<pre class="giallo" style="color: #FFFFFF; background-color: #262335;"><code data-lang="shellscript"><span class="giallo-l"><span style="color: #FE4450;">Test</span><span> project /home/bensuperpc/tuto_coverage/build</span></span>
+<span class="giallo-l"><span style="color: #FE4450;">    Start</span><span> 3: MathTests.Mul</span></span>
+<span class="giallo-l"><span style="color: #FE4450;">1/7</span><span> Test</span><span style="color: #848BBD;font-style: italic;"> #3: MathTests.Mul .....................   Passed    0.00 sec</span></span>
+<span class="giallo-l"><span style="color: #FE4450;">    Start</span><span> 7: PhysicsTests.GravitationalForce</span></span>
+<span class="giallo-l"><span style="color: #FE4450;">2/7</span><span> Test</span><span style="color: #848BBD;font-style: italic;"> #7: PhysicsTests.GravitationalForce ...   Passed    0.00 sec</span></span>
+<span class="giallo-l"><span style="color: #FE4450;">    Start</span><span> 5: PhysicsTests.Speed</span></span>
+<span class="giallo-l"><span style="color: #FE4450;">3/7</span><span> Test</span><span style="color: #848BBD;font-style: italic;"> #5: PhysicsTests.Speed ................   Passed    0.00 sec</span></span>
+<span class="giallo-l"><span style="color: #FE4450;">    Start</span><span> 2: MathTests.Sub</span></span>
+<span class="giallo-l"><span style="color: #FE4450;">4/7</span><span> Test</span><span style="color: #848BBD;font-style: italic;"> #2: MathTests.Sub .....................   Passed    0.00 sec</span></span>
+<span class="giallo-l"><span style="color: #FE4450;">    Start</span><span> 1: MathTests.Add</span></span>
+<span class="giallo-l"><span style="color: #FE4450;">5/7</span><span> Test</span><span style="color: #848BBD;font-style: italic;"> #1: MathTests.Add .....................   Passed    0.00 sec</span></span>
+<span class="giallo-l"><span style="color: #FE4450;">    Start</span><span> 6: PhysicsTests.KineticEnergy</span></span>
+<span class="giallo-l"><span style="color: #FE4450;">6/7</span><span> Test</span><span style="color: #848BBD;font-style: italic;"> #6: PhysicsTests.KineticEnergy ........   Passed    0.00 sec</span></span>
+<span class="giallo-l"><span style="color: #FE4450;">    Start</span><span> 4: MathTests.Div</span></span>
+<span class="giallo-l"><span style="color: #FE4450;">7/7</span><span> Test</span><span style="color: #848BBD;font-style: italic;"> #4: MathTests.Div .....................   Passed    0.00 sec</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #FE4450;">100%</span><span> tests passed,</span><span style="color: #F97E72;"> 0</span><span> tests failed out of</span><span style="color: #F97E72;"> 7</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #FE4450;">Total</span><span> Test time (real) =   0.02 sec</span></span></code></pre><h3 id="rapport-html-avec-gcovr">Rapport HTML avec GCOVR</h3>
+<p>Après l'exécution des tests, vous pouvez générer un rapport de couverture avec GCOVR, ici nous générons un rapport HTML pour visualiser la couverture de code, mais vous pouvez également générer des rapports en texte brut, XML ou JSON.</p>
+<pre class="giallo" style="color: #FFFFFF; background-color: #262335;"><code data-lang="shellscript"><span class="giallo-l"><span style="color: #FE4450;">gcovr</span><span style="color: #F97E72;"> --root</span><span style="color: #FF8B39;"> &quot;.&quot;</span><span style="color: #F97E72;"> --decisions --calls --html-theme</span><span style="color: #FF8B39;"> &quot;green&quot;</span><span style="color: #F97E72;"> --exclude</span><span style="color: #FF8B39;"> &quot;tests/*&quot;</span><span style="color: #F97E72;"> --exclude</span><span style="color: #FF8B39;"> &quot;build/*&quot;</span><span style="color: #F97E72;"> --exclude</span><span style="color: #FF8B39;"> &quot;main.cpp&quot;</span><span style="color: #F97E72;"> --html --html-details --output</span><span style="color: #FF8B39;"> &quot;build/coverage.html&quot;</span></span></code></pre><table><thead><tr><th style="text-align: center">Option</th><th style="text-align: center">Description</th></tr></thead><tbody>
+<tr><td style="text-align: center"><code>--root "."</code></td><td style="text-align: center">Définit le répertoire racine pour la couverture</td></tr>
+<tr><td style="text-align: center"><code>--decisions</code></td><td style="text-align: center">Inclut les décisions de couverture dans le rapport</td></tr>
+<tr><td style="text-align: center"><code>--calls</code></td><td style="text-align: center">Inclut les appels de fonction dans le rapport</td></tr>
+<tr><td style="text-align: center"><code>--html-theme "green"</code></td><td style="text-align: center">Définit le thème du rapport HTML en vert</td></tr>
+<tr><td style="text-align: center"><code>--exclude "tests/*"</code></td><td style="text-align: center">Exclut les fichiers de test du rapport</td></tr>
+<tr><td style="text-align: center"><code>--exclude "build/*"</code></td><td style="text-align: center">Exclut les fichiers de build du rapport</td></tr>
+<tr><td style="text-align: center"><code>--exclude "main.cpp"</code></td><td style="text-align: center">Exclut le fichier <code>main.cpp</code> du rapport</td></tr>
+<tr><td style="text-align: center"><code>--html</code></td><td style="text-align: center">Génère un rapport HTML</td></tr>
+<tr><td style="text-align: center"><code>--html-details</code></td><td style="text-align: center">Inclut les détails dans le rapport HTML</td></tr>
+<tr><td style="text-align: center"><code>--output "build/coverage.html"</code></td><td style="text-align: center">Spécifie le nom du fichier de sortie pour le rapport HTML</td></tr>
+</tbody></table>
+<p>Une fois le rapport HTML généré, vous pouvez l'ouvrir dans votre navigateur pour visualiser la couverture de code, il devrait être généré dans le fichier <code>build/coverage.html</code>.</p>
+<p>Voici le rendu du rapport sur le navigateur :</p>
+ <figure class="fi b1"><img src="https://www.bensuperpc.org/tutorial/images/Screenshot_20250807_100908.webp" class="b1" alt="Page principale" width="1111" height="574" loading="lazy" /><figcaption>Page principale</figcaption></figure>
+ <figure class="fi b1"><img src="https://www.bensuperpc.org/tutorial/images/Screenshot_20250807_101010.webp" class="b1" alt="Page secondaire" width="1111" height="835" loading="lazy" /><figcaption>Page secondaire</figcaption></figure>
+<h4 id="rapport-en-xml-ou-json">Rapport en XML ou JSON</h4>
+<p>Vous pouvez également générer un rapport en XML ou JSON pour une intégration avec d'autres outils :</p>
+<pre class="giallo" style="color: #FFFFFF; background-color: #262335;"><code data-lang="shellscript"><span class="giallo-l"><span style="color: #FE4450;">gcovr</span><span style="color: #F97E72;"> --root</span><span style="color: #FF8B39;"> &quot;.&quot;</span><span style="color: #F97E72;"> --decisions --calls --exclude</span><span style="color: #FF8B39;"> &quot;tests/&quot;</span><span style="color: #F97E72;"> --exclude</span><span style="color: #FF8B39;"> &quot;build/&quot;</span><span style="color: #F97E72;"> --exclude</span><span style="color: #FF8B39;"> &quot;main.cpp&quot;</span><span style="color: #F97E72;"> --xml-pretty --output</span><span style="color: #FF8B39;"> &quot;build/coverage.xml&quot;</span></span></code></pre>
+<p>Or in JSON :</p>
+<pre class="giallo" style="color: #FFFFFF; background-color: #262335;"><code data-lang="shellscript"><span class="giallo-l"><span style="color: #FE4450;">gcovr</span><span style="color: #F97E72;"> --root</span><span style="color: #FF8B39;"> &quot;.&quot;</span><span style="color: #F97E72;"> --decisions --calls --exclude</span><span style="color: #FF8B39;"> &quot;tests/&quot;</span><span style="color: #F97E72;"> --exclude</span><span style="color: #FF8B39;"> &quot;build/&quot;</span><span style="color: #F97E72;"> --exclude</span><span style="color: #FF8B39;"> &quot;main.cpp&quot;</span><span style="color: #F97E72;"> --json-pretty --output</span><span style="color: #FF8B39;"> &quot;build/coverage.json&quot;</span></span></code></pre><h2 id="ci-cd-integration">CI/CD Integration</h2>
+<p>Vous pouvez intégrer la génération de couverture de code à votre pipeline CI/CD afin de générer automatiquement des rapports pour chaque commit ou demande de fusion.</p>
+<p>Voici un exemple de GitLab CI pour générer un rapport de couverture et fail le pipeline si la couverture est inférieure à un certains seuils:</p>
+<pre class="giallo" style="color: #FFFFFF; background-color: #262335;"><code data-lang="yaml"><span class="giallo-l"><span style="color: #72F1B8;">variables</span><span style="color: #B6B1B1;">:</span></span>
+<span class="giallo-l"><span style="color: #848BBD;font-style: italic;">  # Si quelqu&#39;un oublie d&#39;ajouter des tests sur une nouvelle fonctionnalité, le pipeline échouera si la couverture est inférieure à ces seuils</span></span>
+<span class="giallo-l"><span style="color: #72F1B8;">  MIN_LINE_COVERAGE</span><span style="color: #B6B1B1;">:</span><span style="color: #F97E72;"> 50</span></span>
+<span class="giallo-l"><span style="color: #72F1B8;">  MIN_FUNCTION_COVERAGE</span><span style="color: #B6B1B1;">:</span><span style="color: #F97E72;"> 50</span></span>
+<span class="giallo-l"><span style="color: #72F1B8;">  MIN_BRANCH_COVERAGE</span><span style="color: #B6B1B1;">:</span><span style="color: #F97E72;"> 50</span></span>
+<span class="giallo-l"><span style="color: #72F1B8;">  MIN_DECISION_COVERAGE</span><span style="color: #B6B1B1;">:</span><span style="color: #F97E72;"> 50</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #72F1B8;">stages</span><span style="color: #B6B1B1;">:</span></span>
+<span class="giallo-l"><span>  - coverage</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #72F1B8;">coverage_stage</span><span style="color: #B6B1B1;">:</span></span>
+<span class="giallo-l"><span style="color: #72F1B8;">  stage</span><span style="color: #B6B1B1;">:</span><span> coverage</span></span>
+<span class="giallo-l"><span style="color: #72F1B8;">  script</span><span style="color: #B6B1B1;">:</span></span>
+<span class="giallo-l"><span style="color: #848BBD;font-style: italic;">    # Compiler le projet avec les flags de couverture</span></span>
+<span class="giallo-l"><span>    - cmake -S . -B build -G Ninja -DCMAKE_CXX_FLAGS=&quot;-O0 -g --coverage&quot; -DCMAKE_EXE_LINKER_FLAGS=&quot;--coverage&quot; &amp;&amp; cmake --build build</span></span>
+<span class="giallo-l"><span style="color: #848BBD;font-style: italic;">    # Exécuter les tests pour générer les données de couverture</span></span>
+<span class="giallo-l"><span>    - ctest --verbose --repeat until-fail:1 --parallel 1 --schedule-random --test-dir build || true</span></span>
+<span class="giallo-l"><span style="color: #848BBD;font-style: italic;">    # Créer le répertoire pour les rapports de couverture HTML</span></span>
+<span class="giallo-l"><span>    - mkdir -p &quot;coverage_html_$CI_COMMIT_SHORT_SHA&quot;</span></span>
+<span class="giallo-l"><span style="color: #848BBD;font-style: italic;">    # Générer les rapports de couverture HTML</span></span>
+<span class="giallo-l"><span>    - gcovr --root &quot;.&quot; --exclude &quot;tests/&quot; --exclude &quot;build/&quot; --exclude &quot;main.cpp&quot; --decisions --calls --html --html-theme green --html-details -o &quot;coverage_html_$CI_COMMIT_SHORT_SHA/coverage.html&quot;</span></span>
+<span class="giallo-l"><span style="color: #848BBD;font-style: italic;">    # Générer le rapport de couverture XML (pour Gitlab)</span></span>
+<span class="giallo-l"><span>    - gcovr --root &quot;.&quot; --exclude &quot;tests/&quot; --exclude &quot;build/&quot; --exclude &quot;main.cpp&quot; --decisions --calls --xml-pretty -o coverage.xml</span></span>
+<span class="giallo-l"><span style="color: #848BBD;font-style: italic;">    # Vérifier les seuils minimum de couverture</span></span>
+<span class="giallo-l"><span>    - gcovr --root &quot;.&quot; --exclude &quot;tests/&quot; --exclude &quot;build/&quot; --exclude &quot;main.cpp&quot; --decisions --calls --print-summary --fail-under-line $MIN_LINE_COVERAGE --fail-under-branch $MIN_BRANCH_COVERAGE --fail-under-function $MIN_FUNCTION_COVERAGE --fail-under-decision $MIN_DECISION_COVERAGE</span></span>
+<span class="giallo-l"><span style="color: #72F1B8;">  artifacts</span><span style="color: #B6B1B1;">:</span></span>
+<span class="giallo-l"><span style="color: #72F1B8;">    name</span><span style="color: #B6B1B1;">:</span><span style="color: #FF8B39;"> &quot;$CI_PROJECT_NAME-$CI_COMMIT_SHORT_SHA&quot;</span></span>
+<span class="giallo-l"><span style="color: #72F1B8;">    expire_in</span><span style="color: #B6B1B1;">:</span><span> 7 days</span></span>
+<span class="giallo-l"><span style="color: #72F1B8;">    when</span><span style="color: #B6B1B1;">:</span><span> always</span></span>
+<span class="giallo-l"><span style="color: #72F1B8;">    paths</span><span style="color: #B6B1B1;">:</span></span>
+<span class="giallo-l"><span>      -</span><span style="color: #FF8B39;"> &quot;coverage_html_$CI_COMMIT_SHORT_SHA/*&quot;</span></span>
+<span class="giallo-l"><span>      -</span><span style="color: #FF8B39;"> &quot;coverage.xml&quot;</span></span>
+<span class="giallo-l"><span style="color: #848BBD;font-style: italic;">  # Parser le coverage depuis le fichier coverage.xml</span></span>
+<span class="giallo-l"><span style="color: #72F1B8;">  coverage</span><span style="color: #B6B1B1;">:</span><span style="color: #FF8B39;"> &#39;/lines: (\d+\.\d+)%/&#39;</span></span></code></pre><h2 id="sources">Sources</h2>
+<ul>
+<li><a rel="noopener external" target="_blank" href="https://gcovr.com/en/latest/">GCOVR</a></li>
+<li><a rel="noopener external" target="_blank" href="https://github.com/google/googletest">Google Test</a></li>
+</ul>
+
+      <nav>
+        <div>
+        </div>
+        <div>
+          <a href="https://www.bensuperpc.org/fr/documentation/hardware/pc/gpu/"> Les pilotes GPU Mesa &#8250;</a>
+        </div>
+      </nav>
+    </article>
+
+    <div class="sblock">
+      <div class="blockdiv">
+        <a class="b s150" href="https://www.bensuperpc.org/fr/tags/features/">Series</a><br>
+            
+      <a href="https://www.bensuperpc.org/fr/documentation/hardware/pc/ssd/">Comparison of SSDs</a><br>
+            
+      <a href="https://www.bensuperpc.org/fr/documentation/hardware/pc/cpu/">L&#x27;évolution des CPUs</a><br>
+            
+      <a href="https://www.bensuperpc.org/fr/documentation/hardware/pc/gpu/">Les pilotes GPU Mesa</a><br>
+            
+      <a class="scur" href="https://www.bensuperpc.org/fr/tutorial/coverage/">Couverture de code C++ avec CMake et GCOVR</a><br>
+    
+            
+      <a href="https://www.bensuperpc.org/fr/documentation/hardware/sff-pc/guide-sff-pc/">Guide des PC SFF (WIP)</a><br>
+      </div>
+      <div class="blockdiv sticky">
+        <a class="b s150" href="#">Index</a>
+        <div>
+          <a href="#couverture-de-code-en-c-c-avec-cmake-et-gcovr">Couverture de code en C&#x2F;C++, avec CMake et GCOVR</a>
+        </div>
+        <div class="hpad">
+          <a href="#introduction"><small>- Introduction</small></a>
+        </div>
+        <div class="hpad">
+          <a href="#exigences-minimales"><small>- Exigences minimales</small></a>
+        </div>
+        <div class="hpad">
+          <a href="#qu-est-ce-que-gcovr"><small>- Qu&#x27;est-ce que GCOVR ?</small></a>
+        </div>
+        <div class="hpad">
+          <a href="#projet-d-exemple"><small>- Projet d&#x27;exemple</small></a>
+        </div>
+        <div class="hpad">
+          <a href="#ci-cd-integration"><small>- CI&#x2F;CD Integration</small></a>
+        </div>
+        <div class="hpad">
+          <a href="#sources"><small>- Sources</small></a>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <hr />
+    <div class="c">
+      <nav class="tpad"><div><a type="application/atom+xml" href="https://www.bensuperpc.org/fr/atom.xml" target="_blank" title="Bensuperpc Atom Feed"><i type="Button" class="svg rss" title="Bensuperpc Atom Feed"></i></a><a class="js m-protected" href="#YmVuc3VwZXJwY0BnbWFpbC5jb20=" target="_blank" title="Mail"><i type="Button" class="svg mail" title="Mail"></i></a><a href="https://mastodon.social/@bensuperpc" target="_blank" title="Mastodon" rel="me"><i type="Button" class="svg mastodon" title="Mastodon"></i></a><a href="https://matrix.example.com/" target="_blank" title="Element"><i type="Button" class="svg element" title="Element"></i></a><a href="https://discord.com/invite/etzX79VS" target="_blank" title="Discord"><i type="Button" class="svg discord" title="Discord"></i></a><a href="https://twitter.com/bensuperpc/" target="_blank" title="Twitter"><i type="Button" class="svg twitter" title="Twitter"></i></a><a href="https://github.com/bensuperpc/" target="_blank" title="Github"><i type="Button" class="svg github" title="Github"></i></a><a href="https://pypi.org/user/bensuperpc/" target="_blank" title="Python"><i type="Button" class="svg python" title="Python"></i></a><a href="https://hub.docker.com/u/bensuperpc/" target="_blank" title="Docker"><i type="Button" class="svg docker" title="Docker"></i></a><a href="https://www.youtube.com/channel&#x2F;bensuperpc" target="_blank" title="YouTube"><i type="Button" class="svg youtube" title="YouTube"></i></a><a href="https://www.twitch.tv/bensuperpc/" target="_blank" title="Twitch"><i type="Button" class="svg twitch" title="Twitch"></i></a><a href="https://www.ko-fi.com/discord/" target="_blank" title="Support me on Ko-fi"><i type="Button" class="svg kofi" title="Support me on Ko-fi"></i></a><a href="https://www.buymeacoffee.com/bensuperpc/" target="_blank" title="Buy Me A Coffee"><i type="Button" class="svg buymeacoffee" title="Buy Me A Coffee"></i></a><a href="https://t.me/bensuperpc/" target="_blank" title="Telegram"><i type="Button" class="svg telegram" title="Telegram"></i></a></div></nav>
+      <nav class="vpad">
+        <a class="rpad s90" href="https://www.bensuperpc.org/fr/about/"> A propos </a>
+        <a class="rpad s90" href="https://www.bensuperpc.org/fr/contact/"> Contact </a>
+        <a class="rpad s90" href="https://www.bensuperpc.org/fr/privacy/"> Privacy </a>
+        <a class="rpad s90" href="https://www.bensuperpc.org/sitemap.xml" target="_blank"> Sitemap </a>
+      </nav>
+          
+      <p class="s80"> <span id="year">2026</span> Bensuperpc • <a rel="noopener" target="_blank" href="https://github.com/bensuperpc/bensuperpc.github.io">bensuperpc.github.io</a></p>
+      <p class="s90">Powered by <a href="https://www.getzola.org/" target="_blank">Zola</a> &#38; <a href="https://github.com/Jieiku/abridge/" target="_blank">Abridge</a> theme</p>
+    </div>
+  </footer><span class="topout">
+<span class="topleft"> </span><a href="#" class="top" title="Back to Top"><i class="svgs svgh angu"></i></a>
+</span>
+</body>
+</html>

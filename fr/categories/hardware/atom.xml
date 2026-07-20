@@ -1,0 +1,1160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="fr">
+    <title>Bensuperpc - Hardware</title>
+    <subtitle>Le site de Bensuperpc, logiciels et de matériel informatique.</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://www.bensuperpc.org/fr/categories/hardware/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://www.bensuperpc.org"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2025-12-27T00:00:00+00:00</updated>
+    <id>https://www.bensuperpc.org/fr/categories/hardware/atom.xml</id>
+    <entry xml:lang="fr">
+        <title>Guide des PC SFF (WIP)</title>
+        <published>2025-12-27T00:00:00+00:00</published>
+        <updated>2025-12-27T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.bensuperpc.org/fr/documentation/hardware/sff-pc/guide-sff-pc/"/>
+        <id>https://www.bensuperpc.org/fr/documentation/hardware/sff-pc/guide-sff-pc/</id>
+        
+        <content type="html" xml:base="https://www.bensuperpc.org/fr/documentation/hardware/sff-pc/guide-sff-pc/">&lt;h1 id=&quot;guide-des-pc-sff&quot;&gt;Guide des PC SFF&lt;&#x2F;h1&gt;
+&lt;p&gt;Bienvenue dans le guide des PC SFF.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;introduction-aux-pc-sff&quot;&gt;Introduction aux PC SFF&lt;&#x2F;h2&gt;
+&lt;p&gt;Dans cette section, nous allons explorer différents aspects des PC SFF, notamment leurs composants et leurs logiciels, en mettant l&#x27;accent sur les solutions &lt;strong&gt;Linux&lt;&#x2F;strong&gt; et &lt;strong&gt;open-source&lt;&#x2F;strong&gt;, Windows a souvent un support à plus court et repose sur des logiciels propriétaires.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;qu-est-ce-qu-un-pc-sff&quot;&gt;Qu&#x27;est-ce qu&#x27;un PC SFF ?&lt;&#x2F;h3&gt;
+&lt;p&gt;Un PC SFF (&lt;strong&gt;PC Small Form Factor&lt;&#x2F;strong&gt;) est un ordinateur de bureau de petite taille (1 à 5 litres), souvent très économe en énergie, et peut servir à divers usages, on les trouve couramment dans les écoles, les bureaux et comme serveurs.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;pourquoi-choisir-un-pc-sff&quot;&gt;Pourquoi choisir un PC SFF ?&lt;&#x2F;h3&gt;
+&lt;p&gt;Il existe de nombreuses raisons de choisir un PC SFF :&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Compact&lt;&#x2F;strong&gt; : les PC SFF sont très petits et peuvent tenir presque n&#x27;importe où (~1 à 5 litres).&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Économe en énergie&lt;&#x2F;strong&gt; : ils consomment souvent moins d&#x27;énergie, en particulier les modèles équipés de processeurs des séries T ou U.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Abordable&lt;&#x2F;strong&gt; : les PC SFF sont souvent moins chers que les PC de bureau classiques, surtout sur le marché de l&#x27;occasion.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;pourquoi-ne-pas-choisir-un-pc-sff&quot;&gt;Pourquoi ne pas choisir un PC SFF ?&lt;&#x2F;h3&gt;
+&lt;p&gt;Il y a aussi quelques inconvénients à prendre en compte :&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Évolutivité limitée&lt;&#x2F;strong&gt; : Les PC SFF offrent peu d&#x27;options d&#x27;évolution, voire même certains composants ne sont pas remplaçables.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Moins de ports&lt;&#x2F;strong&gt; : Par rapport aux ordinateurs de bureau classiques, les PC SFF disposent généralement de moins d&#x27;options de connectique (USB, HDMI, DisplayPort, etc.).&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Performances contraintes&lt;&#x2F;strong&gt; : En raison de leur petite taille et de leurs limites thermiques, les performances peuvent être inférieures à celles des PC de taille standard.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Composants propriétaires&lt;&#x2F;strong&gt; : Certains modèles utilisent des pièces propriétaires, ce qui rend les réparations et les mises à niveau plus difficiles.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;quels-sont-quelques-exemples-de-pc-sff&quot;&gt;Quels sont quelques exemples de PC SFF ?&lt;&#x2F;h3&gt;
+&lt;p&gt;Voici quelques marques et modèles de PC SFF populaires :&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Lenovo ThinkCentre&lt;&#x2F;strong&gt; : M73 Tiny, M710q, M720q, M70q gen 1, M75q gen 1, M90q gen 3&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Dell OptiPlex&lt;&#x2F;strong&gt; : 3040, 3050, 3060, 3070, 5040, 5050, 5060, 5070&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;HP EliteDesk&lt;&#x2F;strong&gt; : 800 G1 Mini, 800 G2 Mini&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Intel NUC&lt;&#x2F;strong&gt; : NUC6i3SYH, NUC6i5SYH, NUC6i7KYK, NUC7i3BNH, NUC7i5BNH, NUC7i7BNH&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Zotac ZBOX&lt;&#x2F;strong&gt; : CI660 Nano, CI640 Nano, CI620 Nano, CI540 Nano, CI520 Nano, CI327 Nano&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Asus VivoMini&lt;&#x2F;strong&gt; : UN65, UN65U, UN65U-M023M, UN65U-M021M, UN65U-M022M, UN65U-M020M&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;De nombreuses autres marques et modèles sont disponibles sur le marché.&lt;&#x2F;p&gt;
+&lt;p&gt;Pour l&#x27;occasion, je recommande &lt;strong&gt;Lenovo, Dell et HP&lt;&#x2F;strong&gt;, ces marques se trouvent régulièrement en grande quantité sur le marché de l&#x27;occasion, souvent évolutifs (RAM, SSD, CPU, PSU) et offrant une bonne compatibilité avec Linux.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;les-pc-sff-arm&quot;&gt;Les PC SFF ARM&lt;&#x2F;h3&gt;
+&lt;p&gt;Les PC SFF sont généralement basés sur x86, mais les PC SFF basés sur ARM gagnent en popularité ces dernières années, ils sont généralement moins chers et plus économes en énergie, mais présentent certaines limites :&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Compatibilité logicielle limitée&lt;&#x2F;strong&gt; : ils ne sont pas compatibles avec les logiciels x86&#x2F;PC traditionnels, et les pilotes peuvent être manquants ou obsolètes.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Options d&#x27;évolution limitées&lt;&#x2F;strong&gt; : les composants sont souvent soudés et non remplaçables.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Performances inférieures&lt;&#x2F;strong&gt; : par rapport à leurs équivalents x86, les PC SFF basés sur ARM sont souvent moins performants.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Dans ce guide, nous nous concentrerons sur les PC SFF x86 et le Raspberry Pi.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;composants-des-pc-sff&quot;&gt;Composants des PC SFF&lt;&#x2F;h2&gt;
+&lt;p&gt;Dans cette section, nous allons examiner les principaux composants des PC SFF.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;cpu-central-processing-unit&quot;&gt;CPU (Central Processing Unit)&lt;&#x2F;h3&gt;
+&lt;p&gt;Je recommande d&#x27;utiliser des &lt;strong&gt;CPU sur socket&lt;&#x2F;strong&gt;, car ils permettent de futures mises à niveau vers des modèles plus puissants (dans la même plage de TDP), par exemple, sur un ThinkCentre Tiny M720q, vous pouvez passer d&#x27;un &lt;strong&gt;Intel Celeron G4900T&lt;&#x2F;strong&gt; à un &lt;strong&gt;Intel i9-9900T&lt;&#x2F;strong&gt; sans aucun problème (il faut parfois seulement mettre à jour l&#x27;Intel ME et le BIOS).&lt;&#x2F;p&gt;
+&lt;p&gt;La plupart des PC SFF sont livrés avec des &lt;strong&gt;CPU de 35 W ou 65 W&lt;&#x2F;strong&gt;, &lt;strong&gt;Je recommande fortement d&#x27;éviter les CPU dont le TDP est supérieur à ce que le système prend en charge&lt;&#x2F;strong&gt;, car cela peut provoquer une surchauffe et potentiellement endommager la carte mère ou le PSU.&lt;&#x2F;p&gt;
+&lt;p&gt;De nombreux logiciels modernes utilisent les instructions &lt;strong&gt;AVX2&lt;&#x2F;strong&gt;, qui peuvent améliorer considérablement les performances dans des tâches comme l&#x27;encodage&#x2F;décodage vidéo, la compression, le chiffrement, etc, tous les CPU depuis &lt;strong&gt;Intel Haswell&lt;&#x2F;strong&gt; (2013) et &lt;strong&gt;AMD Zen&lt;&#x2F;strong&gt; (2017) prennent en charge AVX2, à l&#x27;exception de certains modèles d&#x27;entrée de gamme comme les &lt;strong&gt;Intel Celeron&#x2F;Pentium&#x2F;Atom&lt;&#x2F;strong&gt; et les &lt;strong&gt;AMD Athlon&lt;&#x2F;strong&gt;.&lt;&#x2F;p&gt;
+&lt;h4 id=&quot;generations-de-cpu-intel&quot;&gt;Générations de CPU Intel&lt;&#x2F;h4&gt;
+&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Marque&lt;&#x2F;th&gt;&lt;th&gt;Arch. CPU&lt;&#x2F;th&gt;&lt;th&gt;Gén. CPU&lt;&#x2F;th&gt;&lt;th&gt;Socket&lt;&#x2F;th&gt;&lt;th&gt;Type de RAM&lt;&#x2F;th&gt;&lt;th&gt;RAM max&lt;&#x2F;th&gt;&lt;th&gt;Année&lt;&#x2F;th&gt;&lt;th&gt;Exemple de PC SFF&lt;&#x2F;th&gt;&lt;th&gt;Remarques&lt;&#x2F;th&gt;&lt;&#x2F;tr&gt;&lt;&#x2F;thead&gt;&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;intel&lt;&#x2F;td&gt;&lt;td&gt;Core&lt;&#x2F;td&gt;&lt;td&gt;Core 2&lt;&#x2F;td&gt;&lt;td&gt;LGA775&lt;&#x2F;td&gt;&lt;td&gt;DDR2-DDR3&lt;&#x2F;td&gt;&lt;td&gt;8GB&lt;&#x2F;td&gt;&lt;td&gt;2006-2007&lt;&#x2F;td&gt;&lt;td&gt;&lt;&#x2F;td&gt;&lt;td&gt;Énorme gain de performance par rapport à Netburst&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;intel&lt;&#x2F;td&gt;&lt;td&gt;Penryn&lt;&#x2F;td&gt;&lt;td&gt;Core 2&lt;&#x2F;td&gt;&lt;td&gt;LGA775&lt;&#x2F;td&gt;&lt;td&gt;DDR2-DDR3&lt;&#x2F;td&gt;&lt;td&gt;8GB&lt;&#x2F;td&gt;&lt;td&gt;2007-2008&lt;&#x2F;td&gt;&lt;td&gt;&lt;&#x2F;td&gt;&lt;td&gt;Meilleure efficacité énergétique&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;intel&lt;&#x2F;td&gt;&lt;td&gt;Nehalem&lt;&#x2F;td&gt;&lt;td&gt;1re gén.&lt;&#x2F;td&gt;&lt;td&gt;LGA1156&lt;&#x2F;td&gt;&lt;td&gt;DDR3&lt;&#x2F;td&gt;&lt;td&gt;16GB&lt;&#x2F;td&gt;&lt;td&gt;2008-2009&lt;&#x2F;td&gt;&lt;td&gt;&lt;&#x2F;td&gt;&lt;td&gt;SMT, contrôleur mémoire sur le CPU et quad-core monolithique&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;intel&lt;&#x2F;td&gt;&lt;td&gt;Westmere&lt;&#x2F;td&gt;&lt;td&gt;1re gén.&lt;&#x2F;td&gt;&lt;td&gt;LGA1156&lt;&#x2F;td&gt;&lt;td&gt;DDR3&lt;&#x2F;td&gt;&lt;td&gt;16GB&lt;&#x2F;td&gt;&lt;td&gt;2010-2011&lt;&#x2F;td&gt;&lt;td&gt;&lt;&#x2F;td&gt;&lt;td&gt;Meilleure efficacité énergétique&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;intel&lt;&#x2F;td&gt;&lt;td&gt;Sandy Bridge&lt;&#x2F;td&gt;&lt;td&gt;2e gén.&lt;&#x2F;td&gt;&lt;td&gt;LGA1155&lt;&#x2F;td&gt;&lt;td&gt;DDR3&lt;&#x2F;td&gt;&lt;td&gt;32GB&lt;&#x2F;td&gt;&lt;td&gt;2011-2012&lt;&#x2F;td&gt;&lt;td&gt;M72 tiny&lt;&#x2F;td&gt;&lt;td&gt;Ajout du support AVX, bon iGPU et forte hausse des perfs&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;intel&lt;&#x2F;td&gt;&lt;td&gt;Ivy Bridge&lt;&#x2F;td&gt;&lt;td&gt;3e gén.&lt;&#x2F;td&gt;&lt;td&gt;LGA1155&lt;&#x2F;td&gt;&lt;td&gt;DDR3&lt;&#x2F;td&gt;&lt;td&gt;32GB&lt;&#x2F;td&gt;&lt;td&gt;2012-2013&lt;&#x2F;td&gt;&lt;td&gt;M72 tiny&lt;&#x2F;td&gt;&lt;td&gt;Meilleure efficacité énergétique&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;intel&lt;&#x2F;td&gt;&lt;td&gt;Haswell&lt;&#x2F;td&gt;&lt;td&gt;4e gén.&lt;&#x2F;td&gt;&lt;td&gt;LGA1150&lt;&#x2F;td&gt;&lt;td&gt;DDR3&lt;&#x2F;td&gt;&lt;td&gt;32GB&lt;&#x2F;td&gt;&lt;td&gt;2013-2014&lt;&#x2F;td&gt;&lt;td&gt;M73 tiny&lt;&#x2F;td&gt;&lt;td&gt;Support d&#x27;AVX2 et FMA3, meilleures perfs&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;intel&lt;&#x2F;td&gt;&lt;td&gt;Broadwell&lt;&#x2F;td&gt;&lt;td&gt;5e gén.&lt;&#x2F;td&gt;&lt;td&gt;LGA1150&lt;&#x2F;td&gt;&lt;td&gt;DDR3&lt;&#x2F;td&gt;&lt;td&gt;32GB&lt;&#x2F;td&gt;&lt;td&gt;2014-2015&lt;&#x2F;td&gt;&lt;td&gt;&lt;&#x2F;td&gt;&lt;td&gt;Meilleure efficacité énergétique&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;intel&lt;&#x2F;td&gt;&lt;td&gt;Skylake&lt;&#x2F;td&gt;&lt;td&gt;6e gén.&lt;&#x2F;td&gt;&lt;td&gt;LGA1151&lt;&#x2F;td&gt;&lt;td&gt;DDR3-DDR4&lt;&#x2F;td&gt;&lt;td&gt;64GB&lt;&#x2F;td&gt;&lt;td&gt;2015-2016&lt;&#x2F;td&gt;&lt;td&gt;M700, M710q&lt;&#x2F;td&gt;&lt;td&gt;Enc.&#x2F;déc. matériel HEVC&#x2F;VP9 8 bits, iGPU Vulkan et support NVMe&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;intel&lt;&#x2F;td&gt;&lt;td&gt;Kaby Lake&lt;&#x2F;td&gt;&lt;td&gt;7e gén.&lt;&#x2F;td&gt;&lt;td&gt;LGA1151&lt;&#x2F;td&gt;&lt;td&gt;DDR4&lt;&#x2F;td&gt;&lt;td&gt;64GB&lt;&#x2F;td&gt;&lt;td&gt;2016-2017&lt;&#x2F;td&gt;&lt;td&gt;M710q&lt;&#x2F;td&gt;&lt;td&gt;Support de l&#x27;enc.&#x2F;déc. matériel HEVC&#x2F;VP9 10 bits&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;intel&lt;&#x2F;td&gt;&lt;td&gt;Coffee Lake&lt;&#x2F;td&gt;&lt;td&gt;8-9e gén.&lt;&#x2F;td&gt;&lt;td&gt;LGA1151&lt;&#x2F;td&gt;&lt;td&gt;DDR4&lt;&#x2F;td&gt;&lt;td&gt;64GB&lt;&#x2F;td&gt;&lt;td&gt;2017-2019&lt;&#x2F;td&gt;&lt;td&gt;M720q&lt;&#x2F;td&gt;&lt;td&gt;Hausse du nombre de cœurs et suppression du SMT sur la 9e gén.&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;intel&lt;&#x2F;td&gt;&lt;td&gt;Comet Lake&lt;&#x2F;td&gt;&lt;td&gt;10e gén.&lt;&#x2F;td&gt;&lt;td&gt;LGA1200&lt;&#x2F;td&gt;&lt;td&gt;DDR4&lt;&#x2F;td&gt;&lt;td&gt;128GB&lt;&#x2F;td&gt;&lt;td&gt;2020-2021&lt;&#x2F;td&gt;&lt;td&gt;M70q gen 1&lt;&#x2F;td&gt;&lt;td&gt;Réintroduction du SMT sur la plupart des CPU&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;intel&lt;&#x2F;td&gt;&lt;td&gt;Rocket Lake&lt;&#x2F;td&gt;&lt;td&gt;11e gén.&lt;&#x2F;td&gt;&lt;td&gt;LGA1200&lt;&#x2F;td&gt;&lt;td&gt;DDR4&lt;&#x2F;td&gt;&lt;td&gt;128GB&lt;&#x2F;td&gt;&lt;td&gt;2021-2022&lt;&#x2F;td&gt;&lt;td&gt;M70q gen 2&lt;&#x2F;td&gt;&lt;td&gt;Ajout du support AVX-512 et meilleures perfs&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;intel&lt;&#x2F;td&gt;&lt;td&gt;Alder Lake&lt;&#x2F;td&gt;&lt;td&gt;12e gén.&lt;&#x2F;td&gt;&lt;td&gt;LGA1700&lt;&#x2F;td&gt;&lt;td&gt;DDR4-DDR5&lt;&#x2F;td&gt;&lt;td&gt;256GB&lt;&#x2F;td&gt;&lt;td&gt;2021-2022&lt;&#x2F;td&gt;&lt;td&gt;M70q gen 3&lt;&#x2F;td&gt;&lt;td&gt;Suppression d&#x27;AVX-512, Pcore et Ecore, déc. matériel AV1 et IPC en hausse&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;intel&lt;&#x2F;td&gt;&lt;td&gt;Raptor Lake&lt;&#x2F;td&gt;&lt;td&gt;13-14e gén.&lt;&#x2F;td&gt;&lt;td&gt;LGA1700&lt;&#x2F;td&gt;&lt;td&gt;DDR5&lt;&#x2F;td&gt;&lt;td&gt;256GB&lt;&#x2F;td&gt;&lt;td&gt;2022-2023&lt;&#x2F;td&gt;&lt;td&gt;M70q gen 4, 5&lt;&#x2F;td&gt;&lt;td&gt;Plus d&#x27;Ecores et de cache&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;intel&lt;&#x2F;td&gt;&lt;td&gt;Arrow Lake&lt;&#x2F;td&gt;&lt;td&gt;?&lt;&#x2F;td&gt;&lt;td&gt;LGA1700&lt;&#x2F;td&gt;&lt;td&gt;DDR5&lt;&#x2F;td&gt;&lt;td&gt;256GB&lt;&#x2F;td&gt;&lt;td&gt;2024-2025&lt;&#x2F;td&gt;&lt;td&gt;M70q gen 6&lt;&#x2F;td&gt;&lt;td&gt;Suppression du SMT, gros gain de perf par thread, encodage AV1, Ray Tracing&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;intel&lt;&#x2F;td&gt;&lt;td&gt;Nova Lake&lt;&#x2F;td&gt;&lt;td&gt;?&lt;&#x2F;td&gt;&lt;td&gt;LGA1851&lt;&#x2F;td&gt;&lt;td&gt;DDR5&lt;&#x2F;td&gt;&lt;td&gt;?&lt;&#x2F;td&gt;&lt;td&gt;2026 ?&lt;&#x2F;td&gt;&lt;td&gt;&lt;&#x2F;td&gt;&lt;td&gt;(Ré)introduction du support AVX10.2&#x2F;AVX512&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
+&lt;h4 id=&quot;generations-de-cpu-amd&quot;&gt;Générations de CPU AMD&lt;&#x2F;h4&gt;
+&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Marque&lt;&#x2F;th&gt;&lt;th&gt;Arch. CPU&lt;&#x2F;th&gt;&lt;th&gt;Gén. CPU&lt;&#x2F;th&gt;&lt;th&gt;Socket&lt;&#x2F;th&gt;&lt;th&gt;Type de RAM&lt;&#x2F;th&gt;&lt;th&gt;RAM max&lt;&#x2F;th&gt;&lt;th&gt;Année&lt;&#x2F;th&gt;&lt;th&gt;Exemple de PC SFF&lt;&#x2F;th&gt;&lt;th&gt;Remarques&lt;&#x2F;th&gt;&lt;&#x2F;tr&gt;&lt;&#x2F;thead&gt;&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;AMD&lt;&#x2F;td&gt;&lt;td&gt;Excavator&lt;&#x2F;td&gt;&lt;td&gt;4e gén.&lt;&#x2F;td&gt;&lt;td&gt;AM4&lt;&#x2F;td&gt;&lt;td&gt;DDR4&lt;&#x2F;td&gt;&lt;td&gt;32GB&lt;&#x2F;td&gt;&lt;td&gt;2015-2016&lt;&#x2F;td&gt;&lt;td&gt;&lt;&#x2F;td&gt;&lt;td&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;AMD&lt;&#x2F;td&gt;&lt;td&gt;Zen&lt;&#x2F;td&gt;&lt;td&gt;1re gén.&lt;&#x2F;td&gt;&lt;td&gt;AM4&lt;&#x2F;td&gt;&lt;td&gt;DDR4&lt;&#x2F;td&gt;&lt;td&gt;64GB&lt;&#x2F;td&gt;&lt;td&gt;2017-2018&lt;&#x2F;td&gt;&lt;td&gt;M715Q&lt;&#x2F;td&gt;&lt;td&gt;Énorme gain de performance, au niveau des CPU Intel Haswell&#x2F;Broadwell&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;AMD&lt;&#x2F;td&gt;&lt;td&gt;Zen+&lt;&#x2F;td&gt;&lt;td&gt;2e gén.&lt;&#x2F;td&gt;&lt;td&gt;AM4&lt;&#x2F;td&gt;&lt;td&gt;DDR4&lt;&#x2F;td&gt;&lt;td&gt;64GB&lt;&#x2F;td&gt;&lt;td&gt;2018-2019&lt;&#x2F;td&gt;&lt;td&gt;&lt;&#x2F;td&gt;&lt;td&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;AMD&lt;&#x2F;td&gt;&lt;td&gt;Zen 2&lt;&#x2F;td&gt;&lt;td&gt;3e gén.&lt;&#x2F;td&gt;&lt;td&gt;AM4&lt;&#x2F;td&gt;&lt;td&gt;DDR4&lt;&#x2F;td&gt;&lt;td&gt;128GB&lt;&#x2F;td&gt;&lt;td&gt;2019-2020&lt;&#x2F;td&gt;&lt;td&gt;M70q gen 1&#x2F;2&lt;&#x2F;td&gt;&lt;td&gt;Au niveau des CPU Intel Skylake et corrige la plupart des problèmes de Zen&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;AMD&lt;&#x2F;td&gt;&lt;td&gt;Zen 3&lt;&#x2F;td&gt;&lt;td&gt;4e gén.&lt;&#x2F;td&gt;&lt;td&gt;AM4&lt;&#x2F;td&gt;&lt;td&gt;DDR4&lt;&#x2F;td&gt;&lt;td&gt;128GB&lt;&#x2F;td&gt;&lt;td&gt;2020-2021&lt;&#x2F;td&gt;&lt;td&gt;M70q gen 2&lt;&#x2F;td&gt;&lt;td&gt;Amélioration de l&#x27;IPC et de l&#x27;efficacité énergétique&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;AMD&lt;&#x2F;td&gt;&lt;td&gt;Zen 4&lt;&#x2F;td&gt;&lt;td&gt;5e gén.&lt;&#x2F;td&gt;&lt;td&gt;AM5&lt;&#x2F;td&gt;&lt;td&gt;DDR5&lt;&#x2F;td&gt;&lt;td&gt;128GB&lt;&#x2F;td&gt;&lt;td&gt;2021-2022&lt;&#x2F;td&gt;&lt;td&gt;&lt;&#x2F;td&gt;&lt;td&gt;Ajout du support AVX-512, meilleur IPC et iGPU RDNA 3&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;AMD&lt;&#x2F;td&gt;&lt;td&gt;Zen 5&lt;&#x2F;td&gt;&lt;td&gt;6e gén.&lt;&#x2F;td&gt;&lt;td&gt;AM5&lt;&#x2F;td&gt;&lt;td&gt;DDR5&lt;&#x2F;td&gt;&lt;td&gt;192GB&lt;&#x2F;td&gt;&lt;td&gt;2022-2023&lt;&#x2F;td&gt;&lt;td&gt;M70q gen 5&lt;&#x2F;td&gt;&lt;td&gt;Légère amélioration de l&#x27;IPC et des perfs AVX-512&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
+&lt;p&gt;Je recommande d&#x27;aller vers les CPU &lt;strong&gt;Intel Alder Lake&lt;&#x2F;strong&gt;, &lt;strong&gt;AMD Zen 3&lt;&#x2F;strong&gt; ou plus récents, ils offrent de belles performances et prennent en charge les fonctionnalités modernes comme le NVMe, le Vulkan sur iGPU, l&#x27;encodage&#x2F;décodage matériel HEVC 10 bits, l&#x27;AVX2, etc.&lt;&#x2F;p&gt;
+&lt;p&gt;Cependant, si vous avez un budget serré, les &lt;strong&gt;Intel Coffee Lake&lt;&#x2F;strong&gt; et &lt;strong&gt;AMD Zen 2&lt;&#x2F;strong&gt; restent une bonne option grâce au faible prix et à leurs performances correctes, les CPU plus anciens comme les &lt;strong&gt;Intel Haswell&lt;&#x2F;strong&gt; et &lt;strong&gt;AMD Excavator&lt;&#x2F;strong&gt; ne valent souvent pas le coup en raison de leurs faibles performances, de l&#x27;absence de fonctionnalités modernes (NVMe, HEVC, Vulkan, etc.) et de mises à jour de microcode (correctifs de sécurité et de bugs pour le CPU).&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;gpu-graphics-processing-unit&quot;&gt;GPU (Graphics Processing Unit)&lt;&#x2F;h3&gt;
+&lt;p&gt;La plupart des PC SFF ne disposent que d&#x27;un GPU intégré, ceux-ci suffisent pour les tâches graphiques légères et sont très économes en énergie, certains PC SFF peuvent accueillir un GPU dédié (comme les M720Q&#x2F;M920Q),ces cartes sont low-profile et utilisent des lignes PCIe x4&#x2F;x8, ce qui peut être utile pour du jeu léger, du réseau, etc. &lt;strong&gt;Assurez-vous que le PSU et la carte mère peuvent supporter la consommation électrique de la carte PCIe.&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Je recommande les iGPU Intel à partir de &lt;strong&gt;Skylake ou plus récents&lt;&#x2F;strong&gt; (Intel HD série 500 et plus récents) ou les iGPU AMD à partir de &lt;strong&gt;Zen 2 ou plus récents&lt;&#x2F;strong&gt; (Vega et plus récents), ces GPU prennent en charge les API graphiques modernes comme OpenGL 4.6 et Vulkan 1.4*, et offrent une accélération matérielle pour les codecs vidéo courants comme AVC&#x2F;H.264, HEVC&#x2F;H.265 et VP9.&lt;&#x2F;p&gt;
+&lt;p&gt;Le décodage matériel AV1 est disponible sur Intel Alder Lake ou plus récent, et sur les iGPU basés sur AMD RDNA2&#x2F;Zen 3+ ou plus récents, pour l&#x27;encodage, il faut des GPU Intel Arc, Arrow Lake ou des GPU basés sur AMD RDNA3&#x2F;Zen 4.&lt;&#x2F;p&gt;
+&lt;p&gt;*: Vulkan permet aujourd&#x27;hui de décoder et encoder des vidéos à la place des API traditionnelles comme VA-API ou VDPAU.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;ram-random-access-memory&quot;&gt;RAM (Random Access Memory)&lt;&#x2F;h3&gt;
+&lt;p&gt;Les PC SFF disposent généralement de &lt;strong&gt;deux slots de RAM&lt;&#x2F;strong&gt;, prenant en charge la RAM DDR3, DDR4 ou DDR5 &lt;strong&gt;selon le CPU et la carte mère&lt;&#x2F;strong&gt;, la capacité maximale va habituellement de 16GB à 256GB, je recommande d&#x27;utiliser &lt;strong&gt;deux barrettes de RAM identiques&lt;&#x2F;strong&gt; pour activer le dual-channel (double la bande passante).&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;Vous pouvez utiliser de la RAM avec une fréquence plus élevée que celle officiellement prise en charge par le CPU&#x2F;Carte mère, la RAM se cadencera automatiquement à la fréquence maximale supportée par le contrôleur mémoire et la carte mère.&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;La plupart des PC SFF prennent en charge la &lt;strong&gt;SO-DIMM&lt;&#x2F;strong&gt; (RAM au format PC portable), plus petite que la RAM DIMM standard, mais avec des performances similaires.&lt;&#x2F;p&gt;
+&lt;p&gt;Voici quelques recommandations générales (en 2026) :&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;4GB&lt;&#x2F;strong&gt; : serveur Linux minimaliste, applications légères (hébergement de petit site web, routeur, NAS)&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;8GB&lt;&#x2F;strong&gt; : applications légères à moyennes (navigation web, bureautique, petits serveurs)&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;16GB&lt;&#x2F;strong&gt; : recommandé pour la plupart des usages (serveur de jeu basique, serveur de build CI, développement léger)&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;32GB+&lt;&#x2F;strong&gt; : optimal pour le multitâche (jeux AAA, montage vidéo&#x2F;photo, rendu)&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;64GB+&lt;&#x2F;strong&gt; : multitâche intensif (virtualisation, machine learning, calcul scientifique, CAO)&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;stockage&quot;&gt;Stockage&lt;&#x2F;h3&gt;
+&lt;p&gt;Les PC SFF disposent de &lt;strong&gt;quatre principales options de stockage&lt;&#x2F;strong&gt; (selon le modèle) :&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;SSD M.2 NVMe&lt;&#x2F;strong&gt; : très rapide et présent dans la plupart des PC SFF depuis 2015, le meilleur choix.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;SSD M.2 SATA&lt;&#x2F;strong&gt; : utilise le même connecteur que le NVMe mais fonctionne avec le protocole SATA (ex. ThinkCentre M700).&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;SSD 2.5&quot; SATA&lt;&#x2F;strong&gt; : plus lent que le M.2 NVMe mais une bonne alternative si le M.2 n&#x27;est pas disponible.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;HDD 2.5&quot; SATA&lt;&#x2F;strong&gt; : très lent et généralement déconseillé, mais peut être remplacé par un SSD.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;eMMC embarquée&lt;&#x2F;strong&gt; : stockage soudé sur la carte mère, &lt;strong&gt;à éviter&lt;&#x2F;strong&gt; : lent, limité et &lt;strong&gt;non remplaçable&lt;&#x2F;strong&gt;.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Je recommande d&#x27;utiliser des &lt;strong&gt;SSD M.2 NVMe&lt;&#x2F;strong&gt;, faites attention à la taille (2242, 2260, 2280), au type de connecteur (B, M, B+M) et au fait que le SSD soit simple ou double-face.&lt;&#x2F;p&gt;
+&lt;p&gt;Vous pouvez utiliser des SSD &lt;strong&gt;PCIe 4.0 x4&lt;&#x2F;strong&gt; sur des slots &lt;strong&gt;PCIe 3.0 x2&lt;&#x2F;strong&gt; ou &lt;strong&gt;x4&lt;&#x2F;strong&gt; et inversement, &lt;strong&gt;le SSD s&#x27;ajustera automatiquement à la vitesse maximale supportée par les deux éléments.&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;ports&quot;&gt;Ports&lt;&#x2F;h3&gt;
+&lt;p&gt;Tous les PC SFF ont un nombre limité de ports, assurez-vous que le PC SFF choisi dispose de suffisamment de ports pour vos besoins, certains modèles permettent d&#x27;ajouter des ports supplémentaires (la plupart des ThinkCentre Tiny de Lenovo).&lt;&#x2F;p&gt;
+&lt;p&gt;Les ports courants incluent :&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;USB type A&lt;&#x2F;strong&gt; : pour les périphériques, le stockage, la souris, le clavier, etc.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;USB type C&lt;&#x2F;strong&gt; : comme l&#x27;USB type A, parfois avec sortie vidéo et&#x2F;ou support Thunderbolt.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;HDMI&#x2F;DisplayPort&#x2F;VGA&lt;&#x2F;strong&gt; : pour les écrans.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Ethernet&lt;&#x2F;strong&gt; : pour le réseau.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Prises audio&lt;&#x2F;strong&gt; : pour les casques, micros et haut-parleurs.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;psu-power-supply-unit&quot;&gt;PSU (Power Supply Unit)&lt;&#x2F;h3&gt;
+&lt;p&gt;La plupart des PC SFF utilisent une &lt;strong&gt;alimentation externe&lt;&#x2F;strong&gt;, souvent avec un connecteur propriétaire.&lt;&#x2F;p&gt;
+&lt;p&gt;Voici quelques repères généraux :&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;45W&lt;&#x2F;strong&gt; : CPU 15W&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;65W&lt;&#x2F;strong&gt; : CPU 35W&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;90W&lt;&#x2F;strong&gt; : CPU 65W ou CPU 35W + lecteur DVD&#x2F;extension&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;135W&lt;&#x2F;strong&gt; : CPU 65W + GPU 45W ou CPU 100W&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Vous pouvez obtenir de &lt;strong&gt;petits gains de performance&lt;&#x2F;strong&gt; en utilisant un PSU surdimensionné, surtout depuis les CPU Intel &lt;strong&gt;Comet Lake&lt;&#x2F;strong&gt; et plus récents.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;carte-mere&quot;&gt;Carte mère&lt;&#x2F;h3&gt;
+&lt;p&gt;Comme pour le PSU, la plupart des PC SFF ont une &lt;strong&gt;carte mère propriétaire&lt;&#x2F;strong&gt;, il est parfois possible de la remplacer par un autre modèle de la même marque (ex. : une carte mère de M920Q dans un M720Q), mais dans la plupart des cas, il vaut mieux conserver le modèle de carte mère d&#x27;origine.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;systeme-d-exploitation&quot;&gt;Système d&#x27;exploitation&lt;&#x2F;h3&gt;
+&lt;p&gt;Tous les PC SFF basés sur x86 sont compatibles avec la plupart des systèmes d&#x27;exploitation (Linux, Windows, FreeBSD, même macOS x86, etc.), je recommande fortement d&#x27;utiliser &lt;strong&gt;Linux&lt;&#x2F;strong&gt; ou &lt;strong&gt;FreeBSD&lt;&#x2F;strong&gt; en raison de leur faible consommation de ressources, de leurs meilleures performances, de leur sécurité et de leur compatibilité avec le matériel plus ancien.&lt;&#x2F;p&gt;
+&lt;p&gt;Voici quelques distributions Linux que je recommande pour les PC SFF:&lt;&#x2F;p&gt;
+&lt;p&gt;Distributions Linux standard :&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Debian&lt;&#x2F;strong&gt; : stable, bien supportée, vaste dépôt logiciel, cycle de mise à jour d&#x27;environ 2 ans.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Ubuntu&lt;&#x2F;strong&gt; : conviviale, grande communauté, basée sur Debian avec le bureau GNOME.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Arch Linux&lt;&#x2F;strong&gt; : rolling release et logiciels de pointe, très personnalisable mais courbe d&#x27;apprentissage élevée.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;NixOS&lt;&#x2F;strong&gt; : configuration entièrement déclarative et reproductible, système de gestion de paquets unique, apprentissage difficile mais très puissant.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Distributions Linux légères :&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Lubuntu&lt;&#x2F;strong&gt; : Ubuntu avec l&#x27;interface LXQt.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Xubuntu&lt;&#x2F;strong&gt; : Ubuntu avec l&#x27;interface XFCE.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;SliTaz&lt;&#x2F;strong&gt; : extrêmement léger, peut tourner sur du matériel très ancien mais avec des noyaux et logiciels anciens.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Distributions Linux orientées multimédia :&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;OSMC&lt;&#x2F;strong&gt; : distribution légère de type media center basée sur Debian.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2 id=&quot;pc-sff-lenovo-thinkcentre&quot;&gt;PC SFF Lenovo ThinkCentre&lt;&#x2F;h2&gt;
+&lt;p&gt;Dans cette section, nous allons voir les différents modèles de PC SFF Lenovo ThinkCentre.&lt;&#x2F;p&gt;
+&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Modèle&lt;&#x2F;th&gt;&lt;th&gt;CPU&lt;&#x2F;th&gt;&lt;th&gt;Chipset&lt;&#x2F;th&gt;&lt;th&gt;RAM SODIMM²&lt;&#x2F;th&gt;&lt;th&gt;PCIe&lt;&#x2F;th&gt;&lt;th&gt;Ports SSD&#x2F;HDD&lt;&#x2F;th&gt;&lt;th&gt;PSREF&lt;&#x2F;th&gt;&lt;&#x2F;tr&gt;&lt;&#x2F;thead&gt;&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;M72 tiny&lt;&#x2F;td&gt;&lt;td&gt;Sandy Bridge&#x2F;Ivy Bridge&lt;&#x2F;td&gt;&lt;td&gt;Intel H61&lt;&#x2F;td&gt;&lt;td&gt;2x 8GB 1600MHz DDR3&lt;&#x2F;td&gt;&lt;td&gt;-&lt;&#x2F;td&gt;&lt;td&gt;1x SATA&lt;&#x2F;td&gt;&lt;td&gt;&lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;psref.lenovo.com&#x2F;syspool&#x2F;Sys&#x2F;PDF&#x2F;withdrawnbook&#x2F;M72e.pdf&quot;&gt;PDF&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;M92 tiny&lt;&#x2F;td&gt;&lt;td&gt;Sandy Bridge&#x2F;Ivy Bridge&lt;&#x2F;td&gt;&lt;td&gt;Intel Q77&lt;&#x2F;td&gt;&lt;td&gt;2x 8GB 1600MHz DDR3&lt;&#x2F;td&gt;&lt;td&gt;-&lt;&#x2F;td&gt;&lt;td&gt;1x SATA&lt;&#x2F;td&gt;&lt;td&gt;&lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;psref.lenovo.com&#x2F;syspool&#x2F;Sys&#x2F;PDF&#x2F;withdrawnbook&#x2F;M92&amp;amp;M92p.pdf&quot;&gt;PDF&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;M73 tiny&lt;&#x2F;td&gt;&lt;td&gt;Haswell&lt;&#x2F;td&gt;&lt;td&gt;Intel H81&lt;&#x2F;td&gt;&lt;td&gt;2x 8GB 1600MHz DDR3&lt;&#x2F;td&gt;&lt;td&gt;-&lt;&#x2F;td&gt;&lt;td&gt;1x SATA&lt;&#x2F;td&gt;&lt;td&gt;&lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;psref.lenovo.com&#x2F;syspool&#x2F;Sys&#x2F;PDF&#x2F;ThinkCentre&#x2F;ThinkCentre_M73_Tiny&#x2F;ThinkCentre_M73_Tiny_Spec.pdf&quot;&gt;PDF&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;M83 tiny&lt;&#x2F;td&gt;&lt;td&gt;Haswell&lt;&#x2F;td&gt;&lt;td&gt;Intel Q85&lt;&#x2F;td&gt;&lt;td&gt;2x 8GB 1600MHz DDR3&lt;&#x2F;td&gt;&lt;td&gt;-&lt;&#x2F;td&gt;&lt;td&gt;1x SATA&lt;&#x2F;td&gt;&lt;td&gt;&lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;psref.lenovo.com&#x2F;syspool&#x2F;Sys&#x2F;PDF&#x2F;ThinkCentre&#x2F;ThinkCentre_M83_Tiny&#x2F;ThinkCentre_M83_Tiny_Spec.pdf&quot;&gt;PDF&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;M700q&lt;&#x2F;td&gt;&lt;td&gt;Skylake&lt;&#x2F;td&gt;&lt;td&gt;Intel B150&lt;&#x2F;td&gt;&lt;td&gt;2x 16GB 2133MHz DDR4&lt;&#x2F;td&gt;&lt;td&gt;-&lt;&#x2F;td&gt;&lt;td&gt;1x SATA &amp;amp; 1x (SATA)&lt;&#x2F;td&gt;&lt;td&gt;&lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;psref.lenovo.com&#x2F;syspool&#x2F;Sys&#x2F;PDF&#x2F;ThinkCentre&#x2F;ThinkCentre_M700_Tiny&#x2F;ThinkCentre_M700_Tiny_Spec.pdf&quot;&gt;PDF&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;M900q&lt;&#x2F;td&gt;&lt;td&gt;Skylake&lt;&#x2F;td&gt;&lt;td&gt;Intel Q170&lt;&#x2F;td&gt;&lt;td&gt;2x 16GB 2133MHz DDR4&lt;&#x2F;td&gt;&lt;td&gt;-&lt;&#x2F;td&gt;&lt;td&gt;1x SATA &amp;amp; 1x M.2 NVMe&lt;&#x2F;td&gt;&lt;td&gt;&lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;psref.lenovo.com&#x2F;syspool&#x2F;Sys&#x2F;PDF&#x2F;ThinkCentre&#x2F;ThinkCentre_M900_Tiny&#x2F;ThinkCentre_M900_Tiny_Spec.pdf&quot;&gt;PDF&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;M710q&lt;&#x2F;td&gt;&lt;td&gt;Skylake&#x2F;Kaby Lake&lt;&#x2F;td&gt;&lt;td&gt;Intel B250&lt;&#x2F;td&gt;&lt;td&gt;2x 32GB 2400MHz DDR4&lt;&#x2F;td&gt;&lt;td&gt;-&lt;&#x2F;td&gt;&lt;td&gt;1x SATA &amp;amp; 1x M.2 NVMe&lt;&#x2F;td&gt;&lt;td&gt;&lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;psref.lenovo.com&#x2F;syspool&#x2F;Sys&#x2F;PDF&#x2F;ThinkCentre&#x2F;ThinkCentre_M710_Tiny&#x2F;ThinkCentre_M710_Tiny_Spec.pdf&quot;&gt;PDF&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;M910q&lt;&#x2F;td&gt;&lt;td&gt;Skylake&#x2F;Kaby Lake&lt;&#x2F;td&gt;&lt;td&gt;Intel Q270&lt;&#x2F;td&gt;&lt;td&gt;2x 32GB 2400MHz DDR4&lt;&#x2F;td&gt;&lt;td&gt;-&lt;&#x2F;td&gt;&lt;td&gt;1x SATA &amp;amp; 2x M.2 NVMe&lt;&#x2F;td&gt;&lt;td&gt;&lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;psref.lenovo.com&#x2F;syspool&#x2F;Sys&#x2F;PDF&#x2F;ThinkCentre&#x2F;ThinkCentre_M910_Tiny&#x2F;ThinkCentre_M910_Tiny_Spec.pdf&quot;&gt;PDF&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;M720q&lt;&#x2F;td&gt;&lt;td&gt;Coffee Lake&lt;&#x2F;td&gt;&lt;td&gt;Intel B360&lt;&#x2F;td&gt;&lt;td&gt;2x 32GB 2666MHz DDR4&lt;&#x2F;td&gt;&lt;td&gt;x8 Gen 3¹&lt;&#x2F;td&gt;&lt;td&gt;1x SATA &amp;amp; 1x M.2 NVMe&lt;&#x2F;td&gt;&lt;td&gt;&lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;psref.lenovo.com&#x2F;syspool&#x2F;Sys&#x2F;PDF&#x2F;ThinkCentre&#x2F;ThinkCentre_M720_Tiny&#x2F;ThinkCentre_M720_Tiny_Spec.pdf&quot;&gt;PDF&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;M920q&lt;&#x2F;td&gt;&lt;td&gt;Coffee Lake&lt;&#x2F;td&gt;&lt;td&gt;Intel Q370&lt;&#x2F;td&gt;&lt;td&gt;2x 32GB 2666MHz DDR4&lt;&#x2F;td&gt;&lt;td&gt;x8 Gen 3¹&lt;&#x2F;td&gt;&lt;td&gt;1x SATA &amp;amp; 1x M.2 NVMe&lt;&#x2F;td&gt;&lt;td&gt;&lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;psref.lenovo.com&#x2F;syspool&#x2F;Sys&#x2F;PDF&#x2F;ThinkCentre&#x2F;ThinkCentre_M920_Tiny&#x2F;ThinkCentre_M920_Tiny_Spec.pdf&quot;&gt;PDF&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;M920x&lt;&#x2F;td&gt;&lt;td&gt;Coffee Lake&lt;&#x2F;td&gt;&lt;td&gt;Intel Q370&lt;&#x2F;td&gt;&lt;td&gt;2x 32GB 2666MHz DDR4&lt;&#x2F;td&gt;&lt;td&gt;x8 Gen 3¹&lt;&#x2F;td&gt;&lt;td&gt;1x SATA &amp;amp; 2x M.2 NVMe&lt;&#x2F;td&gt;&lt;td&gt;&lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;psref.lenovo.com&#x2F;syspool&#x2F;Sys&#x2F;PDF&#x2F;ThinkCentre&#x2F;ThinkCentre_M920x_Tiny&#x2F;ThinkCentre_M920x_Tiny_Spec.pdf&quot;&gt;PDF&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;P330&lt;&#x2F;td&gt;&lt;td&gt;Coffee Lake&lt;&#x2F;td&gt;&lt;td&gt;Intel Q370&lt;&#x2F;td&gt;&lt;td&gt;2x 32GB 2666MHz DDR4&lt;&#x2F;td&gt;&lt;td&gt;x8 Gen 3¹&lt;&#x2F;td&gt;&lt;td&gt;1x SATA &amp;amp; 2x M.2 NVMe&lt;&#x2F;td&gt;&lt;td&gt;&lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;psref.lenovo.com&#x2F;syspool&#x2F;Sys&#x2F;PDF&#x2F;ThinkStation&#x2F;ThinkStation_P330_Tiny&#x2F;ThinkStation_P330_Tiny_Spec.pdf&quot;&gt;PDF&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;M75q&lt;&#x2F;td&gt;&lt;td&gt;AMD Zen 2&lt;&#x2F;td&gt;&lt;td&gt;AMD Pro 500&lt;&#x2F;td&gt;&lt;td&gt;2x 32GB 2933MHz DDR4&lt;&#x2F;td&gt;&lt;td&gt;-&lt;&#x2F;td&gt;&lt;td&gt;1x SATA &amp;amp; 1x M.2 NVMe&lt;&#x2F;td&gt;&lt;td&gt;&lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;psref.lenovo.com&#x2F;syspool&#x2F;Sys&#x2F;PDF&#x2F;ThinkCentre&#x2F;ThinkCentre_M75q_Tiny&#x2F;ThinkCentre_M75q_Tiny_Spec.PDF&quot;&gt;PDF&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;M75q Gen 2&lt;&#x2F;td&gt;&lt;td&gt;AMD Zen 3&lt;&#x2F;td&gt;&lt;td&gt;AMD Pro 500&lt;&#x2F;td&gt;&lt;td&gt;2x 32GB 3200MHz DDR4&lt;&#x2F;td&gt;&lt;td&gt;-&lt;&#x2F;td&gt;&lt;td&gt;1x SATA &amp;amp; 1x M.2 NVMe&lt;&#x2F;td&gt;&lt;td&gt;&lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;psref.lenovo.com&#x2F;syspool&#x2F;Sys&#x2F;PDF&#x2F;ThinkCentre&#x2F;ThinkCentre_M75q_Gen_2&#x2F;ThinkCentre_M75q_Gen_2_Spec.pdf&quot;&gt;PDF&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;M70q&lt;&#x2F;td&gt;&lt;td&gt;Comet Lake&lt;&#x2F;td&gt;&lt;td&gt;Intel H470&lt;&#x2F;td&gt;&lt;td&gt;2x 32GB 2933MHz DDR4&lt;&#x2F;td&gt;&lt;td&gt;-&lt;&#x2F;td&gt;&lt;td&gt;1x SATA &amp;amp; 1x M.2 NVMe&lt;&#x2F;td&gt;&lt;td&gt;&lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;psref.lenovo.com&#x2F;syspool&#x2F;Sys&#x2F;PDF&#x2F;ThinkCentre&#x2F;ThinkCentre_M70q&#x2F;ThinkCentre_M70q_Spec.pdf&quot;&gt;PDF&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;M80q&lt;&#x2F;td&gt;&lt;td&gt;Comet Lake&lt;&#x2F;td&gt;&lt;td&gt;Intel Q470&lt;&#x2F;td&gt;&lt;td&gt;2x 32GB 2933MHz DDR4&lt;&#x2F;td&gt;&lt;td&gt;-&lt;&#x2F;td&gt;&lt;td&gt;1x SATA &amp;amp; 1x M.2 NVMe&lt;&#x2F;td&gt;&lt;td&gt;&lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;psref.lenovo.com&#x2F;syspool&#x2F;Sys&#x2F;PDF&#x2F;ThinkCentre&#x2F;ThinkCentre_M80q&#x2F;ThinkCentre_M80q_Spec.pdf&quot;&gt;PDF&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;M90q&lt;&#x2F;td&gt;&lt;td&gt;Comet Lake&lt;&#x2F;td&gt;&lt;td&gt;Intel Q470&lt;&#x2F;td&gt;&lt;td&gt;2x 32GB 2933MHz DDR4&lt;&#x2F;td&gt;&lt;td&gt;x8 Gen 3&lt;&#x2F;td&gt;&lt;td&gt;1x SATA &amp;amp; 2x M.2 NVMe&lt;&#x2F;td&gt;&lt;td&gt;&lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;psref.lenovo.com&#x2F;syspool&#x2F;Sys&#x2F;PDF&#x2F;ThinkCentre&#x2F;ThinkCentre_M90q&#x2F;ThinkCentre_M90q_Spec.pdf&quot;&gt;PDF&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;P340&lt;&#x2F;td&gt;&lt;td&gt;Comet Lake&lt;&#x2F;td&gt;&lt;td&gt;Intel Q470&lt;&#x2F;td&gt;&lt;td&gt;2x 32GB 2933MHz DDR4&lt;&#x2F;td&gt;&lt;td&gt;x8 Gen 3&lt;&#x2F;td&gt;&lt;td&gt;1x SATA &amp;amp; 2x M.2 NVMe&lt;&#x2F;td&gt;&lt;td&gt;&lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;psref.lenovo.com&#x2F;syspool&#x2F;Sys&#x2F;PDF&#x2F;ThinkStation&#x2F;ThinkStation_P340_Tiny&#x2F;ThinkStation_P340_Tiny_Spec.pdf&quot;&gt;PDF&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;M70q Gen 2&lt;&#x2F;td&gt;&lt;td&gt;Rocket Lake&#x2F;Comet Lake&lt;&#x2F;td&gt;&lt;td&gt;Intel B560&lt;&#x2F;td&gt;&lt;td&gt;2x 32GB 3200MHz DDR4&lt;&#x2F;td&gt;&lt;td&gt;-&lt;&#x2F;td&gt;&lt;td&gt;1x SATA &amp;amp; 1x M.2 NVMe&lt;&#x2F;td&gt;&lt;td&gt;&lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;psref.lenovo.com&#x2F;syspool&#x2F;Sys&#x2F;PDF&#x2F;ThinkCentre&#x2F;ThinkCentre_M70q_Gen_2&#x2F;ThinkCentre_M70q_Gen_2_Spec.pdf&quot;&gt;PDF&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;M90q Gen 2&lt;&#x2F;td&gt;&lt;td&gt;Rocket Lake&#x2F;Comet Lake&lt;&#x2F;td&gt;&lt;td&gt;Intel Q570&lt;&#x2F;td&gt;&lt;td&gt;2x 32GB 3200MHz DDR4&lt;&#x2F;td&gt;&lt;td&gt;x8 Gen 3&lt;&#x2F;td&gt;&lt;td&gt;1x SATA &amp;amp; 2x M.2 NVMe&lt;&#x2F;td&gt;&lt;td&gt;&lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;psref.lenovo.com&#x2F;syspool&#x2F;Sys&#x2F;PDF&#x2F;ThinkCentre&#x2F;ThinkCentre_M90q_Gen_2&#x2F;ThinkCentre_M90q_Gen_2_Spec.pdf&quot;&gt;PDF&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;P350&lt;&#x2F;td&gt;&lt;td&gt;Rocket Lake&lt;&#x2F;td&gt;&lt;td&gt;Intel Q570&lt;&#x2F;td&gt;&lt;td&gt;2x 32GB 3200MHz DDR4&lt;&#x2F;td&gt;&lt;td&gt;x8 Gen 3&lt;&#x2F;td&gt;&lt;td&gt;1x SATA &amp;amp; 2x M.2 NVMe&lt;&#x2F;td&gt;&lt;td&gt;&lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;psref.lenovo.com&#x2F;syspool&#x2F;Sys&#x2F;PDF&#x2F;ThinkStation&#x2F;ThinkStation_P350_Tiny&#x2F;ThinkStation_P350_Tiny_Spec.pdf&quot;&gt;PDF&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;M80q Gen 3&lt;&#x2F;td&gt;&lt;td&gt;Alder Lake&lt;&#x2F;td&gt;&lt;td&gt;Intel Q670&lt;&#x2F;td&gt;&lt;td&gt;2x 32GB 4800MHz DDR5&lt;&#x2F;td&gt;&lt;td&gt;-&lt;&#x2F;td&gt;&lt;td&gt;1x SATA &amp;amp; 2x M.2 NVMe&lt;&#x2F;td&gt;&lt;td&gt;&lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;psref.lenovo.com&#x2F;syspool&#x2F;Sys&#x2F;PDF&#x2F;ThinkCentre&#x2F;ThinkCentre_M80q_Gen_3&#x2F;ThinkCentre_M80q_Gen_3_Spec.pdf&quot;&gt;PDF&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;M90q Gen 3&lt;&#x2F;td&gt;&lt;td&gt;Alder Lake&lt;&#x2F;td&gt;&lt;td&gt;Intel Q670&lt;&#x2F;td&gt;&lt;td&gt;2x 32GB 4800MHz DDR5&lt;&#x2F;td&gt;&lt;td&gt;x8 Gen 4&lt;&#x2F;td&gt;&lt;td&gt;1x SATA &amp;amp; 2x M.2 NVMe&lt;&#x2F;td&gt;&lt;td&gt;&lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;psref.lenovo.com&#x2F;syspool&#x2F;Sys&#x2F;PDF&#x2F;ThinkCentre&#x2F;ThinkCentre_M90q_Gen_3&#x2F;ThinkCentre_M90q_Gen_3_Spec.pdf&quot;&gt;PDF&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;P360&lt;&#x2F;td&gt;&lt;td&gt;Alder Lake&lt;&#x2F;td&gt;&lt;td&gt;Intel Q670&lt;&#x2F;td&gt;&lt;td&gt;2x 32GB 4800MHz DDR5&lt;&#x2F;td&gt;&lt;td&gt;x8 Gen 4&lt;&#x2F;td&gt;&lt;td&gt;2x M.2 NVMe&lt;&#x2F;td&gt;&lt;td&gt;&lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;psref.lenovo.com&#x2F;syspool&#x2F;Sys&#x2F;PDF&#x2F;ThinkStation&#x2F;ThinkStation_P360_Tiny&#x2F;ThinkStation_P360_Tiny_Spec.pdf&quot;&gt;PDF&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;M70q Gen 3&lt;&#x2F;td&gt;&lt;td&gt;Alder Lake&lt;&#x2F;td&gt;&lt;td&gt;Intel Q670&lt;&#x2F;td&gt;&lt;td&gt;2x 32GB 3200MHz DDR4&lt;&#x2F;td&gt;&lt;td&gt;-&lt;&#x2F;td&gt;&lt;td&gt;1x SATA &amp;amp; 1x M.2 NVMe&lt;&#x2F;td&gt;&lt;td&gt;&lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;psref.lenovo.com&#x2F;syspool&#x2F;Sys&#x2F;PDF&#x2F;ThinkCentre&#x2F;ThinkCentre_M70q_Gen_3&#x2F;ThinkCentre_M70q_Gen_3_Spec.pdf&quot;&gt;PDF&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;M75q Gen 5&lt;&#x2F;td&gt;&lt;td&gt;AMD Zen 4&lt;&#x2F;td&gt;&lt;td&gt;AMD Pro 600&lt;&#x2F;td&gt;&lt;td&gt;2x 32GB 5200MHz DDR5&lt;&#x2F;td&gt;&lt;td&gt;-&lt;&#x2F;td&gt;&lt;td&gt;2x M.2 NVMe&lt;&#x2F;td&gt;&lt;td&gt;&lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;psref.lenovo.com&#x2F;syspool&#x2F;Sys&#x2F;PDF&#x2F;ThinkCentre&#x2F;ThinkCentre_M75q_Gen_5&#x2F;ThinkCentre_M75q_Gen_5_Spec.pdf&quot;&gt;PDF&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;M70q Gen 4&lt;&#x2F;td&gt;&lt;td&gt;Raptor Lake&lt;&#x2F;td&gt;&lt;td&gt;Intel Q670&lt;&#x2F;td&gt;&lt;td&gt;2x 32GB 5600MHz DDR5&lt;&#x2F;td&gt;&lt;td&gt;-&lt;&#x2F;td&gt;&lt;td&gt;2x M.2 NVMe&lt;&#x2F;td&gt;&lt;td&gt;&lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;psref.lenovo.com&#x2F;syspool&#x2F;Sys&#x2F;PDF&#x2F;ThinkCentre&#x2F;ThinkCentre_M70q_Gen_4&#x2F;ThinkCentre_M70q_Gen_4_Spec.pdf&quot;&gt;PDF&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;M70q Gen 5&lt;&#x2F;td&gt;&lt;td&gt;Raptor Lake&lt;&#x2F;td&gt;&lt;td&gt;Intel Q670&lt;&#x2F;td&gt;&lt;td&gt;2x 32GB 5600MHz DDR5&lt;&#x2F;td&gt;&lt;td&gt;-&lt;&#x2F;td&gt;&lt;td&gt;2x M.2 NVMe&lt;&#x2F;td&gt;&lt;td&gt;&lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;psref.lenovo.com&#x2F;syspool&#x2F;Sys&#x2F;PDF&#x2F;ThinkCentre&#x2F;ThinkCentre_M70q_Gen_5&#x2F;ThinkCentre_M70q_Gen_5_Spec.pdf&quot;&gt;PDF&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;M70q Gen 6&lt;&#x2F;td&gt;&lt;td&gt;Arrow Lake&lt;&#x2F;td&gt;&lt;td&gt;Intel B860&#x2F;Q870&lt;&#x2F;td&gt;&lt;td&gt;2x 32GB 5600MHz DDR5&lt;&#x2F;td&gt;&lt;td&gt;-&lt;&#x2F;td&gt;&lt;td&gt;2x M.2 NVMe&lt;&#x2F;td&gt;&lt;td&gt;&lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;psref.lenovo.com&#x2F;syspool&#x2F;Sys&#x2F;PDF&#x2F;ThinkCentre&#x2F;ThinkCentre_M70q_Gen_6&#x2F;ThinkCentre_M70q_Gen_6_Spec.pdf&quot;&gt;PDF&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
+&lt;p&gt;&lt;strong&gt;¹&lt;&#x2F;strong&gt; : vous avez besoin d&#x27;une carte riser propriétaire pour utiliser le slot PCIe.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;²&lt;&#x2F;strong&gt; : la RAM maximale supportée est déterminée par le CPU (contrôleur mémoire) et le BIOS, certaines configurations peuvent prendre en charge davantage de RAM que les spécifications officielles.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;outils&quot;&gt;Outils&lt;&#x2F;h3&gt;
+&lt;p&gt;Simulateur de BIOS&#x2F;UEFI Lenovo : &lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;download.lenovo.com&#x2F;bsco&#x2F;index.html#&#x2F;&quot;&gt;Simulateur&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;m710q-et-m910q&quot;&gt;M710q et M910q&lt;&#x2F;h3&gt;
+&lt;h4 id=&quot;ports-1&quot;&gt;Ports&lt;&#x2F;h4&gt;
+ &lt;figure class=&quot;fi&quot;&gt;&lt;img src=&quot;https:&#x2F;&#x2F;www.bensuperpc.org&#x2F;images&#x2F;articles&#x2F;SSF-PC&#x2F;lenovo-thinkcentre-m710q-front.webp&quot; alt=&quot;Face avant du M710q&quot; width=&quot;721&quot; height=&quot;147&quot; loading=&quot;lazy&quot; &#x2F;&gt;&lt;figcaption&gt;Face avant du M710q&lt;&#x2F;figcaption&gt;&lt;&#x2F;figure&gt;
+&lt;p&gt;Sur la face avant :&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;2x USB 3.1 Gen 1&lt;&#x2F;li&gt;
+&lt;li&gt;1x prise casque audio&lt;&#x2F;li&gt;
+&lt;li&gt;1x prise micro audio&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+ &lt;figure class=&quot;fi&quot;&gt;&lt;img src=&quot;https:&#x2F;&#x2F;www.bensuperpc.org&#x2F;images&#x2F;articles&#x2F;SSF-PC&#x2F;lenovo-thinkcentre-m710q-back.webp&quot; alt=&quot;Face arrière du M710q&quot; width=&quot;725&quot; height=&quot;150&quot; loading=&quot;lazy&quot; &#x2F;&gt;&lt;figcaption&gt;Face arrière du M710q&lt;&#x2F;figcaption&gt;&lt;&#x2F;figure&gt;
+&lt;p&gt;Sur la face arrière :&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;4x USB 3.1 Gen 1&lt;&#x2F;li&gt;
+&lt;li&gt;1x HDMI 1.4&lt;&#x2F;li&gt;
+&lt;li&gt;1x DisplayPort 1.2a&lt;&#x2F;li&gt;
+&lt;li&gt;1x Ethernet RJ45&lt;&#x2F;li&gt;
+&lt;li&gt;1x connecteur d&#x27;alimentation propriétaire Lenovo&lt;&#x2F;li&gt;
+&lt;li&gt;2x port propriétaire pour accessoires (VGA, HDMI, DP, USB-C, etc.)&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Le M710q&#x2F;M910q ne prend pas en charge le HDR via HDMI (1.4) ou DisplayPort (1.2a), mais la profondeur de couleur 10 bits est supportée.&lt;&#x2F;p&gt;
+&lt;h4 id=&quot;cpu&quot;&gt;CPU&lt;&#x2F;h4&gt;
+&lt;p&gt;Le M710q&#x2F;M910q prend en charge tous les CPU Intel 35 W de &lt;strong&gt;6e&lt;&#x2F;strong&gt; et &lt;strong&gt;7e&lt;&#x2F;strong&gt; génération (modèles avec le suffixe &lt;strong&gt;T&lt;&#x2F;strong&gt;), je recommande la 7e génération pour le support de l&#x27;encodage&#x2F;décodage matériel HEVC 10 bits.&lt;&#x2F;p&gt;
+&lt;h4 id=&quot;ram&quot;&gt;RAM&lt;&#x2F;h4&gt;
+&lt;p&gt;Le M710q&#x2F;M910q dispose de &lt;strong&gt;deux slots SODIMM DDR4&lt;&#x2F;strong&gt; avec une capacité maximale de &lt;strong&gt;32GB&lt;&#x2F;strong&gt; (2x16GB), la fréquence maximale est de &lt;strong&gt;2133MHz&lt;&#x2F;strong&gt;, ou &lt;strong&gt;2400MHz&lt;&#x2F;strong&gt; sur la &lt;strong&gt;7e&lt;&#x2F;strong&gt; génération.&lt;&#x2F;p&gt;
+&lt;h4 id=&quot;bios&quot;&gt;BIOS&lt;&#x2F;h4&gt;
+&lt;p&gt;Vous &lt;strong&gt;devriez&lt;&#x2F;strong&gt; mettre à jour votre BIOS pour améliorer la compatibilité avec le matériel récent, les anciennes versions du BIOS posent problème avec certains SSD NVMe : &lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.reddit.com&#x2F;r&#x2F;Lenovo&#x2F;comments&#x2F;1jzxnp4&#x2F;m710q_tiny_what_nvme_ssd_works&#x2F;?show=original&quot;&gt;reddit&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;h4 id=&quot;depannage&quot;&gt;Dépannage&lt;&#x2F;h4&gt;
+&lt;h3 id=&quot;m720q-m920q-et-m920x&quot;&gt;M720q, M920q et M920x&lt;&#x2F;h3&gt;
+&lt;h4 id=&quot;ports-2&quot;&gt;Ports&lt;&#x2F;h4&gt;
+ &lt;figure class=&quot;fi&quot;&gt;&lt;img src=&quot;https:&#x2F;&#x2F;www.bensuperpc.org&#x2F;images&#x2F;articles&#x2F;SSF-PC&#x2F;lenovo-thinkcentre-m720q-front.webp&quot; alt=&quot;Face avant du M720q&quot; width=&quot;1107&quot; height=&quot;234&quot; loading=&quot;lazy&quot; &#x2F;&gt;&lt;figcaption&gt;Face avant du M720q&lt;&#x2F;figcaption&gt;&lt;&#x2F;figure&gt;
+&lt;p&gt;Sur la face avant :&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Le bouton d&#x27;alimentation&lt;&#x2F;li&gt;
+&lt;li&gt;1x prise micro audio&lt;&#x2F;li&gt;
+&lt;li&gt;1x prise casque audio&lt;&#x2F;li&gt;
+&lt;li&gt;1x USB-C 3.1 Gen 1&lt;&#x2F;li&gt;
+&lt;li&gt;1x USB 3.1 Gen 1&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+ &lt;figure class=&quot;fi&quot;&gt;&lt;img src=&quot;https:&#x2F;&#x2F;www.bensuperpc.org&#x2F;images&#x2F;articles&#x2F;SSF-PC&#x2F;lenovo-thinkcentre-m720q-back.webp&quot; alt=&quot;Face arrière du M720q&quot; width=&quot;1105&quot; height=&quot;221&quot; loading=&quot;lazy&quot; &#x2F;&gt;&lt;figcaption&gt;Face arrière du M720q&lt;&#x2F;figcaption&gt;&lt;&#x2F;figure&gt;
+&lt;p&gt;Sur la face arrière :&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;1x connecteur d&#x27;alimentation propriétaire Lenovo&lt;&#x2F;li&gt;
+&lt;li&gt;1x DisplayPort 1.2a&lt;&#x2F;li&gt;
+&lt;li&gt;2x USB 3.1 Gen 1&lt;&#x2F;li&gt;
+&lt;li&gt;1x HDMI 1.4&lt;&#x2F;li&gt;
+&lt;li&gt;2x USB 3.1 Gen 2&lt;&#x2F;li&gt;
+&lt;li&gt;1x Ethernet RJ45&lt;&#x2F;li&gt;
+&lt;li&gt;2x port pour accessoires propriétaires (VGA, HDMI, DP, USB-C, etc.)&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Le M720q&#x2F;M920q ne prend pas en charge le HDR via HDMI (1.4) ou DisplayPort (1.2a), mais la profondeur de couleur 10 bits est supportée.&lt;&#x2F;p&gt;
+&lt;h4 id=&quot;cpu-1&quot;&gt;CPU&lt;&#x2F;h4&gt;
+&lt;p&gt;Le M720q&#x2F;M920q prend en charge tous les CPU Intel 35 W de &lt;strong&gt;8e&lt;&#x2F;strong&gt; et &lt;strong&gt;9e&lt;&#x2F;strong&gt; génération (modèles avec le suffixe &lt;strong&gt;T&lt;&#x2F;strong&gt;), l&#x27;&lt;strong&gt;i7-9900T&lt;&#x2F;strong&gt; est le CPU le plus puissant disponible pour ce modèle, mais il est très cher et difficile à trouver, les i3-8100T, i3-9100T, i5-8500T, i5-8600T, i5-9500T, i5-9600T, i7-8700T et i7-9700T sont bien plus courants, abordables et offrent malgré tout de bonnes performances.&lt;&#x2F;p&gt;
+&lt;p&gt;Évitez les Celeron et Pentium, ils sont assez lents (dépourvus d&#x27;AVX2, FMA3, etc.), &lt;strong&gt;N&#x27;utilisez pas de CPU dont le TDP dépasse 35 W (65 W sur le M920x)&lt;&#x2F;strong&gt;, cela peut provoquer une surchauffe et potentiellement endommager votre carte mère (comme les VRM) ou le PSU.&lt;&#x2F;p&gt;
+&lt;h4 id=&quot;ram-1&quot;&gt;RAM&lt;&#x2F;h4&gt;
+&lt;p&gt;Le M720q&#x2F;M920q&#x2F;M920x dispose de &lt;strong&gt;deux slots SODIMM DDR4&lt;&#x2F;strong&gt; avec une capacité maximale de &lt;strong&gt;64GB&lt;&#x2F;strong&gt; (2x32GB), la fréquence maximale est de &lt;strong&gt;2400MHz&lt;&#x2F;strong&gt;, ou &lt;strong&gt;2666MHz&lt;&#x2F;strong&gt; sur les CPU i5&#x2F;i7.&lt;&#x2F;p&gt;
+&lt;h4 id=&quot;stockage-1&quot;&gt;Stockage&lt;&#x2F;h4&gt;
+&lt;p&gt;Vous avez &lt;strong&gt;deux&lt;&#x2F;strong&gt; options de stockage :&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;M.2 NVMe PCIe 3.0&lt;&#x2F;strong&gt; : un seul slot, en PCIe x4 Gen 3.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;2.5&quot; SATA&lt;&#x2F;strong&gt; : plus lent, mais une bonne alternative si vous avez besoin de plus de stockage ou si vous n&#x27;avez pas de SSD M.2 NVMe.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Il manque le NVMe sur le &lt;strong&gt;second slot M.2&lt;&#x2F;strong&gt; des M720q&#x2F;M920q ; vous pouvez souder les composants manquants pour obtenir un M.2 (SATA) fonctionnel : &lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;badger707&#x2F;m920q-dual-NVME&quot;&gt;https:&#x2F;&#x2F;github.com&#x2F;badger707&#x2F;m920q-dual-NVME&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;h4 id=&quot;gpu&quot;&gt;GPU&lt;&#x2F;h4&gt;
+&lt;p&gt;Tous les CPU compatibles disposent d&#x27;un GPU intégré, si cela ne suffit pas, vous pouvez ajouter un GPU &lt;strong&gt;low-profile&lt;&#x2F;strong&gt; via une &lt;strong&gt;carte riser PCIe propriétaire&lt;&#x2F;strong&gt; ; vous êtes limité au PCIe 3.0 x8 et à un TDP de 45 W (il faut aussi un PSU de 135 W).&lt;&#x2F;p&gt;
+&lt;h4 id=&quot;psu&quot;&gt;PSU&lt;&#x2F;h4&gt;
+&lt;p&gt;Le PSU propriétaire utilisé pour le M720q existe en &lt;strong&gt;65W&lt;&#x2F;strong&gt;, &lt;strong&gt;90W&lt;&#x2F;strong&gt; et &lt;strong&gt;135W&lt;&#x2F;strong&gt; ; &lt;strong&gt;90W&lt;&#x2F;strong&gt; est le minimum lorsque vous utilisez des cartes d&#x27;extension ou un CPU puissant (i7 ou i9).&lt;&#x2F;p&gt;
+&lt;h4 id=&quot;extensions-et-accessoires&quot;&gt;Extensions et accessoires&lt;&#x2F;h4&gt;
+&lt;p&gt;Le M720q prend en charge plusieurs options d&#x27;extension :&lt;&#x2F;p&gt;
+&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Type&lt;&#x2F;th&gt;&lt;th&gt;Modèle&lt;&#x2F;th&gt;&lt;th&gt;Description&lt;&#x2F;th&gt;&lt;&#x2F;tr&gt;&lt;&#x2F;thead&gt;&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;Carte port VGA&lt;&#x2F;td&gt;&lt;td&gt;01AJ935&lt;&#x2F;td&gt;&lt;td&gt;Ajoute 1 sortie port VGA&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;Carte port VGA&lt;&#x2F;td&gt;&lt;td&gt;5C50W00881&lt;&#x2F;td&gt;&lt;td&gt;Ajoute 1 sortie port VGA&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;Carte port DisplayPort&lt;&#x2F;td&gt;&lt;td&gt;01AJ937&lt;&#x2F;td&gt;&lt;td&gt;Ajoute 1 sortie port DisplayPort&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;Carte port HDMI&lt;&#x2F;td&gt;&lt;td&gt;01AJ938&lt;&#x2F;td&gt;&lt;td&gt;Ajoute 1 sortie port HDMI&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;Carte port USB-C&lt;&#x2F;td&gt;&lt;td&gt;01AJ939&lt;&#x2F;td&gt;&lt;td&gt;Ajoute 1 sortie port USB-C&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;Riser PCIe x8&lt;&#x2F;td&gt;&lt;td&gt;01AJ940&lt;&#x2F;td&gt;&lt;td&gt;Ajoute 1 slot PCIe x8&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;Carte port COM RS232&lt;&#x2F;td&gt;&lt;td&gt;04X2733&lt;&#x2F;td&gt;&lt;td&gt;Ajoute 1 sortie port COM RS232&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;Support VESA&lt;&#x2F;td&gt;&lt;td&gt;4XF0N03161&lt;&#x2F;td&gt;&lt;td&gt;Support VESA + vis&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;Support VESA&lt;&#x2F;td&gt;&lt;td&gt;SM10U47670&lt;&#x2F;td&gt;&lt;td&gt;Support VESA + vis&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;Support VESA&lt;&#x2F;td&gt;&lt;td&gt;01EF310&lt;&#x2F;td&gt;&lt;td&gt;Support VESA + vis&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;Support VESA&lt;&#x2F;td&gt;&lt;td&gt;01EF645&lt;&#x2F;td&gt;&lt;td&gt;Support VESA + vis&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;Support VESA&lt;&#x2F;td&gt;&lt;td&gt;5M10U49625&lt;&#x2F;td&gt;&lt;td&gt;Support VESA + vis&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;Hub USB&lt;&#x2F;td&gt;&lt;td&gt;01EF647&lt;&#x2F;td&gt;&lt;td&gt;Hub USB avec RS232&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;Antenne Wifi&lt;&#x2F;td&gt;&lt;td&gt;00XJ126&lt;&#x2F;td&gt;&lt;td&gt;Antenne Wifi interne&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;Radiateur avec ventilo&lt;&#x2F;td&gt;&lt;td&gt;01MN633&lt;&#x2F;td&gt;&lt;td&gt;Radiateur avec ventilateur&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;Radiateur avec ventilo&lt;&#x2F;td&gt;&lt;td&gt;01MN632&lt;&#x2F;td&gt;&lt;td&gt;Radiateur avec ventilateur&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
+&lt;h4 id=&quot;bios-1&quot;&gt;BIOS&lt;&#x2F;h4&gt;
+&lt;p&gt;Pour mettre à jour le BIOS, vous &lt;strong&gt;devez&lt;&#x2F;strong&gt; d&#x27;abord mettre à jour l&#x27;&lt;strong&gt;Intel Management Engine&lt;&#x2F;strong&gt;, puis mettre à jour le BIOS, sinon vous risquez un boot loop avec les anciennes versions du BIOS.&lt;&#x2F;p&gt;
+&lt;h4 id=&quot;depannage-1&quot;&gt;Dépannage&lt;&#x2F;h4&gt;
+&lt;h2 id=&quot;sources&quot;&gt;Sources&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;forums.servethehome.com&#x2F;index.php?threads&#x2F;lenovo-thinkcentre-thinkstation-tiny-project-tinyminimicro-reference-thread.34925&#x2F;&quot;&gt;Project TinyMiniMicro&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;forums.servethehome.com&#x2F;index.php?threads&#x2F;tiny-mini-micro-pc-experiences.30230&#x2F;&quot;&gt;Tiny&#x2F;Mini&#x2F;Micro PC experiences&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Small_form_factor&quot;&gt;Wikipedia&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.cpu-world.com&#x2F;&quot;&gt;cpu-world&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="fr">
+        <title>Les pilotes GPU Mesa</title>
+        <published>2025-03-21T00:00:00+00:00</published>
+        <updated>2025-03-21T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.bensuperpc.org/fr/documentation/hardware/pc/gpu/"/>
+        <id>https://www.bensuperpc.org/fr/documentation/hardware/pc/gpu/</id>
+        
+        <content type="html" xml:base="https://www.bensuperpc.org/fr/documentation/hardware/pc/gpu/">&lt;h1 id=&quot;introduction&quot;&gt;Introduction&lt;&#x2F;h1&gt;
+&lt;p&gt;Vous trouverez ci-dessous une liste des architectures GPU et de leurs pilotes Mesa et support API correspondants.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;amd-graphics&quot;&gt;AMD Graphics&lt;&#x2F;h2&gt;
+&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;&lt;strong&gt;Release&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;GFX Core&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;Architecture&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;GPU Models&#x2F;Series&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;OpenGL&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;OpenCL&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;Vulkan&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;&#x2F;tr&gt;&lt;&#x2F;thead&gt;&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;2000-2002&lt;&#x2F;td&gt;&lt;td&gt;GFX1&lt;&#x2F;td&gt;&lt;td&gt;-&lt;&#x2F;td&gt;&lt;td&gt;Radeon 7xxx&lt;&#x2F;td&gt;&lt;td&gt;1.3&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2002-2004&lt;&#x2F;td&gt;&lt;td&gt;GFX1&lt;&#x2F;td&gt;&lt;td&gt;-&lt;&#x2F;td&gt;&lt;td&gt;Radeon 8xxx, Radeon 9000, Radeon 9200, Radeon 9250&lt;&#x2F;td&gt;&lt;td&gt;1.4&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2002-2005&lt;&#x2F;td&gt;&lt;td&gt;GFX2&lt;&#x2F;td&gt;&lt;td&gt;-&lt;&#x2F;td&gt;&lt;td&gt;Radeon 9500, Radeon 9600, Radeon 9700, Radeon 9800, Radeon X300-X850&lt;&#x2F;td&gt;&lt;td&gt;2.1&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2004-2005&lt;&#x2F;td&gt;&lt;td&gt;GFX2&lt;&#x2F;td&gt;&lt;td&gt;-&lt;&#x2F;td&gt;&lt;td&gt;Radeon X700, Radeon X800, Radeon X850, Radeon Xpress 200-1250&lt;&#x2F;td&gt;&lt;td&gt;2.1&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2005-2006&lt;&#x2F;td&gt;&lt;td&gt;GFX2&lt;&#x2F;td&gt;&lt;td&gt;-&lt;&#x2F;td&gt;&lt;td&gt;Radeon X1300, Radeon X1600, Radeon X1800, Radeon X1900, Radeon X1950&lt;&#x2F;td&gt;&lt;td&gt;2.1&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2007-2008&lt;&#x2F;td&gt;&lt;td&gt;GFX3&lt;&#x2F;td&gt;&lt;td&gt;Ultra-Threaded SE&lt;&#x2F;td&gt;&lt;td&gt;Radeon HD 2xxx, Radeon HD 3xxx&lt;&#x2F;td&gt;&lt;td&gt;3.3&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2008-2009&lt;&#x2F;td&gt;&lt;td&gt;GFX3&lt;&#x2F;td&gt;&lt;td&gt;TeraScale 1&lt;&#x2F;td&gt;&lt;td&gt;Radeon HD 4xxx&lt;&#x2F;td&gt;&lt;td&gt;3.3&lt;&#x2F;td&gt;&lt;td&gt;1.1&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2009-2011&lt;&#x2F;td&gt;&lt;td&gt;GFX4&lt;&#x2F;td&gt;&lt;td&gt;TeraScale 2&lt;&#x2F;td&gt;&lt;td&gt;Radeon HD 5xxx, Radeon HD 6xxx&lt;&#x2F;td&gt;&lt;td&gt;4.x&lt;&#x2F;td&gt;&lt;td&gt;1.2&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2010-2012&lt;&#x2F;td&gt;&lt;td&gt;GFX5&lt;&#x2F;td&gt;&lt;td&gt;TeraScale 3&lt;&#x2F;td&gt;&lt;td&gt;Radeon HD 69xx, Radeon HD 7xxx (Trinity&#x2F;Richland APUs)&lt;&#x2F;td&gt;&lt;td&gt;4.x&lt;&#x2F;td&gt;&lt;td&gt;2.1&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2012-2013&lt;&#x2F;td&gt;&lt;td&gt;GFX6&lt;&#x2F;td&gt;&lt;td&gt;GCN 1.0&lt;&#x2F;td&gt;&lt;td&gt;Radeon HD 7xxx-8xxx, Radeon R7 240&#x2F;250, Radeon R9 280&#x2F;290&lt;&#x2F;td&gt;&lt;td&gt;4.x&lt;&#x2F;td&gt;&lt;td&gt;2.1&lt;&#x2F;td&gt;&lt;td&gt;1.3&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2013-2014&lt;&#x2F;td&gt;&lt;td&gt;GFX7&lt;&#x2F;td&gt;&lt;td&gt;GCN 2.0&lt;&#x2F;td&gt;&lt;td&gt;Radeon R7 260, Radeon R9 290X, Radeon R9 295X2, Kaveri APUs&lt;&#x2F;td&gt;&lt;td&gt;4.x&lt;&#x2F;td&gt;&lt;td&gt;2.1&lt;&#x2F;td&gt;&lt;td&gt;1.3&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2014-2015&lt;&#x2F;td&gt;&lt;td&gt;GFX8&lt;&#x2F;td&gt;&lt;td&gt;GCN 3.0&lt;&#x2F;td&gt;&lt;td&gt;Radeon R9 285, Radeon R9 380, Radeon R9 390&lt;&#x2F;td&gt;&lt;td&gt;4.x&lt;&#x2F;td&gt;&lt;td&gt;2.1&lt;&#x2F;td&gt;&lt;td&gt;1.4&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2015-2017&lt;&#x2F;td&gt;&lt;td&gt;GFX8.1&lt;&#x2F;td&gt;&lt;td&gt;GCN 4.0&lt;&#x2F;td&gt;&lt;td&gt;Radeon R9 Fury series, Radeon RX 4xx&#x2F;5xx, Stoney Ridge APUs&lt;&#x2F;td&gt;&lt;td&gt;4.x&lt;&#x2F;td&gt;&lt;td&gt;2.1&lt;&#x2F;td&gt;&lt;td&gt;1.4&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2017-2019&lt;&#x2F;td&gt;&lt;td&gt;GFX9&lt;&#x2F;td&gt;&lt;td&gt;GCN 5.0&lt;&#x2F;td&gt;&lt;td&gt;Radeon RX Vega 56&#x2F;64, Radeon VII, Raven Ridge&#x2F;Renoir APUs&lt;&#x2F;td&gt;&lt;td&gt;4.x&lt;&#x2F;td&gt;&lt;td&gt;2.1&lt;&#x2F;td&gt;&lt;td&gt;1.4&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2019-2020&lt;&#x2F;td&gt;&lt;td&gt;GFX10&lt;&#x2F;td&gt;&lt;td&gt;RDNA 1.0&lt;&#x2F;td&gt;&lt;td&gt;Radeon RX 5xxx (Navi 10, Navi 12, Navi 14)&lt;&#x2F;td&gt;&lt;td&gt;4.x&lt;&#x2F;td&gt;&lt;td&gt;2.1&lt;&#x2F;td&gt;&lt;td&gt;1.4&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2020-2022&lt;&#x2F;td&gt;&lt;td&gt;GFX10&lt;&#x2F;td&gt;&lt;td&gt;RDNA 2.0&lt;&#x2F;td&gt;&lt;td&gt;Radeon RX 6xxx (Navi 21, Navi 22, Navi 23, Navi 24), Van Gogh, Raphael APUs&lt;&#x2F;td&gt;&lt;td&gt;4.x&lt;&#x2F;td&gt;&lt;td&gt;2.1&lt;&#x2F;td&gt;&lt;td&gt;1.4&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2022-2024&lt;&#x2F;td&gt;&lt;td&gt;GFX11&lt;&#x2F;td&gt;&lt;td&gt;RDNA 3.0&lt;&#x2F;td&gt;&lt;td&gt;Radeon RX 7xxx (Navi 31, Navi 32, Navi 33), Phoenix APUs (780M, 760M)&lt;&#x2F;td&gt;&lt;td&gt;4.x&lt;&#x2F;td&gt;&lt;td&gt;2.1&lt;&#x2F;td&gt;&lt;td&gt;1.4&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2024&lt;&#x2F;td&gt;&lt;td&gt;GFX11&lt;&#x2F;td&gt;&lt;td&gt;RDNA 3.5&lt;&#x2F;td&gt;&lt;td&gt;Radeon RX 8xxM (Strix Point APUs)&lt;&#x2F;td&gt;&lt;td&gt;4.x&lt;&#x2F;td&gt;&lt;td&gt;2.1&lt;&#x2F;td&gt;&lt;td&gt;1.4&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2025&lt;&#x2F;td&gt;&lt;td&gt;GFX12&lt;&#x2F;td&gt;&lt;td&gt;RDNA 4.0&lt;&#x2F;td&gt;&lt;td&gt;Radeon RX 9xxx&lt;&#x2F;td&gt;&lt;td&gt;4.x&lt;&#x2F;td&gt;&lt;td&gt;2.1&lt;&#x2F;td&gt;&lt;td&gt;1.4&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
+&lt;h3 id=&quot;mesa-drivers&quot;&gt;Mesa drivers&lt;&#x2F;h3&gt;
+&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;&lt;strong&gt;Nom du driver&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;Type&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;Version&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;GFX Core&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;&#x2F;tr&gt;&lt;&#x2F;thead&gt;&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;r200 &lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;docs.mesa3d.org&#x2F;amber.html&quot;&gt;mesa-amber&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;td&gt;OpenGL&lt;&#x2F;td&gt;&lt;td&gt;1.5&lt;&#x2F;td&gt;&lt;td&gt;GFX1&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;r300&lt;&#x2F;td&gt;&lt;td&gt;OpenGL&lt;&#x2F;td&gt;&lt;td&gt;1.5&lt;&#x2F;td&gt;&lt;td&gt;GFX2&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;r600&lt;&#x2F;td&gt;&lt;td&gt;OpenGL&lt;&#x2F;td&gt;&lt;td&gt;3.3&lt;&#x2F;td&gt;&lt;td&gt;GFX3-GFX5&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;radeonsi&lt;&#x2F;td&gt;&lt;td&gt;OpenGL&lt;&#x2F;td&gt;&lt;td&gt;4.6&lt;&#x2F;td&gt;&lt;td&gt;GFX6-GFX11&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;radv&lt;&#x2F;td&gt;&lt;td&gt;Vulkan&lt;&#x2F;td&gt;&lt;td&gt;1.4&lt;&#x2F;td&gt;&lt;td&gt;GFX6-GFX11&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
+&lt;h2 id=&quot;intel-graphics&quot;&gt;Intel Graphics&lt;&#x2F;h2&gt;
+&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;&lt;strong&gt;Release&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;GFX Core&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;Architecture&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;GPU Models&#x2F;Series&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;OpenGL&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;OpenCL&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;Vulkan&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;&#x2F;tr&gt;&lt;&#x2F;thead&gt;&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;1998-1999&lt;&#x2F;td&gt;&lt;td&gt;Gen1&lt;&#x2F;td&gt;&lt;td&gt;3D Accelerator&lt;&#x2F;td&gt;&lt;td&gt;i740, i752, i754&lt;&#x2F;td&gt;&lt;td&gt;1.1&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;1999-2003&lt;&#x2F;td&gt;&lt;td&gt;Gen2&lt;&#x2F;td&gt;&lt;td&gt;Extreme Graphics&lt;&#x2F;td&gt;&lt;td&gt;82810, 82815, 82845G, 82855GM, 82865G&lt;&#x2F;td&gt;&lt;td&gt;1.3&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2003-2004&lt;&#x2F;td&gt;&lt;td&gt;Gen3&lt;&#x2F;td&gt;&lt;td&gt;Extreme Graphics 2&lt;&#x2F;td&gt;&lt;td&gt;82852GM, 82855GM, 82915G, 82925X&lt;&#x2F;td&gt;&lt;td&gt;1.4&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2006-2007&lt;&#x2F;td&gt;&lt;td&gt;Gen4&lt;&#x2F;td&gt;&lt;td&gt;GMA 3000&#x2F;3100&lt;&#x2F;td&gt;&lt;td&gt;G965, Q965, X3000, X3100, G31, G33, G35, Q33, Q35&lt;&#x2F;td&gt;&lt;td&gt;2.1&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2007-2009&lt;&#x2F;td&gt;&lt;td&gt;Gen4.5&lt;&#x2F;td&gt;&lt;td&gt;GMA X3500&#x2F;X4500&lt;&#x2F;td&gt;&lt;td&gt;G35, G41, G43, G45, Q43, Q45, B43, X38, X48&lt;&#x2F;td&gt;&lt;td&gt;2.1&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2010&lt;&#x2F;td&gt;&lt;td&gt;Gen5&lt;&#x2F;td&gt;&lt;td&gt;Ironlake&lt;&#x2F;td&gt;&lt;td&gt;HD Graphics (Arrandale, Clarkdale)&lt;&#x2F;td&gt;&lt;td&gt;2.1&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2011&lt;&#x2F;td&gt;&lt;td&gt;Gen6&lt;&#x2F;td&gt;&lt;td&gt;Sandy Bridge&lt;&#x2F;td&gt;&lt;td&gt;HD Graphics 2000&#x2F;3000&lt;&#x2F;td&gt;&lt;td&gt;3.3&lt;&#x2F;td&gt;&lt;td&gt;1.1&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2012&lt;&#x2F;td&gt;&lt;td&gt;Gen7&lt;&#x2F;td&gt;&lt;td&gt;Ivy Bridge&lt;&#x2F;td&gt;&lt;td&gt;HD Graphics 2500&#x2F;4000&lt;&#x2F;td&gt;&lt;td&gt;4.2&lt;&#x2F;td&gt;&lt;td&gt;1.2&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2013&lt;&#x2F;td&gt;&lt;td&gt;Gen7.5&lt;&#x2F;td&gt;&lt;td&gt;Haswell&lt;&#x2F;td&gt;&lt;td&gt;HD Graphics 4200&#x2F;4400&#x2F;4600&#x2F;5000&#x2F;5100&#x2F;5200&lt;&#x2F;td&gt;&lt;td&gt;4.6&lt;&#x2F;td&gt;&lt;td&gt;1.2&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2014-2015&lt;&#x2F;td&gt;&lt;td&gt;Gen8&lt;&#x2F;td&gt;&lt;td&gt;Broadwell&lt;&#x2F;td&gt;&lt;td&gt;HD Graphics 5300&#x2F;5500&#x2F;6000, Iris 6100&lt;&#x2F;td&gt;&lt;td&gt;4.6&lt;&#x2F;td&gt;&lt;td&gt;2.0&lt;&#x2F;td&gt;&lt;td&gt;1.3&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2015-2017&lt;&#x2F;td&gt;&lt;td&gt;Gen9&lt;&#x2F;td&gt;&lt;td&gt;Skylake&lt;&#x2F;td&gt;&lt;td&gt;HD Graphics 5xx, Iris 5xx&lt;&#x2F;td&gt;&lt;td&gt;4.6&lt;&#x2F;td&gt;&lt;td&gt;2.1&lt;&#x2F;td&gt;&lt;td&gt;1.4&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2017-2019&lt;&#x2F;td&gt;&lt;td&gt;Gen9.5&lt;&#x2F;td&gt;&lt;td&gt;Kaby Lake&#x2F;Coffee Lake&lt;&#x2F;td&gt;&lt;td&gt;UHD Graphics 6xx, Iris Plus 6xx&lt;&#x2F;td&gt;&lt;td&gt;4.6&lt;&#x2F;td&gt;&lt;td&gt;2.1&lt;&#x2F;td&gt;&lt;td&gt;1.4&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2019-2020&lt;&#x2F;td&gt;&lt;td&gt;Gen11&lt;&#x2F;td&gt;&lt;td&gt;Ice Lake&lt;&#x2F;td&gt;&lt;td&gt;Iris Plus Graphics (G4, G7)&lt;&#x2F;td&gt;&lt;td&gt;4.6&lt;&#x2F;td&gt;&lt;td&gt;2.1&lt;&#x2F;td&gt;&lt;td&gt;1.4&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2020-2021&lt;&#x2F;td&gt;&lt;td&gt;Gen12&lt;&#x2F;td&gt;&lt;td&gt;Xe-LP&lt;&#x2F;td&gt;&lt;td&gt;UHD Graphics (Rocket Lake), Iris Xe (Alder Lake)&lt;&#x2F;td&gt;&lt;td&gt;4.6&lt;&#x2F;td&gt;&lt;td&gt;2.1&lt;&#x2F;td&gt;&lt;td&gt;1.4&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2022&lt;&#x2F;td&gt;&lt;td&gt;Gen12.7&lt;&#x2F;td&gt;&lt;td&gt;Xe-HPG&#x2F;Xe-HPC&lt;&#x2F;td&gt;&lt;td&gt;Arc Alchemist (A7xx A3xx), Ponte Vecchio&lt;&#x2F;td&gt;&lt;td&gt;4.6&lt;&#x2F;td&gt;&lt;td&gt;3.0&lt;&#x2F;td&gt;&lt;td&gt;1.4&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2024-2025&lt;&#x2F;td&gt;&lt;td&gt;Gen20&lt;&#x2F;td&gt;&lt;td&gt;Xe2-HPG&#x2F;Xe2-LPG&lt;&#x2F;td&gt;&lt;td&gt;Battlemage (B5xx), Lunar Lake&lt;&#x2F;td&gt;&lt;td&gt;4.6&lt;&#x2F;td&gt;&lt;td&gt;3.0&lt;&#x2F;td&gt;&lt;td&gt;1.4&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
+&lt;h3 id=&quot;mesa-drivers-1&quot;&gt;Mesa drivers&lt;&#x2F;h3&gt;
+&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;&lt;strong&gt;Nom du driver&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;Type&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;Version&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;GFX Core&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;&#x2F;tr&gt;&lt;&#x2F;thead&gt;&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;i830&#x2F;i965 (&lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;docs.mesa3d.org&#x2F;amber.html&quot;&gt;mesa-amber&lt;&#x2F;a&gt;)&lt;&#x2F;td&gt;&lt;td&gt;OpenGL&lt;&#x2F;td&gt;&lt;td&gt;1.4&lt;&#x2F;td&gt;&lt;td&gt;Gen2&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;i915&lt;&#x2F;td&gt;&lt;td&gt;OpenGL&lt;&#x2F;td&gt;&lt;td&gt;2.1&lt;&#x2F;td&gt;&lt;td&gt;Gen3&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;crocus&lt;&#x2F;td&gt;&lt;td&gt;OpenGL&lt;&#x2F;td&gt;&lt;td&gt;4.6¹&lt;&#x2F;td&gt;&lt;td&gt;Gen4-Gen7.5&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;iris&lt;&#x2F;td&gt;&lt;td&gt;OpenGL&lt;&#x2F;td&gt;&lt;td&gt;4.6&lt;&#x2F;td&gt;&lt;td&gt;Gen8-Gen13&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;hasvk&lt;&#x2F;td&gt;&lt;td&gt;Vulkan&lt;&#x2F;td&gt;&lt;td&gt;1.0 (partial)&lt;&#x2F;td&gt;&lt;td&gt;Gen6-Gen8&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;anv&lt;&#x2F;td&gt;&lt;td&gt;Vulkan&lt;&#x2F;td&gt;&lt;td&gt;1.4&lt;&#x2F;td&gt;&lt;td&gt;Gen9-Gen13&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
+&lt;p&gt;&lt;strong&gt;¹&lt;&#x2F;strong&gt;: Peut varier en fonction du matériel.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;nvidia-graphics&quot;&gt;Nvidia Graphics&lt;&#x2F;h2&gt;
+&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;&lt;strong&gt;Release&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;GFX Core&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;Architecture&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;GPU Models&#x2F;Series&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;OpenGL&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;OpenCL&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;Vulkan&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;&#x2F;tr&gt;&lt;&#x2F;thead&gt;&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;1995&lt;&#x2F;td&gt;&lt;td&gt;NV1&lt;&#x2F;td&gt;&lt;td&gt;?&lt;&#x2F;td&gt;&lt;td&gt;NV1 (Diamond Edge 3D)&lt;&#x2F;td&gt;&lt;td&gt;1.1&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;Cancelled&lt;&#x2F;td&gt;&lt;td&gt;NV2&lt;&#x2F;td&gt;&lt;td&gt;?&lt;&#x2F;td&gt;&lt;td&gt;Cancelled&lt;&#x2F;td&gt;&lt;td&gt;1.1&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;1997&lt;&#x2F;td&gt;&lt;td&gt;NV3&lt;&#x2F;td&gt;&lt;td&gt;?&lt;&#x2F;td&gt;&lt;td&gt;NV3, RIVA 128, RIVA 128ZX&lt;&#x2F;td&gt;&lt;td&gt;1.1&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;1998-1999&lt;&#x2F;td&gt;&lt;td&gt;NV4&lt;&#x2F;td&gt;&lt;td&gt;?&lt;&#x2F;td&gt;&lt;td&gt;RIVA TNT, TNT2, TNT2 Ultra, Vanta, M64&lt;&#x2F;td&gt;&lt;td&gt;1.2&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;1999-2000&lt;&#x2F;td&gt;&lt;td&gt;NV10&lt;&#x2F;td&gt;&lt;td&gt;Celsius¹&lt;&#x2F;td&gt;&lt;td&gt;GeForce 256, GeForce 2, Quadro&lt;&#x2F;td&gt;&lt;td&gt;1.3&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2001-2002&lt;&#x2F;td&gt;&lt;td&gt;NV20&lt;&#x2F;td&gt;&lt;td&gt;Kelvin¹&lt;&#x2F;td&gt;&lt;td&gt;GeForce 3, GeForce 4 Ti&lt;&#x2F;td&gt;&lt;td&gt;1.4&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2003-2004&lt;&#x2F;td&gt;&lt;td&gt;NV30&lt;&#x2F;td&gt;&lt;td&gt;Rankine¹&lt;&#x2F;td&gt;&lt;td&gt;GeForce FX 5xx Series&lt;&#x2F;td&gt;&lt;td&gt;2.1&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2004-2006&lt;&#x2F;td&gt;&lt;td&gt;NV40&lt;&#x2F;td&gt;&lt;td&gt;Curie¹&lt;&#x2F;td&gt;&lt;td&gt;GeForce 6000&#x2F;7000, Quadro FX&lt;&#x2F;td&gt;&lt;td&gt;2.1&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2006-2008&lt;&#x2F;td&gt;&lt;td&gt;G80&lt;&#x2F;td&gt;&lt;td&gt;Tesla (1st Gen)&lt;&#x2F;td&gt;&lt;td&gt;GeForce 8000, 9xx, 1xx, GTX 2xx&lt;&#x2F;td&gt;&lt;td&gt;3.3&lt;&#x2F;td&gt;&lt;td&gt;1.1&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2008-2009&lt;&#x2F;td&gt;&lt;td&gt;GT200&lt;&#x2F;td&gt;&lt;td&gt;Tesla (2nd Gen)&lt;&#x2F;td&gt;&lt;td&gt;GeForce GTX 260, 280, 295&lt;&#x2F;td&gt;&lt;td&gt;3.3&lt;&#x2F;td&gt;&lt;td&gt;1.1&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2010-2011&lt;&#x2F;td&gt;&lt;td&gt;GF100&lt;&#x2F;td&gt;&lt;td&gt;Fermi&lt;&#x2F;td&gt;&lt;td&gt;GeForce GT&#x2F;GTX 4xx&#x2F;5xx, Quadro 4000&#x2F;5000&#x2F;6000&lt;&#x2F;td&gt;&lt;td&gt;4.x&lt;&#x2F;td&gt;&lt;td&gt;1.1&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2012-2013&lt;&#x2F;td&gt;&lt;td&gt;GK100&lt;&#x2F;td&gt;&lt;td&gt;Kepler&lt;&#x2F;td&gt;&lt;td&gt;GeForce GT&#x2F;GTX 6xx&#x2F;7xx, Quadro K-series&lt;&#x2F;td&gt;&lt;td&gt;4.x&lt;&#x2F;td&gt;&lt;td&gt;1.1&lt;&#x2F;td&gt;&lt;td&gt;1.x ?&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2014&lt;&#x2F;td&gt;&lt;td&gt;GM100&lt;&#x2F;td&gt;&lt;td&gt;Maxwell (1st Gen)&lt;&#x2F;td&gt;&lt;td&gt;GeForce GTX 750&#x2F;750 Ti, 8xx&lt;&#x2F;td&gt;&lt;td&gt;4.x&lt;&#x2F;td&gt;&lt;td&gt;1.2&lt;&#x2F;td&gt;&lt;td&gt;1.x ?&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2014-2015&lt;&#x2F;td&gt;&lt;td&gt;GM200&lt;&#x2F;td&gt;&lt;td&gt;Maxwell (2nd Gen)&lt;&#x2F;td&gt;&lt;td&gt;GeForce GT&#x2F;GTX 9xx, Quadro M-series&lt;&#x2F;td&gt;&lt;td&gt;4.6&lt;&#x2F;td&gt;&lt;td&gt;1.2&lt;&#x2F;td&gt;&lt;td&gt;1.x ?&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2016-2017&lt;&#x2F;td&gt;&lt;td&gt;GP100&lt;&#x2F;td&gt;&lt;td&gt;Pascal&lt;&#x2F;td&gt;&lt;td&gt;GeForce GTX 1xxx, Titan Xp, Quadro P-series&lt;&#x2F;td&gt;&lt;td&gt;4.6&lt;&#x2F;td&gt;&lt;td&gt;2.0&lt;&#x2F;td&gt;&lt;td&gt;1.3 ?&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2018-2019&lt;&#x2F;td&gt;&lt;td&gt;TU100&lt;&#x2F;td&gt;&lt;td&gt;Turing&lt;&#x2F;td&gt;&lt;td&gt;GeForce RTX 2xxx, Quadro RTX&lt;&#x2F;td&gt;&lt;td&gt;4.6&lt;&#x2F;td&gt;&lt;td&gt;2.0&lt;&#x2F;td&gt;&lt;td&gt;1.4&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2020-2021&lt;&#x2F;td&gt;&lt;td&gt;GA100&lt;&#x2F;td&gt;&lt;td&gt;Ampere&lt;&#x2F;td&gt;&lt;td&gt;GeForce RTX 3xxx, Quadro RTX A-series&lt;&#x2F;td&gt;&lt;td&gt;4.6&lt;&#x2F;td&gt;&lt;td&gt;3.0&lt;&#x2F;td&gt;&lt;td&gt;1.4&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2022-2023&lt;&#x2F;td&gt;&lt;td&gt;AD100&lt;&#x2F;td&gt;&lt;td&gt;Ada Lovelace&lt;&#x2F;td&gt;&lt;td&gt;GeForce RTX 4xxx,&lt;&#x2F;td&gt;&lt;td&gt;4.6&lt;&#x2F;td&gt;&lt;td&gt;3.0&lt;&#x2F;td&gt;&lt;td&gt;1.4&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2025&lt;&#x2F;td&gt;&lt;td&gt;GB100&lt;&#x2F;td&gt;&lt;td&gt;Blackwell&lt;&#x2F;td&gt;&lt;td&gt;GeForce RTX 5xxx&lt;&#x2F;td&gt;&lt;td&gt;4.6&lt;&#x2F;td&gt;&lt;td&gt;3.0&lt;&#x2F;td&gt;&lt;td&gt;1.4&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
+&lt;p&gt;¹: Les noms de code etaient d&#x27;abord utilises par le driver kernel Nouveau.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;mesa-drivers-2&quot;&gt;Mesa drivers&lt;&#x2F;h3&gt;
+&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;&lt;strong&gt;Nom du driver&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;Type&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;Version&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;GFX Core&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;&#x2F;tr&gt;&lt;&#x2F;thead&gt;&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;nv50&lt;&#x2F;td&gt;&lt;td&gt;OpenGL&lt;&#x2F;td&gt;&lt;td&gt;3.3&lt;&#x2F;td&gt;&lt;td&gt;G80-GT200&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;nvc0&lt;&#x2F;td&gt;&lt;td&gt;OpenGL&lt;&#x2F;td&gt;&lt;td&gt;4.5&lt;&#x2F;td&gt;&lt;td&gt;GF100-?&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;nvk&lt;&#x2F;td&gt;&lt;td&gt;Vulkan&lt;&#x2F;td&gt;&lt;td&gt;1.4¹&lt;&#x2F;td&gt;&lt;td&gt;GK100-GB100&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
+&lt;p&gt;&lt;strong&gt;¹&lt;&#x2F;strong&gt;: Peut varier en fonction du matériel.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;broadcom-videocore&quot;&gt;Broadcom VideoCore&lt;&#x2F;h2&gt;
+&lt;p&gt;Il est principalement utilisé dans les Raspberry Pi.&lt;&#x2F;p&gt;
+&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;&lt;strong&gt;Release&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;GFX Core&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;Architecture&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;SOC Models&#x2F;Series&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;OpenGL&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;OpenCL&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;Vulkan&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;&#x2F;tr&gt;&lt;&#x2F;thead&gt;&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;2012-2016&lt;&#x2F;td&gt;&lt;td&gt;VideoCore IV&lt;&#x2F;td&gt;&lt;td&gt;-&lt;&#x2F;td&gt;&lt;td&gt;BCM2835-BCM2837&lt;&#x2F;td&gt;&lt;td&gt;2.x&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2012-2016&lt;&#x2F;td&gt;&lt;td&gt;VideoCore VI&lt;&#x2F;td&gt;&lt;td&gt;-&lt;&#x2F;td&gt;&lt;td&gt;BCM2711B0&lt;&#x2F;td&gt;&lt;td&gt;3.3&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;td&gt;1.0&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2012-2016&lt;&#x2F;td&gt;&lt;td&gt;VideoCore VII&lt;&#x2F;td&gt;&lt;td&gt;-&lt;&#x2F;td&gt;&lt;td&gt;BCM2712&lt;&#x2F;td&gt;&lt;td&gt;3.3&lt;&#x2F;td&gt;&lt;td&gt;N&#x2F;A&lt;&#x2F;td&gt;&lt;td&gt;1.0&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
+&lt;h3 id=&quot;mesa-drivers-3&quot;&gt;Mesa drivers&lt;&#x2F;h3&gt;
+&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;&lt;strong&gt;Driver name&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;Type&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;Version&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;GFX Core&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;&#x2F;tr&gt;&lt;&#x2F;thead&gt;&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;vc4&lt;&#x2F;td&gt;&lt;td&gt;OpenGL&lt;&#x2F;td&gt;&lt;td&gt;2.1&lt;&#x2F;td&gt;&lt;td&gt;VideoCore IV&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;v3d&lt;&#x2F;td&gt;&lt;td&gt;OpenGL&lt;&#x2F;td&gt;&lt;td&gt;3.3&lt;&#x2F;td&gt;&lt;td&gt;VideoCore VI-VII&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;v3dv&lt;&#x2F;td&gt;&lt;td&gt;Vulkan&lt;&#x2F;td&gt;&lt;td&gt;1.0&lt;&#x2F;td&gt;&lt;td&gt;VideoCore VI-VII&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
+&lt;h2 id=&quot;source&quot;&gt;Source&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.x.org&#x2F;wiki&#x2F;RadeonFeature&#x2F;&quot;&gt;RadeonFeature&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Intel_Graphics_Technology&quot;&gt;IntelGraphics&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;List_of_Nvidia_graphics_processing_units&quot;&gt;NvidiaGraphics&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;List_of_AMD_graphics_processing_units&quot;&gt;AMDGraphics&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;mesamatrix.net&#x2F;&quot;&gt;Mesa Matrix&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;vulkan.gpuinfo.org&#x2F;&quot;&gt;Vulkan Hardware Database&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;airlied.blogspot.com&#x2F;2021&#x2F;04&#x2F;crocus-gallium-for-gen4-7-generation.html&quot;&gt;Crocus&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;wiki.archlinux.org&#x2F;title&#x2F;OpenGL&quot;&gt;OpenGL Archlinux&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.collabora.com&#x2F;news-and-blog&#x2F;news-and-events&#x2F;mesa-25.2-brings-new-hardware-support-for-nouveau-users.html&quot;&gt;Nvk Vulkan Driver&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.khronos.org&#x2F;conformance&#x2F;adopters&#x2F;conformant-products&#x2F;vulkan&quot;&gt;Vulkan conformance&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="fr">
+        <title>L&#x27;évolution des CPUs</title>
+        <published>2025-02-24T00:00:00+00:00</published>
+        <updated>2025-02-24T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.bensuperpc.org/fr/documentation/hardware/pc/cpu/"/>
+        <id>https://www.bensuperpc.org/fr/documentation/hardware/pc/cpu/</id>
+        
+        <content type="html" xml:base="https://www.bensuperpc.org/fr/documentation/hardware/pc/cpu/">&lt;h1 id=&quot;introduction&quot;&gt;Introduction&lt;&#x2F;h1&gt;
+&lt;h2 id=&quot;intel-cpu&quot;&gt;Intel CPU&lt;&#x2F;h2&gt;
+&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;&lt;strong&gt;Release&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;Codename&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;Microarch&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;CPU Models&#x2F;Series&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;SIMD instructions&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;AES-NI&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;&#x2F;tr&gt;&lt;&#x2F;thead&gt;&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;1979&lt;&#x2F;td&gt;&lt;td&gt;8088&#x2F;8086&lt;&#x2F;td&gt;&lt;td&gt;8086&lt;&#x2F;td&gt;&lt;td&gt;Intel 8088&#x2F;8086&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;1982&lt;&#x2F;td&gt;&lt;td&gt;80286&lt;&#x2F;td&gt;&lt;td&gt;80286&lt;&#x2F;td&gt;&lt;td&gt;Intel 80286&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;1985&lt;&#x2F;td&gt;&lt;td&gt;80386&lt;&#x2F;td&gt;&lt;td&gt;80386&lt;&#x2F;td&gt;&lt;td&gt;Intel 80386&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;1989&lt;&#x2F;td&gt;&lt;td&gt;80486&lt;&#x2F;td&gt;&lt;td&gt;80486&lt;&#x2F;td&gt;&lt;td&gt;Intel 80486&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;1993&lt;&#x2F;td&gt;&lt;td&gt;P6&lt;&#x2F;td&gt;&lt;td&gt;P5&lt;&#x2F;td&gt;&lt;td&gt;Pentium&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;1995&lt;&#x2F;td&gt;&lt;td&gt;P6&lt;&#x2F;td&gt;&lt;td&gt;P6&lt;&#x2F;td&gt;&lt;td&gt;Pentium Pro&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;1997&lt;&#x2F;td&gt;&lt;td&gt;Klamath&lt;&#x2F;td&gt;&lt;td&gt;P6&lt;&#x2F;td&gt;&lt;td&gt;Pentium II&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF5645&quot; &gt;
+    MMX
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;1998&lt;&#x2F;td&gt;&lt;td&gt;Deschutes&lt;&#x2F;td&gt;&lt;td&gt;P6&lt;&#x2F;td&gt;&lt;td&gt;Pentium II&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF5645&quot; &gt;
+    MMX
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;1999&lt;&#x2F;td&gt;&lt;td&gt;Katmai&lt;&#x2F;td&gt;&lt;td&gt;P6&lt;&#x2F;td&gt;&lt;td&gt;Pentium III&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF6F61&quot; &gt;
+    SSE
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;1999&lt;&#x2F;td&gt;&lt;td&gt;Coppermine&lt;&#x2F;td&gt;&lt;td&gt;P6&lt;&#x2F;td&gt;&lt;td&gt;Pentium III&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF6F61&quot; &gt;
+    SSE
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2000&lt;&#x2F;td&gt;&lt;td&gt;Willamette&lt;&#x2F;td&gt;&lt;td&gt;NetBurst&lt;&#x2F;td&gt;&lt;td&gt;Pentium 4&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FFB347&quot; &gt;
+    SSE2
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2001&lt;&#x2F;td&gt;&lt;td&gt;Tualatin&lt;&#x2F;td&gt;&lt;td&gt;P6&lt;&#x2F;td&gt;&lt;td&gt;Pentium III&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF6F61&quot; &gt;
+    SSE
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2002&lt;&#x2F;td&gt;&lt;td&gt;Northwood&lt;&#x2F;td&gt;&lt;td&gt;NetBurst&lt;&#x2F;td&gt;&lt;td&gt;Pentium 4&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FFB347&quot; &gt;
+    SSE2
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2004&lt;&#x2F;td&gt;&lt;td&gt;Prescott&lt;&#x2F;td&gt;&lt;td&gt;NetBurst&lt;&#x2F;td&gt;&lt;td&gt;Pentium 4&#x2F;D&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FFD700&quot; &gt;
+    SSE3
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2004&lt;&#x2F;td&gt;&lt;td&gt;Cedar Mill&lt;&#x2F;td&gt;&lt;td&gt;NetBurst&lt;&#x2F;td&gt;&lt;td&gt;Pentium 4&#x2F;D&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FFD700&quot; &gt;
+    SSE3
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2006&lt;&#x2F;td&gt;&lt;td&gt;Conroe&lt;&#x2F;td&gt;&lt;td&gt;Core&lt;&#x2F;td&gt;&lt;td&gt;Core 2 E6xxx, E1&#x2F;E2xxx&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FFD700&quot; &gt;
+    SSE3
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2006&lt;&#x2F;td&gt;&lt;td&gt;Kentsfield&lt;&#x2F;td&gt;&lt;td&gt;Core&lt;&#x2F;td&gt;&lt;td&gt;Core 2 Q6xxx&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FFD700&quot; &gt;
+    SSE3
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2007&lt;&#x2F;td&gt;&lt;td&gt;Penryn&lt;&#x2F;td&gt;&lt;td&gt;Penryn&lt;&#x2F;td&gt;&lt;td&gt;Core 2 E7&#x2F;E8&#x2F;Q8&#x2F;Q9xxx, E2&#x2F;E5&#x2F;E6xxx&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #ADFF2F&quot; &gt;
+    SSSE3
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2008&lt;&#x2F;td&gt;&lt;td&gt;Nehalem&lt;&#x2F;td&gt;&lt;td&gt;Nehalem&lt;&#x2F;td&gt;&lt;td&gt;Core i3&#x2F;i5&#x2F;i7 9xx&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #2ECC40&quot; &gt;
+    SSE4
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2010&lt;&#x2F;td&gt;&lt;td&gt;Westmere&lt;&#x2F;td&gt;&lt;td&gt;Westmere&lt;&#x2F;td&gt;&lt;td&gt;Core i3&#x2F;i5&#x2F;i7 xxx, Pentium G69xx&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #00C49A&quot; &gt;
+    SSE4.2
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2011&lt;&#x2F;td&gt;&lt;td&gt;Sandy Bridge&lt;&#x2F;td&gt;&lt;td&gt;Sandy Bridge&lt;&#x2F;td&gt;&lt;td&gt;Core i3&#x2F;i5&#x2F;i7 2xxx, Pentium G6xx&#x2F;G8xx&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #00D100&quot; &gt;
+    AVX
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2012&lt;&#x2F;td&gt;&lt;td&gt;Ivy Bridge&lt;&#x2F;td&gt;&lt;td&gt;Ivy Bridge&lt;&#x2F;td&gt;&lt;td&gt;Core i3&#x2F;i5&#x2F;i7 3xxx, Pentium G2xxx&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #00D100&quot; &gt;
+    AVX
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2013-2014&lt;&#x2F;td&gt;&lt;td&gt;Haswell&lt;&#x2F;td&gt;&lt;td&gt;Haswell&lt;&#x2F;td&gt;&lt;td&gt;Core i3&#x2F;i5&#x2F;i7 4xxx, Pentium G3xxx&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #00CED1&quot; &gt;
+    AVX2
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2014&lt;&#x2F;td&gt;&lt;td&gt;Broadwell&lt;&#x2F;td&gt;&lt;td&gt;Broadwell&lt;&#x2F;td&gt;&lt;td&gt;Core i3&#x2F;i5&#x2F;i7 5xxx&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #00CED1&quot; &gt;
+    AVX2
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2015&lt;&#x2F;td&gt;&lt;td&gt;Skylake&lt;&#x2F;td&gt;&lt;td&gt;Skylake&lt;&#x2F;td&gt;&lt;td&gt;Core i3&#x2F;i5&#x2F;i7 6xxx, Pentium G44xx&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #00CED1&quot; &gt;
+    AVX2
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2016&lt;&#x2F;td&gt;&lt;td&gt;Kaby Lake&lt;&#x2F;td&gt;&lt;td&gt;Kaby Lake&lt;&#x2F;td&gt;&lt;td&gt;Core i3&#x2F;i5&#x2F;i7 7xxx, Pentium G45xx&#x2F;G46xx&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #00CED1&quot; &gt;
+    AVX2
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2018-2019&lt;&#x2F;td&gt;&lt;td&gt;Coffee Lake&lt;&#x2F;td&gt;&lt;td&gt;Coffee Lake&lt;&#x2F;td&gt;&lt;td&gt;Core i3&#x2F;i5&#x2F;i7&#x2F;i9 8xxx&#x2F;9xxx, Pentium G5xxx&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #00CED1&quot; &gt;
+    AVX2
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2019&lt;&#x2F;td&gt;&lt;td&gt;Ice Lake&lt;&#x2F;td&gt;&lt;td&gt;Ice Lake&lt;&#x2F;td&gt;&lt;td&gt;Core i3&#x2F;i5&#x2F;i7 10xxxGx (mobile only)&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    AVX-512
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2020&lt;&#x2F;td&gt;&lt;td&gt;Comet Lake&lt;&#x2F;td&gt;&lt;td&gt;Comet Lake&lt;&#x2F;td&gt;&lt;td&gt;Core i3&#x2F;i5&#x2F;i7&#x2F;i9 10xxx, Pentium G6xxx&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #00CED1&quot; &gt;
+    AVX2
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2020&lt;&#x2F;td&gt;&lt;td&gt;Tiger Lake&lt;&#x2F;td&gt;&lt;td&gt;Willow Cove&lt;&#x2F;td&gt;&lt;td&gt;Core i3&#x2F;i5&#x2F;i7 11xxxGx (mobile only)&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    AVX-512
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2021&lt;&#x2F;td&gt;&lt;td&gt;Rocket Lake&lt;&#x2F;td&gt;&lt;td&gt;Cypress Cove&lt;&#x2F;td&gt;&lt;td&gt;Core i3&#x2F;i5&#x2F;i7&#x2F;i9 11xxx&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    AVX-512
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2021&lt;&#x2F;td&gt;&lt;td&gt;Alder Lake&lt;&#x2F;td&gt;&lt;td&gt;Golden Cove &#x2F; Gracemont&lt;&#x2F;td&gt;&lt;td&gt;Core i3&#x2F;i5&#x2F;i7&#x2F;i9 12xxx, Pentium G7xxx&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #00CED1&quot; &gt;
+    AVX2
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2022&lt;&#x2F;td&gt;&lt;td&gt;Raptor Lake&lt;&#x2F;td&gt;&lt;td&gt;Raptor Cove &#x2F; Gracemont&lt;&#x2F;td&gt;&lt;td&gt;Core i3&#x2F;i5&#x2F;i7&#x2F;i9 13xxx&#x2F;14xxx&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #00CED1&quot; &gt;
+    AVX2
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2024&lt;&#x2F;td&gt;&lt;td&gt;Meteor Lake&lt;&#x2F;td&gt;&lt;td&gt;Redwood Cove &#x2F; Crestmont&lt;&#x2F;td&gt;&lt;td&gt;Core Ultra 3&#x2F;5&#x2F;7&#x2F;9 1xx&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #00CED1&quot; &gt;
+    AVX2
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2024&lt;&#x2F;td&gt;&lt;td&gt;Lunar Lake&lt;&#x2F;td&gt;&lt;td&gt;Lion Cove &#x2F; Skymont&lt;&#x2F;td&gt;&lt;td&gt;Core Ultra 3&#x2F;5&#x2F;7&#x2F;9 2xx&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #00CED1&quot; &gt;
+    AVX2
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2024&lt;&#x2F;td&gt;&lt;td&gt;Arrow Lake&lt;&#x2F;td&gt;&lt;td&gt;Lion Cove &#x2F; Skymont&lt;&#x2F;td&gt;&lt;td&gt;Core Ultra 3&#x2F;5&#x2F;7&#x2F;9 3xx&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #00CED1&quot; &gt;
+    AVX2
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2025 ?&lt;&#x2F;td&gt;&lt;td&gt;Nova Lake&lt;&#x2F;td&gt;&lt;td&gt;Nova Lake&lt;&#x2F;td&gt;&lt;td&gt;Core Ultra 3&#x2F;5&#x2F;7&#x2F;9 4xx ?&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #009dff&quot; &gt;
+    10.2
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
+&lt;p&gt;&lt;em&gt;Note: Les processeurs &lt;strong&gt;pentium&lt;&#x2F;strong&gt; et &lt;strong&gt;celeron&lt;&#x2F;strong&gt; jusqu&#x27;aux &lt;strong&gt;Comet Lake&lt;&#x2F;strong&gt; ne supportent pas AVX, AVX2 et AVX-512.&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;amd-cpu&quot;&gt;AMD CPU&lt;&#x2F;h2&gt;
+&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;&lt;strong&gt;Release&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;Codename&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;Microarch&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;CPU Models&#x2F;Series&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;SIMD instructions&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;AES-NI&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;&#x2F;tr&gt;&lt;&#x2F;thead&gt;&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;1996&lt;&#x2F;td&gt;&lt;td&gt;K5&lt;&#x2F;td&gt;&lt;td&gt;K5&lt;&#x2F;td&gt;&lt;td&gt;AMD K5&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;1997&lt;&#x2F;td&gt;&lt;td&gt;K6&lt;&#x2F;td&gt;&lt;td&gt;K6&lt;&#x2F;td&gt;&lt;td&gt;AMD K6, K6-II, K6-III&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF5645&quot; &gt;
+    MMX
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;1999&lt;&#x2F;td&gt;&lt;td&gt;K7&lt;&#x2F;td&gt;&lt;td&gt;K7&lt;&#x2F;td&gt;&lt;td&gt;AMD Athlon, Duron&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF6F61&quot; &gt;
+    SSE
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2003&lt;&#x2F;td&gt;&lt;td&gt;K8&lt;&#x2F;td&gt;&lt;td&gt;K8&lt;&#x2F;td&gt;&lt;td&gt;AMD Athlon 64, Opteron&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FFD700&quot; &gt;
+    SSE3
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2007&lt;&#x2F;td&gt;&lt;td&gt;K10&lt;&#x2F;td&gt;&lt;td&gt;K10&lt;&#x2F;td&gt;&lt;td&gt;AMD Phenom, Phenom II, Athlon II&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #ADFF2F&quot; &gt;
+    SSE4a
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2011&lt;&#x2F;td&gt;&lt;td&gt;Bulldozer&lt;&#x2F;td&gt;&lt;td&gt;Bulldozer&lt;&#x2F;td&gt;&lt;td&gt;AMD FX x1xx, Opteron (Bulldozer)&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #00D100&quot; &gt;
+    AVX
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2014&lt;&#x2F;td&gt;&lt;td&gt;Steamroller&lt;&#x2F;td&gt;&lt;td&gt;Steamroller&lt;&#x2F;td&gt;&lt;td&gt;AMD APUs (Steamroller)&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #00D100&quot; &gt;
+    AVX
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2015&lt;&#x2F;td&gt;&lt;td&gt;Excavator&lt;&#x2F;td&gt;&lt;td&gt;Excavator&lt;&#x2F;td&gt;&lt;td&gt;AMD APUs (Excavator)&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #00CED1&quot; &gt;
+    AVX2
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2017&lt;&#x2F;td&gt;&lt;td&gt;Zen&lt;&#x2F;td&gt;&lt;td&gt;Zen&lt;&#x2F;td&gt;&lt;td&gt;AMD Ryzen 1xxx, EPYC 7xx1&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #00CED1&quot; &gt;
+    AVX2
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2018&lt;&#x2F;td&gt;&lt;td&gt;Zen+&lt;&#x2F;td&gt;&lt;td&gt;Zen+&lt;&#x2F;td&gt;&lt;td&gt;AMD Ryzen 2xxx&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #00CED1&quot; &gt;
+    AVX2
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2019&lt;&#x2F;td&gt;&lt;td&gt;Zen 2&lt;&#x2F;td&gt;&lt;td&gt;Zen 2&lt;&#x2F;td&gt;&lt;td&gt;AMD Ryzen 3xxx, EPYC 7xx2&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #00CED1&quot; &gt;
+    AVX2
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2020&lt;&#x2F;td&gt;&lt;td&gt;Zen 3&lt;&#x2F;td&gt;&lt;td&gt;Zen 3&lt;&#x2F;td&gt;&lt;td&gt;AMD Ryzen 5xxx, EPYC 7xx3&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #00CED1&quot; &gt;
+    AVX2
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2022&lt;&#x2F;td&gt;&lt;td&gt;Zen 4&lt;&#x2F;td&gt;&lt;td&gt;Zen 4&lt;&#x2F;td&gt;&lt;td&gt;AMD Ryzen 7xxx, EPYC 4&#x2F;8&#x2F;9xx4&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    AVX-512
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2024&lt;&#x2F;td&gt;&lt;td&gt;Zen 5&lt;&#x2F;td&gt;&lt;td&gt;Zen 5&lt;&#x2F;td&gt;&lt;td&gt;AMD Ryzen 9xxx, EPYC 9xx5&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    AVX-512
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
+&lt;h2 id=&quot;arm-cpu&quot;&gt;ARM CPU&lt;&#x2F;h2&gt;
+&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;&lt;strong&gt;Release&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;Microarch&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;CPU Models&#x2F;Series&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;Inst. length&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;SIMD instructions&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;Out-of-order&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;&#x2F;tr&gt;&lt;&#x2F;thead&gt;&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;?&lt;&#x2F;td&gt;&lt;td&gt;ARMv1&lt;&#x2F;td&gt;&lt;td&gt;ARM1&lt;&#x2F;td&gt;&lt;td&gt;&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;?&lt;&#x2F;td&gt;&lt;td&gt;ARMv2&lt;&#x2F;td&gt;&lt;td&gt;ARM2&lt;&#x2F;td&gt;&lt;td&gt;&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;?&lt;&#x2F;td&gt;&lt;td&gt;ARMv3&lt;&#x2F;td&gt;&lt;td&gt;ARM6&lt;&#x2F;td&gt;&lt;td&gt;32-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;1993&lt;&#x2F;td&gt;&lt;td&gt;ARMv4&lt;&#x2F;td&gt;&lt;td&gt;ARM7&lt;&#x2F;td&gt;&lt;td&gt;32-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;1998&lt;&#x2F;td&gt;&lt;td&gt;ARMv5&lt;&#x2F;td&gt;&lt;td&gt;ARM9&lt;&#x2F;td&gt;&lt;td&gt;32-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2002&lt;&#x2F;td&gt;&lt;td&gt;ARMv6&lt;&#x2F;td&gt;&lt;td&gt;ARM11&lt;&#x2F;td&gt;&lt;td&gt;32-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2005&lt;&#x2F;td&gt;&lt;td&gt;ARMv7&lt;&#x2F;td&gt;&lt;td&gt;Cortex-A8&lt;&#x2F;td&gt;&lt;td&gt;32-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FFD700&quot; &gt;
+    NEON
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2007&lt;&#x2F;td&gt;&lt;td&gt;ARMv7&lt;&#x2F;td&gt;&lt;td&gt;Cortex-A9&lt;&#x2F;td&gt;&lt;td&gt;32-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FFD700&quot; &gt;
+    NEON
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2009&lt;&#x2F;td&gt;&lt;td&gt;ARMv7&lt;&#x2F;td&gt;&lt;td&gt;Cortex-A5&lt;&#x2F;td&gt;&lt;td&gt;32-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FFD700&quot; &gt;
+    NEON
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2011&lt;&#x2F;td&gt;&lt;td&gt;ARMv7&lt;&#x2F;td&gt;&lt;td&gt;Cortex-A7&lt;&#x2F;td&gt;&lt;td&gt;32-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FFD700&quot; &gt;
+    NEON
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2011&lt;&#x2F;td&gt;&lt;td&gt;ARMv7&lt;&#x2F;td&gt;&lt;td&gt;Cortex-A15&lt;&#x2F;td&gt;&lt;td&gt;32-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FFD700&quot; &gt;
+    NEON
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2012&lt;&#x2F;td&gt;&lt;td&gt;ARMv8&lt;&#x2F;td&gt;&lt;td&gt;Cortex-A53&lt;&#x2F;td&gt;&lt;td&gt;32-bit&#x2F;64-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FFD700&quot; &gt;
+    NEON
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2012&lt;&#x2F;td&gt;&lt;td&gt;ARMv8&lt;&#x2F;td&gt;&lt;td&gt;Cortex-A57&lt;&#x2F;td&gt;&lt;td&gt;32-bit&#x2F;64-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FFD700&quot; &gt;
+    NEON
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2013&lt;&#x2F;td&gt;&lt;td&gt;ARMv7&lt;&#x2F;td&gt;&lt;td&gt;Cortex-A12&lt;&#x2F;td&gt;&lt;td&gt;32-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FFD700&quot; &gt;
+    NEON
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2014&lt;&#x2F;td&gt;&lt;td&gt;ARMv7&lt;&#x2F;td&gt;&lt;td&gt;Cortex-A17&lt;&#x2F;td&gt;&lt;td&gt;32-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FFD700&quot; &gt;
+    NEON
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2016&lt;&#x2F;td&gt;&lt;td&gt;ARMv8&lt;&#x2F;td&gt;&lt;td&gt;Cortex-A72&lt;&#x2F;td&gt;&lt;td&gt;32-bit&#x2F;64-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FFD700&quot; &gt;
+    NEON
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2016&lt;&#x2F;td&gt;&lt;td&gt;ARMv8&lt;&#x2F;td&gt;&lt;td&gt;Cortex-A73&lt;&#x2F;td&gt;&lt;td&gt;32-bit&#x2F;64-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FFD700&quot; &gt;
+    NEON
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2016&lt;&#x2F;td&gt;&lt;td&gt;ARMv8&lt;&#x2F;td&gt;&lt;td&gt;Cortex-A32&lt;&#x2F;td&gt;&lt;td&gt;32-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FFD700&quot; &gt;
+    NEON
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2016&lt;&#x2F;td&gt;&lt;td&gt;ARMv8&lt;&#x2F;td&gt;&lt;td&gt;Cortex-A35&lt;&#x2F;td&gt;&lt;td&gt;32-bit&#x2F;64-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FFD700&quot; &gt;
+    NEON
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2017&lt;&#x2F;td&gt;&lt;td&gt;ARMv8.2&lt;&#x2F;td&gt;&lt;td&gt;Cortex-A75&lt;&#x2F;td&gt;&lt;td&gt;32-bit&#x2F;64-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #ADFF2F&quot; &gt;
+    NEON (opt. SVE)
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2017&lt;&#x2F;td&gt;&lt;td&gt;ARMv8.2&lt;&#x2F;td&gt;&lt;td&gt;Cortex-A55&lt;&#x2F;td&gt;&lt;td&gt;32-bit&#x2F;64-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #ADFF2F&quot; &gt;
+    NEON (opt. SVE)
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2018&lt;&#x2F;td&gt;&lt;td&gt;ARMv8.2&lt;&#x2F;td&gt;&lt;td&gt;Cortex-A76&lt;&#x2F;td&gt;&lt;td&gt;32-bit&#x2F;64-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #ADFF2F&quot; &gt;
+    NEON (opt. SVE)
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2019&lt;&#x2F;td&gt;&lt;td&gt;ARMv8.2&lt;&#x2F;td&gt;&lt;td&gt;Cortex-A77&lt;&#x2F;td&gt;&lt;td&gt;32-bit&#x2F;64-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #ADFF2F&quot; &gt;
+    NEON (opt. SVE)
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2019&lt;&#x2F;td&gt;&lt;td&gt;ARMv8.2&lt;&#x2F;td&gt;&lt;td&gt;Cortex-A65&lt;&#x2F;td&gt;&lt;td&gt;32-bit&#x2F;64-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #ADFF2F&quot; &gt;
+    NEON (opt. SVE)
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2020&lt;&#x2F;td&gt;&lt;td&gt;ARMv8.2&lt;&#x2F;td&gt;&lt;td&gt;Cortex-A78&lt;&#x2F;td&gt;&lt;td&gt;32-bit&#x2F;64-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #ADFF2F&quot; &gt;
+    NEON (opt. SVE)
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2020&lt;&#x2F;td&gt;&lt;td&gt;ARMv8.2&lt;&#x2F;td&gt;&lt;td&gt;Cortex-X1&lt;&#x2F;td&gt;&lt;td&gt;32-bit&#x2F;64-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #ADFF2F&quot; &gt;
+    NEON (opt. SVE)
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2021&lt;&#x2F;td&gt;&lt;td&gt;ARMv9&lt;&#x2F;td&gt;&lt;td&gt;Cortex-A710&lt;&#x2F;td&gt;&lt;td&gt;32-bit&#x2F;64-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    SVE2
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2021&lt;&#x2F;td&gt;&lt;td&gt;ARMv9&lt;&#x2F;td&gt;&lt;td&gt;Cortex-A510&lt;&#x2F;td&gt;&lt;td&gt;32-bit&#x2F;64-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    SVE2
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2021&lt;&#x2F;td&gt;&lt;td&gt;ARMv9&lt;&#x2F;td&gt;&lt;td&gt;Cortex-X2&lt;&#x2F;td&gt;&lt;td&gt;32-bit&#x2F;64-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    SVE2
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2022&lt;&#x2F;td&gt;&lt;td&gt;ARMv9&lt;&#x2F;td&gt;&lt;td&gt;Cortex-A715&lt;&#x2F;td&gt;&lt;td&gt;64-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    SVE2
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2022&lt;&#x2F;td&gt;&lt;td&gt;ARMv9&lt;&#x2F;td&gt;&lt;td&gt;Cortex-X3&lt;&#x2F;td&gt;&lt;td&gt;64-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    SVE2
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2023&lt;&#x2F;td&gt;&lt;td&gt;ARMv9.2&lt;&#x2F;td&gt;&lt;td&gt;Cortex-A520&lt;&#x2F;td&gt;&lt;td&gt;64-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    SVE2
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #FF4136&quot; &gt;
+    No
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2023&lt;&#x2F;td&gt;&lt;td&gt;ARMv9.2&lt;&#x2F;td&gt;&lt;td&gt;Cortex-A720&lt;&#x2F;td&gt;&lt;td&gt;64-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    SVE2
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2023&lt;&#x2F;td&gt;&lt;td&gt;ARMv9.2&lt;&#x2F;td&gt;&lt;td&gt;Cortex-X4&lt;&#x2F;td&gt;&lt;td&gt;64-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    SVE2
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2024&lt;&#x2F;td&gt;&lt;td&gt;ARMv9.2&lt;&#x2F;td&gt;&lt;td&gt;Cortex-A725&lt;&#x2F;td&gt;&lt;td&gt;64-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    SVE2
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2024&lt;&#x2F;td&gt;&lt;td&gt;ARMv9.2&lt;&#x2F;td&gt;&lt;td&gt;Cortex-X925&lt;&#x2F;td&gt;&lt;td&gt;64-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    SVE2
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;2024&#x2F;2025 ?&lt;&#x2F;td&gt;&lt;td&gt;ARMv9.2&lt;&#x2F;td&gt;&lt;td&gt;Cortex-X930&lt;&#x2F;td&gt;&lt;td&gt;64-bit&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    SVE2
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;td&gt;&lt;span style=&quot;color: #1AC7FF&quot; &gt;
+    Yes
+&lt;&#x2F;span&gt;
+&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
+&lt;p&gt;&lt;em&gt;Note: Implementation can very by vendor, some may support additional features or optimizations.&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;benchmark&quot;&gt;Benchmark&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;passmark&quot;&gt;PassMark&lt;&#x2F;h3&gt;
+ &lt;figure class=&quot;fi b1&quot;&gt;&lt;img src=&quot;https:&#x2F;&#x2F;www.bensuperpc.org&#x2F;images&#x2F;articles&#x2F;benchmark&#x2F;cpu_performance_st.webp&quot; class=&quot;b1&quot; alt=&quot;cpu_performance_st&quot; width=&quot;7680&quot; height=&quot;4320&quot; loading=&quot;lazy&quot; &#x2F;&gt;&lt;figcaption&gt;PassMark score from 2000 to 2025 in single-thread&lt;&#x2F;figcaption&gt;&lt;&#x2F;figure&gt;
+ &lt;figure class=&quot;fi b1&quot;&gt;&lt;img src=&quot;https:&#x2F;&#x2F;www.bensuperpc.org&#x2F;images&#x2F;articles&#x2F;benchmark&#x2F;cpu_performance_mt.webp&quot; class=&quot;b1&quot; alt=&quot;cpu_performance_mt&quot; width=&quot;7680&quot; height=&quot;4320&quot; loading=&quot;lazy&quot; &#x2F;&gt;&lt;figcaption&gt;PassMark score from 2000 to 2025 in multi-thread&lt;&#x2F;figcaption&gt;&lt;&#x2F;figure&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="fr">
+        <title>Comparison of SSDs</title>
+        <published>2025-02-23T00:00:00+00:00</published>
+        <updated>2025-02-23T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.bensuperpc.org/fr/documentation/hardware/pc/ssd/"/>
+        <id>https://www.bensuperpc.org/fr/documentation/hardware/pc/ssd/</id>
+        
+        <content type="html" xml:base="https://www.bensuperpc.org/fr/documentation/hardware/pc/ssd/">&lt;h1 id=&quot;introduction&quot;&gt;Introduction&lt;&#x2F;h1&gt;
+&lt;p&gt;Une comparaison des SSDs de différentes marques et modèles.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;samsung-ssd-nvme&quot;&gt;Samsung SSD NVMe&lt;&#x2F;h2&gt;
+&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;&lt;strong&gt;Modèle&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;Release&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;NVMe&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;PCIe&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;Consumption&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;Perfs R&#x2F;W&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;IOPS (R&#x2F;W)&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;Capacity&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;Memory type&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;TBW (1TB)&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;Memory&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;&#x2F;tr&gt;&lt;&#x2F;thead&gt;&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;Samsung 950 Pro&lt;&#x2F;td&gt;&lt;td&gt;2015&lt;&#x2F;td&gt;&lt;td&gt;1.1&lt;&#x2F;td&gt;&lt;td&gt;3.0 x4&lt;&#x2F;td&gt;&lt;td&gt;5,7w &#x2F; 0,03w&lt;&#x2F;td&gt;&lt;td&gt;2.5 &#x2F; 1.5 GB&#x2F;s&lt;&#x2F;td&gt;&lt;td&gt;300K &#x2F; 110K&lt;&#x2F;td&gt;&lt;td&gt;256 GB - 512 GB&lt;&#x2F;td&gt;&lt;td&gt;MLC&lt;&#x2F;td&gt;&lt;td&gt;800 TBW&lt;&#x2F;td&gt;&lt;td&gt;0.5 GB LPDDR3&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;Samsung 960 Evo&lt;&#x2F;td&gt;&lt;td&gt;2016&lt;&#x2F;td&gt;&lt;td&gt;1.2&lt;&#x2F;td&gt;&lt;td&gt;3.0 x4&lt;&#x2F;td&gt;&lt;td&gt;5,7w &#x2F; 0,04w&lt;&#x2F;td&gt;&lt;td&gt;3.2 &#x2F; 1.9 GB&#x2F;s&lt;&#x2F;td&gt;&lt;td&gt;380K &#x2F; 360K&lt;&#x2F;td&gt;&lt;td&gt;256 GB - 1 To&lt;&#x2F;td&gt;&lt;td&gt;TLC&lt;&#x2F;td&gt;&lt;td&gt;400 TBW&lt;&#x2F;td&gt;&lt;td&gt;0.5-1 GB LPDDR3&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;Samsung 960 Pro&lt;&#x2F;td&gt;&lt;td&gt;2016&lt;&#x2F;td&gt;&lt;td&gt;1.3&lt;&#x2F;td&gt;&lt;td&gt;3.0 x4&lt;&#x2F;td&gt;&lt;td&gt;5,7w &#x2F; 0,04w&lt;&#x2F;td&gt;&lt;td&gt;3.5 &#x2F; 2.1 GB&#x2F;s&lt;&#x2F;td&gt;&lt;td&gt;500K &#x2F; 450K&lt;&#x2F;td&gt;&lt;td&gt;512 GB - 2 To&lt;&#x2F;td&gt;&lt;td&gt;MLC&lt;&#x2F;td&gt;&lt;td&gt;800 TBW&lt;&#x2F;td&gt;&lt;td&gt;0.5-2 GB LPDDR3&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;Samsung 970 Evo&lt;&#x2F;td&gt;&lt;td&gt;2018&lt;&#x2F;td&gt;&lt;td&gt;1.3&lt;&#x2F;td&gt;&lt;td&gt;3.0 x4&lt;&#x2F;td&gt;&lt;td&gt;6w &#x2F; 0,05w&lt;&#x2F;td&gt;&lt;td&gt;3.5 &#x2F; 2.5 GB&#x2F;s&lt;&#x2F;td&gt;&lt;td&gt;500K &#x2F; 480K&lt;&#x2F;td&gt;&lt;td&gt;256 GB - 2 TB&lt;&#x2F;td&gt;&lt;td&gt;TLC&lt;&#x2F;td&gt;&lt;td&gt;600 TBW&lt;&#x2F;td&gt;&lt;td&gt;0.5-2 GB LPDDR3&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;Samsung 970 Evo Plus&lt;&#x2F;td&gt;&lt;td&gt;2021&lt;&#x2F;td&gt;&lt;td&gt;1.3&lt;&#x2F;td&gt;&lt;td&gt;3.0 x4&lt;&#x2F;td&gt;&lt;td&gt;6w &#x2F; 0,05w&lt;&#x2F;td&gt;&lt;td&gt;3.5 &#x2F; 3.3 GB&#x2F;s&lt;&#x2F;td&gt;&lt;td&gt;620K &#x2F; 560K&lt;&#x2F;td&gt;&lt;td&gt;256 GB - 2 TB&lt;&#x2F;td&gt;&lt;td&gt;TLC&lt;&#x2F;td&gt;&lt;td&gt;600 TBW&lt;&#x2F;td&gt;&lt;td&gt;0.5-2 GB LPDDR3&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;Samsung 970 Pro&lt;&#x2F;td&gt;&lt;td&gt;2018&lt;&#x2F;td&gt;&lt;td&gt;1.3&lt;&#x2F;td&gt;&lt;td&gt;3.0 x4&lt;&#x2F;td&gt;&lt;td&gt;5,7w &#x2F; 0,05w&lt;&#x2F;td&gt;&lt;td&gt;3.5 &#x2F; 3.3 GB&#x2F;s&lt;&#x2F;td&gt;&lt;td&gt;500K &#x2F; 450K&lt;&#x2F;td&gt;&lt;td&gt;512 GB - 1 TB&lt;&#x2F;td&gt;&lt;td&gt;MLC&lt;&#x2F;td&gt;&lt;td&gt;1200 TBW&lt;&#x2F;td&gt;&lt;td&gt;0.5-1 GB LPDDR3&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;Samsung 980&lt;&#x2F;td&gt;&lt;td&gt;2021&lt;&#x2F;td&gt;&lt;td&gt;1.4&lt;&#x2F;td&gt;&lt;td&gt;3.0 x4&lt;&#x2F;td&gt;&lt;td&gt;4,6w &#x2F; 0,05w&lt;&#x2F;td&gt;&lt;td&gt;3.5 &#x2F; 3.0 GB&#x2F;s&lt;&#x2F;td&gt;&lt;td&gt;500K &#x2F; 480K&lt;&#x2F;td&gt;&lt;td&gt;256 GB - 1 TB&lt;&#x2F;td&gt;&lt;td&gt;TLC&lt;&#x2F;td&gt;&lt;td&gt;600 TBW&lt;&#x2F;td&gt;&lt;td&gt;-&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;Samsung 980 Pro&lt;&#x2F;td&gt;&lt;td&gt;2021&lt;&#x2F;td&gt;&lt;td&gt;1.4&lt;&#x2F;td&gt;&lt;td&gt;4.0 x4&lt;&#x2F;td&gt;&lt;td&gt;6,2w &#x2F; 0,05w&lt;&#x2F;td&gt;&lt;td&gt;7.0 &#x2F; 5.1 GB&#x2F;s&lt;&#x2F;td&gt;&lt;td&gt;1000K &#x2F; 1000K&lt;&#x2F;td&gt;&lt;td&gt;256 GB - 2 TB&lt;&#x2F;td&gt;&lt;td&gt;TLC&lt;&#x2F;td&gt;&lt;td&gt;600 TBW&lt;&#x2F;td&gt;&lt;td&gt;0.5-2 GB LPDDR3&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;Samsung 990 Evo&lt;&#x2F;td&gt;&lt;td&gt;2023&lt;&#x2F;td&gt;&lt;td&gt;2.0&lt;&#x2F;td&gt;&lt;td&gt;4.0 x4&#x2F;5.0 x2&lt;&#x2F;td&gt;&lt;td&gt;5,5w  &#x2F; 0,05w&lt;&#x2F;td&gt;&lt;td&gt;5.0 &#x2F; 4.2 GB&#x2F;s&lt;&#x2F;td&gt;&lt;td&gt;700K &#x2F; 800K&lt;&#x2F;td&gt;&lt;td&gt;1 TB - 2 TB&lt;&#x2F;td&gt;&lt;td&gt;TLC&lt;&#x2F;td&gt;&lt;td&gt;600 TBW&lt;&#x2F;td&gt;&lt;td&gt;-&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;Samsung 990 Evo Plus&lt;&#x2F;td&gt;&lt;td&gt;2024&lt;&#x2F;td&gt;&lt;td&gt;2.0&lt;&#x2F;td&gt;&lt;td&gt;4.0 x4&#x2F;5.0 x2&lt;&#x2F;td&gt;&lt;td&gt;5,5w  &#x2F; 0,05w&lt;&#x2F;td&gt;&lt;td&gt;7.1 &#x2F; 6.3 GB&#x2F;s&lt;&#x2F;td&gt;&lt;td&gt;850K &#x2F; 1350K&lt;&#x2F;td&gt;&lt;td&gt;1 TB - 4 TB&lt;&#x2F;td&gt;&lt;td&gt;TLC&lt;&#x2F;td&gt;&lt;td&gt;600 TBW&lt;&#x2F;td&gt;&lt;td&gt;-&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;Samsung 990 Pro&lt;&#x2F;td&gt;&lt;td&gt;2022&lt;&#x2F;td&gt;&lt;td&gt;2.0&lt;&#x2F;td&gt;&lt;td&gt;4.0 x4&lt;&#x2F;td&gt;&lt;td&gt;5,5w  &#x2F; 0,05w&lt;&#x2F;td&gt;&lt;td&gt;7.4 &#x2F; 6.9 GB&#x2F;s&lt;&#x2F;td&gt;&lt;td&gt;1400K &#x2F; 1500K&lt;&#x2F;td&gt;&lt;td&gt;1 TB - 2 TB&lt;&#x2F;td&gt;&lt;td&gt;TLC&lt;&#x2F;td&gt;&lt;td&gt;600 TBW&lt;&#x2F;td&gt;&lt;td&gt;1-2 GB LPDDR4&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;Samsung 9100 Pro&lt;&#x2F;td&gt;&lt;td&gt;2025&lt;&#x2F;td&gt;&lt;td&gt;2.0&lt;&#x2F;td&gt;&lt;td&gt;5.0 x4&lt;&#x2F;td&gt;&lt;td&gt;9w &#x2F; 0.05w&lt;&#x2F;td&gt;&lt;td&gt;14.8 &#x2F; 13.4 GB&#x2F;s&lt;&#x2F;td&gt;&lt;td&gt;2200K &#x2F; 2600K&lt;&#x2F;td&gt;&lt;td&gt;1 TB - 8 TB&lt;&#x2F;td&gt;&lt;td&gt;TLC&lt;&#x2F;td&gt;&lt;td&gt;600 TBW&lt;&#x2F;td&gt;&lt;td&gt;1-4 GB LPDDR4&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
+&lt;h2 id=&quot;western-digital-ssd-nvme&quot;&gt;Western Digital SSD NVMe&lt;&#x2F;h2&gt;
+&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;&lt;strong&gt;Modèle&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;Release&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;NVMe&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;PCIe&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;Consumption&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;Perfs R&#x2F;W&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;IOPS (R&#x2F;W)&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;Capacity&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;Memory type&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;TBW (1TB)&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;th&gt;&lt;strong&gt;Memory&lt;&#x2F;strong&gt;&lt;&#x2F;th&gt;&lt;&#x2F;tr&gt;&lt;&#x2F;thead&gt;&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;WD SN750&lt;&#x2F;td&gt;&lt;td&gt;2019&lt;&#x2F;td&gt;&lt;td&gt;1.3&lt;&#x2F;td&gt;&lt;td&gt;3.0 x4&lt;&#x2F;td&gt;&lt;td&gt;5.8w &#x2F; ?&lt;&#x2F;td&gt;&lt;td&gt;5.1 &#x2F; 4.9 GB&#x2F;s&lt;&#x2F;td&gt;&lt;td&gt;550K &#x2F; 520K&lt;&#x2F;td&gt;&lt;td&gt;256 GB - 4 TB&lt;&#x2F;td&gt;&lt;td&gt;TLC&lt;&#x2F;td&gt;&lt;td&gt;600 TBW&lt;&#x2F;td&gt;&lt;td&gt;0.5-4 GB DDR4&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;WD SN770&lt;&#x2F;td&gt;&lt;td&gt;2022&lt;&#x2F;td&gt;&lt;td&gt;1.4&lt;&#x2F;td&gt;&lt;td&gt;4.0 x4&lt;&#x2F;td&gt;&lt;td&gt;4.6w &#x2F; ?&lt;&#x2F;td&gt;&lt;td&gt;5.1 &#x2F; 4.9 GB&#x2F;s&lt;&#x2F;td&gt;&lt;td&gt;740K &#x2F; 800K&lt;&#x2F;td&gt;&lt;td&gt;256 GB - 2 TB&lt;&#x2F;td&gt;&lt;td&gt;TLC&lt;&#x2F;td&gt;&lt;td&gt;600 TBW&lt;&#x2F;td&gt;&lt;td&gt;-&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;WD SN850&lt;&#x2F;td&gt;&lt;td&gt;2020&lt;&#x2F;td&gt;&lt;td&gt;1.4&lt;&#x2F;td&gt;&lt;td&gt;4.0 x4&lt;&#x2F;td&gt;&lt;td&gt;7w &#x2F; ?&lt;&#x2F;td&gt;&lt;td&gt;7.0 &#x2F; 5.1 GB&#x2F;s&lt;&#x2F;td&gt;&lt;td&gt;1000K &#x2F; 770K&lt;&#x2F;td&gt;&lt;td&gt;512 GB - 2 TB&lt;&#x2F;td&gt;&lt;td&gt;TLC&lt;&#x2F;td&gt;&lt;td&gt;600 TBW&lt;&#x2F;td&gt;&lt;td&gt;0.5-2 GB DDR4&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;WD SN850X&lt;&#x2F;td&gt;&lt;td&gt;2022&lt;&#x2F;td&gt;&lt;td&gt;1.4&lt;&#x2F;td&gt;&lt;td&gt;4.0 x4&lt;&#x2F;td&gt;&lt;td&gt;6,8w &#x2F; ?&lt;&#x2F;td&gt;&lt;td&gt;7.3 &#x2F; 6.6 GB&#x2F;s&lt;&#x2F;td&gt;&lt;td&gt;1200K &#x2F; 1200K&lt;&#x2F;td&gt;&lt;td&gt;1 TB - 8 TB&lt;&#x2F;td&gt;&lt;td&gt;TLC&lt;&#x2F;td&gt;&lt;td&gt;600 TBW&lt;&#x2F;td&gt;&lt;td&gt;1-2 GB DDR4&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;WD SN8100&lt;&#x2F;td&gt;&lt;td&gt;2025&lt;&#x2F;td&gt;&lt;td&gt;2.0&lt;&#x2F;td&gt;&lt;td&gt;5.0 x4&lt;&#x2F;td&gt;&lt;td&gt;7.0w &#x2F; 0,05w&lt;&#x2F;td&gt;&lt;td&gt;14.9 &#x2F; 14.0 GB&#x2F;s&lt;&#x2F;td&gt;&lt;td&gt;2300K &#x2F; 2400K&lt;&#x2F;td&gt;&lt;td&gt;1 TB - 4 TB&lt;&#x2F;td&gt;&lt;td&gt;TLC&lt;&#x2F;td&gt;&lt;td&gt;600 TBW&lt;&#x2F;td&gt;&lt;td&gt;1-4 GB DDR4&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
+&lt;h2 id=&quot;sources-datasheets&quot;&gt;Sources&#x2F;Datasheets&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;download.semiconductor.samsung.com&#x2F;resources&#x2F;data-sheet&#x2F;Samsung_SSD_950_PRO_Data_Sheet_Rev_1_2.pdf&quot;&gt;Samsung 950 Pro&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;download.semiconductor.samsung.com&#x2F;resources&#x2F;brochure&#x2F;NVMe_SSD_960_PRO_EVO_Brochure_Rev_1_1.pdf&quot;&gt;Samsung 960 Pro&#x2F;Evo&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;download.semiconductor.samsung.com&#x2F;resources&#x2F;data-sheet&#x2F;Samsung_NVMe_SSD_970_PRO_Data_Sheet_Rev.1.0.pdf&quot;&gt;Samsung 970 Pro&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;download.semiconductor.samsung.com&#x2F;resources&#x2F;data-sheet&#x2F;Samsung-NVMe-SSD-970-EVO-Data-Sheet_Rev.1.0.pdf&quot;&gt;Samsung 970 Evo&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;download.semiconductor.samsung.com&#x2F;resources&#x2F;data-sheet&#x2F;Samsung_NVMe_SSD_970_EVO_Plus_Data_Sheet_Rev.3.0.pdf&quot;&gt;Samsung 970 Evo Plus&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;download.semiconductor.samsung.com&#x2F;resources&#x2F;data-sheet&#x2F;Samsung_NVMe_SSD_980_Data_Sheet_Rev.1.1.pdf&quot;&gt;Samsung 980&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;download.semiconductor.samsung.com&#x2F;resources&#x2F;data-sheet&#x2F;Samsung-NVMe-SSD-980-PRO-Data-Sheet_Rev.2.1_230509_10129505081019.pdf&quot;&gt;Samsung 980 Pro&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;download.semiconductor.samsung.com&#x2F;resources&#x2F;data-sheet&#x2F;samsung_nvme_ssd_990_evo_datasheet_rev.1.1.pdf&quot;&gt;Samsung 990 Evo&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;download.semiconductor.samsung.com&#x2F;resources&#x2F;data-sheet&#x2F;samsung_nvme_ssd_990_evo_plus_datasheet_rev.1.0.pdf&quot;&gt;Samsung 990 Evo Plus&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;download.semiconductor.samsung.com&#x2F;resources&#x2F;data-sheet&#x2F;Samsung_NVMe_SSD_990_PRO_Datasheet_Rev.1.0.pdf&quot;&gt;Samsung 990 Pro&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;download.semiconductor.samsung.com&#x2F;resources&#x2F;data-sheet&#x2F;Samsung_NVMe_SSD_9100_PRO_Datasheet_Rev.1.0.pdf&quot;&gt;Samsung 9100 Pro&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;documents.westerndigital.com&#x2F;content&#x2F;dam&#x2F;doc-library&#x2F;en_us&#x2F;assets&#x2F;public&#x2F;western-digital&#x2F;product&#x2F;internal-drives&#x2F;wd-black-ssd&#x2F;product-brief-wd-black-sn770-nvme-ssd.pdf&quot;&gt;Western Digital SN770&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;documents.westerndigital.com&#x2F;content&#x2F;dam&#x2F;doc-library&#x2F;en_us&#x2F;assets&#x2F;public&#x2F;western-digital&#x2F;product&#x2F;internal-drives&#x2F;wd-black-ssd&#x2F;data-sheet-wd-black-sn850-nvme-ssd.pdf&quot;&gt;Western Digital SN850&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;documents.westerndigital.com&#x2F;content&#x2F;dam&#x2F;doc-library&#x2F;en_us&#x2F;assets&#x2F;public&#x2F;western-digital&#x2F;product&#x2F;internal-drives&#x2F;wd-black-ssd&#x2F;data-sheet-wd-black-sn850x-nvme-ssd.pdf&quot;&gt;Western Digital SN850X&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;documents.westerndigital.com&#x2F;content&#x2F;dam&#x2F;doc-library&#x2F;en_us&#x2F;assets&#x2F;public&#x2F;western-digital&#x2F;product&#x2F;internal-drives&#x2F;wd-black-ssd&#x2F;data-sheet-wd-black-sn8100-nvme-ssd.pdf&quot;&gt;Western Digital SN8100&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+        
+    </entry>
+</feed>
