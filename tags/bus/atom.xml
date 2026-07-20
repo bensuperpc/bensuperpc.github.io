@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Bensuperpc - bus</title>
+    <subtitle>Bensuperpc website, talk about software and hardware stuff.</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://blog.bensuperpc.org/tags/bus/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://blog.bensuperpc.org"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2025-02-01T00:00:00+00:00</updated>
+    <id>https://blog.bensuperpc.org/tags/bus/atom.xml</id>
+    <entry xml:lang="en">
+        <title>CAN bus under Linux (WIP)</title>
+        <published>2025-02-01T00:00:00+00:00</published>
+        <updated>2025-02-01T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.bensuperpc.org/tutorial/canbus/"/>
+        <id>https://blog.bensuperpc.org/tutorial/canbus/</id>
+        
+        <content type="html" xml:base="https://blog.bensuperpc.org/tutorial/canbus/">&lt;h1 id=&quot;can-bus&quot;&gt;CAN bus&lt;&#x2F;h1&gt;
+&lt;p&gt;This page provides a brief overview of the CAN bus protocol and how to use it under Linux.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;install-tools-for-can-bus-and-setup&quot;&gt;Install tools for CAN bus and setup&lt;&#x2F;h2&gt;
+&lt;p&gt;On debian&#x2F;ubuntu based systems:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #FFFFFF; background-color: #262335;&quot;&gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #FE4450;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span&gt; apt install can-utils&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;On arch based systems (AUR package):&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #FFFFFF; background-color: #262335;&quot;&gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #FE4450;&quot;&gt;yay&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F97E72;&quot;&gt; -S&lt;&#x2F;span&gt;&lt;span&gt; can-utils&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;From source: &lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;linux-can&#x2F;can-utils&quot;&gt;can-utils&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;setup-virtual-interfaces&quot;&gt;Setup virtual interfaces&lt;&#x2F;h3&gt;
+&lt;p&gt;Create a virtual CAN interface:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #FFFFFF; background-color: #262335;&quot;&gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #FE4450;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span&gt; ip link add can0 type vcan&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Enable standard CAN interface:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #FFFFFF; background-color: #262335;&quot;&gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #FE4450;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span&gt; ip link set up can0&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Enable CAN FD interface:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #FFFFFF; background-color: #262335;&quot;&gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #FE4450;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span&gt; ip link set up can0 mtu&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F97E72;&quot;&gt; 72&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;h3 id=&quot;setup-hardware-interfaces&quot;&gt;Setup hardware interfaces&lt;&#x2F;h3&gt;
+&lt;p&gt;Enable hardware CAN interface:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #FFFFFF; background-color: #262335;&quot;&gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #FE4450;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span&gt; ip link set up can0&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Set standard CAN interface:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #FFFFFF; background-color: #262335;&quot;&gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #FE4450;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span&gt; ip link set can0 type can bitrate&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F97E72;&quot;&gt; 125000&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Set CAN FD interface:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #FFFFFF; background-color: #262335;&quot;&gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #FE4450;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span&gt; ip link set can0 type can bitrate&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F97E72;&quot;&gt; 125000&lt;&#x2F;span&gt;&lt;span&gt; dbitrate&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F97E72;&quot;&gt; 5000000&lt;&#x2F;span&gt;&lt;span&gt; fd on&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;h2 id=&quot;receiving-data&quot;&gt;Receiving data&lt;&#x2F;h2&gt;
+&lt;p&gt;To read received data from a CAN interface:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #FFFFFF; background-color: #262335;&quot;&gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #FE4450;&quot;&gt;candump&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F97E72;&quot;&gt; -cexdtA&lt;&#x2F;span&gt;&lt;span&gt; any&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;h2 id=&quot;sending-data&quot;&gt;Sending data&lt;&#x2F;h2&gt;
+&lt;p&gt;To send data to a CAN interface:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #FFFFFF; background-color: #262335;&quot;&gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #FE4450;&quot;&gt;cansend&lt;&#x2F;span&gt;&lt;span&gt; can0 217#1234567890ABCDEF&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;For CAN FD frames:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #FFFFFF; background-color: #262335;&quot;&gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #FE4450;&quot;&gt;cansend&lt;&#x2F;span&gt;&lt;span&gt; can0 112##01234567890ABCDEF&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Or with extended data:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #FFFFFF; background-color: #262335;&quot;&gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #FE4450;&quot;&gt;cansend&lt;&#x2F;span&gt;&lt;span&gt; can0 112##01234567890ABCDEF1234567890ABCDEF&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;For CAN FD and BRS (Baud Rate Switch):&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #FFFFFF; background-color: #262335;&quot;&gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #FE4450;&quot;&gt;cansend&lt;&#x2F;span&gt;&lt;span&gt; can0 112##11234567890ABCDEF&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;You should see the sent frame in the &lt;code&gt;candump&lt;&#x2F;code&gt; output:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #FFFFFF; background-color: #262335;&quot;&gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt; (&lt;&#x2F;span&gt;&lt;span style=&quot;color: #FE4450;&quot;&gt;2026-01-31&lt;&#x2F;span&gt;&lt;span&gt; 14:51:04.623452)&lt;&#x2F;span&gt;&lt;span style=&quot;color: #FE4450;&quot;&gt;  can0&lt;&#x2F;span&gt;&lt;span&gt;  TX - -&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F97E72;&quot;&gt;  217&lt;&#x2F;span&gt;&lt;span&gt;   [8]  12 34 56 78 90 AB CD EF&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt; (&lt;&#x2F;span&gt;&lt;span style=&quot;color: #FE4450;&quot;&gt;2026-01-31&lt;&#x2F;span&gt;&lt;span&gt; 14:51:12.489300)&lt;&#x2F;span&gt;&lt;span style=&quot;color: #FE4450;&quot;&gt;  can0&lt;&#x2F;span&gt;&lt;span&gt;  TX - -&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F97E72;&quot;&gt;  112&lt;&#x2F;span&gt;&lt;span&gt;  [08]  12 34 56 78 90 AB CD EF&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt; (&lt;&#x2F;span&gt;&lt;span style=&quot;color: #FE4450;&quot;&gt;2026-01-31&lt;&#x2F;span&gt;&lt;span&gt; 14:51:19.698954)&lt;&#x2F;span&gt;&lt;span style=&quot;color: #FE4450;&quot;&gt;  can0&lt;&#x2F;span&gt;&lt;span&gt;  TX - -&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F97E72;&quot;&gt;  112&lt;&#x2F;span&gt;&lt;span&gt;  [16]  12 34 56 78 90 AB CD EF 12 34 56 78 90 AB CD EF&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt; (&lt;&#x2F;span&gt;&lt;span style=&quot;color: #FE4450;&quot;&gt;2026-01-31&lt;&#x2F;span&gt;&lt;span&gt; 14:51:29.358900)&lt;&#x2F;span&gt;&lt;span style=&quot;color: #FE4450;&quot;&gt;  can0&lt;&#x2F;span&gt;&lt;span&gt;  TX B -&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F97E72;&quot;&gt;  112&lt;&#x2F;span&gt;&lt;span&gt;  [08]  12 34 56 78 90 AB CD EF&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;h2 id=&quot;remove-hardware-interfaces&quot;&gt;Remove hardware interfaces&lt;&#x2F;h2&gt;
+&lt;p&gt;To remove the hardware CAN interface:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #FFFFFF; background-color: #262335;&quot;&gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #FE4450;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span&gt; ip link set down can0&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;h2 id=&quot;sources&quot;&gt;Sources&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;CAN_bus&quot;&gt;CAN bus&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;linux-can&#x2F;can-utils&quot;&gt;can-util&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;SocketCAN&quot;&gt;SocketCAN&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;CAN_FD&quot;&gt;CAN FD&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.kernel.org&#x2F;doc&#x2F;html&#x2F;latest&#x2F;networking&#x2F;can.html&quot;&gt;SocketCAN on Linux&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+        
+    </entry>
+</feed>
